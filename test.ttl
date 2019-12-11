@@ -1,0 +1,28 @@
+@prefix ex: <https://geokur.geo.tu-dresden.de/ex#> .
+@prefix geokur: <https://geokur.geo.tu-dresden.de/ns#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:output a prov:Entity ;
+    rdfs:label "output" ;
+    rdfs:comment "exhausting description of the resource" ;
+    prov:wasGeneratedBy ex:testPrc .
+
+ex:input1 a prov:Entity ;
+    rdfs:label "1st input" ;
+    rdfs:comment "exhausting description of the resource" .
+
+ex:input2 a prov:Entity ;
+    rdfs:label "input2" ;
+    rdfs:comment "exhausting description of the resource" .
+
+ex:testPrc a prov:Activity ;
+    rdfs:label "f" ;
+    rdfs:comment "dd" ;
+    prov:used ex:input1,
+        ex:input2 ;
+    geokur:processType "structural" .
+
