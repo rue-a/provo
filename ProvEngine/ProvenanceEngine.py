@@ -8,15 +8,20 @@ from rdflib.namespace import RDF, RDFS
 from .Entity import Entity
 from .Activity import Activity
 
+from ProvEngine import utilities
 
-class ProvenanceEngine():
+
+
+
+class ProvenanceEngine:
     '''
     RDF namespace-variables are written in CAPS (according to the rdflib-package) 
     '''
-    def __init__(self, namespace = 'https://geokur.geo.tu-dresden.de/ex#', abbreviation = 'ex'):
+
+    def __init__(self, namespace = 'https://your.project.com/example#', abbreviation = 'ex'):
         '''
         sets up a graph object which gets built up via the functions
-        '''        
+        '''
         namespaceManager = rdflib_NamespaceManager(rdflib_Graph())
         # add the PROV-O namespace
         self.PROV = rdflib_Namespace('http://www.w3.org/ns/prov#')
@@ -31,30 +36,52 @@ class ProvenanceEngine():
         self.provenanceGraph = rdflib_Graph()
         self.provenanceGraph.namespace_manager = namespaceManager
 
-    def addDataset(self, identifier, label = None, description = None):
+    def addEntity(self, localIdentifier, label = None, description = None):
         '''
-        adds a dataset as prov:Entity to the graph
+        adds a entity as prov:Entity to the graph.
+        if label is None, the value of the identifier gets written in.
         '''
-        dataset = Entity(
+        methodStack = utilities.getStack()
+        
+        if len(methodStack) > 0:
+            globalIdentifier = '---'.join(methodStack)
+            globalIdentifier = '-'.join((globalIdentifier, localIdentifier))
+        else:
+            globalIdentifier = localIdentifier
+        entity = Entity(
             self.provenanceGraph, 
-            identifier, label, 
+            globalIdentifier, 
+            label, 
             description, 
             namespace = self.ENGINE)
-        del dataset
+        del entity
+        return globalIdentifier
 
 
-    def addProcess(self, identifier, label = None, description = None, type = 'default'):
+    def addProcess(self, inputIDs, outputIDs, label = None, description = None, processType = None):
         '''
-        adds a process as prov:activity to the graph
+        adds a process as prov:activity to the graph.  
+        if label is None, the value of the identifier gets written in.
         '''
+        methodStack = utilities.getStack()
+        globalIdentifier = '---'.join(methodStack)
+        callerMethodParameters = utilities.getFunctionParametersAndValues()
         process = Activity(
             self.provenanceGraph, 
-            identifier, 
+            globalIdentifier,
+            callerMethodParameters,
             label, 
             description,
-            type,
+            processType,
             namespace = self.ENGINE)
         del process
+
+        self.trackProvenance(
+            input = inputIDs,
+            process = globalIdentifier,
+            output = outputIDs
+        )
+        return globalIdentifier
 
     def trackProvenance(self, input, process, output):
         '''
@@ -69,18 +96,24 @@ class ProvenanceEngine():
             input = [input]
         if not isinstance(output, list):
             output = [output]
-        for dataset in input:
+        for entity in input:
             self.provenanceGraph.add((
                 rdflib_URIRef(self.ENGINE+process),
                 self.PROV.used,
-                rdflib_URIRef(self.ENGINE+dataset)
+                rdflib_URIRef(self.ENGINE+entity)
             ))
-        for dataset in output:
+        for outputDataset in output:
             self.provenanceGraph.add((
-                rdflib_URIRef(self.ENGINE+dataset),
+                rdflib_URIRef(self.ENGINE+outputDataset),
                 self.PROV.wasGeneratedBy,
                 rdflib_URIRef(self.ENGINE+process)
             ))
+            for inputDataset in input:
+                self.provenanceGraph.add((
+                    rdflib_URIRef(self.ENGINE+outputDataset),
+                    self.PROV.wasDerivedFrom,
+                    rdflib_URIRef(self.ENGINE+inputDataset)
+                ))
 
 
 

@@ -1,4 +1,4 @@
-@prefix ex: <https://geokur.geo.tu-dresden.de/ex#> .
+@prefix ex: <https://your.project.com/example#> .
 @prefix geokur: <https://geokur.geo.tu-dresden.de/ns#> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
@@ -6,23 +6,49 @@
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-ex:output a prov:Entity ;
-    rdfs:label "output" ;
-    rdfs:comment "exhausting description of the resource" ;
-    prov:wasGeneratedBy ex:testPrc .
+ex:test_func---inner_test-output a prov:Entity ;
+    rdfs:label "test_func---inner_test-output" ;
+    rdfs:comment "description of the resource" ;
+    prov:wasDerivedFrom ex:input1,
+        ex:input2,
+        ex:test_func-output ;
+    prov:wasGeneratedBy ex:test_func,
+        ex:test_func---inner_test .
+
+ex:test_func a prov:Activity ;
+    rdfs:label "process name" ;
+    rdfs:comment "tl;dr" ;
+    prov:used ex:input1,
+        ex:input2 ;
+    geokur:hasParameters [ geokur:hasParameter [ rdfs:label "b" ;
+                    rdf:value "inputB" ],
+                [ rdfs:label "bID" ;
+                    rdf:value "input2" ],
+                [ rdfs:label "a" ;
+                    rdf:value "inputA" ],
+                [ rdfs:label "aID" ;
+                    rdf:value "input1" ] ] ;
+    geokur:processType "structural" .
+
+ex:test_func---inner_test a prov:Activity ;
+    rdfs:label "test_func---inner_test" ;
+    rdfs:comment "puhh tl;dr" ;
+    prov:used ex:test_func-output ;
+    geokur:hasParameters [ geokur:hasParameter [ rdfs:label "input" ;
+                    rdf:value "inputAinputB" ],
+                [ rdfs:label "inputID" ;
+                    rdf:value "test_func-output" ] ] ;
+    geokur:processType "None" .
 
 ex:input1 a prov:Entity ;
     rdfs:label "1st input" ;
-    rdfs:comment "exhausting description of the resource" .
+    rdfs:comment "quite exhausting description of the resource" .
 
 ex:input2 a prov:Entity ;
-    rdfs:label "input2" ;
+    rdfs:label "2st input" ;
     rdfs:comment "exhausting description of the resource" .
 
-ex:testPrc a prov:Activity ;
-    rdfs:label "f" ;
-    rdfs:comment "dd" ;
-    prov:used ex:input1,
-        ex:input2 ;
-    geokur:processType "structural" .
+ex:test_func-output a prov:Entity ;
+    rdfs:label "test_func-output" ;
+    rdfs:comment "really exhausting description of the resource" .
 
