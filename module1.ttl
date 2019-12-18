@@ -1,0 +1,41 @@
+@prefix geokur: <https://geokur.geo.tu-dresden.de/ns#> .
+@prefix m1: <https://usefulmodulecollection.org/modul1#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+m1:varC a prov:Entity ;
+    rdfs:label "Variable C" ;
+    rdfs:comment "The Sum of A and B." ;
+    prov:wasDerivedFrom m1:variableA,
+        m1:variableB ;
+    prov:wasGeneratedBy m1:add .
+
+m1:add a prov:Activity ;
+    rdfs:label "add" ;
+    rdfs:comment "Add two Numbers" ;
+    prov:used m1:variableA,
+        m1:variableB ;
+    geokur:hasParameters [ geokur:hasParameter [ rdfs:label "yID" ;
+                    rdf:value "variableB" ],
+                [ rdfs:label "prov" ;
+                    rdf:value "<ProvIt.ProvenanceEngine.ProvenanceEngine object at 0x0000020ACA52C280>" ],
+                [ rdfs:label "zID" ;
+                    rdf:value "varC" ],
+                [ rdfs:label "x" ;
+                    rdf:value 4 ],
+                [ rdfs:label "y" ;
+                    rdf:value 5 ],
+                [ rdfs:label "xID" ;
+                    rdf:value "variableA" ] ] ;
+    geokur:processType "None" .
+
+m1:variableA a prov:Entity ;
+    rdfs:label "variableA" .
+
+m1:variableB a prov:Entity ;
+    rdfs:label "Variable B" ;
+    rdfs:comment "The variable B is the 2nd summand of the equation." .
+

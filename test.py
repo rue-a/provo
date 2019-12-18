@@ -1,7 +1,6 @@
-from ProvEngine import ProvenanceEngine
-from ProvEngine import utilities
+from ProvIt import ProvenanceEngine
+from ProvIt import utilities
 
-provenanceEngine = ProvenanceEngine()
 
 def inner_test(input, inputID):
     # do coll things with the input
@@ -19,9 +18,7 @@ def inner_test(input, inputID):
         description = 'puhh tl;dr'
         )
     
-    return output, outID
-
-
+    return (output, outID)
 
 
 def test_func(a ,aID, b , bID):
@@ -56,6 +53,9 @@ def test_func(a ,aID, b , bID):
     
 
 
+provenanceEngine = ProvenanceEngine()
+
+provenanceEngine.setupAttributedPerson('me', "it's me", 'really!', 'LokNaRash')
 
 aID = provenanceEngine.addEntity(
     localIdentifier = 'input1', 
@@ -79,4 +79,4 @@ print(result)
 #     description = 'exhausting description of the resource'
 # )
 
-provenanceEngine.printStuff()
+provenanceEngine.serialize('test.ttl')

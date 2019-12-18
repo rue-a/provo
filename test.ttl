@@ -20,20 +20,22 @@ ex:test_func a prov:Activity ;
     rdfs:comment "tl;dr" ;
     prov:used ex:input1,
         ex:input2 ;
-    geokur:hasParameters [ geokur:hasParameter [ rdfs:label "b" ;
-                    rdf:value "inputB" ],
+    prov:wasAttributedTo ex:me ;
+    geokur:hasParameters [ geokur:hasParameter [ rdfs:label "aID" ;
+                    rdf:value "input1" ],
                 [ rdfs:label "bID" ;
                     rdf:value "input2" ],
+                [ rdfs:label "b" ;
+                    rdf:value "inputB" ],
                 [ rdfs:label "a" ;
-                    rdf:value "inputA" ],
-                [ rdfs:label "aID" ;
-                    rdf:value "input1" ] ] ;
+                    rdf:value "inputA" ] ] ;
     geokur:processType "structural" .
 
 ex:test_func---inner_test a prov:Activity ;
     rdfs:label "test_func---inner_test" ;
     rdfs:comment "puhh tl;dr" ;
     prov:used ex:test_func-output ;
+    prov:wasAttributedTo ex:me ;
     geokur:hasParameters [ geokur:hasParameter [ rdfs:label "input" ;
                     rdf:value "inputAinputB" ],
                 [ rdfs:label "inputID" ;
@@ -47,6 +49,11 @@ ex:input1 a prov:Entity ;
 ex:input2 a prov:Entity ;
     rdfs:label "2st input" ;
     rdfs:comment "exhausting description of the resource" .
+
+ex:me a prov:Agent ;
+    rdfs:label "it's me" ;
+    rdfs:comment "really!" ;
+    geokur:hasOrcID "LokNaRash" .
 
 ex:test_func-output a prov:Entity ;
     rdfs:label "test_func-output" ;
