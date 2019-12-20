@@ -1,0 +1,48 @@
+@prefix geokur: <https://geokur.geo.tu-dresden.de/ns#> .
+@prefix m1: <https://usefulmodulecollection.org/modul1#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+m1:N232df5fbd7cb4095830ed1d5c504f196 a prov:Entity ;
+    rdfs:label "result" ;
+    rdfs:comment "its value is: 6" ;
+    prov:wasDerivedFrom m1:N231899b8071c4545a5230d701d89f6cd,
+        m1:Nb7973cab010d4e138324155a5434130e ;
+    prov:wasGeneratedBy m1:N7ff7b4631f1b4827b11a59d277d49c5a .
+
+m1:N449844a73d3a419f913dd2252dc12cf7 a prov:Activity ;
+    rdfs:label "add" ;
+    rdfs:comment "adds two numbers and gives out a sum" ;
+    prov:used m1:N1d2fdaf666ce41b895a586a572b82cc1,
+        m1:N95c77585108045e8aa4911a568d5c319 ;
+    geokur:wasCalledInScope "arbitraryOuterMethod" .
+
+m1:N7ff7b4631f1b4827b11a59d277d49c5a a prov:Activity ;
+    rdfs:label "subtract" ;
+    rdfs:comment "subtracts two numbers" ;
+    prov:used m1:N231899b8071c4545a5230d701d89f6cd,
+        m1:Nb7973cab010d4e138324155a5434130e ;
+    geokur:wasCalledInScope "arbitraryOuterMethod" .
+
+m1:N1d2fdaf666ce41b895a586a572b82cc1 a prov:Entity ;
+    rdfs:label "Variable a" ;
+    rdfs:comment "its value is: 6" .
+
+m1:N231899b8071c4545a5230d701d89f6cd a prov:Entity ;
+    rdfs:label "Variable z" ;
+    rdfs:comment "its value is: 9" ;
+    prov:wasDerivedFrom m1:N1d2fdaf666ce41b895a586a572b82cc1,
+        m1:N95c77585108045e8aa4911a568d5c319 ;
+    prov:wasGeneratedBy m1:N449844a73d3a419f913dd2252dc12cf7 .
+
+m1:N95c77585108045e8aa4911a568d5c319 a prov:Entity ;
+    rdfs:label "Variable b" ;
+    rdfs:comment "its value is: 3" .
+
+m1:Nb7973cab010d4e138324155a5434130e a prov:Entity ;
+    rdfs:label "constant three" ;
+    rdfs:comment "its value is: 3" .
+

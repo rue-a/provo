@@ -1,0 +1,28 @@
+@prefix geokur: <https://geokur.geo.tu-dresden.de/ns#> .
+@prefix m1: <https://usefulmodulecollection.org/modul1#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+m1:N5147bc305da0481e952a67f881946384 a prov:Entity ;
+    rdfs:label "Variable C" ;
+    rdfs:comment "A + B = 9" ;
+    prov:wasDerivedFrom m1:N4952295ac3644916abb708a4d12d5d52,
+        m1:Nd75e05389f374e1b9840f5f98bff1bfe ;
+    prov:wasGeneratedBy m1:N8424b0a1b58a4ac59f4610fa9df088e1 .
+
+m1:N8424b0a1b58a4ac59f4610fa9df088e1 a prov:Activity ;
+    rdfs:label "add" ;
+    rdfs:comment "adds two numbers and gives out a sum" ;
+    prov:used m1:N4952295ac3644916abb708a4d12d5d52,
+        m1:Nd75e05389f374e1b9840f5f98bff1bfe .
+
+m1:N4952295ac3644916abb708a4d12d5d52 a prov:Entity ;
+    rdfs:label "None" .
+
+m1:Nd75e05389f374e1b9840f5f98bff1bfe a prov:Entity ;
+    rdfs:label "Variable B" ;
+    rdfs:comment "its value is: 5" .
+

@@ -3,15 +3,12 @@ from rdflib.namespace import NamespaceManager as rdflib_NamespaceManager
 from rdflib import Graph as rdflib_Graph
 from rdflib import URIRef as rdflib_URIRef
 from rdflib import Literal as rdflib_Literal
+from rdflib import BNode as rdflib_BNode
 from rdflib.namespace import RDF, RDFS
 
 from .Entity import Entity
 from .Activity import Activity
 from .Agent import Agent
-
-from ProvIt import utilities
-
-
 
 
 class ProvenanceEngine:
@@ -30,8 +27,8 @@ class ProvenanceEngine:
         self.PROV = rdflib_Namespace('http://www.w3.org/ns/prov#')
         namespaceManager.bind('prov', self.PROV, override = False)
         # set up the namespace for the project
-        self.ENGINE = rdflib_Namespace(namespace)
-        namespaceManager.bind(abbreviation, self.ENGINE, override = False)
+        self.NAMESPACE = rdflib_Namespace(namespace)
+        namespaceManager.bind(abbreviation, self.NAMESPACE, override = False)
         # set up the GEOKUR namespace
         self.GEOKUR = rdflib_Namespace('https://geokur.geo.tu-dresden.de/ns#')
         namespaceManager.bind('geokur', self.GEOKUR, override = False)
@@ -40,150 +37,69 @@ class ProvenanceEngine:
         self.provenanceGraph.namespace_manager = namespaceManager
 
         # on default the processes get attributed to no one
-        self.attributedPerson = False
+        self.defaultPerson = False
 
 
-    def addEntity(self, localIdentifier, label = None, description = None):
+    def addEntity(self, label = None, description = None):
         '''
         adds a entity as prov:Entity to the graph.
         if label is None, the value of the identifier gets written in.
-        To prevent duplicates the global identifier(IRI) of the Node gets constructed 
-        from the current scope and the local Identifier.
         '''
         
-        # on the first position of the stack is the '<module>', 
-        # we do not need this. We neither need the last two entries
-        # of the list. The last one refers to the getStack()-method 
-        # itself, the 2nd last one to the method from where getStack()
-        # is called
-
-        methodStack = utilities.getStack()[1:-2]        
-        
-        if len(methodStack) > 0:
-            globalIdentifier = '---'.join(methodStack)
-            globalIdentifier = '-'.join((globalIdentifier, localIdentifier))
-        else:
-            globalIdentifier = localIdentifier
-
-        entityID = self.addFlatEntity(
-            globalIdentifier = globalIdentifier,
-            label = label,
-            description = description
-        )
-        return entityID
+        iri = rdflib_BNode()
+        iri = rdflib_URIRef(self.NAMESPACE+iri)
+        entity = Entity(
+            graph = self.provenanceGraph,
+            iri = iri,
+            label = label, 
+            description = description)
+        del entity
+        return iri
 
 
-    def addProcess(self, inputIDs, outputIDs, label = None, description = None, processType = None,
-        agentID = None):
+    def addProcess(self, label = None, description = None, 
+        processType = None, scope = False, agentID = None):
         '''
         adds a process as prov:activity to the graph.  
         if label is None, the value of the identifier gets written in.
-
-        The input and output IDs are the identifiers of the regarding Entities.
-        they can be provided as list of strings or as a single string.
-
-        If agentID is not None, the process gets attributed to this prov:agent. Then, 
-        if the class variable attributedPerson is not None, the process get attributed
-        to this prov:agent. If both are None, the process doesn't get attributed to 
-        anyone.
-
-        The Identifier(IRI) of the Process is automatically generated as combination
-        of the current scope in the program and the name of the method from where 
-        addProcess(...) is called. This way the possibility of duplicated URIs is
-        erased. This way we also save the information how deep in the program the
-        process was called.
-
         '''
-
-        # on the first position of the stack is the '<module>', 
-        # we do not need this. We neither need the last two entries
-        # of the list. The last one refers to the getStack()-method 
-        # itself, the 2nd last one to the method from where getStack()
-        # is called.
-        methodStack = utilities.getStack()[1:-2]
-        globalIdentifier = '---'.join(methodStack)
-        # get the params and vals from the method from where this addProcess(...)
-        # was called. They come as Tupels.
-        callerMethodParameters = utilities.getMethodParametersAndValues(2)
+        iri = rdflib_BNode()
+        iri = rdflib_URIRef(self.NAMESPACE+iri)
         process = Activity(
-            self.provenanceGraph, 
-            globalIdentifier,
-            callerMethodParameters,
-            label, 
-            description,
-            processType,
-            namespace = self.ENGINE)
+            graph = self.provenanceGraph,
+            iri = iri,
+            label = label, 
+            description = description,
+            processType = processType,
+            scope = scope)
         del process
-
-        self.relateProcessAndEntities(
-            inputIDs = inputIDs,            
-            outputIDs = outputIDs,
-            processID = globalIdentifier,
-        )
-
+        
+        if not agentID:
+            if self.defaultPerson:
+                agentID = self.defaultPerson
         if agentID:
-            self.attributeProcessToPerson(
-                personID = self.ENGINE + agentID,
-                processID = self.ENGINE + globalIdentifier
+            self.associateProcessWithPerson(
+                personID = agentID,
+                processID = iri
             )
-        elif self.attributedPerson:
-            self.attributeProcessToPerson(
-                personID = self.ENGINE + self.attributedPerson,
-                processID = self.ENGINE + globalIdentifier
-            )
-
-        return globalIdentifier
+        return iri
 
 
-    def addFlatAgent(self, globalIdentifier, label = None, description = None, OrcID = None):
+    def addAgent(self, label = None, description = None, OrcID = None):
         '''
-        adds a entity as prov:Entity to the graph.
+        adds a person or organization as prov:agent to the graph.
         if label is None, the value of the identifier gets written in.
         '''
+        iri = rdflib_BNode()
+        iri = rdflib_URIRef(self.NAMESPACE+iri)
         agent = Agent(
-            self.provenanceGraph, 
-            globalIdentifier, 
-            label, 
-            description, 
-            namespace = self.ENGINE,
+            graph = self.provenanceGraph,
+            iri = iri,
+            label = label, 
+            description = description,
             OrcID = OrcID)
         del agent
-        return globalIdentifier
-
-
-    def addFlatEntity(self, globalIdentifier, label = None, description = None):
-        '''
-        adds a entity as prov:Entity to the graph.
-        if label is None, the value of the identifier gets written in.
-        '''
-        entity = Entity(
-            self.provenanceGraph, 
-            globalIdentifier, 
-            label, 
-            description, 
-            namespace = self.ENGINE)
-        del entity
-        return globalIdentifier
-
-
-    def addFlatProcess(self, globalIdentifier, label = None, description = None, 
-        processType = None, paramsAndVals = None):
-        '''
-        adds a process as prov:activity to the graph.  
-        if label is None, the value of the identifier gets written in.
-        '''
-        process = Activity(
-            self.provenanceGraph, 
-            globalIdentifier,
-            label, 
-            description,
-            processType,            
-            paramsAndVals,
-            namespace = self.ENGINE)
-        del process
-
-        return globalIdentifier
-
+        return iri
 
     def relateProcessAndEntities(self, inputIDs, outputIDs, processID):
         '''
@@ -199,23 +115,23 @@ class ProvenanceEngine:
             inputIDs = [inputIDs]
         if not isinstance(outputIDs, list):
             outputIDs = [outputIDs]
-        for entity in inputIDs:
+        for inputID in inputIDs:
             self.provenanceGraph.add((
-                rdflib_URIRef(self.ENGINE+processID),
+                processID,
                 self.PROV.used,
-                rdflib_URIRef(self.ENGINE+entity)
+                inputID
             ))
-        for outputDataset in outputIDs:
+        for outputID in outputIDs:
             self.provenanceGraph.add((
-                rdflib_URIRef(self.ENGINE+outputDataset),
+                outputID,
                 self.PROV.wasGeneratedBy,
-                rdflib_URIRef(self.ENGINE+processID)
+                processID
             ))
-            for inputDataset in inputIDs:
+            for inputID in inputIDs:
                 self.provenanceGraph.add((
-                    rdflib_URIRef(self.ENGINE+outputDataset),
+                    outputID,
                     self.PROV.wasDerivedFrom,
-                    rdflib_URIRef(self.ENGINE+inputDataset)
+                    inputID
                 ))
 
 
@@ -233,34 +149,49 @@ class ProvenanceEngine:
         for person in personIDs:
             for organization in organizationIDs:
                 self.provenanceGraph.add((
-                    rdflib_URIRef(person),
+                    person,
                     self.PROV.actedOnBehalfOf,
-                    rdflib_URIRef(organization)
+                    organization
                 ))
 
 
-    def attributeProcessToPerson(self, personID, processID):
+    def associateProcessWithPerson(self, personID, processID):
         '''
         relates a specific person to a process
         The Identifiers of the persons and organizations are requested!
         '''
         self.provenanceGraph.add((
-            rdflib_URIRef(processID),
-            self.PROV.wasAttributedTo,
-            rdflib_URIRef(personID)
+            processID,
+            self.PROV.wasAssociatedWith,
+            personID
         ))
 
-    def setupAttributedPerson(self, identifier, label, description, OrcID):
+    def attributeEntitiesToAgent(self, entityIDs, agentID):
         '''
-        Sets up a person as prov:agent to whom all non-flat process are automatically
+        attributes entities to a person
+        entities can come as list or single
+        '''
+        if not isinstance(entityIDs, list):
+            entityIDs = [entityIDs]
+        for entityID in entityIDs:
+            self.provenanceGraph.add((
+                entityID,
+                self.PROV.wasAttributedTo,
+                agentID
+            ))
+
+    def setupDefaultPerson(self, label, description, OrcID):
+        '''
+        Sets up a person as prov:agent to whom all processes are automatically
         get attributed to. In the most common case this should be the person developing
         the processes and using this package to track the provenance.
         '''
-        self.attributedPerson = self.addFlatAgent(
-            globalIdentifier = identifier,
+        self.defaultPerson = self.addAgent(
             label = label,
             description = description,
-            OrcID = OrcID)
+            OrcID = OrcID
+        )
+        return self.defaultPerson
         
 
 

@@ -14,17 +14,17 @@ class Agent(Node):
     If the Agents represents an organization, the website or something similar
     should be provided in description.
     '''
-    def __init__(self, graph, identifier, label, description, namespace, OrcID = None):
-        super().__init__(graph, identifier, label, description, namespace)
+    def __init__(self, graph, iri, label, description, OrcID = None):
+        super().__init__(graph, iri, label, description)
         
         graph.add((
-            rdflib_URIRef(namespace+identifier),
+            iri,
             RDF.type,
             self.PROV.Agent
         ))
         if OrcID:
             graph.add((
-                rdflib_URIRef(namespace+identifier),
+                iri,
                 self.GEOKUR.hasOrcID,
-                rdflib_Literal(OrcID)
+                rdflib_URIRef(OrcID)
             ))

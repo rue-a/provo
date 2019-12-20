@@ -1,4 +1,3 @@
-from rdflib import URIRef as rdflib_URIRef
 from rdflib.namespace import RDF
 
 from .Node import Node
@@ -8,11 +7,11 @@ class Entity(Node):
     '''
     Adds a PROV-O Entity to the graph
     '''
-    def __init__(self, graph, identifier, label, description, namespace):
-        super().__init__(graph, identifier, label, description, namespace)
-        
+    def __init__(self, graph, iri, label, description):
+        super().__init__(graph, iri, label, description)
+                
         graph.add((
-            rdflib_URIRef(namespace+identifier),
+            iri,
             RDF.type,
             self.PROV.Entity
         ))
