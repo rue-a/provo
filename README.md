@@ -400,7 +400,7 @@ You reached to current end of the document. I'm aware that the promised short do
 
 <center><img src="./assets/provo-core.png" alt="example2" width=90%/></center>
 
-I'm also aware that the provenance tracking with this packing still promises a lot of additional work. Setting up all the nodes, keeping an eye on the IDs and relating them properly is quite something to handle. But I also think that the bulk of the work can be done by some virtuoso copy pasting.
+I'm also aware that the provenance tracking with this package still promises a lot of additional work. Setting up all the nodes, keeping an eye on the IDs and relating them properly is quite something to handle.
 
 __What is missing:__
 
