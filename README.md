@@ -1,5 +1,14 @@
 # ProvIt
 
+__IMPRTANT NOTE!__
+
+__found a similar, but far more mature package__
+
+*As it seems, it really does the same things, as this package wants to do in the future. Therefore I stop further development for now. For the package see:*
+https://github.com/trungdong/prov.
+
+
+
 __--- IN DEVELOPMENT ---__
 
 *This package aims at supporting the tracking of provenance of Python-scripted workflows as an RDF-Graph (semantic graph), according to the PROV-Ontology. <br/> It's build upon the __rdflib-package__, <https://rdflib.readthedocs.io/en/stable/index.html>.*
