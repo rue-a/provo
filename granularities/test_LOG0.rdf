@@ -1,0 +1,106 @@
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix ex: <https://example.com/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix geokur: <https://geokur.geo.tu-dresden.de/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:outputPotentialHabitat a geokur:Data ;
+    prov:wasDerivedFrom ex:singlepartOutput ;
+    prov:wasGeneratedBy ex:select2 .
+
+geokur:hasProcessType a rdf:Property .
+
+ex:select2 a geokur:Process ;
+    prov:used ex:singlepartOutput ;
+    prov:wasInformedBy ex:multipartToSinglepart ;
+    geokur:hasProcessType geokur:BasalChange .
+
+ex:buffer a geokur:Process ;
+    prov:used ex:majorRoads ;
+    geokur:hasProcessType geokur:ValueChange .
+
+ex:climateZones a geokur:Data ;
+    prov:wasAttributedTo ex:testPerson .
+
+ex:dissolve a geokur:Process ;
+    prov:used ex:intersectOutput ;
+    prov:wasInformedBy ex:intersect ;
+    geokur:hasProcessType geokur:ValueChange .
+
+ex:dissolveOutput a geokur:Data ;
+    prov:wasDerivedFrom ex:intersectOutput ;
+    prov:wasGeneratedBy ex:dissolve .
+
+ex:elevationsLessThan250m a geokur:Data ;
+    prov:wasAttributedTo ex:testPerson .
+
+ex:erase a geokur:Process ;
+    prov:used ex:roadsBuffer,
+        ex:suitableVegetation ;
+    prov:wasInformedBy ex:buffer,
+        ex:select ;
+    geokur:hasProcessType geokur:BasalChange .
+
+ex:inputVegetation a geokur:Data .
+
+ex:intersect a geokur:Process ;
+    rdfs:label "intersection Process" ;
+    rdfs:comment "intersect data to identify suitable locations" ;
+    prov:used ex:climateZones,
+        ex:elevationsLessThan250m,
+        ex:slopesLessThan40Percent,
+        ex:suitableVegetationMinusRoads ;
+    prov:wasAssociatedWith ex:testPerson ;
+    prov:wasInformedBy ex:erase ;
+    geokur:hasProcessType geokur:CoreConcept .
+
+ex:intersectOutput a geokur:Data ;
+    prov:wasAttributedTo ex:testPerson ;
+    prov:wasDerivedFrom ex:climateZones,
+        ex:elevationsLessThan250m,
+        ex:slopesLessThan40Percent,
+        ex:suitableVegetationMinusRoads ;
+    prov:wasGeneratedBy ex:intersect .
+
+ex:majorRoads a geokur:Data .
+
+ex:multipartToSinglepart a geokur:Process ;
+    prov:used ex:dissolveOutput ;
+    prov:wasInformedBy ex:dissolve ;
+    geokur:hasProcessType geokur:BasalChange .
+
+ex:roadsBuffer a geokur:Data ;
+    prov:wasDerivedFrom ex:majorRoads ;
+    prov:wasGeneratedBy ex:buffer .
+
+ex:select a geokur:Process ;
+    prov:used ex:inputVegetation ;
+    geokur:hasProcessType geokur:BasalChange .
+
+ex:singlepartOutput a geokur:Data ;
+    prov:wasDerivedFrom ex:dissolveOutput ;
+    prov:wasGeneratedBy ex:multipartToSinglepart .
+
+ex:slopesLessThan40Percent a geokur:Data ;
+    prov:wasAttributedTo ex:testPerson .
+
+ex:suitableVegetation a geokur:Data ;
+    prov:wasDerivedFrom ex:inputVegetation ;
+    prov:wasGeneratedBy ex:select .
+
+ex:suitableVegetationMinusRoads a geokur:Data ;
+    prov:wasAttributedTo ex:testPerson ;
+    prov:wasDerivedFrom ex:roadsBuffer,
+        ex:suitableVegetation ;
+    prov:wasGeneratedBy ex:erase .
+
+ex:testPerson a prov:Agent .
+
+geokur:Process rdfs:subClassOf prov:Activity .
+
+geokur:Data rdfs:subClassOf prov:Entity .
+

@@ -1,0 +1,53 @@
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix ex: <https://example.com/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix geokur: <https://geokur.geo.tu-dresden.de/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:outputPotentialHabitat a geokur:Data ;
+    prov:wasDerivedFrom ex:climateZones,
+        ex:elevationsLessThan250m,
+        ex:inputVegetation,
+        ex:majorRoads,
+        ex:slopesLessThan40Percent ;
+    prov:wasGeneratedBy ex:select2 .
+
+geokur:hasProcessType a rdf:Property .
+
+ex:select2 a geokur:Process ;
+    prov:used ex:climateZones,
+        ex:elevationsLessThan250m,
+        ex:inputVegetation,
+        ex:majorRoads,
+        ex:slopesLessThan40Percent,
+        ex:suitableVegetationMinusRoads ;
+    prov:wasAssociatedWith ex:testPerson ;
+    geokur:hasProcessType geokur:CoreConcept .
+
+ex:suitableVegetationMinusRoads prov:wasAttributedTo ex:testPerson .
+
+geokur:Process rdfs:subClassOf prov:Activity .
+
+ex:climateZones a geokur:Data ;
+    prov:wasAttributedTo ex:testPerson .
+
+ex:elevationsLessThan250m a geokur:Data ;
+    prov:wasAttributedTo ex:testPerson .
+
+ex:inputVegetation a geokur:Data ;
+    prov:wasAttributedTo ex:testPerson .
+
+ex:majorRoads a geokur:Data ;
+    prov:wasAttributedTo ex:testPerson .
+
+ex:slopesLessThan40Percent a geokur:Data ;
+    prov:wasAttributedTo ex:testPerson .
+
+geokur:Data rdfs:subClassOf prov:Entity .
+
+ex:testPerson a prov:Agent .
+
