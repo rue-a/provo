@@ -1,0 +1,150 @@
+@prefix arcgis/tool-reference: <https://pro.arcgis.com/de/pro-app/tool-reference/> .
+@prefix cns: <https://gnatcatcher.org/> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix geokur: <https://geokur.geo.tu-dresden.de/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+geokur:SubProcess rdfs:subClassOf prov:Activity .
+
+geokur:hasRelativeImportance a rdf:Property .
+
+geokur:hasSubProcess a rdf:Property .
+
+geokur:hasTag a rdf:Property .
+
+geokur:isInstanceOf a rdf:Property .
+
+cns:N71c738145caf412089db3f8d186fc26e a geokur:Data ;
+    rdfs:label "Output Potential Habitat" ;
+    prov:wasDerivedFrom cns:N7de5b0ae951d4e34bca398a7c749b651 ;
+    prov:wasGeneratedBy cns:Nda13891de3c64775a8e392a69bdec00d .
+
+cns:Nda13891de3c64775a8e392a69bdec00d a geokur:Process ;
+    rdfs:label "Select" ;
+    prov:used cns:N7de5b0ae951d4e34bca398a7c749b651 ;
+    prov:wasInformedBy cns:Ncea269266d594ea1aefe5ca3a8617d0a ;
+    geokur:hasRelativeImportance 6.779661e-02 ;
+    geokur:hasTag "irreversible",
+        "selection" .
+
+cns:N138b2b1046554e90ba9c83d42f7fe713 a geokur:Data ;
+    rdfs:label "Suitable Vegetation" ;
+    prov:wasDerivedFrom cns:N25c1d7acbb0147e5b614c3b6736411fb ;
+    prov:wasGeneratedBy cns:N3a52ecf3c5c6448bb1ce9d4f531048c2 .
+
+cns:N25c1d7acbb0147e5b614c3b6736411fb a geokur:Data ;
+    rdfs:label "Input Vegetation" .
+
+cns:N3a52ecf3c5c6448bb1ce9d4f531048c2 a geokur:Process ;
+    rdfs:label "Select" ;
+    prov:used cns:N25c1d7acbb0147e5b614c3b6736411fb ;
+    geokur:hasRelativeImportance 1.016949e-01 ;
+    geokur:hasTag "cqSelection",
+        "irreversible" .
+
+cns:N6208be37697b4129aa752afb5172ed79 a geokur:Data ;
+    rdfs:label "Elevations Less Than 250m" .
+
+cns:N62cade4fafbd491aa8019cf376f2cca1 a geokur:Data ;
+    rdfs:label "intersect Output" ;
+    prov:wasDerivedFrom cns:N6208be37697b4129aa752afb5172ed79,
+        cns:N989ac20a038f408899605742a38848f8,
+        cns:Nc3d9679b4c694d04b4337b393db4e6f6,
+        cns:Nf8229a776a3a4978b6dccc3c6770e510 ;
+    prov:wasGeneratedBy cns:N7ee4342fe4ba4d05b341d8673961d4ce .
+
+cns:N6e0e28c811494825ad3ff81e0b46ca94 a geokur:Data ;
+    rdfs:label "Roads Buffer" ;
+    prov:wasDerivedFrom cns:Nb8099809a8484b55bc3c0a31bd94ee9d ;
+    prov:wasGeneratedBy cns:N73d2cda152fb4933b9afd72220acef0f .
+
+cns:N73d2cda152fb4933b9afd72220acef0f a geokur:Process ;
+    rdfs:label "Buffer" ;
+    prov:used cns:Nb8099809a8484b55bc3c0a31bd94ee9d ;
+    geokur:hasRelativeImportance 1.694915e-01 ;
+    geokur:hasTag "allFeatures",
+        "geoRepresentation",
+        "geometry",
+        "parameterizable" ;
+    geokur:isInstanceOf <https://pro.arcgis.com/en/pro-app/tool-reference/feature-analysis/create-buffers.htm> .
+
+cns:N7de5b0ae951d4e34bca398a7c749b651 a geokur:Data ;
+    rdfs:label "singlepart Output" ;
+    prov:wasDerivedFrom cns:Na6c840d446ab4bce92568ea4b9724302 ;
+    prov:wasGeneratedBy cns:Ncea269266d594ea1aefe5ca3a8617d0a .
+
+cns:N7ee4342fe4ba4d05b341d8673961d4ce a geokur:Process ;
+    rdfs:label "Intersect" ;
+    prov:used cns:N6208be37697b4129aa752afb5172ed79,
+        cns:N989ac20a038f408899605742a38848f8,
+        cns:Nc3d9679b4c694d04b4337b393db4e6f6,
+        cns:Nf8229a776a3a4978b6dccc3c6770e510 ;
+    prov:wasInformedBy cns:Naaf0f994928342ffa50976ed7ef42a04 ;
+    geokur:hasRelativeImportance 2.711864e-01 ;
+    geokur:hasTag "allFeatures",
+        "geometry",
+        "irreversible",
+        "multipleIns",
+        "wildcard" .
+
+cns:N989ac20a038f408899605742a38848f8 a geokur:Data ;
+    rdfs:label "Slopes Less Than 40 Percent" .
+
+cns:Na6c840d446ab4bce92568ea4b9724302 a geokur:Data ;
+    rdfs:label "dissolve Output" ;
+    prov:wasDerivedFrom cns:N62cade4fafbd491aa8019cf376f2cca1 ;
+    prov:wasGeneratedBy cns:Nb9030f4ad469475aa090cbda4c67a5a2 .
+
+cns:Naaf0f994928342ffa50976ed7ef42a04 a geokur:Process ;
+    rdfs:label "Erase" ;
+    prov:used cns:N138b2b1046554e90ba9c83d42f7fe713,
+        cns:N6e0e28c811494825ad3ff81e0b46ca94 ;
+    prov:wasInformedBy cns:N3a52ecf3c5c6448bb1ce9d4f531048c2,
+        cns:N73d2cda152fb4933b9afd72220acef0f ;
+    geokur:hasRelativeImportance 1.525424e-01 ;
+    geokur:hasTag "allFeatures",
+        "geometry",
+        "irreversible",
+        "multipleIns",
+        "root" .
+
+cns:Nb8099809a8484b55bc3c0a31bd94ee9d a geokur:Data ;
+    rdfs:label "Major Roads" .
+
+cns:Nb9030f4ad469475aa090cbda4c67a5a2 a geokur:Process ;
+    rdfs:label "dissolve" ;
+    prov:used cns:N62cade4fafbd491aa8019cf376f2cca1 ;
+    prov:wasInformedBy cns:N7ee4342fe4ba4d05b341d8673961d4ce ;
+    geokur:hasRelativeImportance 1.355932e-01 ;
+    geokur:hasTag "addition",
+        "allFeatures",
+        "deletion",
+        "irreversible" .
+
+cns:Nc3d9679b4c694d04b4337b393db4e6f6 a geokur:Data ;
+    rdfs:label "Suitable Vegetation Minus Roads" ;
+    prov:wasDerivedFrom cns:N138b2b1046554e90ba9c83d42f7fe713,
+        cns:N6e0e28c811494825ad3ff81e0b46ca94 ;
+    prov:wasGeneratedBy cns:Naaf0f994928342ffa50976ed7ef42a04 .
+
+cns:Ncea269266d594ea1aefe5ca3a8617d0a a geokur:Process ;
+    rdfs:label "multipart To Singlepart" ;
+    prov:used cns:Na6c840d446ab4bce92568ea4b9724302 ;
+    prov:wasInformedBy cns:Nb9030f4ad469475aa090cbda4c67a5a2 ;
+    geokur:hasRelativeImportance 1.016949e-01 ;
+    geokur:hasTag "addition",
+        "allFeatures",
+        "irreversible" .
+
+cns:Nf8229a776a3a4978b6dccc3c6770e510 a geokur:Data ;
+    rdfs:label "Climate Zones" .
+
+geokur:Process rdfs:subClassOf prov:Activity .
+
+geokur:Data rdfs:subClassOf prov:Entity .
+

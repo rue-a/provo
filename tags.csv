@@ -1,0 +1,27 @@
+import,Low
+export,Low
+geoRepresentation,Medium
+local,Low
+focal,Medium
+zonal,Medium
+global,Low
+attributes,Medium
+geometry,Medium
+addition,Medium
+deletion,Medium
+singleFeature,Low
+cqSelection,High
+selection,Medium
+allFeatures,Medium
+timeStamp,Low
+timeFrame,Medium
+periodical,Medium
+irreversible,Medium
+sensitive,High
+parameterizable,High
+wildcard,Very High
+multipleIns,Medium
+root,Low
+multipleOuts,Medium
+branch,Medium
+

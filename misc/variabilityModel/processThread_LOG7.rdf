@@ -1,0 +1,24 @@
+@prefix ns1: <http://www.w3.org/ns/prov#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+<https://customNamespace.com/./20200514_variabilityModelled.R/aggregate> ns1:wasInformedBy <https://customNamespace.com/./20200514_variabilityModelled.R/modelSuitability> .
+
+<https://customNamespace.com/./20200514_variabilityModelled.R/merge12> ns1:wasInformedBy <https://customNamespace.com/./20200514_variabilityModelled.R/convertCelsius>,
+        <https://customNamespace.com/./20200514_variabilityModelled.R/rbind>,
+        <https://customNamespace.com/./20200514_variabilityModelled.R/round> .
+
+<https://geokur.geo.tu-dresden.de/Data> rdfs:subClassOf ns1:Entity .
+
+<https://geokur.geo.tu-dresden.de/Process> rdfs:subClassOf ns1:Activity .
+
+<https://geokur.geo.tu-dresden.de/hasProcessType> a rdf:Property .
+
+<https://customNamespace.com/./20200514_variabilityModelled.R/convertCelsius> ns1:wasInformedBy <https://customNamespace.com/./20200514_variabilityModelled.R/convertCelsius>,
+        <https://customNamespace.com/./20200514_variabilityModelled.R/rbind>,
+        <https://customNamespace.com/./20200514_variabilityModelled.R/round> .
+
+<https://customNamespace.com/./20200514_variabilityModelled.R/round> ns1:wasInformedBy <https://customNamespace.com/./20200514_variabilityModelled.R/convertCelsius>,
+        <https://customNamespace.com/./20200514_variabilityModelled.R/rbind>,
+        <https://customNamespace.com/./20200514_variabilityModelled.R/round> .
+

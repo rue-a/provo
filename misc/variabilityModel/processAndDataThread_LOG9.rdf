@@ -1,0 +1,84 @@
+@prefix ns1: <http://www.w3.org/ns/prov#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+<https://customNamespace.com/./20200514_variabilityModelled.R/dfClimateAreaResponseCrops> ns1:wasDerivedFrom <https://customNamespace.com/./20200514_variabilityModelled.R/dfClimateCrops>,
+        <https://customNamespace.com/./20200514_variabilityModelled.R/dfHarvestedArea>,
+        <https://customNamespace.com/./20200514_variabilityModelled.R/dfPrecipitation>,
+        <https://customNamespace.com/./20200514_variabilityModelled.R/dfTemperature> ;
+    ns1:wasGeneratedBy <https://customNamespace.com/./20200514_variabilityModelled.R/merge12> .
+
+<https://customNamespace.com/./20200514_variabilityModelled.R/dfVariability> ns1:wasDerivedFrom <https://customNamespace.com/./20200514_variabilityModelled.R/ClimateCropsGeoYear> ;
+    ns1:wasGeneratedBy <https://customNamespace.com/./20200514_variabilityModelled.R/aggregate> .
+
+<https://customNamespace.com/./20200514_variabilityModelled.R/stackCroplandBinary> ns1:wasDerivedFrom <https://customNamespace.com/./20200514_variabilityModelled.R/cropland1980ADasc>,
+        <https://customNamespace.com/./20200514_variabilityModelled.R/cropland1990ADasc>,
+        <https://customNamespace.com/./20200514_variabilityModelled.R/cropland2000ADasc>,
+        <https://customNamespace.com/./20200514_variabilityModelled.R/cropland2010ADasc> ;
+    ns1:wasGeneratedBy <https://customNamespace.com/./20200514_variabilityModelled.R/reclassifyCropland> .
+
+<https://geokur.geo.tu-dresden.de/Data> rdfs:subClassOf ns1:Entity .
+
+<https://geokur.geo.tu-dresden.de/Process> rdfs:subClassOf ns1:Activity .
+
+<https://geokur.geo.tu-dresden.de/hasProcessType> a rdf:Property .
+
+<https://customNamespace.com/./20200514_variabilityModelled.R/aggregate> ns1:used <https://customNamespace.com/./20200514_variabilityModelled.R/ClimateCropsGeoYear> .
+
+<https://customNamespace.com/./20200514_variabilityModelled.R/merge12> ns1:used <https://customNamespace.com/./20200514_variabilityModelled.R/dfClimateCrops>,
+        <https://customNamespace.com/./20200514_variabilityModelled.R/dfHarvestedArea>,
+        <https://customNamespace.com/./20200514_variabilityModelled.R/dfPrecipitation>,
+        <https://customNamespace.com/./20200514_variabilityModelled.R/dfTemperature> ;
+    ns1:wasInformedBy <https://customNamespace.com/./20200514_variabilityModelled.R/convertCelsius>,
+        <https://customNamespace.com/./20200514_variabilityModelled.R/rbind>,
+        <https://customNamespace.com/./20200514_variabilityModelled.R/round> .
+
+<https://customNamespace.com/./20200514_variabilityModelled.R/reclassifyCropland> ns1:used <https://customNamespace.com/./20200514_variabilityModelled.R/cropland1980ADasc>,
+        <https://customNamespace.com/./20200514_variabilityModelled.R/cropland1990ADasc>,
+        <https://customNamespace.com/./20200514_variabilityModelled.R/cropland2000ADasc>,
+        <https://customNamespace.com/./20200514_variabilityModelled.R/cropland2010ADasc> .
+
+<https://customNamespace.com/./20200514_variabilityModelled.R/convertCelsius> ns1:used <https://customNamespace.com/./20200514_variabilityModelled.R/dfClimateCrops> ;
+    ns1:wasInformedBy <https://customNamespace.com/./20200514_variabilityModelled.R/convertCelsius>,
+        <https://customNamespace.com/./20200514_variabilityModelled.R/rbind>,
+        <https://customNamespace.com/./20200514_variabilityModelled.R/round> .
+
+<https://customNamespace.com/./20200514_variabilityModelled.R/rbind> ns1:used <https://customNamespace.com/./20200514_variabilityModelled.R/NUTS2_shape>,
+        <https://customNamespace.com/./20200514_variabilityModelled.R/dfFinal>,
+        <https://customNamespace.com/./20200514_variabilityModelled.R/maizeplantasc>,
+        <https://customNamespace.com/./20200514_variabilityModelled.R/maizetotdaysasc>,
+        <https://customNamespace.com/./20200514_variabilityModelled.R/pathTemp>,
+        <https://customNamespace.com/./20200514_variabilityModelled.R/riceplantasc>,
+        <https://customNamespace.com/./20200514_variabilityModelled.R/ricetotdaysasc>,
+        <https://customNamespace.com/./20200514_variabilityModelled.R/soybeansplantasc>,
+        <https://customNamespace.com/./20200514_variabilityModelled.R/soybeanstotdaysasc>,
+        <https://customNamespace.com/./20200514_variabilityModelled.R/stackCropPrec>,
+        <https://customNamespace.com/./20200514_variabilityModelled.R/stackCropTemp>,
+        <https://customNamespace.com/./20200514_variabilityModelled.R/stackCroplandBinarycroplandYear>,
+        <https://customNamespace.com/./20200514_variabilityModelled.R/stackPrec>,
+        <https://customNamespace.com/./20200514_variabilityModelled.R/stackTemp>,
+        <https://customNamespace.com/./20200514_variabilityModelled.R/wheatplantasc>,
+        <https://customNamespace.com/./20200514_variabilityModelled.R/wheattotdaysasc> .
+
+<https://customNamespace.com/./20200514_variabilityModelled.R/round> ns1:used <https://customNamespace.com/./20200514_variabilityModelled.R/dfClimateCrops> ;
+    ns1:wasInformedBy <https://customNamespace.com/./20200514_variabilityModelled.R/convertCelsius>,
+        <https://customNamespace.com/./20200514_variabilityModelled.R/rbind>,
+        <https://customNamespace.com/./20200514_variabilityModelled.R/round> .
+
+<https://customNamespace.com/./20200514_variabilityModelled.R/dfClimateCrops> ns1:wasDerivedFrom <https://customNamespace.com/./20200514_variabilityModelled.R/NUTS2_shape>,
+        <https://customNamespace.com/./20200514_variabilityModelled.R/dfClimateCrops>,
+        <https://customNamespace.com/./20200514_variabilityModelled.R/maizeplantasc>,
+        <https://customNamespace.com/./20200514_variabilityModelled.R/maizetotdaysasc>,
+        <https://customNamespace.com/./20200514_variabilityModelled.R/pathTemp>,
+        <https://customNamespace.com/./20200514_variabilityModelled.R/riceplantasc>,
+        <https://customNamespace.com/./20200514_variabilityModelled.R/ricetotdaysasc>,
+        <https://customNamespace.com/./20200514_variabilityModelled.R/soybeansplantasc>,
+        <https://customNamespace.com/./20200514_variabilityModelled.R/soybeanstotdaysasc>,
+        <https://customNamespace.com/./20200514_variabilityModelled.R/stackCroplandBinarycroplandYear>,
+        <https://customNamespace.com/./20200514_variabilityModelled.R/stackPrec>,
+        <https://customNamespace.com/./20200514_variabilityModelled.R/wheatplantasc>,
+        <https://customNamespace.com/./20200514_variabilityModelled.R/wheattotdaysasc> ;
+    ns1:wasGeneratedBy <https://customNamespace.com/./20200514_variabilityModelled.R/convertCelsius>,
+        <https://customNamespace.com/./20200514_variabilityModelled.R/rbind>,
+        <https://customNamespace.com/./20200514_variabilityModelled.R/round> .
+

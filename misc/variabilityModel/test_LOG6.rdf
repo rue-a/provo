@@ -1,0 +1,268 @@
+@prefix cns: <https://customNamespace.com/./20200514_variabilityModelled.R/> .
+@prefix geokur: <https://geokur.geo.tu-dresden.de/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+cns:dfClimateAreaResponseCrops a prov:Entity,
+        geokur:Data ;
+    prov:wasAttributedTo cns:lukasEgli,
+        cns:ufz ;
+    prov:wasDerivedFrom cns:dfClimateCrops,
+        cns:dfHarvestedArea,
+        cns:dfPrecipitation,
+        cns:dfTemperature ;
+    prov:wasGeneratedBy cns:merge12 .
+
+cns:dfVariability a prov:Entity,
+        geokur:Data ;
+    prov:wasAttributedTo cns:lukasEgli,
+        cns:ufz ;
+    prov:wasDerivedFrom cns:dfSuitabilityYear ;
+    prov:wasGeneratedBy cns:aggregate .
+
+cns:stackCroplandBinary a prov:Entity,
+        geokur:Data ;
+    prov:wasAttributedTo cns:lukasEgli,
+        cns:ufz ;
+    prov:wasDerivedFrom cns:cropland1980ADasc,
+        cns:cropland1990ADasc,
+        cns:cropland2000ADasc,
+        cns:cropland2010ADasc ;
+    prov:wasGeneratedBy cns:reclassifyCropland .
+
+geokur:hasProcessType a rdf:Property .
+
+cns:aggregate a prov:Activity,
+        geokur:Process ;
+    rdfs:comment "calculates the coefficient of variance for mean suitability for each time interval and political unit" ;
+    prov:used cns:dfSuitabilityYear ;
+    prov:wasAssociatedWith cns:lukasEgli,
+        cns:ufz ;
+    prov:wasInformedBy cns:modelSuitability ;
+    geokur:hasProcessType geokur:semanticShift .
+
+cns:dfFinal prov:wasAttributedTo cns:lukasEgli,
+        cns:ufz .
+
+cns:merge12 a prov:Activity,
+        geokur:Process ;
+    prov:used cns:dfClimateCrops,
+        cns:dfHarvestedArea,
+        cns:dfPrecipitation,
+        cns:dfTemperature ;
+    prov:wasAssociatedWith cns:lukasEgli,
+        cns:ufz ;
+    prov:wasInformedBy cns:convertCelsius,
+        cns:rbind,
+        cns:round ;
+    geokur:hasProcessType geokur:basalChange .
+
+cns:reclassifyCropland a prov:Activity,
+        geokur:Process ;
+    rdfs:comment "reclass cells with croplands to 1 and without to NA" ;
+    prov:used cns:cropland1980ADasc,
+        cns:cropland1990ADasc,
+        cns:cropland2000ADasc,
+        cns:cropland2010ADasc ;
+    prov:wasAssociatedWith cns:lukasEgli,
+        cns:ufz ;
+    geokur:hasProcessType geokur:valueChange .
+
+cns:stackCropPrec prov:wasAttributedTo cns:lukasEgli,
+        cns:ufz .
+
+cns:stackCropTemp prov:wasAttributedTo cns:lukasEgli,
+        cns:ufz .
+
+cns:stackTemp prov:wasAttributedTo cns:lukasEgli,
+        cns:ufz .
+
+cns:ClimateCropsGeoYear a prov:Entity,
+        geokur:Data ;
+    prov:wasAttributedTo cns:lukasEgli,
+        cns:ufz .
+
+cns:NUTS2_shape a prov:Entity,
+        geokur:Data ;
+    prov:wasAttributedTo cns:lukasEgli,
+        cns:ufz .
+
+cns:cropland1980ADasc a prov:Entity,
+        geokur:Data ;
+    prov:wasAttributedTo cns:lukasEgli,
+        cns:ufz .
+
+cns:cropland1990ADasc a prov:Entity,
+        geokur:Data ;
+    prov:wasAttributedTo cns:lukasEgli,
+        cns:ufz .
+
+cns:cropland2000ADasc a prov:Entity,
+        geokur:Data ;
+    prov:wasAttributedTo cns:lukasEgli,
+        cns:ufz .
+
+cns:cropland2010ADasc a prov:Entity,
+        geokur:Data ;
+    prov:wasAttributedTo cns:lukasEgli,
+        cns:ufz .
+
+cns:dfHarvestedArea a prov:Entity,
+        geokur:Data ;
+    prov:wasAttributedTo cns:lukasEgli,
+        cns:ufz .
+
+cns:dfPrecipitation a prov:Entity,
+        geokur:Data ;
+    prov:wasAttributedTo cns:lukasEgli,
+        cns:ufz .
+
+cns:dfSuitabilityYear a prov:Entity,
+        geokur:Data ;
+    prov:wasAttributedTo cns:lukasEgli,
+        cns:ufz ;
+    prov:wasDerivedFrom cns:ClimateCropsGeoYear ;
+    prov:wasGeneratedBy cns:modelSuitability .
+
+cns:dfTemperature a prov:Entity,
+        geokur:Data ;
+    prov:wasAttributedTo cns:lukasEgli,
+        cns:ufz .
+
+cns:maizeplantasc a prov:Entity,
+        geokur:Data ;
+    prov:wasAttributedTo cns:lukasEgli,
+        cns:ufz .
+
+cns:maizetotdaysasc a prov:Entity,
+        geokur:Data ;
+    prov:wasAttributedTo cns:lukasEgli,
+        cns:ufz .
+
+cns:modelSuitability a prov:Activity,
+        geokur:Process ;
+    rdfs:comment "calculate suitability for given climate weighted by relative area harvested" ;
+    prov:used cns:ClimateCropsGeoYear ;
+    prov:wasAssociatedWith cns:lukasEgli,
+        cns:ufz ;
+    geokur:hasProcessType geokur:coreConcept .
+
+cns:pathTemp a prov:Entity,
+        geokur:Data ;
+    prov:wasAttributedTo cns:lukasEgli,
+        cns:ufz .
+
+cns:riceplantasc a prov:Entity,
+        geokur:Data ;
+    prov:wasAttributedTo cns:lukasEgli,
+        cns:ufz .
+
+cns:ricetotdaysasc a prov:Entity,
+        geokur:Data ;
+    prov:wasAttributedTo cns:lukasEgli,
+        cns:ufz .
+
+cns:soybeansplantasc a prov:Entity,
+        geokur:Data ;
+    prov:wasAttributedTo cns:lukasEgli,
+        cns:ufz .
+
+cns:soybeanstotdaysasc a prov:Entity,
+        geokur:Data ;
+    prov:wasAttributedTo cns:lukasEgli,
+        cns:ufz .
+
+cns:stackCroplandBinarycroplandYear a prov:Entity,
+        geokur:Data ;
+    prov:wasAttributedTo cns:lukasEgli,
+        cns:ufz .
+
+cns:stackPrec a prov:Entity,
+        geokur:Data ;
+    prov:wasAttributedTo cns:lukasEgli,
+        cns:ufz .
+
+cns:wheatplantasc a prov:Entity,
+        geokur:Data ;
+    prov:wasAttributedTo cns:lukasEgli,
+        cns:ufz .
+
+cns:wheattotdaysasc a prov:Entity,
+        geokur:Data ;
+    prov:wasAttributedTo cns:lukasEgli,
+        cns:ufz .
+
+cns:convertCelsius a prov:Activity,
+        geokur:Process ;
+    prov:used cns:dfClimateCrops ;
+    prov:wasAssociatedWith cns:lukasEgli,
+        cns:ufz ;
+    prov:wasInformedBy cns:convertCelsius,
+        cns:rbind,
+        cns:round ;
+    geokur:hasProcessType geokur:unitChange .
+
+cns:rbind a prov:Activity,
+        geokur:Process ;
+    prov:used cns:NUTS2_shape,
+        cns:dfFinal,
+        cns:maizeplantasc,
+        cns:maizetotdaysasc,
+        cns:pathTemp,
+        cns:riceplantasc,
+        cns:ricetotdaysasc,
+        cns:soybeansplantasc,
+        cns:soybeanstotdaysasc,
+        cns:stackCropPrec,
+        cns:stackCropTemp,
+        cns:stackCroplandBinarycroplandYear,
+        cns:stackPrec,
+        cns:stackTemp,
+        cns:wheatplantasc,
+        cns:wheattotdaysasc ;
+    prov:wasAssociatedWith cns:lukasEgli,
+        cns:ufz ;
+    geokur:hasBranch "True" ;
+    geokur:hasProcessType geokur:semanticShift .
+
+cns:round a prov:Activity,
+        geokur:Process ;
+    prov:used cns:dfClimateCrops ;
+    prov:wasAssociatedWith cns:lukasEgli,
+        cns:ufz ;
+    prov:wasInformedBy cns:convertCelsius,
+        cns:rbind,
+        cns:round ;
+    geokur:hasProcessType geokur:valueChange .
+
+cns:dfClimateCrops a prov:Entity,
+        geokur:Data ;
+    prov:wasAttributedTo cns:lukasEgli,
+        cns:ufz ;
+    prov:wasDerivedFrom cns:NUTS2_shape,
+        cns:dfClimateCrops,
+        cns:maizeplantasc,
+        cns:maizetotdaysasc,
+        cns:pathTemp,
+        cns:riceplantasc,
+        cns:ricetotdaysasc,
+        cns:soybeansplantasc,
+        cns:soybeanstotdaysasc,
+        cns:stackCroplandBinarycroplandYear,
+        cns:stackPrec,
+        cns:wheatplantasc,
+        cns:wheattotdaysasc ;
+    prov:wasGeneratedBy cns:convertCelsius,
+        cns:rbind,
+        cns:round .
+
+geokur:Process rdfs:subClassOf prov:Activity .
+
+geokur:Data rdfs:subClassOf prov:Entity .
+
+cns:lukasEgli a prov:Agent ;
+    prov:actedOnBehalfOf cns:ufz .
+
+cns:ufz a prov:Agent .
+

@@ -1,131 +1,95 @@
 # %%
 from rdflib import Graph, Literal, BNode, URIRef, Namespace
 from rdflib.namespace import DC, FOAF, RDF, RDFS
-
-import ProvGraph
-
-# setup custom namespaces
 PROV = Namespace("http://www.w3.org/ns/prov#")
 GEOKUR =  Namespace("https://geokur.geo.tu-dresden.de/")
-EX = Namespace("https://example.com/")
 
-g = ProvGraph.ProvGraph()
+arcGisBuffer = "https://pro.arcgis.com/en/pro-app/tool-reference/feature-analysis/create-buffers.htm"
 
-g.bind("dc", DC)
-g.bind("foaf", FOAF)
-g.bind("rdf", RDF)
-g.bind("rdfs", RDFS)
-g.bind("geokur", GEOKUR)
-g.bind("prov", PROV)
-g.bind("ex", EX)
+import ProvGraph
+import drawGraph
 
-g.add((GEOKUR.Process, RDFS.subClassOf, PROV.Activity))
-g.add((GEOKUR.Data, RDFS.subClassOf, PROV.Entity))
-g.add((GEOKUR.hasProcessType, RDF.type, RDF.Property))
+g = ProvGraph.ProvGraph(namespace='https://gnatcatcher.org/')
 
-# --- end setup ---
-
-g.addData(EX.majorRoads)
-g.addProcess(EX.buffer, GEOKUR.ValueChange)
-g.addData(EX.roadsBuffer)
+majorRoads = g.addData('Major Roads')
+buffer = g.addProcess('Buffer', instanceOf = arcGisBuffer)
+roadsBuffer = g.addData('Roads Buffer')
 g.link(
-    inputs=EX.majorRoads, 
-    process=EX.buffer, 
-    outputs=EX.roadsBuffer
+    inputs=majorRoads, 
+    process=buffer, 
+    outputs=roadsBuffer
 )
+g.tagProcess(buffer, ['allFeatures', 'parameterizable', 'geometry', 'geoRepresentation'])
 
 
-g.addData(EX.inputVegetation)
-g.addProcess(EX.select, GEOKUR.BasalChange)
-g.addData(EX.suitableVegetation)
+inputVeg = g.addData('Input Vegetation')
+select = g.addProcess('Select')
+suitableVeg = g.addData('Suitable Vegetation')
 g.link(
-    inputs=EX.inputVegetation, 
-    process=EX.select, 
-    outputs=EX.suitableVegetation
+    inputs=inputVeg, 
+    process=select, 
+    outputs=suitableVeg
 )
+g.tagProcess(select, ['cqSelection', 'irreversible'])
 
-g.addProcess(EX.erase, GEOKUR.BasalChange)
-g.addData(EX.suitableVegetationMinusRoads)
+erase = g.addProcess('Erase')
+suitMinusRoads = g.addData('Suitable Vegetation Minus Roads')
 g.link(
-    inputs=[EX.suitableVegetation,EX.roadsBuffer],
-    process=EX.erase,
-    outputs=EX.suitableVegetationMinusRoads
+    inputs=[suitableVeg, roadsBuffer],
+    process=erase,
+    outputs=suitMinusRoads
 )
+g.tagProcess(erase, ['irreversible', 'geometry', 'allFeatures'])
 
-g.addData(EX.elevationsLessThan250m)
-g.addData(EX.slopesLessThan40Percent)
-g.addData(EX.climateZones)
-g.addAgent(EX.testPerson)
-g.addProcess(EX.intersect, GEOKUR.CoreConcept)
-g.add( (EX.intersect,RDFS.label, Literal("intersection Process")) )
-g.add( (EX.intersect,RDFS.comment, Literal("intersect data to identify suitable locations")) )
-
-g.addData(EX.intersectOutput)
+elev = g.addData('Elevations Less Than 250m')
+slopes = g.addData('Slopes Less Than 40 Percent')
+climate = g.addData('Climate Zones')
+intersect = g.addProcess('Intersect')
+intersectOut = g.addData('intersect Output')
+g.tagProcess(intersect, ['irreversible', 'allFeatures', 'wildcard', 'geometry'])
 g.link(
-    inputs=[
-        EX.elevationsLessThan250m, 
-        EX.slopesLessThan40Percent, 
-        EX.climateZones,
-        EX.suitableVegetationMinusRoads],
-    process=EX.intersect,
-    outputs=EX.intersectOutput,
-    agents=EX.testPerson
+    inputs=[elev, slopes, climate, suitMinusRoads],
+    process=intersect,
+    outputs=intersectOut
 )
 
-g.addProcess(EX.dissolve, GEOKUR.ValueChange)
-g.addData(EX.dissolveOutput)
+dissolve = g.addProcess('dissolve')
+dissOut = g.addData('dissolve Output')
 g.link(
-    inputs=EX.intersectOutput,
-    process=EX.dissolve,
-    outputs=EX.dissolveOutput
+    inputs=intersectOut,
+    process=dissolve,
+    outputs=dissOut
 )
+g.tagProcess(dissolve, ['addition', 'deletion', 'allFeatures', 'irreversible'])
 
-g.addProcess(EX.multipartToSinglepart, GEOKUR.BasalChange)
-g.addData(EX.singlepartOutput)
+multi = g.addProcess('multipart To Singlepart')
+singleOut = g.addData('singlepart Output')
 g.link(
-    inputs=EX.dissolveOutput,
-    process=EX.multipartToSinglepart,
-    outputs=EX.singlepartOutput
+    inputs=dissOut,
+    process=multi,
+    outputs=singleOut
 )
+g.tagProcess(multi,['addition', 'allFeatures', 'irreversible'])
 
-g.addProcess(EX.select2, GEOKUR.BasalChange)
-g.addData(EX.outputPotentialHabitat)
+sel2 = g.addProcess('Select')
+final = g.addData('Output Potential Habitat')
 g.link(
-    inputs=EX.singlepartOutput,
-    process=EX.select2,
-    outputs=EX.outputPotentialHabitat
+    inputs=singleOut,
+    process=sel2,
+    outputs=final
 )
+g.tagProcess(sel2, ['selection', 'irreversible'])
 
-# add some more stuff for testing purposes
+g.infereWasInformedByLinks()
+g.addIOTags()
+g.calcRelativeImportance()
 
-# g.addProcess(EX.branchOut, GEOKUR.BasalChange)
-# g.addData(EX.branchedOutData)
-# g.link(
-#     inputs=EX.dissolveOutput,
-#     process=EX.branchOut,
-#     outputs=EX.branchedOutData
-# )
+path = './out/gnatcatcher.rdf'
+g.serialize(format = 'n3', destination = path)
+drawGraph.draw(graph = g, path = './graphics/gnatcatcher.png') 
 
-# g.addProcess(EX.finalize, GEOKUR.BasalChange)
-# g.addData(EX.finalizedData)
-# g.link(
-#     inputs=EX.outputPotentialHabitat,
-#     process=EX.finalize,
-#     outputs=EX.finalizedData
-# )
-
-qRes = g.query(
-    """
-    SELECT ?p ?pp
-    WHERE {
-        ?p prov:used ?data .
-        ?data prov:wasGeneratedBy ?pp .
-    }
-    """
-)
-for row in qRes:
-    g.add((row[0], PROV.wasInformedBy, row[1]))
-
-
-g.serialize(format = 'n3', destination = 'test.rdf')
-print('finished')
+# count = 0
+# while len([k for k in g.triples((None, RDF.type, GEOKUR.Process))]) > 1 :
+#     count += 1
+#     outPath = g.generalize(format = 'n3', destination = './out/gnatcatcher-' + str(count) + '.rdf')
+#     drawGraph.draw(graph = g, path = './graphics/gnatcatcher-' + str(count) + '.png') 
