@@ -1,6 +1,0 @@
-- Workflow Scripte ueberarbeiten -> prozesse taggen, 'instanceOf' hinzufuegen (wie in generateProvGraph.py Zeile 7 + 15)
-
-- die arcGis operationen die in den Workflows verwendet werden in die Tabelle "arcGisTools.xlsx" einpflegen
-
-- falls ArcGis vorhanden: Wie kann man Workflows aus ArcGis Modelbuilder exportieren? Z.B. als python scripts
-
