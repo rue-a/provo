@@ -7,15 +7,16 @@ import csv
 import drawGraph
 # setup namespaces
 PROV = Namespace("http://www.w3.org/ns/prov#")
-GEOKUR =  Namespace("https://geokur.geo.tu-dresden.de/")
+GEOKUR =  Namespace("https://geokur.geo.tu-dresden.de/namespace#")
 ARCGIS = Namespace("https://pro.arcgis.com/de/pro-app/tool-reference/")
 
 class ProvGraph(Graph):
     mergeCount = 1
+    initialImportance = {}
     CNS = Namespace("https://customNamespace.com/")
-    with open('tags.csv') as f:
+    with open('./tags.csv') as f:
         _tags = dict(filter(None, csv.reader(f)))
-    with open('tagMetrics.csv') as f:
+    with open('./tagMetrics.csv') as f:
         _tagMetrics = dict(filter(None, csv.reader(f)))
     def __init__(self, store='default', namespace = None, identifier=None, namespace_manager=None):
         super().__init__(store=store, identifier=identifier, namespace_manager=namespace_manager)
@@ -24,10 +25,14 @@ class ProvGraph(Graph):
         self.add((GEOKUR.Process, RDFS.subClassOf, PROV.Activity))
         self.add((GEOKUR.SubProcess, RDFS.subClassOf, PROV.Activity))
         self.add((GEOKUR.Data, RDFS.subClassOf, PROV.Entity))
-        self.add((GEOKUR.hasTag, RDF.type, RDF.Property))
+        self.add((GEOKUR.hasTag, RDF.type, RDF.Property))        
+        self.add((GEOKUR.hasTag, RDFS.domain, GEOKUR.Process))
         self.add((GEOKUR.hasRelativeImportance, RDF.type, RDF.Property))
+        self.add((GEOKUR.hasRelativeImportance, RDFS.domain, GEOKUR.Process))
+        self.add((GEOKUR.hasRelativeImportance, RDFS.domain, GEOKUR.SubProcess))
         self.add((GEOKUR.hasSubProcess, RDF.type, RDF.Property))
-        self.add((GEOKUR.isInstanceOf, RDF.type, RDF.Property))
+        self.add((GEOKUR.isInstanceOf, RDF.type, RDF.Property))        
+        self.add((GEOKUR.isInstanceOf, RDFS.domain, GEOKUR.Process))
         self.bind("dc", DC)
         self.bind("foaf", FOAF)
         self.bind("rdf", RDF)
@@ -35,7 +40,7 @@ class ProvGraph(Graph):
         self.bind("geokur", GEOKUR)
         self.bind("prov", PROV)
         self.bind("cns", self.CNS)
-        self.bind("arcgis/tool-reference", ARCGIS)
+        self.bind("arcgis", ARCGIS)
     # methods for construction of the prov graph
     def addProcess(self, label, instanceOf = None):
         ID = eval('self.CNS.' + BNode())
@@ -187,6 +192,7 @@ class ProvGraph(Graph):
         for process in importance:
             importance[process] /= totalImportance
             self.add((process, GEOKUR.hasRelativeImportance, Literal(float(importance[process]))))
+            self.initialImportance = importance
     
     def getMergePair(self):
         importanceQ = prepareQuery(
@@ -224,20 +230,20 @@ class ProvGraph(Graph):
         # get min importance candidates
         minval = min(processes.values())
         candidates = [k for k, v in processes.items() if v==minval]
-        # get min importance neighbors with according candidate
+        # get max importance neighbors with according candidate
         candidateNeighborImportance = []
         # print(candidates)
         for candidate in candidates:
             for i, result in enumerate(self.query(neighborQ, initBindings = {'process': URIRef(candidate)})):
                 candidateNeighborImportance.append([str(candidate), str(result[0]), float(result[1])])
         # print(candidateNeighborImportance)
-        minValNeighbors = min([val[2] for val in candidateNeighborImportance])
+        maxValNeighbors = max([val[2] for val in candidateNeighborImportance])
         # if there are multiple (candidate, neighbors) pairs with identical 
         # relative importance values, choose the first pair from the list
         # (order of the list is random // controlled by SPARQL processor)
         index = None
         for i, item in enumerate(candidateNeighborImportance):
-            if item[2] == minValNeighbors:
+            if item[2] == maxValNeighbors:
                 index = i
                 # stop at first match
                 break
@@ -319,6 +325,17 @@ class ProvGraph(Graph):
             """,
             initNs = {'prov': PROV, 'geokur': GEOKUR, 'rdfs': RDFS}
         )
+        findInitialProcessQ = prepareQuery(
+            """SELECT ?process ?label
+            WHERE {
+                ?inProcess geokur:hasSubProcess+ ?process .
+
+                ?process rdfs:label ?label .
+                ?inProcess rdfs:label ?label .
+            }
+            """,
+            initNs = {'prov': PROV, 'geokur': GEOKUR, 'rdfs': RDFS}
+        )
 
         inputData = None
         outputData = None
@@ -341,7 +358,7 @@ class ProvGraph(Graph):
         associatedAgents = [k for k in self.query(agentQ, initBindings={'neighbor': neighbor, 'process': process})]
         
         
-        # get process' and neighbor's label and importance
+        # get process and neighbor label and importance
         process = [k for k in self.query(processInfoQ, initBindings={'process': process})][0]
         neighbor = [k for k in self.query(processInfoQ, initBindings={'process': neighbor})][0]
         # print(self.mergeCount)
@@ -357,15 +374,32 @@ class ProvGraph(Graph):
         self.remove((None, PROV.wasAssociatedWith, neighbor[0]))            
         self.set((neighbor[0], RDF.type, GEOKUR.SubProcess))
 
-        # delete any intermediate data from graph
-        for data in intermediateData:
-            self.remove((data[0], None, None))
-            self.remove((None, None, data[0]))
+        
 
         # generate new process and links
-        # naming convention: combined proc is named after higher importance subprocess
-        # i.e. the neighbor
-        newProcess = self.addProcess(str(neighbor[1]))
+        # naming convention: combined proc is named after higher initial importance
+        # therefore we search for subprocesses of the two candidates, that have the same label.
+        # if any of those subprocesses with the same label has no subProcess itself, it has to be
+        # the initial process. the initial process' ID is stored in the initialImportance dict.
+        # print(self.initialImportance)
+        
+        initialNeighbor = [k[0] for k in self.query(findInitialProcessQ, initBindings={'inProcess': neighbor[0]})]
+        # print(initialNeighbor)
+        if len(initialNeighbor) > 0:
+            initialNeighbor = initialNeighbor[-1]
+        else: 
+            initialNeighbor = neighbor[0]
+        initialProcess = [k[0] for k in self.query(findInitialProcessQ, initBindings={'inProcess': process[0]})]
+        if len(initialProcess) > 0:
+            initialProcess = initialProcess[-1]
+        else:
+            initialProcess = process[0]
+        if self.initialImportance.get(initialProcess) > self.initialImportance.get(initialNeighbor):
+            newProcess = self.addProcess(str(process[1]))
+            print("merge " + process[1] + ' and ' + neighbor[1] + ' to ' + process[1] + '.')
+        else:
+            newProcess = self.addProcess(str(neighbor[1]))            
+            print("merge " + process[1] + ' and ' + neighbor[1] + ' to ' + neighbor[1] + '.')
         self.add((newProcess, GEOKUR.hasRelativeImportance, Literal(float(neighbor[2]) + float(process[2]))))
         
         # add the 'old' processes again to the graph, but as subprocesses
@@ -383,6 +417,13 @@ class ProvGraph(Graph):
         
         for inP in ingoingProcesses:
             self.add((newProcess, PROV.wasInformedBy, inP[0]))
+
+        # delete any intermediate data from graph
+        for data in intermediateData:
+            self.remove((data[0], None, None))
+            self.remove((None, None, data[0]))
+
+            
         # print([str(k[1]) for k in inputData])
         # print([str(k[1]) for k in outputData])
         # print([str(k[1]) for k in intermediateData])

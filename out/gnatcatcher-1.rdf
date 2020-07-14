@@ -17,96 +17,94 @@ geokur:hasTag a rdf:Property .
 
 geokur:isInstanceOf a rdf:Property .
 
-cns:N9becbf0323b846db8ffbe7913e28a060 a geokur:Data ;
+cns:Nd25740d5018f48bdbcf48e10b2888e57 a geokur:Data ;
     rdfs:label "Output Potential Habitat" ;
-    prov:wasDerivedFrom cns:N6efadd23571545678f63d5feaf268cc7,
-        cns:Na89fe11f565f413aa5bb7686498165da ;
-    prov:wasGeneratedBy cns:N30d0b24775eb42bd976c862a4085f4ec,
-        cns:N3a196a8552e5436ba4a8295a46eaa543 .
+    prov:wasDerivedFrom cns:N21b8b74203b64ef099c0b8655425f8f3 ;
+    prov:wasGeneratedBy cns:N252376c26a1148d3b82886469dcb84c8,
+        cns:Nd6f051c3157c460f99d7b58c7094ded3 .
 
-cns:N2b0e3a5694c1459aafb2eefb458e48f7 a geokur:SubProcess ;
+cns:N4eda9354e31b4cc292ce6fb5025bbb05 a geokur:SubProcess ;
     rdfs:label "multipart To Singlepart" ;
-    prov:used cns:N6efadd23571545678f63d5feaf268cc7 ;
+    prov:used cns:N21b8b74203b64ef099c0b8655425f8f3 ;
     geokur:hasRelativeImportance 1.016949e-01 ;
     geokur:hasTag "addition",
         "allFeatures",
         "irreversible" .
 
-cns:N30d0b24775eb42bd976c862a4085f4ec a geokur:Process ;
+cns:Nd6f051c3157c460f99d7b58c7094ded3 a geokur:Process ;
     rdfs:label "multipart To Singlepart" ;
-    prov:used cns:N6efadd23571545678f63d5feaf268cc7,
-        cns:Na89fe11f565f413aa5bb7686498165da ;
-    prov:wasInformedBy cns:N27cb2bdf95c84216afe367b5600eff74 ;
+    prov:used cns:N21b8b74203b64ef099c0b8655425f8f3 ;
+    prov:wasInformedBy cns:Nb4cb4edccb6543fdbc9fa1779daf109e ;
     geokur:hasRelativeImportance 1.694915e-01 ;
-    geokur:hasSubProcess cns:N2b0e3a5694c1459aafb2eefb458e48f7,
-        cns:N3a196a8552e5436ba4a8295a46eaa543 .
+    geokur:hasSubProcess cns:N252376c26a1148d3b82886469dcb84c8,
+        cns:N4eda9354e31b4cc292ce6fb5025bbb05 .
 
 geokur:SubProcess rdfs:subClassOf prov:Activity .
 
-cns:N058d6f25191e4578b9b95dc867ee38f2 a geokur:Data ;
+cns:N252376c26a1148d3b82886469dcb84c8 a geokur:SubProcess ;
+    rdfs:label "Select" ;
+    geokur:hasRelativeImportance 6.779661e-02 ;
+    geokur:hasTag "irreversible",
+        "selection" .
+
+cns:N4e16e8e7ef274646a6e5c8395e655c16 a geokur:Data ;
+    rdfs:label "Slopes Less Than 40 Percent" .
+
+cns:N65b4694044da4e7d8eee4a0dc252af23 a geokur:Data ;
+    rdfs:label "Roads Buffer" ;
+    prov:wasDerivedFrom cns:N729cb2ffd59448948d4a7557bf6337de ;
+    prov:wasGeneratedBy cns:Nd494b995aafd4beb927c992d60e2e49e .
+
+cns:N6632c107f4ea4eac80384c05349e4f2c a geokur:Data ;
+    rdfs:label "Elevations Less Than 250m" .
+
+cns:N729cb2ffd59448948d4a7557bf6337de a geokur:Data ;
+    rdfs:label "Major Roads" .
+
+cns:N7f05adb80d1f49448cb07abd7b55e645 a geokur:Data ;
+    rdfs:label "intersect Output" ;
+    prov:wasDerivedFrom cns:N4e16e8e7ef274646a6e5c8395e655c16,
+        cns:N6632c107f4ea4eac80384c05349e4f2c,
+        cns:Na4ec6dc54a954e7c803dde4b6a6248eb,
+        cns:Na9645bb4eae14ef2bdfdc62726e14100 ;
+    prov:wasGeneratedBy cns:Nb7e470e60d1141ed930103a162b624bd .
+
+cns:N8ab9615eaf314797b3b35aa056fb84ae a geokur:Process ;
+    rdfs:label "Select" ;
+    prov:used cns:N8d67f30d01d144238a11de345913782c ;
+    geokur:hasRelativeImportance 1.016949e-01 ;
+    geokur:hasTag "cqSelection",
+        "irreversible" .
+
+cns:N8d67f30d01d144238a11de345913782c a geokur:Data ;
+    rdfs:label "Input Vegetation" .
+
+cns:Na4ec6dc54a954e7c803dde4b6a6248eb a geokur:Data ;
     rdfs:label "Climate Zones" .
 
-cns:N239cba71b7954ebe89ce8a6c60a811a8 a geokur:Data ;
-    rdfs:label "Suitable Vegetation" ;
-    prov:wasDerivedFrom cns:N2f385723600a45beb4a4f0aa3acdd3e1 ;
-    prov:wasGeneratedBy cns:Na71f7919eeea42e8a11bbcc5febcc86b .
+cns:Na9645bb4eae14ef2bdfdc62726e14100 a geokur:Data ;
+    rdfs:label "Suitable Vegetation Minus Roads" ;
+    prov:wasDerivedFrom cns:N65b4694044da4e7d8eee4a0dc252af23,
+        cns:Ncc6f8bd497b04d18bdb5edacd59efd41 ;
+    prov:wasGeneratedBy cns:Ncc559376cb6e4087b0daf25e2d0b7809 .
 
-cns:N27cb2bdf95c84216afe367b5600eff74 a geokur:Process ;
+cns:Nb4cb4edccb6543fdbc9fa1779daf109e a geokur:Process ;
     rdfs:label "dissolve" ;
-    prov:used cns:N522ea54198d74b34b7ef909b2d88201d ;
-    prov:wasInformedBy cns:N8414e071af2947e4ba2705f87d71cd38 ;
+    prov:used cns:N7f05adb80d1f49448cb07abd7b55e645 ;
+    prov:wasInformedBy cns:Nb7e470e60d1141ed930103a162b624bd ;
     geokur:hasRelativeImportance 1.355932e-01 ;
     geokur:hasTag "addition",
         "allFeatures",
         "deletion",
         "irreversible" .
 
-cns:N2de30ec5f3ab4ee39f1d84aa7faa077e a geokur:Data ;
-    rdfs:label "Slopes Less Than 40 Percent" .
-
-cns:N2f385723600a45beb4a4f0aa3acdd3e1 a geokur:Data ;
-    rdfs:label "Input Vegetation" .
-
-cns:N3a196a8552e5436ba4a8295a46eaa543 a geokur:SubProcess ;
-    rdfs:label "Select" ;
-    geokur:hasRelativeImportance 6.779661e-02 ;
-    geokur:hasTag "irreversible",
-        "selection" .
-
-cns:N4ab3f9022b0e4a11ba9b0efbdf491f93 a geokur:Data ;
-    rdfs:label "Elevations Less Than 250m" .
-
-cns:N4bcd5704ce74457bb2924394cc3fc1d4 a geokur:Data ;
-    rdfs:label "Major Roads" .
-
-cns:N522ea54198d74b34b7ef909b2d88201d a geokur:Data ;
-    rdfs:label "intersect Output" ;
-    prov:wasDerivedFrom cns:N058d6f25191e4578b9b95dc867ee38f2,
-        cns:N2de30ec5f3ab4ee39f1d84aa7faa077e,
-        cns:N4ab3f9022b0e4a11ba9b0efbdf491f93,
-        cns:Nb75b024db58446f093ffebf5ffcd2d8c ;
-    prov:wasGeneratedBy cns:N8414e071af2947e4ba2705f87d71cd38 .
-
-cns:N66a86bd1f2f541e2bded871ce9570ff3 a geokur:Process ;
-    rdfs:label "Erase" ;
-    prov:used cns:N239cba71b7954ebe89ce8a6c60a811a8,
-        cns:Ne3f88e1c92184eeca08f37f53d8afcb9 ;
-    prov:wasInformedBy cns:Na71f7919eeea42e8a11bbcc5febcc86b,
-        cns:Ne759dde13f504854a0fe0e6bc167c2f6 ;
-    geokur:hasRelativeImportance 1.525424e-01 ;
-    geokur:hasTag "allFeatures",
-        "geometry",
-        "irreversible",
-        "multipleIns",
-        "root" .
-
-cns:N8414e071af2947e4ba2705f87d71cd38 a geokur:Process ;
+cns:Nb7e470e60d1141ed930103a162b624bd a geokur:Process ;
     rdfs:label "Intersect" ;
-    prov:used cns:N058d6f25191e4578b9b95dc867ee38f2,
-        cns:N2de30ec5f3ab4ee39f1d84aa7faa077e,
-        cns:N4ab3f9022b0e4a11ba9b0efbdf491f93,
-        cns:Nb75b024db58446f093ffebf5ffcd2d8c ;
-    prov:wasInformedBy cns:N66a86bd1f2f541e2bded871ce9570ff3 ;
+    prov:used cns:N4e16e8e7ef274646a6e5c8395e655c16,
+        cns:N6632c107f4ea4eac80384c05349e4f2c,
+        cns:Na4ec6dc54a954e7c803dde4b6a6248eb,
+        cns:Na9645bb4eae14ef2bdfdc62726e14100 ;
+    prov:wasInformedBy cns:Ncc559376cb6e4087b0daf25e2d0b7809 ;
     geokur:hasRelativeImportance 2.711864e-01 ;
     geokur:hasTag "allFeatures",
         "geometry",
@@ -114,37 +112,38 @@ cns:N8414e071af2947e4ba2705f87d71cd38 a geokur:Process ;
         "multipleIns",
         "wildcard" .
 
-cns:Na71f7919eeea42e8a11bbcc5febcc86b a geokur:Process ;
-    rdfs:label "Select" ;
-    prov:used cns:N2f385723600a45beb4a4f0aa3acdd3e1 ;
-    geokur:hasRelativeImportance 1.016949e-01 ;
-    geokur:hasTag "cqSelection",
-        "irreversible" .
+cns:Ncc559376cb6e4087b0daf25e2d0b7809 a geokur:Process ;
+    rdfs:label "Erase" ;
+    prov:used cns:N65b4694044da4e7d8eee4a0dc252af23,
+        cns:Ncc6f8bd497b04d18bdb5edacd59efd41 ;
+    prov:wasInformedBy cns:N8ab9615eaf314797b3b35aa056fb84ae,
+        cns:Nd494b995aafd4beb927c992d60e2e49e ;
+    geokur:hasRelativeImportance 1.525424e-01 ;
+    geokur:hasTag "allFeatures",
+        "geometry",
+        "irreversible",
+        "multipleIns",
+        "root" .
 
-cns:Nb75b024db58446f093ffebf5ffcd2d8c a geokur:Data ;
-    rdfs:label "Suitable Vegetation Minus Roads" ;
-    prov:wasDerivedFrom cns:N239cba71b7954ebe89ce8a6c60a811a8,
-        cns:Ne3f88e1c92184eeca08f37f53d8afcb9 ;
-    prov:wasGeneratedBy cns:N66a86bd1f2f541e2bded871ce9570ff3 .
+cns:Ncc6f8bd497b04d18bdb5edacd59efd41 a geokur:Data ;
+    rdfs:label "Suitable Vegetation" ;
+    prov:wasDerivedFrom cns:N8d67f30d01d144238a11de345913782c ;
+    prov:wasGeneratedBy cns:N8ab9615eaf314797b3b35aa056fb84ae .
 
-cns:Ne3f88e1c92184eeca08f37f53d8afcb9 a geokur:Data ;
-    rdfs:label "Roads Buffer" ;
-    prov:wasDerivedFrom cns:N4bcd5704ce74457bb2924394cc3fc1d4 ;
-    prov:wasGeneratedBy cns:Ne759dde13f504854a0fe0e6bc167c2f6 .
-
-cns:Ne759dde13f504854a0fe0e6bc167c2f6 a geokur:Process ;
+cns:Nd494b995aafd4beb927c992d60e2e49e a geokur:Process ;
     rdfs:label "Buffer" ;
-    prov:used cns:N4bcd5704ce74457bb2924394cc3fc1d4 ;
+    prov:used cns:N729cb2ffd59448948d4a7557bf6337de ;
     geokur:hasRelativeImportance 1.694915e-01 ;
     geokur:hasTag "allFeatures",
         "geoRepresentation",
         "geometry",
-        "parameterizable" .
+        "parameterizable" ;
+    geokur:isInstanceOf <https://pro.arcgis.com/en/pro-app/tool-reference/feature-analysis/create-buffers.htm> .
 
-cns:N6efadd23571545678f63d5feaf268cc7 a geokur:Data ;
+cns:N21b8b74203b64ef099c0b8655425f8f3 a geokur:Data ;
     rdfs:label "dissolve Output" ;
-    prov:wasDerivedFrom cns:N522ea54198d74b34b7ef909b2d88201d ;
-    prov:wasGeneratedBy cns:N27cb2bdf95c84216afe367b5600eff74 .
+    prov:wasDerivedFrom cns:N7f05adb80d1f49448cb07abd7b55e645 ;
+    prov:wasGeneratedBy cns:Nb4cb4edccb6543fdbc9fa1779daf109e .
 
 geokur:Process rdfs:subClassOf prov:Activity .
 
