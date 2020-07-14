@@ -18,12 +18,6 @@ class ProvGraph(Graph):
         self.add((GEOKUR.Process, RDFS.subClassOf, PROV.Activity))
         self.add((GEOKUR.SubProcess, RDFS.subClassOf, PROV.Activity))
         self.add((GEOKUR.Data, RDFS.subClassOf, PROV.Entity))
-        self.add((GEOKUR.hasTag, RDF.type, RDF.Property))        
-        self.add((GEOKUR.hasTag, RDFS.domain, GEOKUR.Process))
-        self.add((GEOKUR.hasRelativeImportance, RDF.type, RDF.Property))
-        self.add((GEOKUR.hasRelativeImportance, RDFS.domain, GEOKUR.Process))
-        self.add((GEOKUR.hasRelativeImportance, RDFS.domain, GEOKUR.SubProcess))
-        self.add((GEOKUR.hasSubProcess, RDF.type, RDF.Property))
         self.add((GEOKUR.isInstanceOf, RDF.type, RDF.Property))        
         self.add((GEOKUR.isInstanceOf, RDFS.domain, GEOKUR.Process))
         self.bind("dc", DC)
@@ -83,4 +77,13 @@ class ProvGraph(Graph):
             for agent in agents:
                 self.add((process, PROV.wasAssociatedWith, agent))
     
-    
+    def infereWasInformedByLinks(self):
+        qRes = self.query(
+            """SELECT ?p ?pp
+            WHERE {
+                ?p prov:used ?data .
+                ?data prov:wasGeneratedBy ?pp .
+            }"""
+        )
+        for row in qRes:
+            self.add((row[0], PROV.wasInformedBy, row[1]))
