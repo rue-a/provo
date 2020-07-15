@@ -1,0 +1,90 @@
+@prefix cns: <https://gnatcatcher.org/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+cns:OutputPotentialHabitat a prov:Entity ;
+    prov:wasDerivedFrom cns:singlepartOutput ;
+    prov:wasGeneratedBy cns:Select .
+
+cns:Buffer a prov:Activity ;
+    rdfs:label "ArcGIS Buffer" ;
+    rdfs:comment "20 m buffer arround major roads" ;
+    prov:endedAtTime "2020-06-06T12:04:30"^^xsd:datetime ;
+    prov:startedAtTime "2020-06-06T12:00:00"^^xsd:datetime ;
+    prov:used cns:MajorRoads ;
+    prov:wasAssociatedWith cns:Tom .
+
+cns:ClimateZones a prov:Entity .
+
+cns:ElevationsLessThan250m a prov:Entity .
+
+cns:Erase a prov:Activity ;
+    prov:used cns:RoadsBuffer,
+        cns:SuitableVegetation ;
+    prov:wasInformedBy cns:Buffer,
+        cns:Select .
+
+cns:InputVegetation a prov:Entity .
+
+cns:Intersect a prov:Activity ;
+    prov:used cns:ClimateZones,
+        cns:ElevationsLessThan250m,
+        cns:SlopesLessThan40Percent,
+        cns:SuitableVegetationMinusRoads ;
+    prov:wasInformedBy cns:Erase .
+
+cns:MajorRoads a prov:Entity ;
+    rdfs:label "Major Roads" ;
+    rdfs:comment "major roads in the studies area" ;
+    prov:wasAttributedTo cns:Tom .
+
+cns:RoadsBuffer a prov:Entity ;
+    rdfs:label "Buffered Roads" ;
+    prov:wasAttributedTo cns:Tom ;
+    prov:wasDerivedFrom cns:MajorRoads ;
+    prov:wasGeneratedBy cns:Buffer .
+
+cns:SlopesLessThan40Percent a prov:Entity .
+
+cns:SuitableVegetation a prov:Entity ;
+    prov:wasDerivedFrom cns:InputVegetation ;
+    prov:wasGeneratedBy cns:Select .
+
+cns:SuitableVegetationMinusRoads a prov:Entity ;
+    prov:wasDerivedFrom cns:RoadsBuffer,
+        cns:SuitableVegetation ;
+    prov:wasGeneratedBy cns:Erase .
+
+cns:dissolve a prov:Activity ;
+    prov:used cns:intersectOutput ;
+    prov:wasInformedBy cns:Intersect .
+
+cns:dissolveOutput a prov:Entity ;
+    prov:wasDerivedFrom cns:intersectOutput ;
+    prov:wasGeneratedBy cns:dissolve .
+
+cns:intersectOutput a prov:Entity ;
+    prov:wasDerivedFrom cns:ClimateZones,
+        cns:ElevationsLessThan250m,
+        cns:SlopesLessThan40Percent,
+        cns:SuitableVegetationMinusRoads ;
+    prov:wasGeneratedBy cns:Intersect .
+
+cns:multipartToSinglepart a prov:Activity ;
+    prov:used cns:dissolveOutput ;
+    prov:wasInformedBy cns:dissolve .
+
+cns:singlepartOutput a prov:Entity ;
+    prov:wasDerivedFrom cns:dissolveOutput ;
+    prov:wasGeneratedBy cns:multipartToSinglepart .
+
+cns:Select a prov:Activity ;
+    prov:used cns:InputVegetation,
+        cns:singlepartOutput ;
+    prov:wasInformedBy cns:multipartToSinglepart .
+
+cns:Tom a prov:Agent ;
+    rdfs:label "Tom G." ;
+    rdfs:comment "Everyone knows Tom" .
+
