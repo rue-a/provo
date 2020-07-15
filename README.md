@@ -12,4 +12,4 @@ The package implements the PROV-O (https://www.w3.org/TR/prov-o/#starting-points
 
 ## Functionality
 
-The folder _examples_ provides an example document that features the serialization a an ArcGIS Workflow into a provenance graph. The folder _out_ contains this graph. The tutorial containing the example workflwo can be found under: http://webhelp.esri.com/arcgisdesktop/9.3/pdf/Geoprocessing_in_ArcGIS_Tutorial.pdf, p. 36ff.
+The folder _examples_ provides an example document that features the serialization of an ArcGIS Workflow into a provenance graph. The folder _out_ contains this graph. The tutorial containing the example workflow can be found under: http://webhelp.esri.com/arcgisdesktop/9.3/pdf/Geoprocessing_in_ArcGIS_Tutorial.pdf, p. 36ff.
