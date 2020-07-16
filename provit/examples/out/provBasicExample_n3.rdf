@@ -1,0 +1,19 @@
+@prefix cns: <https://provBasicExample.org/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+cns:outputEntity a prov:Entity ;
+    prov:wasAttributedTo cns:agent ;
+    prov:wasDerivedFrom cns:inputEntity ;
+    prov:wasGeneratedBy cns:activity .
+
+cns:activity a prov:Activity ;
+    prov:used cns:inputEntity ;
+    prov:wasAssociatedWith cns:agent .
+
+cns:agent a prov:Agent .
+
+cns:inputEntity a prov:Entity ;
+    rdfs:label "Input Entity" ;
+    rdfs:comment "This is the first entity" .
+

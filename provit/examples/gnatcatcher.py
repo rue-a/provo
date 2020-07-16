@@ -1,25 +1,9 @@
-# %%
-from rdflib import Graph
 from datetime import datetime
-
-
-
 from provit import ProvGraph, Activity, Entity, Agent
 # import drawGraph
 
 g = ProvGraph(namespace='https://gnatcatcher.org/')
 
-
-
-# idTest = Activity(g, 'idTest')
-# idTest.label('human readable')
-# idTest.description('long long long description')
-# # , label = 'tihs gg', description = "ddd long decript")
-# idNewTest = Activity(g, 'idnewTest')
-
-# idNewTest.wasInformedBy(idTest)
-# time = datetime(2020,6,7,15,15,3)
-# idNewTest.startedAtTime(time)
 
 majorRoads = Entity(g, 'MajorRoads')
 majorRoads.label('Major Roads')
@@ -98,7 +82,8 @@ g.link(
 )
 
 
-path = 'provit/examples/out/gnatcatcher.rdf'
+path = 'provit/examples/out/gnatcatcher_xml.rdf'
+g.serialize(format = 'xml', destination = path)
+path = 'provit/examples/out/gnatcatcher_n3.rdf'
 g.serialize(format = 'n3', destination = path)
-# # drawGraph.draw(graph = g, path = './graphics/gnatcatcher.png') 
 
