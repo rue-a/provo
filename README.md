@@ -17,7 +17,7 @@ The package implements the PROV-O (https://www.w3.org/TR/prov-o/#starting-points
 
 ## Functionality
 
-It is assumed that the basic unit of a provenance graph is an _Activity_ with a number of _Input Entities_ and _Output Entities_ that is possible controlled by an _Agent_. The following graphic depicts this unit together with the resulting relations:
+It is assumed that the basic unit of a provenance graph is an _Activity_ with a number of _Input Entities_ and _Output Entities_ that is possibly controlled by an _Agent_. The following graphic depicts this unit together with the resulting relations:
 
 <img src="provit/graphics/provBasicExample.png" width="700">
 
@@ -54,15 +54,15 @@ path = 'provit/examples/out/provBasicExample_n3.rdf'
 g.serialize(format = 'n3', destination = path)
 ```
 
-Every object of the type _Agent_, _Activity_ and _Entity_ needs an unique identifier on instantiation. This identifier has to be given as string in brackets on object instantiation. It has to be alphanumeric without empty spaces. Instantiation also requires the graph to which the object should be added ```newEntity = Entity(graph = provGraph, id = 'newEntity')```.
+Every object of the type _Agent_, _Activity_ and _Entity_ needs a unique identifier on instantiation. This identifier has to be given as string on object instantiation. It has to be alphanumeric without empty spaces. Instantiation also requires the graph to which the object should be added ```newEntity = Entity(graph = provGraph, id = 'newEntity')```.
 
 ### A real provenance graph consists of multiple basic units
 
-The folder _examples_ provides an example document that features the serialization of an ArcGIS Workflow into a provenance graph. The folder _out_ contains this graph. The tutorial containing the example workflow can be found under: http://webhelp.esri.com/arcgisdesktop/9.3/pdf/Geoprocessing_in_ArcGIS_Tutorial.pdf, p. 36ff. The following graphic depicts the workflow:
+The folder _examples_ provides an example document that features the serialization of an ArcGIS Workflow into a provenance graph. The folder _out_ contains this graph. The tutorial containing the example workflow can be found under http://webhelp.esri.com/arcgisdesktop/9.3/pdf/Geoprocessing_in_ArcGIS_Tutorial.pdf, p. 36ff. The following graphic depicts the workflow:
 
 <img src="provit/graphics/gnatchi.png">
 
-The manuel assignment of every required relation in the graph (arrows) can become time consuming and is error prone. The class ```ProvGraph``` provides a utility method called ```link``` that does that. The following example is for the "Intersect"-Activity in the graph above:
+The manuel assignment of every required relation in the graph (arrows) can become time consuming and is error prone. The class ```ProvGraph``` provides a utility method called ```link``` that simplifies this task. The following example is for the "Intersect"-Activity in the graph above:
 
 ```python
 elev = Entity(g, 'ElevationsLessThan250m')
@@ -78,7 +78,7 @@ g.link(
 )
 ```
 
-Every parameter of the link method accepts lists of according PROV-O objects as well as single objects. Also, every time the link method is called, it checks if there is a resulting ```wasInformedBy``` relation that needs to be added to the graph.
+Every parameter of the link method accepts lists of according PROV-O objects as well as single objects. Also, every time the link method is called, it checks if there is a resulting ```wasInformedBy``` relation that needs to be added to the graph (and adds it if so).
 
 Additionally, every _Activity_ can be assigned a start and end time. The format of this time has to be a python ```datetime``` object: 
 
