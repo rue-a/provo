@@ -1,9 +1,7 @@
 from datetime import datetime
 from provit import ProvGraph, Activity, Entity, Agent
-# import drawGraph
 
 g = ProvGraph(namespace='https://gnatcatcher.org/')
-
 
 majorRoads = Entity(g, 'MajorRoads')
 majorRoads.label('Major Roads')
