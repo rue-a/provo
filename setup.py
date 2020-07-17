@@ -1,6 +1,6 @@
 from setuptools import setup, find_packages
 
-setup(name='provit-rue_a',
+setup(name='provit',
       author = 'Arne Rümmler',
       version='0.1',
       description = 'Construct provenance graphs according to PROV-O',
