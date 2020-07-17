@@ -1,16 +1,15 @@
-from setuptools import setup
+from setuptools import setup, find_packages
 
-setup(name='provit',
+setup(name='provit-rue_a',
       author = 'Arne Rümmler',
       version='0.1',
-      zip_safe=True)
+      description = 'Construct provenance graphs according to PROV-O',
+      url='https://github.com/GeoinformationSystems/ProvIt',
+      packages=setuptools.find_packages(),
+      classifiers=[
+        "Programming Language :: Python :: 3",
+        "Operating System :: OS Independent",
+      #   "License :: OSI Approved :: GNU GPLv3"
+      ],
+)
 
-# setup(name='funniest',
-#       version='0.1',
-#       description='The funniest joke in the world',
-#       url='http://github.com/storborg/funniest',
-#       author='Flying Circus',
-#       author_email='flyingcircus@example.com',
-#       license='MIT',
-#       packages=['funniest'],
-#       zip_safe=False)
