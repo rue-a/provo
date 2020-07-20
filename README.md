@@ -75,7 +75,7 @@ intersectOut = Entity(g, 'intersectOutput')
 g.link(
     inputs = [elev, slopes, climate, suitMinusRoads],
     process = intersect,
-    outputs = intersectOut
+    outputs = intersectOut,
     agents = None
 )
 ```
