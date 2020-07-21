@@ -9,7 +9,7 @@ majorRoads.description('major roads in the studies area')
 
 buffer = Activity(g, 'Buffer')
 buffer.label('ArcGIS Buffer')
-buffer.description('20 m buffer arround major roads')
+buffer.description('20 m buffer around major roads')
 buffer.startedAtTime(datetime(2020, 6, 6, 12, 0, 0))
 buffer.endedAtTime(datetime(2020, 6, 6, 12, 4, 30))
 
