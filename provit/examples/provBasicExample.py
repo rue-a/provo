@@ -28,5 +28,5 @@ outputEntity.wasDerivedFrom(inputEntity)
 
 '''finally serialize the graph'''
 
-path = 'provit/examples/out/provBasicExample_n3.rdf'
+path = './examples/out/provBasicExample_n3.rdf'
 g.serialize(format = 'n3', destination = path)

@@ -4,108 +4,108 @@
    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
 >
-  <rdf:Description rdf:about="https://gnatcatcher.org/intersectOutput">
-    <prov:wasGeneratedBy rdf:resource="https://gnatcatcher.org/Intersect"/>
-    <rdf:type rdf:resource="http://www.w3.org/ns/prov#Entity"/>
-    <prov:wasDerivedFrom rdf:resource="https://gnatcatcher.org/SlopesLessThan40Percent"/>
-    <prov:wasDerivedFrom rdf:resource="https://gnatcatcher.org/ElevationsLessThan250m"/>
-    <prov:wasDerivedFrom rdf:resource="https://gnatcatcher.org/ClimateZones"/>
-    <prov:wasDerivedFrom rdf:resource="https://gnatcatcher.org/SuitableVegetationMinusRoads"/>
+  <rdf:Description rdf:about="https://gnatcatcher.org/Tom">
+    <rdfs:comment>Everyone knows Tom</rdfs:comment>
+    <rdfs:label>Tom G.</rdfs:label>
+    <rdf:type rdf:resource="http://www.w3.org/ns/prov#Agent"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://gnatcatcher.org/Intersect">
+    <prov:used rdf:resource="https://gnatcatcher.org/SuitableVegetationMinusRoads"/>
+    <prov:used rdf:resource="https://gnatcatcher.org/SlopesLessThan40Percent"/>
+    <prov:used rdf:resource="https://gnatcatcher.org/ElevationsLessThan250m"/>
+    <prov:wasInformedBy rdf:resource="https://gnatcatcher.org/Erase"/>
+    <prov:used rdf:resource="https://gnatcatcher.org/ClimateZones"/>
+    <rdf:type rdf:resource="http://www.w3.org/ns/prov#Activity"/>
   </rdf:Description>
   <rdf:Description rdf:about="https://gnatcatcher.org/RoadsBuffer">
     <rdfs:label>Buffered Roads</rdfs:label>
     <prov:wasAttributedTo rdf:resource="https://gnatcatcher.org/Tom"/>
-    <rdf:type rdf:resource="http://www.w3.org/ns/prov#Entity"/>
     <prov:wasDerivedFrom rdf:resource="https://gnatcatcher.org/MajorRoads"/>
+    <rdf:type rdf:resource="http://www.w3.org/ns/prov#Entity"/>
     <prov:wasGeneratedBy rdf:resource="https://gnatcatcher.org/Buffer"/>
   </rdf:Description>
-  <rdf:Description rdf:about="https://gnatcatcher.org/SuitableVegetation">
-    <prov:wasDerivedFrom rdf:resource="https://gnatcatcher.org/InputVegetation"/>
-    <prov:wasGeneratedBy rdf:resource="https://gnatcatcher.org/Select"/>
-    <rdf:type rdf:resource="http://www.w3.org/ns/prov#Entity"/>
-  </rdf:Description>
   <rdf:Description rdf:about="https://gnatcatcher.org/Buffer">
-    <prov:startedAtTime rdf:datatype="http://www.w3.org/2001/XMLSchema#datetime">2020-06-06T12:00:00</prov:startedAtTime>
-    <prov:wasAssociatedWith rdf:resource="https://gnatcatcher.org/Tom"/>
     <rdfs:comment>20 m buffer arround major roads</rdfs:comment>
-    <rdfs:label>ArcGIS Buffer</rdfs:label>
-    <rdf:type rdf:resource="http://www.w3.org/ns/prov#Activity"/>
+    <prov:startedAtTime rdf:datatype="http://www.w3.org/2001/XMLSchema#datetime">2020-06-06T12:00:00</prov:startedAtTime>
     <prov:used rdf:resource="https://gnatcatcher.org/MajorRoads"/>
     <prov:endedAtTime rdf:datatype="http://www.w3.org/2001/XMLSchema#datetime">2020-06-06T12:04:30</prov:endedAtTime>
+    <rdfs:label>ArcGIS Buffer</rdfs:label>
+    <prov:wasAssociatedWith rdf:resource="https://gnatcatcher.org/Tom"/>
+    <rdf:type rdf:resource="http://www.w3.org/ns/prov#Activity"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://gnatcatcher.org/singlepartOutput">
+    <prov:wasDerivedFrom rdf:resource="https://gnatcatcher.org/dissolveOutput"/>
+    <prov:wasGeneratedBy rdf:resource="https://gnatcatcher.org/multipartToSinglepart"/>
+    <rdf:type rdf:resource="http://www.w3.org/ns/prov#Entity"/>
   </rdf:Description>
   <rdf:Description rdf:about="https://gnatcatcher.org/Select">
     <prov:used rdf:resource="https://gnatcatcher.org/InputVegetation"/>
-    <rdf:type rdf:resource="http://www.w3.org/ns/prov#Activity"/>
     <prov:wasInformedBy rdf:resource="https://gnatcatcher.org/multipartToSinglepart"/>
     <prov:used rdf:resource="https://gnatcatcher.org/singlepartOutput"/>
+    <rdf:type rdf:resource="http://www.w3.org/ns/prov#Activity"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://gnatcatcher.org/dissolve">
+    <rdf:type rdf:resource="http://www.w3.org/ns/prov#Activity"/>
+    <prov:used rdf:resource="https://gnatcatcher.org/intersectOutput"/>
+    <prov:wasInformedBy rdf:resource="https://gnatcatcher.org/Intersect"/>
   </rdf:Description>
   <rdf:Description rdf:about="https://gnatcatcher.org/MajorRoads">
-    <rdf:type rdf:resource="http://www.w3.org/ns/prov#Entity"/>
+    <rdfs:label>Major Roads</rdfs:label>
     <rdfs:comment>major roads in the studies area</rdfs:comment>
     <prov:wasAttributedTo rdf:resource="https://gnatcatcher.org/Tom"/>
-    <rdfs:label>Major Roads</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="https://gnatcatcher.org/Erase">
-    <prov:used rdf:resource="https://gnatcatcher.org/RoadsBuffer"/>
-    <prov:wasInformedBy rdf:resource="https://gnatcatcher.org/Buffer"/>
-    <prov:wasInformedBy rdf:resource="https://gnatcatcher.org/Select"/>
-    <rdf:type rdf:resource="http://www.w3.org/ns/prov#Activity"/>
-    <prov:used rdf:resource="https://gnatcatcher.org/SuitableVegetation"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="https://gnatcatcher.org/Intersect">
-    <prov:used rdf:resource="https://gnatcatcher.org/SlopesLessThan40Percent"/>
-    <prov:used rdf:resource="https://gnatcatcher.org/ElevationsLessThan250m"/>
-    <rdf:type rdf:resource="http://www.w3.org/ns/prov#Activity"/>
-    <prov:used rdf:resource="https://gnatcatcher.org/ClimateZones"/>
-    <prov:used rdf:resource="https://gnatcatcher.org/SuitableVegetationMinusRoads"/>
-    <prov:wasInformedBy rdf:resource="https://gnatcatcher.org/Erase"/>
+    <rdf:type rdf:resource="http://www.w3.org/ns/prov#Entity"/>
   </rdf:Description>
   <rdf:Description rdf:about="https://gnatcatcher.org/dissolveOutput">
-    <rdf:type rdf:resource="http://www.w3.org/ns/prov#Entity"/>
-    <prov:wasDerivedFrom rdf:resource="https://gnatcatcher.org/intersectOutput"/>
     <prov:wasGeneratedBy rdf:resource="https://gnatcatcher.org/dissolve"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="https://gnatcatcher.org/InputVegetation">
+    <prov:wasDerivedFrom rdf:resource="https://gnatcatcher.org/intersectOutput"/>
     <rdf:type rdf:resource="http://www.w3.org/ns/prov#Entity"/>
   </rdf:Description>
-  <rdf:Description rdf:about="https://gnatcatcher.org/SuitableVegetationMinusRoads">
-    <prov:wasDerivedFrom rdf:resource="https://gnatcatcher.org/RoadsBuffer"/>
-    <prov:wasDerivedFrom rdf:resource="https://gnatcatcher.org/SuitableVegetation"/>
+  <rdf:Description rdf:about="https://gnatcatcher.org/SuitableVegetation">
+    <prov:wasGeneratedBy rdf:resource="https://gnatcatcher.org/Select"/>
     <rdf:type rdf:resource="http://www.w3.org/ns/prov#Entity"/>
-    <prov:wasGeneratedBy rdf:resource="https://gnatcatcher.org/Erase"/>
+    <prov:wasDerivedFrom rdf:resource="https://gnatcatcher.org/InputVegetation"/>
   </rdf:Description>
-  <rdf:Description rdf:about="https://gnatcatcher.org/multipartToSinglepart">
+  <rdf:Description rdf:about="https://gnatcatcher.org/Erase">
+    <prov:used rdf:resource="https://gnatcatcher.org/SuitableVegetation"/>
+    <prov:wasInformedBy rdf:resource="https://gnatcatcher.org/Buffer"/>
+    <prov:used rdf:resource="https://gnatcatcher.org/RoadsBuffer"/>
     <rdf:type rdf:resource="http://www.w3.org/ns/prov#Activity"/>
-    <prov:used rdf:resource="https://gnatcatcher.org/dissolveOutput"/>
-    <prov:wasInformedBy rdf:resource="https://gnatcatcher.org/dissolve"/>
+    <prov:wasInformedBy rdf:resource="https://gnatcatcher.org/Select"/>
   </rdf:Description>
   <rdf:Description rdf:about="https://gnatcatcher.org/OutputPotentialHabitat">
     <rdf:type rdf:resource="http://www.w3.org/ns/prov#Entity"/>
     <prov:wasDerivedFrom rdf:resource="https://gnatcatcher.org/singlepartOutput"/>
     <prov:wasGeneratedBy rdf:resource="https://gnatcatcher.org/Select"/>
   </rdf:Description>
-  <rdf:Description rdf:about="https://gnatcatcher.org/singlepartOutput">
-    <prov:wasGeneratedBy rdf:resource="https://gnatcatcher.org/multipartToSinglepart"/>
-    <rdf:type rdf:resource="http://www.w3.org/ns/prov#Entity"/>
-    <prov:wasDerivedFrom rdf:resource="https://gnatcatcher.org/dissolveOutput"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="https://gnatcatcher.org/dissolve">
-    <prov:wasInformedBy rdf:resource="https://gnatcatcher.org/Intersect"/>
-    <prov:used rdf:resource="https://gnatcatcher.org/intersectOutput"/>
-    <rdf:type rdf:resource="http://www.w3.org/ns/prov#Activity"/>
-  </rdf:Description>
   <rdf:Description rdf:about="https://gnatcatcher.org/ElevationsLessThan250m">
     <rdf:type rdf:resource="http://www.w3.org/ns/prov#Entity"/>
   </rdf:Description>
-  <rdf:Description rdf:about="https://gnatcatcher.org/Tom">
-    <rdfs:label>Tom G.</rdfs:label>
-    <rdfs:comment>Everyone knows Tom</rdfs:comment>
-    <rdf:type rdf:resource="http://www.w3.org/ns/prov#Agent"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="https://gnatcatcher.org/ClimateZones">
+  <rdf:Description rdf:about="https://gnatcatcher.org/intersectOutput">
+    <prov:wasDerivedFrom rdf:resource="https://gnatcatcher.org/ClimateZones"/>
+    <prov:wasGeneratedBy rdf:resource="https://gnatcatcher.org/Intersect"/>
+    <prov:wasDerivedFrom rdf:resource="https://gnatcatcher.org/SlopesLessThan40Percent"/>
+    <prov:wasDerivedFrom rdf:resource="https://gnatcatcher.org/ElevationsLessThan250m"/>
     <rdf:type rdf:resource="http://www.w3.org/ns/prov#Entity"/>
+    <prov:wasDerivedFrom rdf:resource="https://gnatcatcher.org/SuitableVegetationMinusRoads"/>
   </rdf:Description>
   <rdf:Description rdf:about="https://gnatcatcher.org/SlopesLessThan40Percent">
+    <rdf:type rdf:resource="http://www.w3.org/ns/prov#Entity"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://gnatcatcher.org/multipartToSinglepart">
+    <rdf:type rdf:resource="http://www.w3.org/ns/prov#Activity"/>
+    <prov:used rdf:resource="https://gnatcatcher.org/dissolveOutput"/>
+    <prov:wasInformedBy rdf:resource="https://gnatcatcher.org/dissolve"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://gnatcatcher.org/SuitableVegetationMinusRoads">
+    <prov:wasDerivedFrom rdf:resource="https://gnatcatcher.org/SuitableVegetation"/>
+    <rdf:type rdf:resource="http://www.w3.org/ns/prov#Entity"/>
+    <prov:wasGeneratedBy rdf:resource="https://gnatcatcher.org/Erase"/>
+    <prov:wasDerivedFrom rdf:resource="https://gnatcatcher.org/RoadsBuffer"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://gnatcatcher.org/InputVegetation">
+    <rdf:type rdf:resource="http://www.w3.org/ns/prov#Entity"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://gnatcatcher.org/ClimateZones">
     <rdf:type rdf:resource="http://www.w3.org/ns/prov#Entity"/>
   </rdf:Description>
 </rdf:RDF>
