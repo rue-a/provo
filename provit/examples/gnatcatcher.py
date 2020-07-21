@@ -80,8 +80,8 @@ g.link(
 )
 
 
-path = 'provit/examples/out/gnatcatcher_xml.rdf'
+path = './examples/out/gnatcatcher_xml.rdf'
 g.serialize(format = 'xml', destination = path)
-path = 'provit/examples/out/gnatcatcher_n3.rdf'
+path = './examples/out/gnatcatcher_n3.rdf'
 g.serialize(format = 'n3', destination = path)
 

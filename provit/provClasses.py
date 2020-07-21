@@ -38,7 +38,6 @@ class Node():
         Parameters
         ----------
         label: str
-            human readable label
         """
         self.graph.add((self.id, RDFS.label, Literal(label)))
 
@@ -48,14 +47,12 @@ class Node():
 
         Parameters
         ----------
-        description: str
-            detailed description of the node        
+        description: str    
         """
         self.graph.add((self.id, RDFS.comment, Literal(description)))
 
     def getId(self):
-        """ returns the RDF-ID of the node.
-
+        """ 
         Returns
         -------
         self.id: rdflib.URIRef
@@ -66,8 +63,9 @@ class Node():
 
 class Activity(Node):
     """ Class to instantiate a PROV-O Activity object. 
+    https://www.w3.org/TR/prov-o/#Activity
     The methods reflect the properties of an Activity.
-
+    
     Parameters
     ----------
     graph: ProvGraph
@@ -150,6 +148,7 @@ class Activity(Node):
 
 class Entity(Node):
     """ Class to instantiate a PROV-O Entity object. 
+    https://www.w3.org/TR/prov-o/#Entity
     The methods reflect the properties of an Entity.
 
     Parameters
@@ -206,6 +205,7 @@ class Entity(Node):
     
 class Agent(Node):
     """ Class to instantiate a PROV-O Agent object. 
+    https://www.w3.org/TR/prov-o/#Agent
     The methods reflect the properties of an Agent.
 
     Parameters

@@ -9,8 +9,8 @@
 @status Prototype
 '''
 
-from rdflib import Graph, Literal, BNode, URIRef, Namespace
-from rdflib.namespace import DC, FOAF, RDF, RDFS
+from rdflib import *
+from rdflib.namespace import *
 from rdflib.plugins.sparql import prepareQuery
 
 
@@ -26,13 +26,15 @@ class ProvGraph(Graph):
     """
     CNS = Namespace("https://customNamespace.com/")
     def __init__(self, store='default', namespace = None, identifier=None, namespace_manager=None):
-        """ constructor of ProvGraph
-
+        """ 
         Parameters
         ----------
         namespace: str, OPTIONAL
             e.g.: https://myprovenancegraphsnodes.org/"
             defaults to: "https://customNamespace.com/"
+            In the RDF File the shorthand for the namespace will always be 'CNS'. Every
+            Entity, Activity and Agent that is created with an instance of this class is
+            assigned this namespace.
         """
         
         super().__init__(store=store, identifier=identifier, namespace_manager=namespace_manager)
@@ -45,14 +47,7 @@ class ProvGraph(Graph):
         self.bind("prov", PROV)
         self.bind("cns", self.CNS)
 
-    def getCNS(self):
-        """ returns the custom namespace
-
-        Returns
-        -------
-        self.CNS: rdflib.Namespace
-        """
-        return self.CNS
+    def getCNS(self): return self.CNS
 
     def link(self, inputs = None, process = None, outputs = None, agents = None):
         """ Helper utility to construct all possible properties according to 
@@ -71,6 +66,8 @@ class ProvGraph(Graph):
         agents: Agents / List of Agent 
             Agents that the Activity is associated with.
         """
+
+        # convert every singular input to a list
         if inputs:
             if not isinstance(inputs, list):
                 inputs = [inputs]
@@ -79,8 +76,9 @@ class ProvGraph(Graph):
                 outputs = [outputs]
         if agents:
             if not isinstance(agents,list):
-                agents = [agents]  
+                agents = [agents]
 
+        # construct PROV-O properties
         if (inputs and process):
             for entity in inputs:
                 process.used(entity)
@@ -102,6 +100,8 @@ class ProvGraph(Graph):
         if (agents and process):
             for agent in agents:
                 process.wasAssociatedWith(agent)
+
+        # construct was informed links
         qRes = self.query(
             """SELECT ?p ?pp
             WHERE {
