@@ -1,0 +1,596 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<prov:document xmlns:prov="http://www.w3.org/ns/prov#" xmlns="http://example.org/" xmlns:graph="https://jgraph.github.io/mxgraph/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <prov:entity xmlns="https://colabis.de/" prov:id="Land_Use_Data">
+    <prov:type xsi:type="xsd:QName">Land_Use_Data</prov:type>
+    <graph:information graph:id="7">
+      <mxCell style="dataDMP" parent="1" vertex="1">
+        <mxGeometry x="740" y="-10" width="170" height="40" as="geometry" />
+      </mxCell>
+    </graph:information>
+    <graph:metadata abstract="land use data by the city of Dresden and surrounding" keywords="land use, Dresden" />
+  </prov:entity>
+  <prov:activity xmlns="https://colabis.de/" prov:id="Road_Pollution_Classification">
+    <graph:information graph:id="8">
+      <mxCell style="processDMP" parent="1" vertex="1">
+        <mxGeometry x="960" y="-110" width="170" height="40" as="geometry" />
+      </mxCell>
+    </graph:information>
+    <graph:metadata short_description="classifies roads based on land use, traffic data and street topology" />
+  </prov:activity>
+  <prov:activity xmlns="https://colabis.de/" prov:id="Identify_Measuring_Points">
+    <graph:information graph:id="9">
+      <mxCell style="processDMP" parent="1" vertex="1">
+        <mxGeometry x="960" y="46" width="160" height="40" as="geometry" />
+      </mxCell>
+    </graph:information>
+    <graph:metadata short_description="identifies measuring points for a sampling campaign based on a classification map" />
+  </prov:activity>
+  <prov:entity xmlns="https://colabis.de/" prov:id="Traffic_Data">
+    <prov:type xsi:type="xsd:QName">Traffic_Data</prov:type>
+    <graph:information graph:id="10">
+      <mxCell style="dataDMP" parent="1" vertex="1">
+        <mxGeometry x="740" y="-110" width="170" height="40" as="geometry" />
+      </mxCell>
+    </graph:information>
+    <graph:metadata abstract="traffic data by the city of Dresden" keywords="traffic, Dresden" />
+  </prov:entity>
+  <prov:entity xmlns="https://colabis.de/" prov:id="Street_Topology_Data">
+    <prov:type xsi:type="xsd:QName">Street_Topology_Data</prov:type>
+    <graph:information graph:id="11">
+      <mxCell style="dataDMP" parent="1" vertex="1">
+        <mxGeometry x="740" y="41" width="170" height="40" as="geometry" />
+      </mxCell>
+    </graph:information>
+    <graph:metadata abstract="street topology data by the city of Dresden" keywords="street, topology, Dresden" />
+  </prov:entity>
+  <prov:entity xmlns="https://colabis.de/" prov:id="Traffic_Detector_Data">
+    <prov:type xsi:type="xsd:QName">Traffic_Detector_Data</prov:type>
+    <graph:information graph:id="12">
+      <mxCell style="dataDMP" parent="1" vertex="1">
+        <mxGeometry x="740" y="-60" width="170" height="40" as="geometry" />
+      </mxCell>
+    </graph:information>
+    <graph:metadata abstract="traffic detector data by the city of Dresden" keywords="traffic, detectors, Dresden" />
+  </prov:entity>
+  <prov:entity xmlns="https://colabis.de/" prov:id="Classification_Map">
+    <prov:type xsi:type="xsd:QName">Classification_Map</prov:type>
+    <graph:information graph:id="13">
+      <mxCell style="dataDMP" parent="1" vertex="1">
+        <mxGeometry x="965" y="-30" width="155" height="40" as="geometry" />
+      </mxCell>
+    </graph:information>
+    <graph:metadata abstract="Classification map of the city of Dresden" keywords="classification, map, pollution, detection, Dresden" />
+  </prov:entity>
+  <prov:entity xmlns="https://colabis.de/" prov:id="Measuring_Points">
+    <prov:type xsi:type="xsd:QName">Measuring_Points</prov:type>
+    <graph:information graph:id="14">
+      <mxCell style="dataDMP" parent="1" vertex="1">
+        <mxGeometry x="965" y="121" width="155" height="40" as="geometry" />
+      </mxCell>
+    </graph:information>
+    <graph:metadata abstract="Measuring points for the sampling campaign of the city of Dresden" keywords="classification, measuring, sampling, Dresden" />
+  </prov:entity>
+  <prov:organization xmlns="https://colabis.de/" prov:id="TUD-SWW">
+    <graph:information graph:id="17">
+      <mxCell style="actorDMP" parent="1" vertex="1">
+        <mxGeometry x="1010" y="-219.56001912960306" width="60" height="50" as="geometry" />
+      </mxCell>
+    </graph:information>
+    <graph:metadata name="Thomas Käseberg" institution="Chair of Urban Water Management" mail-address="thomas.kaeseberg@tu-dresden.de" />
+  </prov:organization>
+  <prov:organization xmlns="https://colabis.de/" prov:id="TUD-VLP">
+    <graph:information graph:id="18">
+      <mxCell style="actorDMP" parent="1" vertex="1">
+        <mxGeometry x="630" y="-115.41176470588238" width="60" height="50" as="geometry" />
+      </mxCell>
+    </graph:information>
+    <graph:metadata name="Sven Fröhlich" institution="Chair of Traffic Control and Process Automation" mail-address="sven.froehlich@tu-dresden.de" />
+  </prov:organization>
+  <prov:organization xmlns="https://colabis.de/" prov:id="TUD-GI">
+    <graph:information graph:id="19">
+      <mxCell style="actorDMP" parent="1" vertex="1">
+        <mxGeometry x="630" y="36" width="60" height="54" as="geometry" />
+      </mxCell>
+    </graph:information>
+    <graph:metadata name="Stephan Mäs" institution="Chair of Geoinformatics" mail-address="stephan.maes@tu-dresden.de" />
+  </prov:organization>
+  <prov:wasGeneratedBy xmlns="https://colabis.de/">
+    <prov:entity prov:ref="Measuring_Points" />
+    <prov:activity prov:ref="Identify_Measuring_Points" />
+    <graph:information graph:id="21">
+      <mxCell parent="1" source="9" target="14" edge="1">
+        <mxGeometry relative="1" as="geometry">
+          <Array as="points" />
+        </mxGeometry>
+      </mxCell>
+    </graph:information>
+    <graph:metadata />
+  </prov:wasGeneratedBy>
+  <prov:wasGeneratedBy xmlns="https://colabis.de/">
+    <prov:entity prov:ref="Classification_Map" />
+    <prov:activity prov:ref="Road_Pollution_Classification" />
+    <graph:information graph:id="22">
+      <mxCell parent="1" source="8" target="13" edge="1">
+        <mxGeometry relative="1" as="geometry" />
+      </mxCell>
+    </graph:information>
+    <graph:metadata />
+  </prov:wasGeneratedBy>
+  <prov:used xmlns="https://colabis.de/">
+    <prov:activity prov:ref="Road_Pollution_Classification" />
+    <prov:entity prov:ref="Land_Use_Data" />
+    <graph:information graph:id="23">
+      <mxCell parent="1" source="7" target="8" edge="1">
+        <mxGeometry relative="1" as="geometry">
+          <Array as="points">
+            <mxPoint x="940" y="-40" />
+          </Array>
+        </mxGeometry>
+      </mxCell>
+    </graph:information>
+    <graph:metadata />
+  </prov:used>
+  <prov:used xmlns="https://colabis.de/">
+    <prov:activity prov:ref="Road_Pollution_Classification" />
+    <prov:entity prov:ref="Traffic_Data" />
+    <graph:information graph:id="24">
+      <mxCell parent="1" source="10" target="8" edge="1">
+        <mxGeometry relative="1" as="geometry" />
+      </mxCell>
+    </graph:information>
+    <graph:metadata />
+  </prov:used>
+  <prov:used xmlns="https://colabis.de/">
+    <prov:activity prov:ref="Road_Pollution_Classification" />
+    <prov:entity prov:ref="Street_Topology_Data" />
+    <graph:information graph:id="25">
+      <mxCell parent="1" source="11" target="8" edge="1">
+        <mxGeometry relative="1" as="geometry">
+          <Array as="points">
+            <mxPoint x="940" y="-10" />
+          </Array>
+        </mxGeometry>
+      </mxCell>
+    </graph:information>
+    <graph:metadata />
+  </prov:used>
+  <prov:used xmlns="https://colabis.de/">
+    <prov:activity prov:ref="Road_Pollution_Classification" />
+    <prov:entity prov:ref="Traffic_Detector_Data" />
+    <graph:information graph:id="26">
+      <mxCell parent="1" source="12" target="8" edge="1">
+        <mxGeometry relative="1" as="geometry">
+          <Array as="points">
+            <mxPoint x="940" y="-40" />
+          </Array>
+        </mxGeometry>
+      </mxCell>
+    </graph:information>
+    <graph:metadata />
+  </prov:used>
+  <prov:used xmlns="https://colabis.de/">
+    <prov:activity prov:ref="Identify_Measuring_Points" />
+    <prov:entity prov:ref="Classification_Map" />
+    <graph:information graph:id="27">
+      <mxCell parent="1" source="13" target="9" edge="1">
+        <mxGeometry relative="1" as="geometry" />
+      </mxCell>
+    </graph:information>
+    <graph:metadata />
+  </prov:used>
+  <prov:activity xmlns="https://colabis.de/" prov:id="Sampling_Campaign">
+    <graph:information graph:id="35">
+      <mxCell style="processDMP" parent="1" vertex="1">
+        <mxGeometry x="1220" y="-30" width="120" height="40" as="geometry" />
+      </mxCell>
+    </graph:information>
+    <graph:metadata short_description="based on classified measuring points street pollution sampling are recorded and evaluated" />
+  </prov:activity>
+  <prov:entity xmlns="https://colabis.de/" prov:id="Data_File">
+    <prov:type xsi:type="xsd:QName">Data_File</prov:type>
+    <graph:information graph:id="36">
+      <mxCell style="dataDMP" parent="1" vertex="1">
+        <mxGeometry x="1390" y="-30" width="170" height="40" as="geometry" />
+      </mxCell>
+    </graph:information>
+    <graph:metadata abstract="collection of all data of the sampling campaign with quality management and file refinement" keywords="data collection, sampling data, quality" />
+  </prov:entity>
+  <prov:organization xmlns="https://colabis.de/" prov:id="Students">
+    <graph:information graph:id="37">
+      <mxCell style="actorDMP" parent="1" vertex="1">
+        <mxGeometry x="1250" y="-110" width="60" height="40" as="geometry" />
+      </mxCell>
+    </graph:information>
+    <graph:metadata name="N.N." institution="Chair of Urban Water Management" mail-adress="sampling.campaign.sww@tu-dresden.de" />
+  </prov:organization>
+  <prov:activity xmlns="https://colabis.de/" prov:id="File_Refinement_Quality_Management">
+    <graph:information graph:id="39">
+      <mxCell style="processDMP" parent="1" vertex="1">
+        <mxGeometry x="1355" y="-110" width="190" height="40" as="geometry" />
+      </mxCell>
+    </graph:information>
+    <graph:metadata short_description="refines and assures quality for the sampling campaign data" />
+  </prov:activity>
+  <prov:activity xmlns="https://colabis.de/" prov:id="Statistical_Analysis">
+    <graph:information graph:id="40">
+      <mxCell style="processDMP" parent="1" vertex="1">
+        <mxGeometry x="1580" y="-30" width="120" height="40" as="geometry" />
+      </mxCell>
+    </graph:information>
+    <graph:metadata short_description="statistical analysis of the sampling campaign data" />
+  </prov:activity>
+  <prov:activity xmlns="https://colabis.de/" prov:id="Modelling">
+    <graph:information graph:id="41">
+      <mxCell style="processDMP" parent="1" vertex="1">
+        <mxGeometry x="1580" y="26" width="120" height="40" as="geometry" />
+      </mxCell>
+    </graph:information>
+    <graph:metadata short_description="use sampling campaign data as refinement for the modelling of the SWMM model" />
+  </prov:activity>
+  <prov:entity xmlns="https://colabis.de/" prov:id="Time_Series">
+    <prov:type xsi:type="xsd:QName">Time_Series</prov:type>
+    <graph:information graph:id="42">
+      <mxCell style="dataDMP" parent="1" vertex="1">
+        <mxGeometry x="1770" y="-30" width="170" height="40" as="geometry" />
+      </mxCell>
+    </graph:information>
+    <graph:metadata abstract="time series as results of the statistical analysis of the sampling data" keywords="statistical analysis, time series" />
+  </prov:entity>
+  <prov:entity xmlns="https://colabis.de/" prov:id="Sewage_Topology">
+    <prov:type xsi:type="xsd:QName">Sewage_Topology</prov:type>
+    <graph:information graph:id="43">
+      <mxCell style="dataDMP" parent="1" vertex="1">
+        <mxGeometry x="1770" y="26" width="170" height="40" as="geometry" />
+      </mxCell>
+    </graph:information>
+    <graph:metadata abstract="sewage topology data by the city of Dresden" keywords="sewage, topology, Dresden" />
+  </prov:entity>
+  <prov:entity xmlns="https://colabis.de/" prov:id="Rainfall">
+    <prov:type xsi:type="xsd:QName">Rainfall</prov:type>
+    <graph:information graph:id="44">
+      <mxCell style="dataDMP" parent="1" vertex="1">
+        <mxGeometry x="1770" y="140" width="120" height="40" as="geometry" />
+      </mxCell>
+    </graph:information>
+    <graph:metadata abstract="rainfall data by local rain collectors or by german weather service" keywords="rainfall, collectors, weather service, Dresden" />
+  </prov:entity>
+  <prov:entity xmlns="https://colabis.de/" prov:id="Street_Cleaning">
+    <prov:type xsi:type="xsd:QName">Street_Cleaning</prov:type>
+    <graph:information graph:id="45">
+      <mxCell style="dataDMP" parent="1" vertex="1">
+        <mxGeometry x="1770" y="81" width="170" height="40" as="geometry" />
+      </mxCell>
+    </graph:information>
+    <graph:metadata abstract="street cleaning data by the city of Dresden" keywords="street, cleaning, Dresden" />
+  </prov:entity>
+  <prov:entity xmlns="https://colabis.de/" prov:id="SWMM_Model">
+    <prov:type xsi:type="xsd:QName">SWMM_Model</prov:type>
+    <graph:information graph:id="46">
+      <mxCell style="dataDMP" parent="1" vertex="1">
+        <mxGeometry x="1555" y="101" width="170" height="40" as="geometry" />
+      </mxCell>
+    </graph:information>
+    <graph:metadata abstract="street totpology data by the city of Dresden" keywords="SWMM, hydrology, Dresden" />
+  </prov:entity>
+  <prov:activity xmlns="https://colabis.de/" prov:id="Execution">
+    <graph:information graph:id="47">
+      <mxCell style="processDMP" parent="1" vertex="1">
+        <mxGeometry x="1580" y="180" width="120" height="40" as="geometry" />
+      </mxCell>
+    </graph:information>
+    <graph:metadata short_description="run SWMM model" />
+  </prov:activity>
+  <prov:entity xmlns="https://colabis.de/" prov:id="Simulations">
+    <prov:type xsi:type="xsd:QName">Simulations</prov:type>
+    <graph:information graph:id="48">
+      <mxCell style="dataDMP" parent="1" vertex="1">
+        <mxGeometry x="1390" y="180" width="120" height="40" as="geometry" />
+      </mxCell>
+    </graph:information>
+    <graph:metadata abstract="simulation results of the SWMM model" keywords="simulation, results, SWMM" />
+  </prov:entity>
+  <prov:activity xmlns="https://colabis.de/" prov:id="Ground_Truthing">
+    <graph:information graph:id="49">
+      <mxCell style="processDMP" parent="1" vertex="1">
+        <mxGeometry x="1390" y="101" width="120" height="40" as="geometry" />
+      </mxCell>
+    </graph:information>
+    <graph:metadata short_description="use sampling campaign data to prove simulation results and possibly refine model" />
+  </prov:activity>
+  <prov:used xmlns="https://colabis.de/">
+    <prov:activity prov:ref="Sampling_Campaign" />
+    <prov:entity prov:ref="Measuring_Points" />
+    <graph:information graph:id="50">
+      <mxCell parent="1" source="14" target="35" edge="1">
+        <mxGeometry relative="1" as="geometry">
+          <Array as="points">
+            <mxPoint x="1200" y="150" />
+          </Array>
+        </mxGeometry>
+      </mxCell>
+    </graph:information>
+    <graph:metadata />
+  </prov:used>
+  <prov:wasGeneratedBy xmlns="https://colabis.de/">
+    <prov:entity prov:ref="Data_File" />
+    <prov:activity prov:ref="Sampling_Campaign" />
+    <graph:information graph:id="51">
+      <mxCell parent="1" source="35" target="36" edge="1">
+        <mxGeometry relative="1" as="geometry" />
+      </mxCell>
+    </graph:information>
+    <graph:metadata />
+  </prov:wasGeneratedBy>
+  <prov:used xmlns="https://colabis.de/">
+    <prov:activity prov:ref="File_Refinement_Quality_Management" />
+    <prov:entity prov:ref="Data_File" />
+    <graph:information graph:id="52">
+      <mxCell parent="1" source="36" target="39" edge="1">
+        <mxGeometry relative="1" as="geometry" />
+      </mxCell>
+    </graph:information>
+    <graph:metadata />
+  </prov:used>
+  <prov:wasGeneratedBy xmlns="https://colabis.de/">
+    <prov:entity prov:ref="Data_File" />
+    <prov:activity prov:ref="File_Refinement_Quality_Management" />
+    <graph:information graph:id="53">
+      <mxCell parent="1" source="39" target="36" edge="1">
+        <mxGeometry relative="1" as="geometry" />
+      </mxCell>
+    </graph:information>
+    <graph:metadata />
+  </prov:wasGeneratedBy>
+  <prov:used xmlns="https://colabis.de/">
+    <prov:activity prov:ref="Statistical_Analysis" />
+    <prov:entity prov:ref="Data_File" />
+    <graph:information graph:id="54">
+      <mxCell parent="1" source="36" target="40" edge="1">
+        <mxGeometry relative="1" as="geometry" />
+      </mxCell>
+    </graph:information>
+    <graph:metadata />
+  </prov:used>
+  <prov:used xmlns="https://colabis.de/">
+    <prov:activity prov:ref="Modelling" />
+    <prov:entity prov:ref="Data_File" />
+    <graph:information graph:id="55">
+      <mxCell parent="1" source="36" target="41" edge="1">
+        <mxGeometry relative="1" as="geometry">
+          <Array as="points" />
+        </mxGeometry>
+      </mxCell>
+    </graph:information>
+    <graph:metadata />
+  </prov:used>
+  <prov:wasGeneratedBy xmlns="https://colabis.de/">
+    <prov:entity prov:ref="Time_Series" />
+    <prov:activity prov:ref="Statistical_Analysis" />
+    <graph:information graph:id="57">
+      <mxCell parent="1" source="40" target="42" edge="1">
+        <mxGeometry relative="1" as="geometry" />
+      </mxCell>
+    </graph:information>
+    <graph:metadata />
+  </prov:wasGeneratedBy>
+  <prov:used xmlns="https://colabis.de/">
+    <prov:activity prov:ref="Modelling" />
+    <prov:entity prov:ref="Time_Series" />
+    <graph:information graph:id="58">
+      <mxCell parent="1" source="42" target="41" edge="1">
+        <mxGeometry relative="1" as="geometry" />
+      </mxCell>
+    </graph:information>
+    <graph:metadata />
+  </prov:used>
+  <prov:used xmlns="https://colabis.de/">
+    <prov:activity prov:ref="Modelling" />
+    <prov:entity prov:ref="Sewage_Topology" />
+    <graph:information graph:id="59">
+      <mxCell parent="1" source="43" target="41" edge="1">
+        <mxGeometry relative="1" as="geometry" />
+      </mxCell>
+    </graph:information>
+    <graph:metadata />
+  </prov:used>
+  <prov:used xmlns="https://colabis.de/">
+    <prov:activity prov:ref="Modelling" />
+    <prov:entity prov:ref="Rainfall" />
+    <graph:information graph:id="60">
+      <mxCell parent="1" source="44" target="41" edge="1">
+        <mxGeometry relative="1" as="geometry" />
+      </mxCell>
+    </graph:information>
+    <graph:metadata />
+  </prov:used>
+  <prov:used xmlns="https://colabis.de/">
+    <prov:activity prov:ref="Modelling" />
+    <prov:entity prov:ref="Street_Cleaning" />
+    <graph:information graph:id="61">
+      <mxCell parent="1" source="45" target="41" edge="1">
+        <mxGeometry relative="1" as="geometry" />
+      </mxCell>
+    </graph:information>
+    <graph:metadata />
+  </prov:used>
+  <prov:wasGeneratedBy xmlns="https://colabis.de/">
+    <prov:entity prov:ref="SWMM_Model" />
+    <prov:activity prov:ref="Modelling" />
+    <graph:information graph:id="62">
+      <mxCell parent="1" source="41" target="46" edge="1">
+        <mxGeometry relative="1" as="geometry" />
+      </mxCell>
+    </graph:information>
+    <graph:metadata />
+  </prov:wasGeneratedBy>
+  <prov:used xmlns="https://colabis.de/">
+    <prov:activity prov:ref="Execution" />
+    <prov:entity prov:ref="SWMM_Model" />
+    <graph:information graph:id="63">
+      <mxCell parent="1" source="46" target="47" edge="1">
+        <mxGeometry relative="1" as="geometry" />
+      </mxCell>
+    </graph:information>
+    <graph:metadata />
+  </prov:used>
+  <prov:wasGeneratedBy xmlns="https://colabis.de/">
+    <prov:entity prov:ref="Simulations" />
+    <prov:activity prov:ref="Execution" />
+    <graph:information graph:id="64">
+      <mxCell parent="1" source="47" target="48" edge="1">
+        <mxGeometry relative="1" as="geometry" />
+      </mxCell>
+    </graph:information>
+    <graph:metadata />
+  </prov:wasGeneratedBy>
+  <prov:used xmlns="https://colabis.de/">
+    <prov:activity prov:ref="Ground_Truthing" />
+    <prov:entity prov:ref="Simulations" />
+    <graph:information graph:id="65">
+      <mxCell parent="1" source="48" target="49" edge="1">
+        <mxGeometry relative="1" as="geometry" />
+      </mxCell>
+    </graph:information>
+    <graph:metadata />
+  </prov:used>
+  <prov:used xmlns="https://colabis.de/">
+    <prov:activity prov:ref="Ground_Truthing" />
+    <prov:entity prov:ref="Data_File" />
+    <graph:information graph:id="66">
+      <mxCell parent="1" source="36" target="49" edge="1">
+        <mxGeometry relative="1" as="geometry" />
+      </mxCell>
+    </graph:information>
+    <graph:metadata />
+  </prov:used>
+  <prov:wasGeneratedBy xmlns="https://colabis.de/">
+    <prov:entity prov:ref="SWMM_Model" />
+    <prov:activity prov:ref="Ground_Truthing" />
+    <graph:information graph:id="69">
+      <mxCell parent="1" source="49" target="46" edge="1">
+        <mxGeometry relative="1" as="geometry" />
+      </mxCell>
+    </graph:information>
+    <graph:metadata />
+  </prov:wasGeneratedBy>
+  <prov:wasAttributedTo xmlns="https://colabis.de/">
+    <prov:entity prov:ref="Street_Topology_Data" />
+    <prov:agent prov:ref="TUD-GI" />
+    <graph:information graph:id="71">
+      <mxCell style="shape=connector;fontSize=10;align=center;verticalAlign=middle;rounded=1;labelBackgroundColor=white;strokeColor=#727675;strokeWidth=1;edgeStyle=elbowEdgeStyle;endArrow=openThin;html=1;dashed=1;jettySize=auto;orthogonalLoop=1;startArrow=oval" parent="1" source="19" target="11" edge="1">
+        <mxGeometry relative="1" as="geometry" />
+      </mxCell>
+    </graph:information>
+    <graph:metadata />
+  </prov:wasAttributedTo>
+  <prov:wasAttributedTo xmlns="https://colabis.de/">
+    <prov:entity prov:ref="Traffic_Detector_Data" />
+    <prov:agent prov:ref="TUD-VLP" />
+    <graph:information graph:id="72">
+      <mxCell style="shape=connector;fontSize=10;align=center;verticalAlign=middle;rounded=1;labelBackgroundColor=white;strokeColor=#727675;strokeWidth=1;edgeStyle=elbowEdgeStyle;endArrow=openThin;html=1;dashed=1;jettySize=auto;orthogonalLoop=1;startArrow=oval" parent="1" source="18" target="12" edge="1">
+        <mxGeometry relative="1" as="geometry" />
+      </mxCell>
+    </graph:information>
+    <graph:metadata />
+  </prov:wasAttributedTo>
+  <prov:wasAttributedTo xmlns="https://colabis.de/">
+    <prov:entity prov:ref="Traffic_Data" />
+    <prov:agent prov:ref="TUD-VLP" />
+    <graph:information graph:id="73">
+      <mxCell style="shape=connector;fontSize=10;align=center;verticalAlign=middle;rounded=1;labelBackgroundColor=white;strokeColor=#727675;strokeWidth=1;edgeStyle=elbowEdgeStyle;endArrow=openThin;html=1;dashed=1;jettySize=auto;orthogonalLoop=1;startArrow=oval" parent="1" source="18" target="10" edge="1">
+        <mxGeometry relative="1" as="geometry" />
+      </mxCell>
+    </graph:information>
+    <graph:metadata />
+  </prov:wasAttributedTo>
+  <prov:wasAssociatedWith xmlns="https://colabis.de/">
+    <prov:activity prov:ref="Sampling_Campaign" />
+    <prov:agent prov:ref="Students" />
+    <graph:information graph:id="74">
+      <mxCell style="shape=connector;fontSize=10;align=center;verticalAlign=middle;rounded=1;labelBackgroundColor=white;strokeColor=#727675;strokeWidth=1;edgeStyle=elbowEdgeStyle;endArrow=openThin;html=1;dashed=1;jettySize=auto;orthogonalLoop=1;startArrow=oval" parent="1" source="37" target="35" edge="1">
+        <mxGeometry relative="1" as="geometry" />
+      </mxCell>
+    </graph:information>
+    <graph:metadata />
+  </prov:wasAssociatedWith>
+  <prov:wasAssociatedWith xmlns="https://colabis.de/">
+    <prov:activity prov:ref="Road_Pollution_Classification" />
+    <prov:agent prov:ref="TUD-SWW" />
+    <graph:information graph:id="75">
+      <mxCell style="shape=connector;fontSize=10;align=center;verticalAlign=middle;rounded=1;labelBackgroundColor=white;strokeColor=#727675;strokeWidth=1;edgeStyle=elbowEdgeStyle;endArrow=openThin;html=1;dashed=1;jettySize=auto;orthogonalLoop=1;startArrow=oval" parent="1" source="17" target="8" edge="1">
+        <mxGeometry relative="1" as="geometry" />
+      </mxCell>
+    </graph:information>
+    <graph:metadata />
+  </prov:wasAssociatedWith>
+  <prov:wasAssociatedWith xmlns="https://colabis.de/">
+    <prov:activity prov:ref="Statistical_Analysis" />
+    <prov:agent prov:ref="TUD-SWW" />
+    <graph:information graph:id="76">
+      <mxCell style="shape=connector;fontSize=10;align=center;verticalAlign=middle;rounded=1;labelBackgroundColor=white;strokeColor=#727675;strokeWidth=1;edgeStyle=elbowEdgeStyle;endArrow=openThin;html=1;dashed=1;jettySize=auto;orthogonalLoop=1;startArrow=oval" parent="1" source="17" target="40" edge="1">
+        <mxGeometry relative="1" as="geometry">
+          <Array as="points">
+            <mxPoint x="1640" y="-90" />
+          </Array>
+        </mxGeometry>
+      </mxCell>
+    </graph:information>
+    <graph:metadata />
+  </prov:wasAssociatedWith>
+  <prov:wasAssociatedWith xmlns="https://colabis.de/">
+    <prov:activity prov:ref="Modelling" />
+    <prov:agent prov:ref="TUD-SWW" />
+    <graph:information graph:id="77">
+      <mxCell style="shape=connector;fontSize=10;align=center;verticalAlign=middle;rounded=1;labelBackgroundColor=white;strokeColor=#727675;strokeWidth=1;edgeStyle=elbowEdgeStyle;endArrow=openThin;html=1;dashed=1;jettySize=auto;orthogonalLoop=1;startArrow=oval" parent="1" source="17" target="41" edge="1">
+        <mxGeometry relative="1" as="geometry">
+          <Array as="points">
+            <mxPoint x="1560" y="-60" />
+          </Array>
+        </mxGeometry>
+      </mxCell>
+    </graph:information>
+    <graph:metadata />
+  </prov:wasAssociatedWith>
+  <prov:wasAttributedTo xmlns="https://colabis.de/">
+    <prov:entity prov:ref="Measuring_Points" />
+    <prov:agent prov:ref="TUD-SWW" />
+    <graph:information graph:id="78">
+      <mxCell style="shape=connector;fontSize=10;align=center;verticalAlign=middle;rounded=1;labelBackgroundColor=white;strokeColor=#727675;strokeWidth=1;edgeStyle=elbowEdgeStyle;endArrow=openThin;html=1;dashed=1;jettySize=auto;orthogonalLoop=1;startArrow=oval" parent="1" source="17" target="14" edge="1">
+        <mxGeometry relative="1" as="geometry">
+          <Array as="points">
+            <mxPoint x="1180" y="-10" />
+          </Array>
+        </mxGeometry>
+      </mxCell>
+    </graph:information>
+    <graph:metadata />
+  </prov:wasAttributedTo>
+  <prov:wasAssociatedWith xmlns="https://colabis.de/">
+    <prov:activity prov:ref="Identify_Measuring_Points" />
+    <prov:agent prov:ref="TUD-SWW" />
+    <graph:information graph:id="79">
+      <mxCell style="shape=connector;fontSize=10;align=center;verticalAlign=middle;rounded=1;labelBackgroundColor=white;strokeColor=#727675;strokeWidth=1;edgeStyle=elbowEdgeStyle;endArrow=openThin;html=1;dashed=1;jettySize=auto;orthogonalLoop=1;startArrow=oval" parent="1" source="17" target="9" edge="1">
+        <mxGeometry relative="1" as="geometry">
+          <Array as="points">
+            <mxPoint x="1160" y="-60" />
+          </Array>
+        </mxGeometry>
+      </mxCell>
+    </graph:information>
+    <graph:metadata />
+  </prov:wasAssociatedWith>
+  <prov:wasAttributedTo xmlns="https://colabis.de/">
+    <prov:entity prov:ref="Classification_Map" />
+    <prov:agent prov:ref="TUD-SWW" />
+    <graph:information graph:id="80">
+      <mxCell style="shape=connector;fontSize=10;align=center;verticalAlign=middle;rounded=1;labelBackgroundColor=white;strokeColor=#727675;strokeWidth=1;edgeStyle=elbowEdgeStyle;endArrow=openThin;html=1;dashed=1;jettySize=auto;orthogonalLoop=1;startArrow=oval" parent="1" source="17" target="13" edge="1">
+        <mxGeometry relative="1" as="geometry">
+          <Array as="points">
+            <mxPoint x="1140" y="-90" />
+          </Array>
+        </mxGeometry>
+      </mxCell>
+    </graph:information>
+    <graph:metadata />
+  </prov:wasAttributedTo>
+</prov:document>
