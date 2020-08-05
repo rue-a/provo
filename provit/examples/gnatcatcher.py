@@ -71,7 +71,7 @@ g.link(
     outputs=singleOut
 )
 
-sel2 = Activity(g, 'Select')
+sel2 = Activity(g, 'Select2')
 final = Entity(g, 'OutputPotentialHabitat')
 g.link(
     inputs=singleOut,
@@ -80,8 +80,8 @@ g.link(
 )
 
 
-path = './examples/out/gnatcatcher_xml.rdf'
-g.serialize(format = 'xml', destination = path)
-path = './examples/out/gnatcatcher_n3.rdf'
-g.serialize(format = 'n3', destination = path)
+# path = '.provit/examples/out/gnatcatcher_xml.rdf'
+# g.serialize(format = 'xml', destination = path)
+path = 'provit/examples/out/gnatcatcher_ttl.rdf'
+g.serialize(format = 'ttl', destination = path)
 
