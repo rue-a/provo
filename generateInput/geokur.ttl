@@ -1,0 +1,240 @@
+@prefix cns: <https://gnatcatcher.org/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+cns:DataLayers a prov:Entity ;
+    prov:wasAttributedTo cns:Carsten,
+        cns:Steffen ;
+    prov:wasDerivedFrom cns:tentativeOutput ;
+    prov:wasGeneratedBy cns:postConsistencyAnalysis .
+
+cns:provenanceLayers a prov:Entity ;
+    prov:wasAttributedTo cns:Carsten,
+        cns:Lars,
+        cns:Steffen,
+        cns:Stephan ;
+    prov:wasDerivedFrom cns:arealDB,
+        cns:standardisedRSData,
+        cns:tentativeOutput ;
+    prov:wasGeneratedBy cns:provenanceDocumentation .
+
+cns:postConsistencyAnalysis a prov:Activity ;
+    prov:used cns:tentativeOutput ;
+    prov:wasAssociatedWith cns:Carsten,
+        cns:Steffen ;
+    prov:wasInformedBy cns:modelling .
+
+cns:provenanceDocumentation a prov:Activity ;
+    prov:used cns:arealDB,
+        cns:standardisedRSData,
+        cns:tentativeOutput ;
+    prov:wasAssociatedWith cns:Carsten,
+        cns:Lars,
+        cns:Steffen,
+        cns:Stephan ;
+    prov:wasInformedBy cns:dataPreparation,
+        cns:modelling,
+        cns:naming,
+        cns:rectifyR .
+
+cns:GeoRegistration a prov:Activity ;
+    prov:used cns:arealDB ;
+    prov:wasAssociatedWith cns:Giuseppe,
+        cns:Ruben,
+        cns:Steffen ;
+    prov:wasInformedBy cns:naming,
+        cns:rectifyR .
+
+cns:censusStats a prov:Entity ;
+    rdfs:comment "content of table: brutto area (C, F), netto area (C), yield (C), production (C), headcount (L), animal units (L)" ;
+    prov:wasAttributedTo cns:Felipe,
+        cns:Giuseppe,
+        cns:Katharina,
+        cns:Liang,
+        cns:Navin,
+        cns:Ruben,
+        cns:Steffen,
+        cns:Steffen_F,
+        cns:XYZ .
+
+cns:geometries a prov:Entity ;
+    rdfs:comment "content of table: spatial extent of admin units" ;
+    prov:wasAttributedTo cns:Felipe,
+        cns:Giuseppe,
+        cns:Katharina,
+        cns:Liang,
+        cns:Navin,
+        cns:Ruben,
+        cns:Steffen,
+        cns:Steffen_F,
+        cns:XYZ .
+
+cns:pointRecords a prov:Entity ;
+    rdfs:comment "content of table: coordinates, land-use type" ;
+    prov:wasAttributedTo cns:Felipe,
+        cns:Giuseppe,
+        cns:Katharina,
+        cns:Liang,
+        cns:Navin,
+        cns:Ruben,
+        cns:Steffen,
+        cns:Steffen_F,
+        cns:XYZ .
+
+cns:qualityDetermination a prov:Activity ;
+    prov:used cns:tentativeOutput ;
+    prov:wasAssociatedWith cns:Carsten,
+        cns:Steffen ;
+    prov:wasInformedBy cns:modelling .
+
+cns:qualityLayers a prov:Entity ;
+    prov:wasAttributedTo cns:Carsten,
+        cns:Daniele,
+        cns:Giuseppe,
+        cns:Katharina,
+        cns:Longzhu,
+        cns:Marius,
+        cns:Peter,
+        cns:Steffen ;
+    prov:wasDerivedFrom cns:tentativeOutput ;
+    prov:wasGeneratedBy cns:qualityDetermination .
+
+cns:rawRSData a prov:Entity ;
+    prov:wasAttributedTo cns:Giuseppe,
+        cns:Steffen .
+
+cns:spatialDB a prov:Entity ;
+    prov:wasAttributedTo cns:Carsten,
+        cns:Daniele,
+        cns:Giuseppe,
+        cns:Katharina,
+        cns:Longzhu,
+        cns:Marius,
+        cns:Peter,
+        cns:Ruben,
+        cns:Steffen ;
+    prov:wasDerivedFrom cns:arealDB ;
+    prov:wasGeneratedBy cns:GeoRegistration .
+
+cns:dataPreparation a prov:Activity ;
+    prov:used cns:rawRSData ;
+    prov:wasAssociatedWith cns:Giuseppe,
+        cns:Steffen .
+
+cns:rectifyR a prov:Activity ;
+    prov:used cns:censusStats,
+        cns:geometries,
+        cns:pointRecords ;
+    prov:wasAssociatedWith cns:Felipe,
+        cns:Giuseppe,
+        cns:Katharina,
+        cns:Liang,
+        cns:Navin,
+        cns:Ruben,
+        cns:Steffen,
+        cns:Steffen_F,
+        cns:XYZ .
+
+cns:arealDB a prov:Entity ;
+    prov:wasAttributedTo cns:Carsten,
+        cns:Felipe,
+        cns:Giuseppe,
+        cns:Katharina,
+        cns:Lars,
+        cns:Liang,
+        cns:Navin,
+        cns:Ruben,
+        cns:Steffen,
+        cns:Steffen_F,
+        cns:Stephan,
+        cns:XYZ ;
+    prov:wasDerivedFrom cns:censusStats,
+        cns:geometries,
+        cns:pointRecords ;
+    prov:wasGeneratedBy cns:naming,
+        cns:rectifyR .
+
+cns:modelling a prov:Activity ;
+    prov:used cns:qualityLayers,
+        cns:spatialDB,
+        cns:standardisedRSData ;
+    prov:wasAssociatedWith cns:Carsten,
+        cns:Daniele,
+        cns:Giuseppe,
+        cns:Katharina,
+        cns:Longzhu,
+        cns:Marius,
+        cns:Peter,
+        cns:Steffen ;
+    prov:wasInformedBy cns:GeoRegistration,
+        cns:dataPreparation,
+        cns:naming,
+        cns:qualityDetermination .
+
+cns:standardisedRSData a prov:Entity ;
+    prov:wasAttributedTo cns:Carsten,
+        cns:Daniele,
+        cns:Giuseppe,
+        cns:Katharina,
+        cns:Lars,
+        cns:Longzhu,
+        cns:Marius,
+        cns:Peter,
+        cns:Steffen,
+        cns:Stephan ;
+    prov:wasDerivedFrom cns:rawRSData ;
+    prov:wasGeneratedBy cns:dataPreparation,
+        cns:naming .
+
+cns:Daniele a prov:Agent .
+
+cns:Felipe a prov:Agent .
+
+cns:Lars a prov:Agent .
+
+cns:Liang a prov:Agent .
+
+cns:Longzhu a prov:Agent .
+
+cns:Marius a prov:Agent .
+
+cns:Navin a prov:Agent .
+
+cns:Peter a prov:Agent .
+
+cns:Steffen_F a prov:Agent .
+
+cns:Stephan a prov:Agent .
+
+cns:XYZ a prov:Agent .
+
+cns:naming a prov:Activity ;
+    prov:wasAssociatedWith cns:Carsten,
+        cns:Steffen .
+
+cns:tentativeOutput a prov:Entity ;
+    prov:wasAttributedTo cns:Carsten,
+        cns:Daniele,
+        cns:Giuseppe,
+        cns:Katharina,
+        cns:Lars,
+        cns:Longzhu,
+        cns:Marius,
+        cns:Peter,
+        cns:Steffen,
+        cns:Stephan ;
+    prov:wasDerivedFrom cns:qualityLayers,
+        cns:spatialDB,
+        cns:standardisedRSData ;
+    prov:wasGeneratedBy cns:modelling .
+
+cns:Ruben a prov:Agent .
+
+cns:Katharina a prov:Agent .
+
+cns:Carsten a prov:Agent .
+
+cns:Giuseppe a prov:Agent .
+
+cns:Steffen a prov:Agent .
+

@@ -4,10 +4,10 @@ import datetime
 import xml.etree.ElementTree as et
 import random
 
-documentName = 'gnatcatcher'
+documentName = 'geokur'
 
 # convert from rdf to provXML
-doc = prov.ProvDocument.deserialize(source = documentName + '.rdf', format='rdf')
+doc = prov.ProvDocument.deserialize(source = documentName + '.ttl', format='rdf')
 doc.serialize(destination = documentName + '.xml', format = 'xml')
 
 
@@ -22,19 +22,20 @@ root.attrib = {
     'xmlns:graph':'https://jgraph.github.io/mxgraph/'}
 
 # get all sub elements (former root.getchildren())
-resources = list(root.iter())
+# careful: root.iter() gets all elements incl its subelements
+resources = list(root)
 
 indexDict = {}
 for index, resource in enumerate(resources):
     element = et.Element('graph:information')
-    element.attrib = {'graph:id': str(index)}
+    # for an unknown reason the index has to start with 2!
+    element.attrib = {'graph:id': str(index+2)}
     # indexDict[resource.attrib]
     if (resource.attrib):
-        indexDict[str((list(resource.attrib.values()))[0])] = str(index)
+        indexDict[str((list(resource.attrib.values()))[0])] = str(index+2)
     resource.append(element)
 
 for resource in resources:
-    # print(resource.tag)
     for graphInfo in resource.findall('graph:information'):
         if resource.tag in [
             '{http://www.w3.org/ns/prov#}entity',
@@ -110,20 +111,20 @@ for resource in resources:
             }
             mxCell.append(element)
 
-            geom = mxCell.find('mxGeometry')
-            element = et.Element('Array')
-            element.attrib = {
-                'as': 'points'
-            }
-            geom.append(element)
+            # geom = mxCell.find('mxGeometry')
+            # element = et.Element('Array')
+            # element.attrib = {
+            #     'as': 'points'
+            # }
+            # geom.append(element)
             
-            array = geom.find('Array')
-            element = et.Element('mxPoint')
-            element.attrib = {
-                'x': '1',
-                'y': '1'
-            }
-            array.append(element)
+            # array = geom.find('Array')
+            # element = et.Element('mxPoint')
+            # element.attrib = {
+            #     'x': '1',
+            #     'y': '1'
+            # }
+            # array.append(element)
 
 
         if resource.tag in [
@@ -137,7 +138,7 @@ for resource in resources:
             
             target = resource.findall('{http://www.w3.org/ns/prov#}entity')
             if not target:
-                target = resource.findall('{http://www.w3.org/ns/prov#}activity')           
+                target = resource.findall('{http://www.w3.org/ns/prov#}activity')   
             destination = indexDict.get(next(iter(target[0].attrib.values())))
             element = et.Element('mxCell')
             element.attrib = {
@@ -155,22 +156,30 @@ for resource in resources:
                 'relative': str(1),
                 'as': 'geometry'
             }
-            mxCell.append(element)
+            mxCell.append(element)            
+            # geom = mxCell.find('mxGeometry')
+            # element = et.Element('Array')
+            # element.attrib = {
+            #     'as': 'points'
+            # }
+            # geom.append(element)
 
-            geom = mxCell.find('mxGeometry')
-            element = et.Element('Array')
-            element.attrib = {
-                'as': 'points'
-            }
-            geom.append(element)
+            # array = geom.find('Array')
+            # element = et.Element('mxPoint')
+            # element.attrib = {
+            #     'x': '1',
+            #     'y': '1'
+            # }
+            # array.append(element)
 
-            array = geom.find('Array')
-            element = et.Element('mxPoint')
-            element.attrib = {
-                'x': '1',
-                'y': '1'
-            }
-            array.append(element)
 
+for resource in resources:
+    # change agent to organization to visualize agents
+    # for graphInfo in resource.findall('graph:information'):        
+    #     if resource.tag == '{http://www.w3.org/ns/prov#}agent':
+    #         resource.tag = '{http://www.w3.org/ns/prov#}organization'
+    # remove namespace (its registered as part of the item name, not as a namespace)
+    if resource.attrib:
+        resource.attrib['{http://www.w3.org/ns/prov#}id'] = resource.attrib['{http://www.w3.org/ns/prov#}id'].split(':')[-1]
 
 tree.write(documentName + 'Graph.xml')

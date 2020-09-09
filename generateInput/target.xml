@@ -4,7 +4,6 @@
   xmlns:graph="https://jgraph.github.io/mxgraph/"
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <prov:entity xmlns="https://colabis.de/" prov:id="Land_Use_Data">
-    <prov:type xsi:type="xsd:QName">Land_Use_Data</prov:type>
     <graph:information graph:id="7">
       <mxCell style="dataDMP" parent="1" vertex="1">
         <mxGeometry x="740" y="-10" width="170" height="40" as="geometry" />
