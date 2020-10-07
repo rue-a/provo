@@ -1,0 +1,254 @@
+<ns0:document xmlns:ns0="http://www.w3.org/ns/prov#" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:graph="https://jgraph.github.io/mxgraph/">
+  <ns0:wasDerivedFrom>
+    <ns0:generatedEntity ns0:ref="cns:paraguay" />
+    <ns0:usedEntity ns0:ref="cns:1961" />
+  <graph:information graph:id="2"><mxCell style="shape=connector;fontSize=10;align=center;verticalAlign=middle;rounded=1;labelBackgroundColor=white;strokeColor=#727675;strokeWidth=1;edgeStyle=elbowEdgeStyle;endArrow=openThin;html=1;dashed=1;jettySize=auto;orthogonalLoop=1;startArrow=oval" parent="1" source="63" target="55" edge="1"><mxGeometry relative="1" as="geometry" /></mxCell></graph:information></ns0:wasDerivedFrom>
+  <ns0:wasDerivedFrom>
+    <ns0:generatedEntity ns0:ref="cns:banana_1961" />
+    <ns0:usedEntity ns0:ref="cns:173" />
+  <graph:information graph:id="3"><mxCell style="shape=connector;fontSize=10;align=center;verticalAlign=middle;rounded=1;labelBackgroundColor=white;strokeColor=#727675;strokeWidth=1;edgeStyle=elbowEdgeStyle;endArrow=openThin;html=1;dashed=1;jettySize=auto;orthogonalLoop=1;startArrow=oval" parent="1" source="78" target="70" edge="1"><mxGeometry relative="1" as="geometry" /></mxCell></graph:information></ns0:wasDerivedFrom>
+  <ns0:wasDerivedFrom>
+    <ns0:generatedEntity ns0:ref="cns:cassava_1961" />
+    <ns0:usedEntity ns0:ref="cns:schema_4" />
+  <graph:information graph:id="4"><mxCell style="shape=connector;fontSize=10;align=center;verticalAlign=middle;rounded=1;labelBackgroundColor=white;strokeColor=#727675;strokeWidth=1;edgeStyle=elbowEdgeStyle;endArrow=openThin;html=1;dashed=1;jettySize=auto;orthogonalLoop=1;startArrow=oval" parent="1" source="76" target="71" edge="1"><mxGeometry relative="1" as="geometry" /></mxCell></graph:information></ns0:wasDerivedFrom>
+  <ns0:wasDerivedFrom>
+    <ns0:generatedEntity ns0:ref="cns:banana_1961" />
+    <ns0:usedEntity ns0:ref="cns:_1_crops_1961_2017_faostat_csv" />
+  <graph:information graph:id="5"><mxCell style="shape=connector;fontSize=10;align=center;verticalAlign=middle;rounded=1;labelBackgroundColor=white;strokeColor=#727675;strokeWidth=1;edgeStyle=elbowEdgeStyle;endArrow=openThin;html=1;dashed=1;jettySize=auto;orthogonalLoop=1;startArrow=oval" parent="1" source="74" target="70" edge="1"><mxGeometry relative="1" as="geometry" /></mxCell></graph:information></ns0:wasDerivedFrom>
+  <ns0:wasDerivedFrom>
+    <ns0:generatedEntity ns0:ref="cns:paraguay" />
+    <ns0:usedEntity ns0:ref="cns:1990" />
+  <graph:information graph:id="6"><mxCell style="shape=connector;fontSize=10;align=center;verticalAlign=middle;rounded=1;labelBackgroundColor=white;strokeColor=#727675;strokeWidth=1;edgeStyle=elbowEdgeStyle;endArrow=openThin;html=1;dashed=1;jettySize=auto;orthogonalLoop=1;startArrow=oval" parent="1" source="60" target="55" edge="1"><mxGeometry relative="1" as="geometry" /></mxCell></graph:information></ns0:wasDerivedFrom>
+  <ns0:wasDerivedFrom>
+    <ns0:generatedEntity ns0:ref="cns:fava_bean_1961" />
+    <ns0:usedEntity ns0:ref="cns:schema_4" />
+  <graph:information graph:id="7"><mxCell style="shape=connector;fontSize=10;align=center;verticalAlign=middle;rounded=1;labelBackgroundColor=white;strokeColor=#727675;strokeWidth=1;edgeStyle=elbowEdgeStyle;endArrow=openThin;html=1;dashed=1;jettySize=auto;orthogonalLoop=1;startArrow=oval" parent="1" source="76" target="57" edge="1"><mxGeometry relative="1" as="geometry" /></mxCell></graph:information></ns0:wasDerivedFrom>
+  <ns0:wasDerivedFrom>
+    <ns0:generatedEntity ns0:ref="cns:paraguay" />
+    <ns0:usedEntity ns0:ref="cns:2010" />
+  <graph:information graph:id="8"><mxCell style="shape=connector;fontSize=10;align=center;verticalAlign=middle;rounded=1;labelBackgroundColor=white;strokeColor=#727675;strokeWidth=1;edgeStyle=elbowEdgeStyle;endArrow=openThin;html=1;dashed=1;jettySize=auto;orthogonalLoop=1;startArrow=oval" parent="1" source="72" target="55" edge="1"><mxGeometry relative="1" as="geometry" /></mxCell></graph:information></ns0:wasDerivedFrom>
+  <ns0:wasDerivedFrom>
+    <ns0:generatedEntity ns0:ref="cns:bean_dry_1961" />
+    <ns0:usedEntity ns0:ref="cns:173" />
+  <graph:information graph:id="9"><mxCell style="shape=connector;fontSize=10;align=center;verticalAlign=middle;rounded=1;labelBackgroundColor=white;strokeColor=#727675;strokeWidth=1;edgeStyle=elbowEdgeStyle;endArrow=openThin;html=1;dashed=1;jettySize=auto;orthogonalLoop=1;startArrow=oval" parent="1" source="78" target="54" edge="1"><mxGeometry relative="1" as="geometry" /></mxCell></graph:information></ns0:wasDerivedFrom>
+  <ns0:wasDerivedFrom>
+    <ns0:generatedEntity ns0:ref="cns:paraguay" />
+    <ns0:usedEntity ns0:ref="cns:1995" />
+  <graph:information graph:id="10"><mxCell style="shape=connector;fontSize=10;align=center;verticalAlign=middle;rounded=1;labelBackgroundColor=white;strokeColor=#727675;strokeWidth=1;edgeStyle=elbowEdgeStyle;endArrow=openThin;html=1;dashed=1;jettySize=auto;orthogonalLoop=1;startArrow=oval" parent="1" source="64" target="55" edge="1"><mxGeometry relative="1" as="geometry" /></mxCell></graph:information></ns0:wasDerivedFrom>
+  <ns0:wasDerivedFrom>
+    <ns0:generatedEntity ns0:ref="cns:conservation_forest_2010" />
+    <ns0:usedEntity ns0:ref="cns:schema_12" />
+  <graph:information graph:id="11"><mxCell style="shape=connector;fontSize=10;align=center;verticalAlign=middle;rounded=1;labelBackgroundColor=white;strokeColor=#727675;strokeWidth=1;edgeStyle=elbowEdgeStyle;endArrow=openThin;html=1;dashed=1;jettySize=auto;orthogonalLoop=1;startArrow=oval" parent="1" source="68" target="66" edge="1"><mxGeometry relative="1" as="geometry" /></mxCell></graph:information></ns0:wasDerivedFrom>
+  <ns0:wasDerivedFrom>
+    <ns0:generatedEntity ns0:ref="cns:1995" />
+    <ns0:usedEntity ns0:ref="cns:primary_forest_1995" />
+  <graph:information graph:id="12"><mxCell style="shape=connector;fontSize=10;align=center;verticalAlign=middle;rounded=1;labelBackgroundColor=white;strokeColor=#727675;strokeWidth=1;edgeStyle=elbowEdgeStyle;endArrow=openThin;html=1;dashed=1;jettySize=auto;orthogonalLoop=1;startArrow=oval" parent="1" source="75" target="64" edge="1"><mxGeometry relative="1" as="geometry" /></mxCell></graph:information></ns0:wasDerivedFrom>
+  <ns0:wasDerivedFrom>
+    <ns0:generatedEntity ns0:ref="cns:1961" />
+    <ns0:usedEntity ns0:ref="cns:bean_dry_1961" />
+  <graph:information graph:id="13"><mxCell style="shape=connector;fontSize=10;align=center;verticalAlign=middle;rounded=1;labelBackgroundColor=white;strokeColor=#727675;strokeWidth=1;edgeStyle=elbowEdgeStyle;endArrow=openThin;html=1;dashed=1;jettySize=auto;orthogonalLoop=1;startArrow=oval" parent="1" source="54" target="63" edge="1"><mxGeometry relative="1" as="geometry" /></mxCell></graph:information></ns0:wasDerivedFrom>
+  <ns0:wasDerivedFrom>
+    <ns0:generatedEntity ns0:ref="cns:bean_dry_1961" />
+    <ns0:usedEntity ns0:ref="cns:_1_crops_1961_2017_faostat_csv" />
+  <graph:information graph:id="14"><mxCell style="shape=connector;fontSize=10;align=center;verticalAlign=middle;rounded=1;labelBackgroundColor=white;strokeColor=#727675;strokeWidth=1;edgeStyle=elbowEdgeStyle;endArrow=openThin;html=1;dashed=1;jettySize=auto;orthogonalLoop=1;startArrow=oval" parent="1" source="74" target="54" edge="1"><mxGeometry relative="1" as="geometry" /></mxCell></graph:information></ns0:wasDerivedFrom>
+  <ns0:wasDerivedFrom>
+    <ns0:generatedEntity ns0:ref="cns:conservation_forest_2000" />
+    <ns0:usedEntity ns0:ref="cns:schema_12" />
+  <graph:information graph:id="15"><mxCell style="shape=connector;fontSize=10;align=center;verticalAlign=middle;rounded=1;labelBackgroundColor=white;strokeColor=#727675;strokeWidth=1;edgeStyle=elbowEdgeStyle;endArrow=openThin;html=1;dashed=1;jettySize=auto;orthogonalLoop=1;startArrow=oval" parent="1" source="68" target="61" edge="1"><mxGeometry relative="1" as="geometry" /></mxCell></graph:information></ns0:wasDerivedFrom>
+  <ns0:wasDerivedFrom>
+    <ns0:generatedEntity ns0:ref="cns:banana_1961" />
+    <ns0:usedEntity ns0:ref="cns:schema_4" />
+  <graph:information graph:id="16"><mxCell style="shape=connector;fontSize=10;align=center;verticalAlign=middle;rounded=1;labelBackgroundColor=white;strokeColor=#727675;strokeWidth=1;edgeStyle=elbowEdgeStyle;endArrow=openThin;html=1;dashed=1;jettySize=auto;orthogonalLoop=1;startArrow=oval" parent="1" source="76" target="70" edge="1"><mxGeometry relative="1" as="geometry" /></mxCell></graph:information></ns0:wasDerivedFrom>
+  <ns0:wasDerivedFrom>
+    <ns0:generatedEntity ns0:ref="cns:total_forest_1995" />
+    <ns0:usedEntity ns0:ref="cns:_1__1995_1995_frafao_csv" />
+  <graph:information graph:id="17"><mxCell style="shape=connector;fontSize=10;align=center;verticalAlign=middle;rounded=1;labelBackgroundColor=white;strokeColor=#727675;strokeWidth=1;edgeStyle=elbowEdgeStyle;endArrow=openThin;html=1;dashed=1;jettySize=auto;orthogonalLoop=1;startArrow=oval" parent="1" source="58" target="67" edge="1"><mxGeometry relative="1" as="geometry" /></mxCell></graph:information></ns0:wasDerivedFrom>
+  <ns0:wasDerivedFrom>
+    <ns0:generatedEntity ns0:ref="cns:conservation_forest_1990" />
+    <ns0:usedEntity ns0:ref="cns:173" />
+  <graph:information graph:id="18"><mxCell style="shape=connector;fontSize=10;align=center;verticalAlign=middle;rounded=1;labelBackgroundColor=white;strokeColor=#727675;strokeWidth=1;edgeStyle=elbowEdgeStyle;endArrow=openThin;html=1;dashed=1;jettySize=auto;orthogonalLoop=1;startArrow=oval" parent="1" source="78" target="53" edge="1"><mxGeometry relative="1" as="geometry" /></mxCell></graph:information></ns0:wasDerivedFrom>
+  <ns0:wasDerivedFrom>
+    <ns0:generatedEntity ns0:ref="cns:conservation_forest_2015" />
+    <ns0:usedEntity ns0:ref="cns:_1_conservationForest_1990_2015_frafao_csv" />
+  <graph:information graph:id="19"><mxCell style="shape=connector;fontSize=10;align=center;verticalAlign=middle;rounded=1;labelBackgroundColor=white;strokeColor=#727675;strokeWidth=1;edgeStyle=elbowEdgeStyle;endArrow=openThin;html=1;dashed=1;jettySize=auto;orthogonalLoop=1;startArrow=oval" parent="1" source="73" target="69" edge="1"><mxGeometry relative="1" as="geometry" /></mxCell></graph:information></ns0:wasDerivedFrom>
+  <ns0:wasDerivedFrom>
+    <ns0:generatedEntity ns0:ref="cns:paraguay" />
+    <ns0:usedEntity ns0:ref="cns:2000" />
+  <graph:information graph:id="20"><mxCell style="shape=connector;fontSize=10;align=center;verticalAlign=middle;rounded=1;labelBackgroundColor=white;strokeColor=#727675;strokeWidth=1;edgeStyle=elbowEdgeStyle;endArrow=openThin;html=1;dashed=1;jettySize=auto;orthogonalLoop=1;startArrow=oval" parent="1" source="59" target="55" edge="1"><mxGeometry relative="1" as="geometry" /></mxCell></graph:information></ns0:wasDerivedFrom>
+  <ns0:wasDerivedFrom>
+    <ns0:generatedEntity ns0:ref="cns:conservation_forest_1990" />
+    <ns0:usedEntity ns0:ref="cns:_1_conservationForest_1990_2015_frafao_csv" />
+  <graph:information graph:id="21"><mxCell style="shape=connector;fontSize=10;align=center;verticalAlign=middle;rounded=1;labelBackgroundColor=white;strokeColor=#727675;strokeWidth=1;edgeStyle=elbowEdgeStyle;endArrow=openThin;html=1;dashed=1;jettySize=auto;orthogonalLoop=1;startArrow=oval" parent="1" source="73" target="53" edge="1"><mxGeometry relative="1" as="geometry" /></mxCell></graph:information></ns0:wasDerivedFrom>
+  <ns0:wasDerivedFrom>
+    <ns0:generatedEntity ns0:ref="cns:cassava_1961" />
+    <ns0:usedEntity ns0:ref="cns:_1_crops_1961_2017_faostat_csv" />
+  <graph:information graph:id="22"><mxCell style="shape=connector;fontSize=10;align=center;verticalAlign=middle;rounded=1;labelBackgroundColor=white;strokeColor=#727675;strokeWidth=1;edgeStyle=elbowEdgeStyle;endArrow=openThin;html=1;dashed=1;jettySize=auto;orthogonalLoop=1;startArrow=oval" parent="1" source="74" target="71" edge="1"><mxGeometry relative="1" as="geometry" /></mxCell></graph:information></ns0:wasDerivedFrom>
+  <ns0:wasDerivedFrom>
+    <ns0:generatedEntity ns0:ref="cns:paraguay" />
+    <ns0:usedEntity ns0:ref="cns:2005" />
+  <graph:information graph:id="23"><mxCell style="shape=connector;fontSize=10;align=center;verticalAlign=middle;rounded=1;labelBackgroundColor=white;strokeColor=#727675;strokeWidth=1;edgeStyle=elbowEdgeStyle;endArrow=openThin;html=1;dashed=1;jettySize=auto;orthogonalLoop=1;startArrow=oval" parent="1" source="65" target="55" edge="1"><mxGeometry relative="1" as="geometry" /></mxCell></graph:information></ns0:wasDerivedFrom>
+  <ns0:wasDerivedFrom>
+    <ns0:generatedEntity ns0:ref="cns:total_forest_1995" />
+    <ns0:usedEntity ns0:ref="cns:173" />
+  <graph:information graph:id="24"><mxCell style="shape=connector;fontSize=10;align=center;verticalAlign=middle;rounded=1;labelBackgroundColor=white;strokeColor=#727675;strokeWidth=1;edgeStyle=elbowEdgeStyle;endArrow=openThin;html=1;dashed=1;jettySize=auto;orthogonalLoop=1;startArrow=oval" parent="1" source="78" target="67" edge="1"><mxGeometry relative="1" as="geometry" /></mxCell></graph:information></ns0:wasDerivedFrom>
+  <ns0:wasDerivedFrom>
+    <ns0:generatedEntity ns0:ref="cns:total_forest_1995" />
+    <ns0:usedEntity ns0:ref="cns:schema_5" />
+  <graph:information graph:id="25"><mxCell style="shape=connector;fontSize=10;align=center;verticalAlign=middle;rounded=1;labelBackgroundColor=white;strokeColor=#727675;strokeWidth=1;edgeStyle=elbowEdgeStyle;endArrow=openThin;html=1;dashed=1;jettySize=auto;orthogonalLoop=1;startArrow=oval" parent="1" source="56" target="67" edge="1"><mxGeometry relative="1" as="geometry" /></mxCell></graph:information></ns0:wasDerivedFrom>
+  <ns0:wasDerivedFrom>
+    <ns0:generatedEntity ns0:ref="cns:bean_dry_1961" />
+    <ns0:usedEntity ns0:ref="cns:schema_4" />
+  <graph:information graph:id="26"><mxCell style="shape=connector;fontSize=10;align=center;verticalAlign=middle;rounded=1;labelBackgroundColor=white;strokeColor=#727675;strokeWidth=1;edgeStyle=elbowEdgeStyle;endArrow=openThin;html=1;dashed=1;jettySize=auto;orthogonalLoop=1;startArrow=oval" parent="1" source="76" target="54" edge="1"><mxGeometry relative="1" as="geometry" /></mxCell></graph:information></ns0:wasDerivedFrom>
+  <ns0:wasDerivedFrom>
+    <ns0:generatedEntity ns0:ref="cns:1961" />
+    <ns0:usedEntity ns0:ref="cns:banana_1961" />
+  <graph:information graph:id="27"><mxCell style="shape=connector;fontSize=10;align=center;verticalAlign=middle;rounded=1;labelBackgroundColor=white;strokeColor=#727675;strokeWidth=1;edgeStyle=elbowEdgeStyle;endArrow=openThin;html=1;dashed=1;jettySize=auto;orthogonalLoop=1;startArrow=oval" parent="1" source="70" target="63" edge="1"><mxGeometry relative="1" as="geometry" /></mxCell></graph:information></ns0:wasDerivedFrom>
+  <ns0:wasDerivedFrom>
+    <ns0:generatedEntity ns0:ref="cns:1990" />
+    <ns0:usedEntity ns0:ref="cns:conservation_forest_1990" />
+  <graph:information graph:id="28"><mxCell style="shape=connector;fontSize=10;align=center;verticalAlign=middle;rounded=1;labelBackgroundColor=white;strokeColor=#727675;strokeWidth=1;edgeStyle=elbowEdgeStyle;endArrow=openThin;html=1;dashed=1;jettySize=auto;orthogonalLoop=1;startArrow=oval" parent="1" source="53" target="60" edge="1"><mxGeometry relative="1" as="geometry" /></mxCell></graph:information></ns0:wasDerivedFrom>
+  <ns0:wasDerivedFrom>
+    <ns0:generatedEntity ns0:ref="cns:conservation_forest_2000" />
+    <ns0:usedEntity ns0:ref="cns:173" />
+  <graph:information graph:id="29"><mxCell style="shape=connector;fontSize=10;align=center;verticalAlign=middle;rounded=1;labelBackgroundColor=white;strokeColor=#727675;strokeWidth=1;edgeStyle=elbowEdgeStyle;endArrow=openThin;html=1;dashed=1;jettySize=auto;orthogonalLoop=1;startArrow=oval" parent="1" source="78" target="61" edge="1"><mxGeometry relative="1" as="geometry" /></mxCell></graph:information></ns0:wasDerivedFrom>
+  <ns0:wasDerivedFrom>
+    <ns0:generatedEntity ns0:ref="cns:conservation_forest_2000" />
+    <ns0:usedEntity ns0:ref="cns:_1_conservationForest_1990_2015_frafao_csv" />
+  <graph:information graph:id="30"><mxCell style="shape=connector;fontSize=10;align=center;verticalAlign=middle;rounded=1;labelBackgroundColor=white;strokeColor=#727675;strokeWidth=1;edgeStyle=elbowEdgeStyle;endArrow=openThin;html=1;dashed=1;jettySize=auto;orthogonalLoop=1;startArrow=oval" parent="1" source="73" target="61" edge="1"><mxGeometry relative="1" as="geometry" /></mxCell></graph:information></ns0:wasDerivedFrom>
+  <ns0:wasDerivedFrom>
+    <ns0:generatedEntity ns0:ref="cns:1995" />
+    <ns0:usedEntity ns0:ref="cns:total_forest_1995" />
+  <graph:information graph:id="31"><mxCell style="shape=connector;fontSize=10;align=center;verticalAlign=middle;rounded=1;labelBackgroundColor=white;strokeColor=#727675;strokeWidth=1;edgeStyle=elbowEdgeStyle;endArrow=openThin;html=1;dashed=1;jettySize=auto;orthogonalLoop=1;startArrow=oval" parent="1" source="67" target="64" edge="1"><mxGeometry relative="1" as="geometry" /></mxCell></graph:information></ns0:wasDerivedFrom>
+  <ns0:wasDerivedFrom>
+    <ns0:generatedEntity ns0:ref="cns:2005" />
+    <ns0:usedEntity ns0:ref="cns:conservation_forest_2005" />
+  <graph:information graph:id="32"><mxCell style="shape=connector;fontSize=10;align=center;verticalAlign=middle;rounded=1;labelBackgroundColor=white;strokeColor=#727675;strokeWidth=1;edgeStyle=elbowEdgeStyle;endArrow=openThin;html=1;dashed=1;jettySize=auto;orthogonalLoop=1;startArrow=oval" parent="1" source="62" target="65" edge="1"><mxGeometry relative="1" as="geometry" /></mxCell></graph:information></ns0:wasDerivedFrom>
+  <ns0:wasDerivedFrom>
+    <ns0:generatedEntity ns0:ref="cns:primary_forest_1995" />
+    <ns0:usedEntity ns0:ref="cns:_1__1995_1995_frafao_csv" />
+  <graph:information graph:id="33"><mxCell style="shape=connector;fontSize=10;align=center;verticalAlign=middle;rounded=1;labelBackgroundColor=white;strokeColor=#727675;strokeWidth=1;edgeStyle=elbowEdgeStyle;endArrow=openThin;html=1;dashed=1;jettySize=auto;orthogonalLoop=1;startArrow=oval" parent="1" source="58" target="75" edge="1"><mxGeometry relative="1" as="geometry" /></mxCell></graph:information></ns0:wasDerivedFrom>
+  <ns0:wasDerivedFrom>
+    <ns0:generatedEntity ns0:ref="cns:paraguay" />
+    <ns0:usedEntity ns0:ref="cns:2015" />
+  <graph:information graph:id="34"><mxCell style="shape=connector;fontSize=10;align=center;verticalAlign=middle;rounded=1;labelBackgroundColor=white;strokeColor=#727675;strokeWidth=1;edgeStyle=elbowEdgeStyle;endArrow=openThin;html=1;dashed=1;jettySize=auto;orthogonalLoop=1;startArrow=oval" parent="1" source="77" target="55" edge="1"><mxGeometry relative="1" as="geometry" /></mxCell></graph:information></ns0:wasDerivedFrom>
+  <ns0:wasDerivedFrom>
+    <ns0:generatedEntity ns0:ref="cns:conservation_forest_2015" />
+    <ns0:usedEntity ns0:ref="cns:schema_12" />
+  <graph:information graph:id="35"><mxCell style="shape=connector;fontSize=10;align=center;verticalAlign=middle;rounded=1;labelBackgroundColor=white;strokeColor=#727675;strokeWidth=1;edgeStyle=elbowEdgeStyle;endArrow=openThin;html=1;dashed=1;jettySize=auto;orthogonalLoop=1;startArrow=oval" parent="1" source="68" target="69" edge="1"><mxGeometry relative="1" as="geometry" /></mxCell></graph:information></ns0:wasDerivedFrom>
+  <ns0:wasDerivedFrom>
+    <ns0:generatedEntity ns0:ref="cns:primary_forest_1995" />
+    <ns0:usedEntity ns0:ref="cns:173" />
+  <graph:information graph:id="36"><mxCell style="shape=connector;fontSize=10;align=center;verticalAlign=middle;rounded=1;labelBackgroundColor=white;strokeColor=#727675;strokeWidth=1;edgeStyle=elbowEdgeStyle;endArrow=openThin;html=1;dashed=1;jettySize=auto;orthogonalLoop=1;startArrow=oval" parent="1" source="78" target="75" edge="1"><mxGeometry relative="1" as="geometry" /></mxCell></graph:information></ns0:wasDerivedFrom>
+  <ns0:wasDerivedFrom>
+    <ns0:generatedEntity ns0:ref="cns:primary_forest_1995" />
+    <ns0:usedEntity ns0:ref="cns:schema_5" />
+  <graph:information graph:id="37"><mxCell style="shape=connector;fontSize=10;align=center;verticalAlign=middle;rounded=1;labelBackgroundColor=white;strokeColor=#727675;strokeWidth=1;edgeStyle=elbowEdgeStyle;endArrow=openThin;html=1;dashed=1;jettySize=auto;orthogonalLoop=1;startArrow=oval" parent="1" source="56" target="75" edge="1"><mxGeometry relative="1" as="geometry" /></mxCell></graph:information></ns0:wasDerivedFrom>
+  <ns0:wasDerivedFrom>
+    <ns0:generatedEntity ns0:ref="cns:conservation_forest_1990" />
+    <ns0:usedEntity ns0:ref="cns:schema_12" />
+  <graph:information graph:id="38"><mxCell style="shape=connector;fontSize=10;align=center;verticalAlign=middle;rounded=1;labelBackgroundColor=white;strokeColor=#727675;strokeWidth=1;edgeStyle=elbowEdgeStyle;endArrow=openThin;html=1;dashed=1;jettySize=auto;orthogonalLoop=1;startArrow=oval" parent="1" source="68" target="53" edge="1"><mxGeometry relative="1" as="geometry" /></mxCell></graph:information></ns0:wasDerivedFrom>
+  <ns0:wasDerivedFrom>
+    <ns0:generatedEntity ns0:ref="cns:conservation_forest_2005" />
+    <ns0:usedEntity ns0:ref="cns:schema_12" />
+  <graph:information graph:id="39"><mxCell style="shape=connector;fontSize=10;align=center;verticalAlign=middle;rounded=1;labelBackgroundColor=white;strokeColor=#727675;strokeWidth=1;edgeStyle=elbowEdgeStyle;endArrow=openThin;html=1;dashed=1;jettySize=auto;orthogonalLoop=1;startArrow=oval" parent="1" source="68" target="62" edge="1"><mxGeometry relative="1" as="geometry" /></mxCell></graph:information></ns0:wasDerivedFrom>
+  <ns0:wasDerivedFrom>
+    <ns0:generatedEntity ns0:ref="cns:1961" />
+    <ns0:usedEntity ns0:ref="cns:cassava_1961" />
+  <graph:information graph:id="40"><mxCell style="shape=connector;fontSize=10;align=center;verticalAlign=middle;rounded=1;labelBackgroundColor=white;strokeColor=#727675;strokeWidth=1;edgeStyle=elbowEdgeStyle;endArrow=openThin;html=1;dashed=1;jettySize=auto;orthogonalLoop=1;startArrow=oval" parent="1" source="71" target="63" edge="1"><mxGeometry relative="1" as="geometry" /></mxCell></graph:information></ns0:wasDerivedFrom>
+  <ns0:wasDerivedFrom>
+    <ns0:generatedEntity ns0:ref="cns:cassava_1961" />
+    <ns0:usedEntity ns0:ref="cns:173" />
+  <graph:information graph:id="41"><mxCell style="shape=connector;fontSize=10;align=center;verticalAlign=middle;rounded=1;labelBackgroundColor=white;strokeColor=#727675;strokeWidth=1;edgeStyle=elbowEdgeStyle;endArrow=openThin;html=1;dashed=1;jettySize=auto;orthogonalLoop=1;startArrow=oval" parent="1" source="78" target="71" edge="1"><mxGeometry relative="1" as="geometry" /></mxCell></graph:information></ns0:wasDerivedFrom>
+  <ns0:wasDerivedFrom>
+    <ns0:generatedEntity ns0:ref="cns:1961" />
+    <ns0:usedEntity ns0:ref="cns:fava_bean_1961" />
+  <graph:information graph:id="42"><mxCell style="shape=connector;fontSize=10;align=center;verticalAlign=middle;rounded=1;labelBackgroundColor=white;strokeColor=#727675;strokeWidth=1;edgeStyle=elbowEdgeStyle;endArrow=openThin;html=1;dashed=1;jettySize=auto;orthogonalLoop=1;startArrow=oval" parent="1" source="57" target="63" edge="1"><mxGeometry relative="1" as="geometry" /></mxCell></graph:information></ns0:wasDerivedFrom>
+  <ns0:wasDerivedFrom>
+    <ns0:generatedEntity ns0:ref="cns:conservation_forest_2015" />
+    <ns0:usedEntity ns0:ref="cns:173" />
+  <graph:information graph:id="43"><mxCell style="shape=connector;fontSize=10;align=center;verticalAlign=middle;rounded=1;labelBackgroundColor=white;strokeColor=#727675;strokeWidth=1;edgeStyle=elbowEdgeStyle;endArrow=openThin;html=1;dashed=1;jettySize=auto;orthogonalLoop=1;startArrow=oval" parent="1" source="78" target="69" edge="1"><mxGeometry relative="1" as="geometry" /></mxCell></graph:information></ns0:wasDerivedFrom>
+  <ns0:wasDerivedFrom>
+    <ns0:generatedEntity ns0:ref="cns:fava_bean_1961" />
+    <ns0:usedEntity ns0:ref="cns:173" />
+  <graph:information graph:id="44"><mxCell style="shape=connector;fontSize=10;align=center;verticalAlign=middle;rounded=1;labelBackgroundColor=white;strokeColor=#727675;strokeWidth=1;edgeStyle=elbowEdgeStyle;endArrow=openThin;html=1;dashed=1;jettySize=auto;orthogonalLoop=1;startArrow=oval" parent="1" source="78" target="57" edge="1"><mxGeometry relative="1" as="geometry" /></mxCell></graph:information></ns0:wasDerivedFrom>
+  <ns0:wasDerivedFrom>
+    <ns0:generatedEntity ns0:ref="cns:2015" />
+    <ns0:usedEntity ns0:ref="cns:conservation_forest_2015" />
+  <graph:information graph:id="45"><mxCell style="shape=connector;fontSize=10;align=center;verticalAlign=middle;rounded=1;labelBackgroundColor=white;strokeColor=#727675;strokeWidth=1;edgeStyle=elbowEdgeStyle;endArrow=openThin;html=1;dashed=1;jettySize=auto;orthogonalLoop=1;startArrow=oval" parent="1" source="69" target="77" edge="1"><mxGeometry relative="1" as="geometry" /></mxCell></graph:information></ns0:wasDerivedFrom>
+  <ns0:wasDerivedFrom>
+    <ns0:generatedEntity ns0:ref="cns:conservation_forest_2005" />
+    <ns0:usedEntity ns0:ref="cns:173" />
+  <graph:information graph:id="46"><mxCell style="shape=connector;fontSize=10;align=center;verticalAlign=middle;rounded=1;labelBackgroundColor=white;strokeColor=#727675;strokeWidth=1;edgeStyle=elbowEdgeStyle;endArrow=openThin;html=1;dashed=1;jettySize=auto;orthogonalLoop=1;startArrow=oval" parent="1" source="78" target="62" edge="1"><mxGeometry relative="1" as="geometry" /></mxCell></graph:information></ns0:wasDerivedFrom>
+  <ns0:wasDerivedFrom>
+    <ns0:generatedEntity ns0:ref="cns:2000" />
+    <ns0:usedEntity ns0:ref="cns:conservation_forest_2000" />
+  <graph:information graph:id="47"><mxCell style="shape=connector;fontSize=10;align=center;verticalAlign=middle;rounded=1;labelBackgroundColor=white;strokeColor=#727675;strokeWidth=1;edgeStyle=elbowEdgeStyle;endArrow=openThin;html=1;dashed=1;jettySize=auto;orthogonalLoop=1;startArrow=oval" parent="1" source="61" target="59" edge="1"><mxGeometry relative="1" as="geometry" /></mxCell></graph:information></ns0:wasDerivedFrom>
+  <ns0:wasDerivedFrom>
+    <ns0:generatedEntity ns0:ref="cns:conservation_forest_2005" />
+    <ns0:usedEntity ns0:ref="cns:_1_conservationForest_1990_2015_frafao_csv" />
+  <graph:information graph:id="48"><mxCell style="shape=connector;fontSize=10;align=center;verticalAlign=middle;rounded=1;labelBackgroundColor=white;strokeColor=#727675;strokeWidth=1;edgeStyle=elbowEdgeStyle;endArrow=openThin;html=1;dashed=1;jettySize=auto;orthogonalLoop=1;startArrow=oval" parent="1" source="73" target="62" edge="1"><mxGeometry relative="1" as="geometry" /></mxCell></graph:information></ns0:wasDerivedFrom>
+  <ns0:wasDerivedFrom>
+    <ns0:generatedEntity ns0:ref="cns:2010" />
+    <ns0:usedEntity ns0:ref="cns:conservation_forest_2010" />
+  <graph:information graph:id="49"><mxCell style="shape=connector;fontSize=10;align=center;verticalAlign=middle;rounded=1;labelBackgroundColor=white;strokeColor=#727675;strokeWidth=1;edgeStyle=elbowEdgeStyle;endArrow=openThin;html=1;dashed=1;jettySize=auto;orthogonalLoop=1;startArrow=oval" parent="1" source="66" target="72" edge="1"><mxGeometry relative="1" as="geometry" /></mxCell></graph:information></ns0:wasDerivedFrom>
+  <ns0:wasDerivedFrom>
+    <ns0:generatedEntity ns0:ref="cns:conservation_forest_2010" />
+    <ns0:usedEntity ns0:ref="cns:173" />
+  <graph:information graph:id="50"><mxCell style="shape=connector;fontSize=10;align=center;verticalAlign=middle;rounded=1;labelBackgroundColor=white;strokeColor=#727675;strokeWidth=1;edgeStyle=elbowEdgeStyle;endArrow=openThin;html=1;dashed=1;jettySize=auto;orthogonalLoop=1;startArrow=oval" parent="1" source="78" target="66" edge="1"><mxGeometry relative="1" as="geometry" /></mxCell></graph:information></ns0:wasDerivedFrom>
+  <ns0:wasDerivedFrom>
+    <ns0:generatedEntity ns0:ref="cns:fava_bean_1961" />
+    <ns0:usedEntity ns0:ref="cns:_1_crops_1961_2017_faostat_csv" />
+  <graph:information graph:id="51"><mxCell style="shape=connector;fontSize=10;align=center;verticalAlign=middle;rounded=1;labelBackgroundColor=white;strokeColor=#727675;strokeWidth=1;edgeStyle=elbowEdgeStyle;endArrow=openThin;html=1;dashed=1;jettySize=auto;orthogonalLoop=1;startArrow=oval" parent="1" source="74" target="57" edge="1"><mxGeometry relative="1" as="geometry" /></mxCell></graph:information></ns0:wasDerivedFrom>
+  <ns0:wasDerivedFrom>
+    <ns0:generatedEntity ns0:ref="cns:conservation_forest_2010" />
+    <ns0:usedEntity ns0:ref="cns:_1_conservationForest_1990_2015_frafao_csv" />
+  <graph:information graph:id="52"><mxCell style="shape=connector;fontSize=10;align=center;verticalAlign=middle;rounded=1;labelBackgroundColor=white;strokeColor=#727675;strokeWidth=1;edgeStyle=elbowEdgeStyle;endArrow=openThin;html=1;dashed=1;jettySize=auto;orthogonalLoop=1;startArrow=oval" parent="1" source="73" target="66" edge="1"><mxGeometry relative="1" as="geometry" /></mxCell></graph:information></ns0:wasDerivedFrom>
+  <ns0:entity ns0:id="conservation_forest_1990">
+    <ns0:label>conservation forest_1990</ns0:label>
+  <graph:information graph:id="53"><mxCell style="dataDMP" parent="1" vertex="1"><mxGeometry x="213" y="-729" width="170" height="40" as="geometry" /></mxCell></graph:information></ns0:entity>
+  <ns0:entity ns0:id="bean_dry_1961">
+    <ns0:label>bean dry_1961</ns0:label>
+  <graph:information graph:id="54"><mxCell style="dataDMP" parent="1" vertex="1"><mxGeometry x="-599" y="-588" width="170" height="40" as="geometry" /></mxCell></graph:information></ns0:entity>
+  <ns0:entity ns0:id="paraguay"><graph:information graph:id="55"><mxCell style="dataDMP" parent="1" vertex="1"><mxGeometry x="612" y="-683" width="170" height="40" as="geometry" /></mxCell></graph:information></ns0:entity>
+  <ns0:entity ns0:id="schema_5"><graph:information graph:id="56"><mxCell style="dataDMP" parent="1" vertex="1"><mxGeometry x="-993" y="-387" width="170" height="40" as="geometry" /></mxCell></graph:information></ns0:entity>
+  <ns0:entity ns0:id="fava_bean_1961">
+    <ns0:label>fava bean_1961</ns0:label>
+  <graph:information graph:id="57"><mxCell style="dataDMP" parent="1" vertex="1"><mxGeometry x="-979" y="617" width="170" height="40" as="geometry" /></mxCell></graph:information></ns0:entity>
+  <ns0:entity ns0:id="_1__1995_1995_frafao_csv"><graph:information graph:id="58"><mxCell style="dataDMP" parent="1" vertex="1"><mxGeometry x="-10" y="-916" width="170" height="40" as="geometry" /></mxCell></graph:information></ns0:entity>
+  <ns0:entity ns0:id="2000"><graph:information graph:id="59"><mxCell style="dataDMP" parent="1" vertex="1"><mxGeometry x="865" y="122" width="170" height="40" as="geometry" /></mxCell></graph:information></ns0:entity>
+  <ns0:entity ns0:id="1990"><graph:information graph:id="60"><mxCell style="dataDMP" parent="1" vertex="1"><mxGeometry x="399" y="605" width="170" height="40" as="geometry" /></mxCell></graph:information></ns0:entity>
+  <ns0:entity ns0:id="conservation_forest_2000">
+    <ns0:label>conservation forest_2000</ns0:label>
+  <graph:information graph:id="61"><mxCell style="dataDMP" parent="1" vertex="1"><mxGeometry x="-861" y="-712" width="170" height="40" as="geometry" /></mxCell></graph:information></ns0:entity>
+  <ns0:entity ns0:id="conservation_forest_2005">
+    <ns0:label>conservation forest_2005</ns0:label>
+  <graph:information graph:id="62"><mxCell style="dataDMP" parent="1" vertex="1"><mxGeometry x="175" y="-789" width="170" height="40" as="geometry" /></mxCell></graph:information></ns0:entity>
+  <ns0:entity ns0:id="1961"><graph:information graph:id="63"><mxCell style="dataDMP" parent="1" vertex="1"><mxGeometry x="-289" y="-194" width="170" height="40" as="geometry" /></mxCell></graph:information></ns0:entity>
+  <ns0:entity ns0:id="1995"><graph:information graph:id="64"><mxCell style="dataDMP" parent="1" vertex="1"><mxGeometry x="285" y="-529" width="170" height="40" as="geometry" /></mxCell></graph:information></ns0:entity>
+  <ns0:entity ns0:id="2005"><graph:information graph:id="65"><mxCell style="dataDMP" parent="1" vertex="1"><mxGeometry x="-661" y="-273" width="170" height="40" as="geometry" /></mxCell></graph:information></ns0:entity>
+  <ns0:entity ns0:id="conservation_forest_2010">
+    <ns0:label>conservation forest_2010</ns0:label>
+  <graph:information graph:id="66"><mxCell style="dataDMP" parent="1" vertex="1"><mxGeometry x="142" y="378" width="170" height="40" as="geometry" /></mxCell></graph:information></ns0:entity>
+  <ns0:entity ns0:id="total_forest_1995">
+    <ns0:label>total forest_1995</ns0:label>
+  <graph:information graph:id="67"><mxCell style="dataDMP" parent="1" vertex="1"><mxGeometry x="387" y="-850" width="170" height="40" as="geometry" /></mxCell></graph:information></ns0:entity>
+  <ns0:entity ns0:id="schema_12"><graph:information graph:id="68"><mxCell style="dataDMP" parent="1" vertex="1"><mxGeometry x="-185" y="528" width="170" height="40" as="geometry" /></mxCell></graph:information></ns0:entity>
+  <ns0:entity ns0:id="conservation_forest_2015">
+    <ns0:label>conservation forest_2015</ns0:label>
+  <graph:information graph:id="69"><mxCell style="dataDMP" parent="1" vertex="1"><mxGeometry x="502" y="710" width="170" height="40" as="geometry" /></mxCell></graph:information></ns0:entity>
+  <ns0:entity ns0:id="banana_1961">
+    <ns0:label>banana_1961</ns0:label>
+  <graph:information graph:id="70"><mxCell style="dataDMP" parent="1" vertex="1"><mxGeometry x="-70" y="565" width="170" height="40" as="geometry" /></mxCell></graph:information></ns0:entity>
+  <ns0:entity ns0:id="cassava_1961">
+    <ns0:label>cassava_1961</ns0:label>
+  <graph:information graph:id="71"><mxCell style="dataDMP" parent="1" vertex="1"><mxGeometry x="726" y="942" width="170" height="40" as="geometry" /></mxCell></graph:information></ns0:entity>
+  <ns0:entity ns0:id="2010"><graph:information graph:id="72"><mxCell style="dataDMP" parent="1" vertex="1"><mxGeometry x="-109" y="825" width="170" height="40" as="geometry" /></mxCell></graph:information></ns0:entity>
+  <ns0:entity ns0:id="_1_conservationForest_1990_2015_frafao_csv"><graph:information graph:id="73"><mxCell style="dataDMP" parent="1" vertex="1"><mxGeometry x="443" y="925" width="170" height="40" as="geometry" /></mxCell></graph:information></ns0:entity>
+  <ns0:entity ns0:id="_1_crops_1961_2017_faostat_csv"><graph:information graph:id="74"><mxCell style="dataDMP" parent="1" vertex="1"><mxGeometry x="535" y="-421" width="170" height="40" as="geometry" /></mxCell></graph:information></ns0:entity>
+  <ns0:entity ns0:id="primary_forest_1995">
+    <ns0:label>primary forest_1995</ns0:label>
+  <graph:information graph:id="75"><mxCell style="dataDMP" parent="1" vertex="1"><mxGeometry x="-738" y="292" width="170" height="40" as="geometry" /></mxCell></graph:information></ns0:entity>
+  <ns0:entity ns0:id="schema_4"><graph:information graph:id="76"><mxCell style="dataDMP" parent="1" vertex="1"><mxGeometry x="917" y="-209" width="170" height="40" as="geometry" /></mxCell></graph:information></ns0:entity>
+  <ns0:entity ns0:id="2015"><graph:information graph:id="77"><mxCell style="dataDMP" parent="1" vertex="1"><mxGeometry x="99" y="-280" width="170" height="40" as="geometry" /></mxCell></graph:information></ns0:entity>
+  <ns0:entity ns0:id="173"><graph:information graph:id="78"><mxCell style="dataDMP" parent="1" vertex="1"><mxGeometry x="-9" y="439" width="170" height="40" as="geometry" /></mxCell></graph:information></ns0:entity>
+</ns0:document>

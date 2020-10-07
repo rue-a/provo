@@ -4,7 +4,7 @@ import datetime
 import xml.etree.ElementTree as et
 import random
 
-documentName = 'geokur'
+documentName = 'paraguay_derived'
 
 # convert from rdf to provXML
 doc = prov.ProvDocument.deserialize(source = documentName + '.ttl', format='rdf')
@@ -96,6 +96,7 @@ for resource in resources:
 
             element = et.Element('mxCell')
             element.attrib = {
+                'style':"shape=connector;fontSize=10;align=center;verticalAlign=middle;rounded=1;labelBackgroundColor=white;strokeColor=#727675;strokeWidth=1;edgeStyle=elbowEdgeStyle;endArrow=openThin;html=1;dashed=1;jettySize=auto;orthogonalLoop=1;startArrow=oval",
                 'parent':"1",
                 'source':source,
                 'target':destination,

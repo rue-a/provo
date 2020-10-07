@@ -1,0 +1,255 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<prov:document xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:cns="https://geokur.org/" xmlns:prov="http://www.w3.org/ns/prov#" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <prov:wasDerivedFrom>
+    <prov:generatedEntity prov:ref="cns:paraguay"/>
+    <prov:usedEntity prov:ref="cns:1961"/>
+  </prov:wasDerivedFrom>
+  <prov:wasDerivedFrom>
+    <prov:generatedEntity prov:ref="cns:banana_1961"/>
+    <prov:usedEntity prov:ref="cns:173"/>
+  </prov:wasDerivedFrom>
+  <prov:wasDerivedFrom>
+    <prov:generatedEntity prov:ref="cns:cassava_1961"/>
+    <prov:usedEntity prov:ref="cns:schema_4"/>
+  </prov:wasDerivedFrom>
+  <prov:wasDerivedFrom>
+    <prov:generatedEntity prov:ref="cns:banana_1961"/>
+    <prov:usedEntity prov:ref="cns:_1_crops_1961_2017_faostat_csv"/>
+  </prov:wasDerivedFrom>
+  <prov:wasDerivedFrom>
+    <prov:generatedEntity prov:ref="cns:paraguay"/>
+    <prov:usedEntity prov:ref="cns:1990"/>
+  </prov:wasDerivedFrom>
+  <prov:wasDerivedFrom>
+    <prov:generatedEntity prov:ref="cns:fava_bean_1961"/>
+    <prov:usedEntity prov:ref="cns:schema_4"/>
+  </prov:wasDerivedFrom>
+  <prov:wasDerivedFrom>
+    <prov:generatedEntity prov:ref="cns:paraguay"/>
+    <prov:usedEntity prov:ref="cns:2010"/>
+  </prov:wasDerivedFrom>
+  <prov:wasDerivedFrom>
+    <prov:generatedEntity prov:ref="cns:bean_dry_1961"/>
+    <prov:usedEntity prov:ref="cns:173"/>
+  </prov:wasDerivedFrom>
+  <prov:wasDerivedFrom>
+    <prov:generatedEntity prov:ref="cns:paraguay"/>
+    <prov:usedEntity prov:ref="cns:1995"/>
+  </prov:wasDerivedFrom>
+  <prov:wasDerivedFrom>
+    <prov:generatedEntity prov:ref="cns:conservation_forest_2010"/>
+    <prov:usedEntity prov:ref="cns:schema_12"/>
+  </prov:wasDerivedFrom>
+  <prov:wasDerivedFrom>
+    <prov:generatedEntity prov:ref="cns:1995"/>
+    <prov:usedEntity prov:ref="cns:primary_forest_1995"/>
+  </prov:wasDerivedFrom>
+  <prov:wasDerivedFrom>
+    <prov:generatedEntity prov:ref="cns:1961"/>
+    <prov:usedEntity prov:ref="cns:bean_dry_1961"/>
+  </prov:wasDerivedFrom>
+  <prov:wasDerivedFrom>
+    <prov:generatedEntity prov:ref="cns:bean_dry_1961"/>
+    <prov:usedEntity prov:ref="cns:_1_crops_1961_2017_faostat_csv"/>
+  </prov:wasDerivedFrom>
+  <prov:wasDerivedFrom>
+    <prov:generatedEntity prov:ref="cns:conservation_forest_2000"/>
+    <prov:usedEntity prov:ref="cns:schema_12"/>
+  </prov:wasDerivedFrom>
+  <prov:wasDerivedFrom>
+    <prov:generatedEntity prov:ref="cns:banana_1961"/>
+    <prov:usedEntity prov:ref="cns:schema_4"/>
+  </prov:wasDerivedFrom>
+  <prov:wasDerivedFrom>
+    <prov:generatedEntity prov:ref="cns:total_forest_1995"/>
+    <prov:usedEntity prov:ref="cns:_1__1995_1995_frafao_csv"/>
+  </prov:wasDerivedFrom>
+  <prov:wasDerivedFrom>
+    <prov:generatedEntity prov:ref="cns:conservation_forest_1990"/>
+    <prov:usedEntity prov:ref="cns:173"/>
+  </prov:wasDerivedFrom>
+  <prov:wasDerivedFrom>
+    <prov:generatedEntity prov:ref="cns:conservation_forest_2015"/>
+    <prov:usedEntity prov:ref="cns:_1_conservationForest_1990_2015_frafao_csv"/>
+  </prov:wasDerivedFrom>
+  <prov:wasDerivedFrom>
+    <prov:generatedEntity prov:ref="cns:paraguay"/>
+    <prov:usedEntity prov:ref="cns:2000"/>
+  </prov:wasDerivedFrom>
+  <prov:wasDerivedFrom>
+    <prov:generatedEntity prov:ref="cns:conservation_forest_1990"/>
+    <prov:usedEntity prov:ref="cns:_1_conservationForest_1990_2015_frafao_csv"/>
+  </prov:wasDerivedFrom>
+  <prov:wasDerivedFrom>
+    <prov:generatedEntity prov:ref="cns:cassava_1961"/>
+    <prov:usedEntity prov:ref="cns:_1_crops_1961_2017_faostat_csv"/>
+  </prov:wasDerivedFrom>
+  <prov:wasDerivedFrom>
+    <prov:generatedEntity prov:ref="cns:paraguay"/>
+    <prov:usedEntity prov:ref="cns:2005"/>
+  </prov:wasDerivedFrom>
+  <prov:wasDerivedFrom>
+    <prov:generatedEntity prov:ref="cns:total_forest_1995"/>
+    <prov:usedEntity prov:ref="cns:173"/>
+  </prov:wasDerivedFrom>
+  <prov:wasDerivedFrom>
+    <prov:generatedEntity prov:ref="cns:total_forest_1995"/>
+    <prov:usedEntity prov:ref="cns:schema_5"/>
+  </prov:wasDerivedFrom>
+  <prov:wasDerivedFrom>
+    <prov:generatedEntity prov:ref="cns:bean_dry_1961"/>
+    <prov:usedEntity prov:ref="cns:schema_4"/>
+  </prov:wasDerivedFrom>
+  <prov:wasDerivedFrom>
+    <prov:generatedEntity prov:ref="cns:1961"/>
+    <prov:usedEntity prov:ref="cns:banana_1961"/>
+  </prov:wasDerivedFrom>
+  <prov:wasDerivedFrom>
+    <prov:generatedEntity prov:ref="cns:1990"/>
+    <prov:usedEntity prov:ref="cns:conservation_forest_1990"/>
+  </prov:wasDerivedFrom>
+  <prov:wasDerivedFrom>
+    <prov:generatedEntity prov:ref="cns:conservation_forest_2000"/>
+    <prov:usedEntity prov:ref="cns:173"/>
+  </prov:wasDerivedFrom>
+  <prov:wasDerivedFrom>
+    <prov:generatedEntity prov:ref="cns:conservation_forest_2000"/>
+    <prov:usedEntity prov:ref="cns:_1_conservationForest_1990_2015_frafao_csv"/>
+  </prov:wasDerivedFrom>
+  <prov:wasDerivedFrom>
+    <prov:generatedEntity prov:ref="cns:1995"/>
+    <prov:usedEntity prov:ref="cns:total_forest_1995"/>
+  </prov:wasDerivedFrom>
+  <prov:wasDerivedFrom>
+    <prov:generatedEntity prov:ref="cns:2005"/>
+    <prov:usedEntity prov:ref="cns:conservation_forest_2005"/>
+  </prov:wasDerivedFrom>
+  <prov:wasDerivedFrom>
+    <prov:generatedEntity prov:ref="cns:primary_forest_1995"/>
+    <prov:usedEntity prov:ref="cns:_1__1995_1995_frafao_csv"/>
+  </prov:wasDerivedFrom>
+  <prov:wasDerivedFrom>
+    <prov:generatedEntity prov:ref="cns:paraguay"/>
+    <prov:usedEntity prov:ref="cns:2015"/>
+  </prov:wasDerivedFrom>
+  <prov:wasDerivedFrom>
+    <prov:generatedEntity prov:ref="cns:conservation_forest_2015"/>
+    <prov:usedEntity prov:ref="cns:schema_12"/>
+  </prov:wasDerivedFrom>
+  <prov:wasDerivedFrom>
+    <prov:generatedEntity prov:ref="cns:primary_forest_1995"/>
+    <prov:usedEntity prov:ref="cns:173"/>
+  </prov:wasDerivedFrom>
+  <prov:wasDerivedFrom>
+    <prov:generatedEntity prov:ref="cns:primary_forest_1995"/>
+    <prov:usedEntity prov:ref="cns:schema_5"/>
+  </prov:wasDerivedFrom>
+  <prov:wasDerivedFrom>
+    <prov:generatedEntity prov:ref="cns:conservation_forest_1990"/>
+    <prov:usedEntity prov:ref="cns:schema_12"/>
+  </prov:wasDerivedFrom>
+  <prov:wasDerivedFrom>
+    <prov:generatedEntity prov:ref="cns:conservation_forest_2005"/>
+    <prov:usedEntity prov:ref="cns:schema_12"/>
+  </prov:wasDerivedFrom>
+  <prov:wasDerivedFrom>
+    <prov:generatedEntity prov:ref="cns:1961"/>
+    <prov:usedEntity prov:ref="cns:cassava_1961"/>
+  </prov:wasDerivedFrom>
+  <prov:wasDerivedFrom>
+    <prov:generatedEntity prov:ref="cns:cassava_1961"/>
+    <prov:usedEntity prov:ref="cns:173"/>
+  </prov:wasDerivedFrom>
+  <prov:wasDerivedFrom>
+    <prov:generatedEntity prov:ref="cns:1961"/>
+    <prov:usedEntity prov:ref="cns:fava_bean_1961"/>
+  </prov:wasDerivedFrom>
+  <prov:wasDerivedFrom>
+    <prov:generatedEntity prov:ref="cns:conservation_forest_2015"/>
+    <prov:usedEntity prov:ref="cns:173"/>
+  </prov:wasDerivedFrom>
+  <prov:wasDerivedFrom>
+    <prov:generatedEntity prov:ref="cns:fava_bean_1961"/>
+    <prov:usedEntity prov:ref="cns:173"/>
+  </prov:wasDerivedFrom>
+  <prov:wasDerivedFrom>
+    <prov:generatedEntity prov:ref="cns:2015"/>
+    <prov:usedEntity prov:ref="cns:conservation_forest_2015"/>
+  </prov:wasDerivedFrom>
+  <prov:wasDerivedFrom>
+    <prov:generatedEntity prov:ref="cns:conservation_forest_2005"/>
+    <prov:usedEntity prov:ref="cns:173"/>
+  </prov:wasDerivedFrom>
+  <prov:wasDerivedFrom>
+    <prov:generatedEntity prov:ref="cns:2000"/>
+    <prov:usedEntity prov:ref="cns:conservation_forest_2000"/>
+  </prov:wasDerivedFrom>
+  <prov:wasDerivedFrom>
+    <prov:generatedEntity prov:ref="cns:conservation_forest_2005"/>
+    <prov:usedEntity prov:ref="cns:_1_conservationForest_1990_2015_frafao_csv"/>
+  </prov:wasDerivedFrom>
+  <prov:wasDerivedFrom>
+    <prov:generatedEntity prov:ref="cns:2010"/>
+    <prov:usedEntity prov:ref="cns:conservation_forest_2010"/>
+  </prov:wasDerivedFrom>
+  <prov:wasDerivedFrom>
+    <prov:generatedEntity prov:ref="cns:conservation_forest_2010"/>
+    <prov:usedEntity prov:ref="cns:173"/>
+  </prov:wasDerivedFrom>
+  <prov:wasDerivedFrom>
+    <prov:generatedEntity prov:ref="cns:fava_bean_1961"/>
+    <prov:usedEntity prov:ref="cns:_1_crops_1961_2017_faostat_csv"/>
+  </prov:wasDerivedFrom>
+  <prov:wasDerivedFrom>
+    <prov:generatedEntity prov:ref="cns:conservation_forest_2010"/>
+    <prov:usedEntity prov:ref="cns:_1_conservationForest_1990_2015_frafao_csv"/>
+  </prov:wasDerivedFrom>
+  <prov:entity prov:id="cns:conservation_forest_1990">
+    <prov:label>conservation forest_1990</prov:label>
+  </prov:entity>
+  <prov:entity prov:id="cns:bean_dry_1961">
+    <prov:label>bean dry_1961</prov:label>
+  </prov:entity>
+  <prov:entity prov:id="cns:paraguay"/>
+  <prov:entity prov:id="cns:schema_5"/>
+  <prov:entity prov:id="cns:fava_bean_1961">
+    <prov:label>fava bean_1961</prov:label>
+  </prov:entity>
+  <prov:entity prov:id="cns:_1__1995_1995_frafao_csv"/>
+  <prov:entity prov:id="cns:2000"/>
+  <prov:entity prov:id="cns:1990"/>
+  <prov:entity prov:id="cns:conservation_forest_2000">
+    <prov:label>conservation forest_2000</prov:label>
+  </prov:entity>
+  <prov:entity prov:id="cns:conservation_forest_2005">
+    <prov:label>conservation forest_2005</prov:label>
+  </prov:entity>
+  <prov:entity prov:id="cns:1961"/>
+  <prov:entity prov:id="cns:1995"/>
+  <prov:entity prov:id="cns:2005"/>
+  <prov:entity prov:id="cns:conservation_forest_2010">
+    <prov:label>conservation forest_2010</prov:label>
+  </prov:entity>
+  <prov:entity prov:id="cns:total_forest_1995">
+    <prov:label>total forest_1995</prov:label>
+  </prov:entity>
+  <prov:entity prov:id="cns:schema_12"/>
+  <prov:entity prov:id="cns:conservation_forest_2015">
+    <prov:label>conservation forest_2015</prov:label>
+  </prov:entity>
+  <prov:entity prov:id="cns:banana_1961">
+    <prov:label>banana_1961</prov:label>
+  </prov:entity>
+  <prov:entity prov:id="cns:cassava_1961">
+    <prov:label>cassava_1961</prov:label>
+  </prov:entity>
+  <prov:entity prov:id="cns:2010"/>
+  <prov:entity prov:id="cns:_1_conservationForest_1990_2015_frafao_csv"/>
+  <prov:entity prov:id="cns:_1_crops_1961_2017_faostat_csv"/>
+  <prov:entity prov:id="cns:primary_forest_1995">
+    <prov:label>primary forest_1995</prov:label>
+  </prov:entity>
+  <prov:entity prov:id="cns:schema_4"/>
+  <prov:entity prov:id="cns:2015"/>
+  <prov:entity prov:id="cns:173"/>
+</prov:document>
