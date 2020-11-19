@@ -1,11 +1,11 @@
 # README
 
-Construct provenance graphs according to PROV-O. _The package is based on __rdflib___. https://rdflib.readthedocs.io/en/stable/rdf_terms.html
+The package creates provenance graphs according to PROV-O. _The package is based on __rdflib___. https://rdflib.readthedocs.io/en/stable/rdf_terms.html
 
 ## Installation
 
-1. Download and extract the package
-2. Open Shell and _cd_ to extracted package
+1. Download and unzip the package
+2. Open Shell and _cd_ to unzipped package
 3. Run "pip install -e ." (in the folder that contains ```setup.py```)
 
 ## Contents
@@ -18,7 +18,7 @@ The package implements the PROV-O (https://www.w3.org/TR/prov-o/#starting-points
 
 ## Functionality
 
-It is assumed that the basic unit of a provenance graph is an _Activity_ with a number of _Input Entities_ and _Output Entities_ that is possibly controlled by an _Agent_. The following graphic depicts this unit together with the resulting properties:
+It is assumed that the basic unit of a provenance graph is an _Activity_ with a number of _Input Entities_ and _Output Entities_ that is possibly controlled by an _Agent_. The following graphic shows this unit together with the resulting properties:
 
 <img src="provit/graphics/provBasicExample.png" width="700">
 
@@ -58,15 +58,15 @@ path = './examples/out/provBasicExample_n3.rdf'
 g.serialize(format = 'n3', destination = path)
 ```
 
-Every object of the type _Agent_, _Activity_ and _Entity_ needs a unique identifier on instantiation. This identifier has to be given as string on object instantiation. It has to be alphanumeric without empty spaces. Instantiation also requires the graph to which the object should be added ```newEntity = Entity(graph = provGraph, id = 'newEntity')```.
+Every object of the type _Agent_, _Activity_ and _Entity_ needs a unique identifier. This identifier needs to be an alphanumeric string without empty spaces. The instantiation also requires the graph to which the object should be added ```newEntity = Entity(graph = provGraph, id = 'newEntity')``` as input.
 
 ### A real provenance graph consists of multiple basic units
 
-The folder _examples_ provides an example document that features the serialization of an ArcGIS Workflow into a provenance graph. The folder _out_ contains this graph. The tutorial containing the example workflow can be found under http://webhelp.esri.com/arcgisdesktop/9.3/pdf/Geoprocessing_in_ArcGIS_Tutorial.pdf, p. 36ff. The following graphic depicts the workflow (The _wasDerivedBy_ properties between _Entities_ are omitted):
+The folder _examples_ contains an example document, which describes the serialization of an ArcGIS Workflow description into a provenance graph RDF. The folder _out_ contains this graph. The ESRI tutorial with the example workflow isa available ar http://webhelp.esri.com/arcgisdesktop/9.3/pdf/Geoprocessing_in_ArcGIS_Tutorial.pdf, p. 36ff. The following figure shows the workflow (The _wasDerivedBy_ properties between _Entities_ are omitted):
 
 <img src="provit/graphics/gnatchi.png">
 
-The manuel assignment of every required property in the graph (arrows) can become time consuming and is error prone. The class ```ProvGraph``` provides a utility method called ```link``` that simplifies this task. The following example is for the "Intersect"-Activity in the graph above:
+The manual assignment of required properties in the graph (arrows) gets time-consuming and cana lead to errors. The class ```ProvGraph``` provides a utility method called ```link``` that simplifies this task. The following example describes the "Intersect" Activity, which is shown graph above:
 
 ```python
 elev = Entity(g, 'ElevationsLessThan250m')
@@ -82,9 +82,9 @@ g.link(
 )
 ```
 
-Every parameter of the link method accepts lists of according PROV-O objects as well as single objects. Also, every time the link method is called, it checks if there is a resulting _wasInformedBy_ property that needs to be added to the graph (and adds it if so). This auto-inferencing of the ```link```-method can and should be deactivated when constructing large graphs ( ```g.link(..., inference = False) ```).
+Every parameter of the link method can be set as list of according PROV-O objects or as single object. Every time the link method is called, it checks if there is a resulting _wasInformedBy_ property that needs to be added to the graph (and adds it). This auto-inferencing of the ```link```-method can and should be deactivated when constructing large graphs ( ```g.link(..., inference = False) ```).
 
-Additionally, every _Activity_ can be assigned a start and end time. The format of this time has to be a python ```datetime``` object: 
+Additionally, every _Activity_ can be assigned with a start time and an end time. The time parameters have to be encoded as python ```datetime``` objects: 
 
 ```python
 from datetime import datetime
