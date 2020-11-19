@@ -93,3 +93,9 @@ buffer = Activity(g, 'Buffer')
 buffer.startedAtTime(datetime(2020, 6, 6, 12, 0, 0))
 buffer.endedAtTime(datetime(2020, 6, 6, 12, 4, 30))
 ```
+
+##License
+
+##Contact
+
+Arne Rümmler ([arne.ruemmler@tu-dresden.de](mailto:arne.ruemmler@tu-dresden.de))
