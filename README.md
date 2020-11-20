@@ -93,6 +93,9 @@ buffer = Activity(g, 'Buffer')
 buffer.startedAtTime(datetime(2020, 6, 6, 12, 0, 0))
 buffer.endedAtTime(datetime(2020, 6, 6, 12, 4, 30))
 ```
+## Used Packages
+
+- rdflib: https://rdflib.readthedocs.io/en/stable/, BSD License
 
 ## License
 
