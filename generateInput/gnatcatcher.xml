@@ -1,0 +1,257 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<prov:document xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:cns="https://gnatcatcher.org/" xmlns:prov="http://www.w3.org/ns/prov#" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <prov:wasInformedBy>
+    <prov:informed prov:ref="cns:Intersect"/>
+    <prov:informant prov:ref="cns:SelectClimate"/>
+  </prov:wasInformedBy>
+  <prov:wasGeneratedBy>
+    <prov:entity prov:ref="cns:SuitableVegetation"/>
+    <prov:activity prov:ref="cns:SelectVegetation"/>
+  </prov:wasGeneratedBy>
+  <prov:wasDerivedFrom>
+    <prov:generatedEntity prov:ref="cns:intersectOutput"/>
+    <prov:usedEntity prov:ref="cns:ElevationsLessThan250m"/>
+  </prov:wasDerivedFrom>
+  <prov:used>
+    <prov:activity prov:ref="cns:SelectVegetation"/>
+    <prov:entity prov:ref="cns:InputVegetation"/>
+  </prov:used>
+  <prov:wasGeneratedBy>
+    <prov:entity prov:ref="cns:dissolveOutput"/>
+    <prov:activity prov:ref="cns:dissolve"/>
+  </prov:wasGeneratedBy>
+  <prov:wasInformedBy>
+    <prov:informed prov:ref="cns:multipartToSinglepart"/>
+    <prov:informant prov:ref="cns:dissolve"/>
+  </prov:wasInformedBy>
+  <prov:used>
+    <prov:activity prov:ref="cns:Intersect"/>
+    <prov:entity prov:ref="cns:ElevationsLessThan250m"/>
+  </prov:used>
+  <prov:wasDerivedFrom>
+    <prov:generatedEntity prov:ref="cns:dissolveOutput"/>
+    <prov:usedEntity prov:ref="cns:intersectOutput"/>
+  </prov:wasDerivedFrom>
+  <prov:wasInformedBy>
+    <prov:informed prov:ref="cns:Intersect"/>
+    <prov:informant prov:ref="cns:Erase"/>
+  </prov:wasInformedBy>
+  <prov:wasAttributedTo>
+    <prov:entity prov:ref="cns:MajorRoads"/>
+    <prov:agent prov:ref="cns:Tom"/>
+  </prov:wasAttributedTo>
+  <prov:wasGeneratedBy>
+    <prov:entity prov:ref="cns:RoadsBuffer"/>
+    <prov:activity prov:ref="cns:Buffer"/>
+  </prov:wasGeneratedBy>
+  <prov:used>
+    <prov:activity prov:ref="cns:Slope"/>
+    <prov:entity prov:ref="cns:DEM"/>
+  </prov:used>
+  <prov:wasGeneratedBy>
+    <prov:entity prov:ref="cns:OutputPotentialHabitat"/>
+    <prov:activity prov:ref="cns:SelectHabitats"/>
+  </prov:wasGeneratedBy>
+  <prov:wasInformedBy>
+    <prov:informed prov:ref="cns:Intersect"/>
+    <prov:informant prov:ref="cns:SelectSlopes"/>
+  </prov:wasInformedBy>
+  <prov:wasInformedBy>
+    <prov:informed prov:ref="cns:Erase"/>
+    <prov:informant prov:ref="cns:SelectVegetation"/>
+  </prov:wasInformedBy>
+  <prov:used>
+    <prov:activity prov:ref="cns:dissolve"/>
+    <prov:entity prov:ref="cns:intersectOutput"/>
+  </prov:used>
+  <prov:wasGeneratedBy>
+    <prov:entity prov:ref="cns:singlepartOutput"/>
+    <prov:activity prov:ref="cns:multipartToSinglepart"/>
+  </prov:wasGeneratedBy>
+  <prov:used>
+    <prov:activity prov:ref="cns:SelectElev"/>
+    <prov:entity prov:ref="cns:DEM"/>
+  </prov:used>
+  <prov:wasDerivedFrom>
+    <prov:generatedEntity prov:ref="cns:RoadsBuffer"/>
+    <prov:usedEntity prov:ref="cns:MajorRoads"/>
+  </prov:wasDerivedFrom>
+  <prov:wasDerivedFrom>
+    <prov:generatedEntity prov:ref="cns:ElevationsLessThan250m"/>
+    <prov:usedEntity prov:ref="cns:DEM"/>
+  </prov:wasDerivedFrom>
+  <prov:wasDerivedFrom>
+    <prov:generatedEntity prov:ref="cns:ClimateZonesSelection"/>
+    <prov:usedEntity prov:ref="cns:ClimateZones"/>
+  </prov:wasDerivedFrom>
+  <prov:wasGeneratedBy>
+    <prov:entity prov:ref="cns:ElevationsLessThan250m"/>
+    <prov:activity prov:ref="cns:SelectElev"/>
+  </prov:wasGeneratedBy>
+  <prov:used>
+    <prov:activity prov:ref="cns:SelectSlopes"/>
+    <prov:entity prov:ref="cns:Slopes"/>
+  </prov:used>
+  <prov:wasInformedBy>
+    <prov:informed prov:ref="cns:Intersect"/>
+    <prov:informant prov:ref="cns:SelectElev"/>
+  </prov:wasInformedBy>
+  <prov:used>
+    <prov:activity prov:ref="cns:Erase"/>
+    <prov:entity prov:ref="cns:SuitableVegetation"/>
+  </prov:used>
+  <prov:wasDerivedFrom>
+    <prov:generatedEntity prov:ref="cns:SuitableVegetation"/>
+    <prov:usedEntity prov:ref="cns:InputVegetation"/>
+  </prov:wasDerivedFrom>
+  <prov:wasDerivedFrom>
+    <prov:generatedEntity prov:ref="cns:SuitableVegetationMinusRoads"/>
+    <prov:usedEntity prov:ref="cns:SuitableVegetation"/>
+  </prov:wasDerivedFrom>
+  <prov:used>
+    <prov:activity prov:ref="cns:SelectHabitats"/>
+    <prov:entity prov:ref="cns:singlepartOutput"/>
+  </prov:used>
+  <prov:used>
+    <prov:activity prov:ref="cns:multipartToSinglepart"/>
+    <prov:entity prov:ref="cns:dissolveOutput"/>
+  </prov:used>
+  <prov:wasInformedBy>
+    <prov:informed prov:ref="cns:Erase"/>
+    <prov:informant prov:ref="cns:Buffer"/>
+  </prov:wasInformedBy>
+  <prov:used>
+    <prov:activity prov:ref="cns:SelectClimate"/>
+    <prov:entity prov:ref="cns:ClimateZones"/>
+  </prov:used>
+  <prov:wasDerivedFrom>
+    <prov:generatedEntity prov:ref="cns:SuitableVegetationMinusRoads"/>
+    <prov:usedEntity prov:ref="cns:RoadsBuffer"/>
+  </prov:wasDerivedFrom>
+  <prov:wasAssociatedWith>
+    <prov:activity prov:ref="cns:Buffer"/>
+    <prov:agent prov:ref="cns:Tom"/>
+  </prov:wasAssociatedWith>
+  <prov:wasGeneratedBy>
+    <prov:entity prov:ref="cns:SuitableVegetationMinusRoads"/>
+    <prov:activity prov:ref="cns:Erase"/>
+  </prov:wasGeneratedBy>
+  <prov:wasDerivedFrom>
+    <prov:generatedEntity prov:ref="cns:SlopesLessThan40Percent"/>
+    <prov:usedEntity prov:ref="cns:Slopes"/>
+  </prov:wasDerivedFrom>
+  <prov:wasDerivedFrom>
+    <prov:generatedEntity prov:ref="cns:singlepartOutput"/>
+    <prov:usedEntity prov:ref="cns:dissolveOutput"/>
+  </prov:wasDerivedFrom>
+  <prov:wasDerivedFrom>
+    <prov:generatedEntity prov:ref="cns:intersectOutput"/>
+    <prov:usedEntity prov:ref="cns:ClimateZonesSelection"/>
+  </prov:wasDerivedFrom>
+  <prov:wasInformedBy>
+    <prov:informed prov:ref="cns:SelectHabitats"/>
+    <prov:informant prov:ref="cns:multipartToSinglepart"/>
+  </prov:wasInformedBy>
+  <prov:wasGeneratedBy>
+    <prov:entity prov:ref="cns:Slopes"/>
+    <prov:activity prov:ref="cns:Slope"/>
+  </prov:wasGeneratedBy>
+  <prov:wasDerivedFrom>
+    <prov:generatedEntity prov:ref="cns:intersectOutput"/>
+    <prov:usedEntity prov:ref="cns:SuitableVegetationMinusRoads"/>
+  </prov:wasDerivedFrom>
+  <prov:wasDerivedFrom>
+    <prov:generatedEntity prov:ref="cns:Slopes"/>
+    <prov:usedEntity prov:ref="cns:DEM"/>
+  </prov:wasDerivedFrom>
+  <prov:wasAttributedTo>
+    <prov:entity prov:ref="cns:RoadsBuffer"/>
+    <prov:agent prov:ref="cns:Tom"/>
+  </prov:wasAttributedTo>
+  <prov:wasGeneratedBy>
+    <prov:entity prov:ref="cns:intersectOutput"/>
+    <prov:activity prov:ref="cns:Intersect"/>
+  </prov:wasGeneratedBy>
+  <prov:used>
+    <prov:activity prov:ref="cns:Intersect"/>
+    <prov:entity prov:ref="cns:ClimateZonesSelection"/>
+  </prov:used>
+  <prov:wasDerivedFrom>
+    <prov:generatedEntity prov:ref="cns:intersectOutput"/>
+    <prov:usedEntity prov:ref="cns:SlopesLessThan40Percent"/>
+  </prov:wasDerivedFrom>
+  <prov:wasDerivedFrom>
+    <prov:generatedEntity prov:ref="cns:OutputPotentialHabitat"/>
+    <prov:usedEntity prov:ref="cns:singlepartOutput"/>
+  </prov:wasDerivedFrom>
+  <prov:wasGeneratedBy>
+    <prov:entity prov:ref="cns:SlopesLessThan40Percent"/>
+    <prov:activity prov:ref="cns:SelectSlopes"/>
+  </prov:wasGeneratedBy>
+  <prov:wasInformedBy>
+    <prov:informed prov:ref="cns:dissolve"/>
+    <prov:informant prov:ref="cns:Intersect"/>
+  </prov:wasInformedBy>
+  <prov:wasInformedBy>
+    <prov:informed prov:ref="cns:SelectSlopes"/>
+    <prov:informant prov:ref="cns:Slope"/>
+  </prov:wasInformedBy>
+  <prov:used>
+    <prov:activity prov:ref="cns:Buffer"/>
+    <prov:entity prov:ref="cns:MajorRoads"/>
+  </prov:used>
+  <prov:used>
+    <prov:activity prov:ref="cns:Intersect"/>
+    <prov:entity prov:ref="cns:SuitableVegetationMinusRoads"/>
+  </prov:used>
+  <prov:used>
+    <prov:activity prov:ref="cns:Erase"/>
+    <prov:entity prov:ref="cns:RoadsBuffer"/>
+  </prov:used>
+  <prov:wasGeneratedBy>
+    <prov:entity prov:ref="cns:ClimateZonesSelection"/>
+    <prov:activity prov:ref="cns:SelectClimate"/>
+  </prov:wasGeneratedBy>
+  <prov:used>
+    <prov:activity prov:ref="cns:Intersect"/>
+    <prov:entity prov:ref="cns:SlopesLessThan40Percent"/>
+  </prov:used>
+  <prov:entity prov:id="cns:SlopesLessThan40Percent"/>
+  <prov:entity prov:id="cns:intersectOutput"/>
+  <prov:entity prov:id="cns:singlepartOutput"/>
+  <prov:activity prov:id="cns:dissolve"/>
+  <prov:entity prov:id="cns:MajorRoads">
+    <prov:label>Major Roads</prov:label>
+    <rdfs:comment>major roads in the studies area</rdfs:comment>
+  </prov:entity>
+  <prov:agent prov:id="cns:Tom">
+    <prov:label>Tom G.</prov:label>
+    <rdfs:comment>Everyone knows Tom</rdfs:comment>
+  </prov:agent>
+  <prov:entity prov:id="cns:InputVegetation"/>
+  <prov:entity prov:id="cns:SuitableVegetationMinusRoads"/>
+  <prov:entity prov:id="cns:ElevationsLessThan250m"/>
+  <prov:entity prov:id="cns:Slopes"/>
+  <prov:activity prov:id="cns:SelectSlopes"/>
+  <prov:entity prov:id="cns:dissolveOutput"/>
+  <prov:entity prov:id="cns:OutputPotentialHabitat"/>
+  <prov:activity prov:id="cns:SelectClimate"/>
+  <prov:activity prov:id="cns:Buffer">
+    <prov:label>ArcGIS Buffer</prov:label>
+    <rdfs:comment>20 m buffer around major roads</rdfs:comment>
+  </prov:activity>
+  <prov:entity prov:id="cns:ClimateZonesSelection"/>
+  <prov:entity prov:id="cns:ClimateZones"/>
+  <prov:entity prov:id="cns:DEM"/>
+  <prov:activity prov:id="cns:Slope"/>
+  <prov:entity prov:id="cns:SuitableVegetation"/>
+  <prov:activity prov:id="cns:Intersect"/>
+  <prov:entity prov:id="cns:RoadsBuffer">
+    <prov:label>Buffered Roads</prov:label>
+  </prov:entity>
+  <prov:activity prov:id="cns:SelectElev"/>
+  <prov:activity prov:id="cns:multipartToSinglepart"/>
+  <prov:activity prov:id="cns:SelectVegetation"/>
+  <prov:activity prov:id="cns:SelectHabitats"/>
+  <prov:activity prov:id="cns:Erase"/>
+</prov:document>

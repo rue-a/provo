@@ -84,7 +84,7 @@ g.link(
 
 Every parameter of the link method accepts lists of according PROV-O objects as well as single objects. Also, every time the link method is called, it checks if there is a resulting _wasInformedBy_ property that needs to be added to the graph (and adds it if so). This auto-inferencing of the ```link```-method can and should be deactivated when constructing large graphs ( ```g.link(..., inference = False) ```).
 
-Additionally, every _Activity_ can be assigned a start and end time. The format of this time has to be a python ```datetime``` object: 
+<!-- Additionally, every _Activity_ can be assigned a start and end time. The format of this time has to be a python ```datetime``` object: 
 
 ```python
 from datetime import datetime
@@ -92,4 +92,4 @@ from datetime import datetime
 buffer = Activity(g, 'Buffer')
 buffer.startedAtTime(datetime(2020, 6, 6, 12, 0, 0))
 buffer.endedAtTime(datetime(2020, 6, 6, 12, 4, 30))
-```
+``` -->

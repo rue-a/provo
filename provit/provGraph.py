@@ -49,7 +49,11 @@ class ProvGraph(Graph):
 
     def getCNS(self): return self.CNS
 
+<<<<<<< HEAD
 def link(self, inputs = None, process = None, outputs = None, agents = None, inference = True):
+=======
+    def link(self, inputs = None, process = None, outputs = None, agents = None, inference = True):
+>>>>>>> dev
         """ Helper utility to construct all possible properties according to 
         PROV-O between a set of Agents, Input Entities, Output Entities and a 
         single Activity that connects them.

@@ -1,0 +1,30 @@
+<ns0:document xmlns:ns0="http://www.w3.org/ns/prov#" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:graph="https://jgraph.github.io/mxgraph/">
+  <ns0:wasAttributedTo>
+    <ns0:entity ns0:ref="cns:tentativeOutput" />
+    <ns0:agent ns0:ref="cns:Carsten" />
+  <graph:information graph:id="2"><mxCell style="shape=connector;fontSize=10;align=center;verticalAlign=middle;rounded=1;labelBackgroundColor=white;strokeColor=#727675;strokeWidth=1;edgeStyle=elbowEdgeStyle;endArrow=openThin;html=1;dashed=1;jettySize=auto;orthogonalLoop=1;startArrow=oval" parent="1" source="8" target="9" edge="1"><mxGeometry relative="1" as="geometry" /></mxCell></graph:information></ns0:wasAttributedTo>
+  <ns0:used>
+    <ns0:activity ns0:ref="cns:postConsistencyAnalysis" />
+    <ns0:entity ns0:ref="cns:tentativeOutput" />
+  <graph:information graph:id="3"><mxCell parent="1" source="9" target="11" edge="1"><mxGeometry relative="1" as="geometry" /></mxCell></graph:information></ns0:used>
+  <ns0:wasDerivedFrom>
+    <ns0:generatedEntity ns0:ref="cns:DataLayers" />
+    <ns0:usedEntity ns0:ref="cns:tentativeOutput" />
+  <graph:information graph:id="4"><mxCell parent="1" source="9" target="10" edge="1"><mxGeometry relative="1" as="geometry" /></mxCell></graph:information></ns0:wasDerivedFrom>
+  <ns0:wasAssociatedWith>
+    <ns0:activity ns0:ref="cns:postConsistencyAnalysis" />
+    <ns0:agent ns0:ref="cns:Carsten" />
+  <graph:information graph:id="5"><mxCell style="shape=connector;fontSize=10;align=center;verticalAlign=middle;rounded=1;labelBackgroundColor=white;strokeColor=#727675;strokeWidth=1;edgeStyle=elbowEdgeStyle;endArrow=openThin;html=1;dashed=1;jettySize=auto;orthogonalLoop=1;startArrow=oval" parent="1" source="8" target="11" edge="1"><mxGeometry relative="1" as="geometry" /></mxCell></graph:information></ns0:wasAssociatedWith>
+  <ns0:wasAttributedTo>
+    <ns0:entity ns0:ref="cns:DataLayers" />
+    <ns0:agent ns0:ref="cns:Carsten" />
+  <graph:information graph:id="6"><mxCell style="shape=connector;fontSize=10;align=center;verticalAlign=middle;rounded=1;labelBackgroundColor=white;strokeColor=#727675;strokeWidth=1;edgeStyle=elbowEdgeStyle;endArrow=openThin;html=1;dashed=1;jettySize=auto;orthogonalLoop=1;startArrow=oval" parent="1" source="8" target="10" edge="1"><mxGeometry relative="1" as="geometry" /></mxCell></graph:information></ns0:wasAttributedTo>
+  <ns0:wasGeneratedBy>
+    <ns0:entity ns0:ref="cns:DataLayers" />
+    <ns0:activity ns0:ref="cns:postConsistencyAnalysis" />
+  <graph:information graph:id="7"><mxCell parent="1" source="11" target="10" edge="1"><mxGeometry relative="1" as="geometry" /></mxCell></graph:information></ns0:wasGeneratedBy>
+  <ns0:organization ns0:id="cns:Carsten"><graph:information graph:id="8"><mxCell style="actorDMP" parent="1" vertex="1"><mxGeometry x="839" y="-611" width="170" height="40" as="geometry" /></mxCell></graph:information></ns0:organization>
+  <ns0:entity ns0:id="cns:tentativeOutput"><graph:information graph:id="9"><mxCell style="dataDMP" parent="1" vertex="1"><mxGeometry x="588" y="-623" width="170" height="40" as="geometry" /></mxCell></graph:information></ns0:entity>
+  <ns0:entity ns0:id="cns:DataLayers"><graph:information graph:id="10"><mxCell style="dataDMP" parent="1" vertex="1"><mxGeometry x="-293" y="-300" width="170" height="40" as="geometry" /></mxCell></graph:information></ns0:entity>
+  <ns0:activity ns0:id="cns:postConsistencyAnalysis"><graph:information graph:id="11"><mxCell style="processDMP" parent="1" vertex="1"><mxGeometry x="156" y="79" width="170" height="40" as="geometry" /></mxCell></graph:information></ns0:activity>
+</ns0:document>

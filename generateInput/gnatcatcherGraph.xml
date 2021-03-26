@@ -1,0 +1,687 @@
+<ns0:document xmlns:ns0="http://www.w3.org/ns/prov#"
+  xmlns:ns1="http://www.w3.org/2000/01/rdf-schema#"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:graph="https://jgraph.github.io/mxgraph/">
+  <ns0:entity ns0:id="cns:SlopesLessThan40Percent">
+    <graph:information graph:id="54">
+      <mxCell style="dataDMP" parent="1" vertex="1">
+        <mxGeometry x="-721" y="919" width="170" height="40" as="geometry" />
+      </mxCell>
+    </graph:information>
+  </ns0:entity>
+  <ns0:entity ns0:id="cns:intersectOutput">
+    <graph:information graph:id="55">
+      <mxCell style="dataDMP" parent="1" vertex="1">
+        <mxGeometry x="-443" y="-134" width="170" height="40" as="geometry" />
+      </mxCell>
+    </graph:information>
+  </ns0:entity>
+  <ns0:entity ns0:id="cns:singlepartOutput">
+    <graph:information graph:id="56">
+      <mxCell style="dataDMP" parent="1" vertex="1">
+        <mxGeometry x="-77" y="825" width="170" height="40" as="geometry" />
+      </mxCell>
+    </graph:information>
+  </ns0:entity>
+  <ns0:activity ns0:id="cns:dissolve">
+    <graph:information graph:id="57">
+      <mxCell style="processDMP" parent="1" vertex="1">
+        <mxGeometry x="-122" y="-346" width="170" height="40" as="geometry" />
+      </mxCell>
+    </graph:information>
+  </ns0:activity>
+  <ns0:entity ns0:id="cns:MajorRoads">
+    <ns0:label>Major Roads</ns0:label>
+    <ns1:comment>major roads in the studies area</ns1:comment>
+    <graph:information graph:id="58">
+      <mxCell style="dataDMP" parent="1" vertex="1">
+        <mxGeometry x="-425" y="-221" width="170" height="40" as="geometry" />
+      </mxCell>
+    </graph:information>
+  </ns0:entity>
+  <ns0:agent ns0:id="cns:Tom">
+    <ns0:label>Tom G.</ns0:label>
+    <ns1:comment>Everyone knows Tom</ns1:comment>
+    <graph:information graph:id="59">
+      <mxCell style="actorDMP" parent="1" vertex="1">
+        <mxGeometry x="827" y="265" width="170" height="40" as="geometry" />
+      </mxCell>
+    </graph:information>
+  </ns0:agent>
+  <ns0:entity ns0:id="cns:InputVegetation">
+    <graph:information graph:id="60">
+      <mxCell style="dataDMP" parent="1" vertex="1">
+        <mxGeometry x="762" y="-409" width="170" height="40" as="geometry" />
+      </mxCell>
+    </graph:information>
+  </ns0:entity>
+  <ns0:entity ns0:id="cns:SuitableVegetationMinusRoads">
+    <graph:information graph:id="61">
+      <mxCell style="dataDMP" parent="1" vertex="1">
+        <mxGeometry x="-108" y="-7" width="170" height="40" as="geometry" />
+      </mxCell>
+    </graph:information>
+  </ns0:entity>
+  <ns0:entity ns0:id="cns:ElevationsLessThan250m">
+    <graph:information graph:id="62">
+      <mxCell style="dataDMP" parent="1" vertex="1">
+        <mxGeometry x="-111" y="-32" width="170" height="40" as="geometry" />
+      </mxCell>
+    </graph:information>
+  </ns0:entity>
+  <ns0:entity ns0:id="cns:Slopes">
+    <graph:information graph:id="63">
+      <mxCell style="dataDMP" parent="1" vertex="1">
+        <mxGeometry x="-493" y="932" width="170" height="40" as="geometry" />
+      </mxCell>
+    </graph:information>
+  </ns0:entity>
+  <ns0:activity ns0:id="cns:SelectSlopes">
+    <graph:information graph:id="64">
+      <mxCell style="processDMP" parent="1" vertex="1">
+        <mxGeometry x="-865" y="-564" width="170" height="40" as="geometry" />
+      </mxCell>
+    </graph:information>
+  </ns0:activity>
+  <ns0:entity ns0:id="cns:dissolveOutput">
+    <graph:information graph:id="65">
+      <mxCell style="dataDMP" parent="1" vertex="1">
+        <mxGeometry x="258" y="970" width="170" height="40" as="geometry" />
+      </mxCell>
+    </graph:information>
+  </ns0:entity>
+  <ns0:entity ns0:id="cns:OutputPotentialHabitat">
+    <graph:information graph:id="66">
+      <mxCell style="dataDMP" parent="1" vertex="1">
+        <mxGeometry x="230" y="-171" width="170" height="40" as="geometry" />
+      </mxCell>
+    </graph:information>
+  </ns0:entity>
+  <ns0:activity ns0:id="cns:SelectClimate">
+    <graph:information graph:id="67">
+      <mxCell style="processDMP" parent="1" vertex="1">
+        <mxGeometry x="-347" y="-418" width="170" height="40" as="geometry" />
+      </mxCell>
+    </graph:information>
+  </ns0:activity>
+  <ns0:activity ns0:id="cns:Buffer">
+    <ns0:label>ArcGIS Buffer</ns0:label>
+    <ns1:comment>20 m buffer around major roads</ns1:comment>
+    <graph:information graph:id="68">
+      <mxCell style="processDMP" parent="1" vertex="1">
+        <mxGeometry x="464" y="-251" width="170" height="40" as="geometry" />
+      </mxCell>
+    </graph:information>
+  </ns0:activity>
+  <ns0:entity ns0:id="cns:ClimateZonesSelection">
+    <graph:information graph:id="69">
+      <mxCell style="dataDMP" parent="1" vertex="1">
+        <mxGeometry x="-601" y="-122" width="170" height="40" as="geometry" />
+      </mxCell>
+    </graph:information>
+  </ns0:entity>
+  <ns0:entity ns0:id="cns:ClimateZones">
+    <graph:information graph:id="70">
+      <mxCell style="dataDMP" parent="1" vertex="1">
+        <mxGeometry x="150" y="-131" width="170" height="40" as="geometry" />
+      </mxCell>
+    </graph:information>
+  </ns0:entity>
+  <ns0:entity ns0:id="cns:DEM">
+    <graph:information graph:id="71">
+      <mxCell style="dataDMP" parent="1" vertex="1">
+        <mxGeometry x="666" y="-528" width="170" height="40" as="geometry" />
+      </mxCell>
+    </graph:information>
+  </ns0:entity>
+  <ns0:activity ns0:id="cns:Slope">
+    <graph:information graph:id="72">
+      <mxCell style="processDMP" parent="1" vertex="1">
+        <mxGeometry x="-157" y="211" width="170" height="40" as="geometry" />
+      </mxCell>
+    </graph:information>
+  </ns0:activity>
+  <ns0:entity ns0:id="cns:SuitableVegetation">
+    <graph:information graph:id="73">
+      <mxCell style="dataDMP" parent="1" vertex="1">
+        <mxGeometry x="-406" y="111" width="170" height="40" as="geometry" />
+      </mxCell>
+    </graph:information>
+  </ns0:entity>
+  <ns0:activity ns0:id="cns:Intersect">
+    <graph:information graph:id="74">
+      <mxCell style="processDMP" parent="1" vertex="1">
+        <mxGeometry x="440" y="984" width="170" height="40" as="geometry" />
+      </mxCell>
+    </graph:information>
+  </ns0:activity>
+  <ns0:entity ns0:id="cns:RoadsBuffer">
+    <ns0:label>Buffered Roads</ns0:label>
+    <graph:information graph:id="75">
+      <mxCell style="dataDMP" parent="1" vertex="1">
+        <mxGeometry x="859" y="450" width="170" height="40" as="geometry" />
+      </mxCell>
+    </graph:information>
+  </ns0:entity>
+  <ns0:activity ns0:id="cns:SelectElev">
+    <graph:information graph:id="76">
+      <mxCell style="processDMP" parent="1" vertex="1">
+        <mxGeometry x="846" y="-510" width="170" height="40" as="geometry" />
+      </mxCell>
+    </graph:information>
+  </ns0:activity>
+  <ns0:activity ns0:id="cns:multipartToSinglepart">
+    <graph:information graph:id="77">
+      <mxCell style="processDMP" parent="1" vertex="1">
+        <mxGeometry x="283" y="917" width="170" height="40" as="geometry" />
+      </mxCell>
+    </graph:information>
+  </ns0:activity>
+  <ns0:activity ns0:id="cns:SelectVegetation">
+    <graph:information graph:id="78">
+      <mxCell style="processDMP" parent="1" vertex="1">
+        <mxGeometry x="-26" y="687" width="170" height="40" as="geometry" />
+      </mxCell>
+    </graph:information>
+  </ns0:activity>
+  <ns0:activity ns0:id="cns:SelectHabitats">
+    <graph:information graph:id="79">
+      <mxCell style="processDMP" parent="1" vertex="1">
+        <mxGeometry x="-970" y="-130" width="170" height="40" as="geometry" />
+      </mxCell>
+    </graph:information>
+  </ns0:activity>
+  <ns0:activity ns0:id="cns:Erase">
+    <graph:information graph:id="80">
+      <mxCell style="processDMP" parent="1" vertex="1">
+        <mxGeometry x="332" y="-976" width="170" height="40" as="geometry" />
+      </mxCell>
+    </graph:information>
+  </ns0:activity>
+  <ns0:wasInformedBy>
+    <ns0:informed ns0:ref="cns:Intersect" />
+    <ns0:informant ns0:ref="cns:SelectClimate" />
+    <graph:information graph:id="0">
+      <mxCell parent="1" source="67" target="74" edge="1">
+        <mxGeometry relative="1" as="geometry" />
+      </mxCell>
+    </graph:information>
+  </ns0:wasInformedBy>
+  <ns0:wasGeneratedBy>
+    <ns0:entity ns0:ref="cns:SuitableVegetation" />
+    <ns0:activity ns0:ref="cns:SelectVegetation" />
+    <graph:information graph:id="1">
+      <mxCell parent="1" source="78" target="73" edge="1">
+        <mxGeometry relative="1" as="geometry" />
+      </mxCell>
+    </graph:information>
+  </ns0:wasGeneratedBy>
+  <ns0:wasDerivedFrom>
+    <ns0:generatedEntity ns0:ref="cns:intersectOutput" />
+    <ns0:usedEntity ns0:ref="cns:ElevationsLessThan250m" />
+    <graph:information graph:id="2">
+      <mxCell parent="1" source="62" target="55" edge="1">
+        <mxGeometry relative="1" as="geometry" />
+      </mxCell>
+    </graph:information>
+  </ns0:wasDerivedFrom>
+  <ns0:used>
+    <ns0:activity ns0:ref="cns:SelectVegetation" />
+    <ns0:entity ns0:ref="cns:InputVegetation" />
+    <graph:information graph:id="3">
+      <mxCell parent="1" source="60" target="78" edge="1">
+        <mxGeometry relative="1" as="geometry" />
+      </mxCell>
+    </graph:information>
+  </ns0:used>
+  <ns0:wasGeneratedBy>
+    <ns0:entity ns0:ref="cns:dissolveOutput" />
+    <ns0:activity ns0:ref="cns:dissolve" />
+    <graph:information graph:id="4">
+      <mxCell parent="1" source="57" target="65" edge="1">
+        <mxGeometry relative="1" as="geometry" />
+      </mxCell>
+    </graph:information>
+  </ns0:wasGeneratedBy>
+  <ns0:wasInformedBy>
+    <ns0:informed ns0:ref="cns:multipartToSinglepart" />
+    <ns0:informant ns0:ref="cns:dissolve" />
+    <graph:information graph:id="5">
+      <mxCell parent="1" source="57" target="77" edge="1">
+        <mxGeometry relative="1" as="geometry" />
+      </mxCell>
+    </graph:information>
+  </ns0:wasInformedBy>
+  <ns0:used>
+    <ns0:activity ns0:ref="cns:Intersect" />
+    <ns0:entity ns0:ref="cns:ElevationsLessThan250m" />
+    <graph:information graph:id="6">
+      <mxCell parent="1" source="62" target="74" edge="1">
+        <mxGeometry relative="1" as="geometry" />
+      </mxCell>
+    </graph:information>
+  </ns0:used>
+  <ns0:wasDerivedFrom>
+    <ns0:generatedEntity ns0:ref="cns:dissolveOutput" />
+    <ns0:usedEntity ns0:ref="cns:intersectOutput" />
+    <graph:information graph:id="7">
+      <mxCell parent="1" source="55" target="65" edge="1">
+        <mxGeometry relative="1" as="geometry" />
+      </mxCell>
+    </graph:information>
+  </ns0:wasDerivedFrom>
+  <ns0:wasInformedBy>
+    <ns0:informed ns0:ref="cns:Intersect" />
+    <ns0:informant ns0:ref="cns:Erase" />
+    <graph:information graph:id="8">
+      <mxCell parent="1" source="80" target="74" edge="1">
+        <mxGeometry relative="1" as="geometry" />
+      </mxCell>
+    </graph:information>
+  </ns0:wasInformedBy>
+  <ns0:wasAttributedTo>
+    <ns0:entity ns0:ref="cns:MajorRoads" />
+    <ns0:agent ns0:ref="cns:Tom" />
+    <graph:information graph:id="9">
+      <mxCell style="shape=connector;fontSize=10;align=center;verticalAlign=middle;rounded=1;labelBackgroundColor=white;strokeColor=#727675;strokeWidth=1;edgeStyle=elbowEdgeStyle;endArrow=openThin;html=1;dashed=1;jettySize=auto;orthogonalLoop=1;startArrow=oval" parent="1" source="59" target="58" edge="1">
+        <mxGeometry relative="1" as="geometry" />
+      </mxCell>
+    </graph:information>
+  </ns0:wasAttributedTo>
+  <ns0:wasGeneratedBy>
+    <ns0:entity ns0:ref="cns:RoadsBuffer" />
+    <ns0:activity ns0:ref="cns:Buffer" />
+    <graph:information graph:id="10">
+      <mxCell parent="1" source="68" target="75" edge="1">
+        <mxGeometry relative="1" as="geometry" />
+      </mxCell>
+    </graph:information>
+  </ns0:wasGeneratedBy>
+  <ns0:used>
+    <ns0:activity ns0:ref="cns:Slope" />
+    <ns0:entity ns0:ref="cns:DEM" />
+    <graph:information graph:id="11">
+      <mxCell parent="1" source="71" target="72" edge="1">
+        <mxGeometry relative="1" as="geometry" />
+      </mxCell>
+    </graph:information>
+  </ns0:used>
+  <ns0:wasGeneratedBy>
+    <ns0:entity ns0:ref="cns:OutputPotentialHabitat" />
+    <ns0:activity ns0:ref="cns:SelectHabitats" />
+    <graph:information graph:id="12">
+      <mxCell parent="1" source="79" target="66" edge="1">
+        <mxGeometry relative="1" as="geometry" />
+      </mxCell>
+    </graph:information>
+  </ns0:wasGeneratedBy>
+  <ns0:wasInformedBy>
+    <ns0:informed ns0:ref="cns:Intersect" />
+    <ns0:informant ns0:ref="cns:SelectSlopes" />
+    <graph:information graph:id="13">
+      <mxCell parent="1" source="64" target="74" edge="1">
+        <mxGeometry relative="1" as="geometry" />
+      </mxCell>
+    </graph:information>
+  </ns0:wasInformedBy>
+  <ns0:wasInformedBy>
+    <ns0:informed ns0:ref="cns:Erase" />
+    <ns0:informant ns0:ref="cns:SelectVegetation" />
+    <graph:information graph:id="14">
+      <mxCell parent="1" source="78" target="80" edge="1">
+        <mxGeometry relative="1" as="geometry" />
+      </mxCell>
+    </graph:information>
+  </ns0:wasInformedBy>
+  <ns0:used>
+    <ns0:activity ns0:ref="cns:dissolve" />
+    <ns0:entity ns0:ref="cns:intersectOutput" />
+    <graph:information graph:id="15">
+      <mxCell parent="1" source="55" target="57" edge="1">
+        <mxGeometry relative="1" as="geometry" />
+      </mxCell>
+    </graph:information>
+  </ns0:used>
+  <ns0:wasGeneratedBy>
+    <ns0:entity ns0:ref="cns:singlepartOutput" />
+    <ns0:activity ns0:ref="cns:multipartToSinglepart" />
+    <graph:information graph:id="16">
+      <mxCell parent="1" source="77" target="56" edge="1">
+        <mxGeometry relative="1" as="geometry" />
+      </mxCell>
+    </graph:information>
+  </ns0:wasGeneratedBy>
+  <ns0:used>
+    <ns0:activity ns0:ref="cns:SelectElev" />
+    <ns0:entity ns0:ref="cns:DEM" />
+    <graph:information graph:id="17">
+      <mxCell parent="1" source="71" target="76" edge="1">
+        <mxGeometry relative="1" as="geometry" />
+      </mxCell>
+    </graph:information>
+  </ns0:used>
+  <ns0:wasDerivedFrom>
+    <ns0:generatedEntity ns0:ref="cns:RoadsBuffer" />
+    <ns0:usedEntity ns0:ref="cns:MajorRoads" />
+    <graph:information graph:id="18">
+      <mxCell parent="1" source="58" target="75" edge="1">
+        <mxGeometry relative="1" as="geometry" />
+      </mxCell>
+    </graph:information>
+  </ns0:wasDerivedFrom>
+  <ns0:wasDerivedFrom>
+    <ns0:generatedEntity ns0:ref="cns:ElevationsLessThan250m" />
+    <ns0:usedEntity ns0:ref="cns:DEM" />
+    <graph:information graph:id="19">
+      <mxCell parent="1" source="71" target="62" edge="1">
+        <mxGeometry relative="1" as="geometry" />
+      </mxCell>
+    </graph:information>
+  </ns0:wasDerivedFrom>
+  <ns0:wasDerivedFrom>
+    <ns0:generatedEntity ns0:ref="cns:ClimateZonesSelection" />
+    <ns0:usedEntity ns0:ref="cns:ClimateZones" />
+    <graph:information graph:id="20">
+      <mxCell parent="1" source="70" target="69" edge="1">
+        <mxGeometry relative="1" as="geometry" />
+      </mxCell>
+    </graph:information>
+  </ns0:wasDerivedFrom>
+  <ns0:wasGeneratedBy>
+    <ns0:entity ns0:ref="cns:ElevationsLessThan250m" />
+    <ns0:activity ns0:ref="cns:SelectElev" />
+    <graph:information graph:id="21">
+      <mxCell parent="1" source="76" target="62" edge="1">
+        <mxGeometry relative="1" as="geometry" />
+      </mxCell>
+    </graph:information>
+  </ns0:wasGeneratedBy>
+  <ns0:used>
+    <ns0:activity ns0:ref="cns:SelectSlopes" />
+    <ns0:entity ns0:ref="cns:Slopes" />
+    <graph:information graph:id="22">
+      <mxCell parent="1" source="63" target="64" edge="1">
+        <mxGeometry relative="1" as="geometry" />
+      </mxCell>
+    </graph:information>
+  </ns0:used>
+  <ns0:wasInformedBy>
+    <ns0:informed ns0:ref="cns:Intersect" />
+    <ns0:informant ns0:ref="cns:SelectElev" />
+    <graph:information graph:id="23">
+      <mxCell parent="1" source="76" target="74" edge="1">
+        <mxGeometry relative="1" as="geometry" />
+      </mxCell>
+    </graph:information>
+  </ns0:wasInformedBy>
+  <ns0:used>
+    <ns0:activity ns0:ref="cns:Erase" />
+    <ns0:entity ns0:ref="cns:SuitableVegetation" />
+    <graph:information graph:id="24">
+      <mxCell parent="1" source="73" target="80" edge="1">
+        <mxGeometry relative="1" as="geometry" />
+      </mxCell>
+    </graph:information>
+  </ns0:used>
+  <ns0:wasDerivedFrom>
+    <ns0:generatedEntity ns0:ref="cns:SuitableVegetation" />
+    <ns0:usedEntity ns0:ref="cns:InputVegetation" />
+    <graph:information graph:id="25">
+      <mxCell parent="1" source="60" target="73" edge="1">
+        <mxGeometry relative="1" as="geometry" />
+      </mxCell>
+    </graph:information>
+  </ns0:wasDerivedFrom>
+  <ns0:wasDerivedFrom>
+    <ns0:generatedEntity ns0:ref="cns:SuitableVegetationMinusRoads" />
+    <ns0:usedEntity ns0:ref="cns:SuitableVegetation" />
+    <graph:information graph:id="26">
+      <mxCell parent="1" source="73" target="61" edge="1">
+        <mxGeometry relative="1" as="geometry" />
+      </mxCell>
+    </graph:information>
+  </ns0:wasDerivedFrom>
+  <ns0:used>
+    <ns0:activity ns0:ref="cns:SelectHabitats" />
+    <ns0:entity ns0:ref="cns:singlepartOutput" />
+    <graph:information graph:id="27">
+      <mxCell parent="1" source="56" target="79" edge="1">
+        <mxGeometry relative="1" as="geometry" />
+      </mxCell>
+    </graph:information>
+  </ns0:used>
+  <ns0:used>
+    <ns0:activity ns0:ref="cns:multipartToSinglepart" />
+    <ns0:entity ns0:ref="cns:dissolveOutput" />
+    <graph:information graph:id="28">
+      <mxCell parent="1" source="65" target="77" edge="1">
+        <mxGeometry relative="1" as="geometry" />
+      </mxCell>
+    </graph:information>
+  </ns0:used>
+  <ns0:wasInformedBy>
+    <ns0:informed ns0:ref="cns:Erase" />
+    <ns0:informant ns0:ref="cns:Buffer" />
+    <graph:information graph:id="29">
+      <mxCell parent="1" source="68" target="80" edge="1">
+        <mxGeometry relative="1" as="geometry" />
+      </mxCell>
+    </graph:information>
+  </ns0:wasInformedBy>
+  <ns0:used>
+    <ns0:activity ns0:ref="cns:SelectClimate" />
+    <ns0:entity ns0:ref="cns:ClimateZones" />
+    <graph:information graph:id="30">
+      <mxCell parent="1" source="70" target="67" edge="1">
+        <mxGeometry relative="1" as="geometry" />
+      </mxCell>
+    </graph:information>
+  </ns0:used>
+  <ns0:wasDerivedFrom>
+    <ns0:generatedEntity ns0:ref="cns:SuitableVegetationMinusRoads" />
+    <ns0:usedEntity ns0:ref="cns:RoadsBuffer" />
+    <graph:information graph:id="31">
+      <mxCell parent="1" source="75" target="61" edge="1">
+        <mxGeometry relative="1" as="geometry" />
+      </mxCell>
+    </graph:information>
+  </ns0:wasDerivedFrom>
+  <ns0:wasAssociatedWith>
+    <ns0:activity ns0:ref="cns:Buffer" />
+    <ns0:agent ns0:ref="cns:Tom" />
+    <graph:information graph:id="32">
+      <mxCell style="shape=connector;fontSize=10;align=center;verticalAlign=middle;rounded=1;labelBackgroundColor=white;strokeColor=#727675;strokeWidth=1;edgeStyle=elbowEdgeStyle;endArrow=openThin;html=1;dashed=1;jettySize=auto;orthogonalLoop=1;startArrow=oval" parent="1" source="59" target="68" edge="1">
+        <mxGeometry relative="1" as="geometry" />
+      </mxCell>
+    </graph:information>
+  </ns0:wasAssociatedWith>
+  <ns0:wasGeneratedBy>
+    <ns0:entity ns0:ref="cns:SuitableVegetationMinusRoads" />
+    <ns0:activity ns0:ref="cns:Erase" />
+    <graph:information graph:id="33">
+      <mxCell parent="1" source="80" target="61" edge="1">
+        <mxGeometry relative="1" as="geometry" />
+      </mxCell>
+    </graph:information>
+  </ns0:wasGeneratedBy>
+  <ns0:wasDerivedFrom>
+    <ns0:generatedEntity ns0:ref="cns:SlopesLessThan40Percent" />
+    <ns0:usedEntity ns0:ref="cns:Slopes" />
+    <graph:information graph:id="34">
+      <mxCell parent="1" source="63" target="54" edge="1">
+        <mxGeometry relative="1" as="geometry" />
+      </mxCell>
+    </graph:information>
+  </ns0:wasDerivedFrom>
+  <ns0:wasDerivedFrom>
+    <ns0:generatedEntity ns0:ref="cns:singlepartOutput" />
+    <ns0:usedEntity ns0:ref="cns:dissolveOutput" />
+    <graph:information graph:id="35">
+      <mxCell parent="1" source="65" target="56" edge="1">
+        <mxGeometry relative="1" as="geometry" />
+      </mxCell>
+    </graph:information>
+  </ns0:wasDerivedFrom>
+  <ns0:wasDerivedFrom>
+    <ns0:generatedEntity ns0:ref="cns:intersectOutput" />
+    <ns0:usedEntity ns0:ref="cns:ClimateZonesSelection" />
+    <graph:information graph:id="36">
+      <mxCell parent="1" source="69" target="55" edge="1">
+        <mxGeometry relative="1" as="geometry" />
+      </mxCell>
+    </graph:information>
+  </ns0:wasDerivedFrom>
+  <ns0:wasInformedBy>
+    <ns0:informed ns0:ref="cns:SelectHabitats" />
+    <ns0:informant ns0:ref="cns:multipartToSinglepart" />
+    <graph:information graph:id="37">
+      <mxCell parent="1" source="77" target="79" edge="1">
+        <mxGeometry relative="1" as="geometry" />
+      </mxCell>
+    </graph:information>
+  </ns0:wasInformedBy>
+  <ns0:wasGeneratedBy>
+    <ns0:entity ns0:ref="cns:Slopes" />
+    <ns0:activity ns0:ref="cns:Slope" />
+    <graph:information graph:id="38">
+      <mxCell parent="1" source="72" target="63" edge="1">
+        <mxGeometry relative="1" as="geometry" />
+      </mxCell>
+    </graph:information>
+  </ns0:wasGeneratedBy>
+  <ns0:wasDerivedFrom>
+    <ns0:generatedEntity ns0:ref="cns:intersectOutput" />
+    <ns0:usedEntity ns0:ref="cns:SuitableVegetationMinusRoads" />
+    <graph:information graph:id="39">
+      <mxCell parent="1" source="61" target="55" edge="1">
+        <mxGeometry relative="1" as="geometry" />
+      </mxCell>
+    </graph:information>
+  </ns0:wasDerivedFrom>
+  <ns0:wasDerivedFrom>
+    <ns0:generatedEntity ns0:ref="cns:Slopes" />
+    <ns0:usedEntity ns0:ref="cns:DEM" />
+    <graph:information graph:id="40">
+      <mxCell parent="1" source="71" target="63" edge="1">
+        <mxGeometry relative="1" as="geometry" />
+      </mxCell>
+    </graph:information>
+  </ns0:wasDerivedFrom>
+  <ns0:wasAttributedTo>
+    <ns0:entity ns0:ref="cns:RoadsBuffer" />
+    <ns0:agent ns0:ref="cns:Tom" />
+    <graph:information graph:id="41">
+      <mxCell style="shape=connector;fontSize=10;align=center;verticalAlign=middle;rounded=1;labelBackgroundColor=white;strokeColor=#727675;strokeWidth=1;edgeStyle=elbowEdgeStyle;endArrow=openThin;html=1;dashed=1;jettySize=auto;orthogonalLoop=1;startArrow=oval" parent="1" source="59" target="75" edge="1">
+        <mxGeometry relative="1" as="geometry" />
+      </mxCell>
+    </graph:information>
+  </ns0:wasAttributedTo>
+  <ns0:wasGeneratedBy>
+    <ns0:entity ns0:ref="cns:intersectOutput" />
+    <ns0:activity ns0:ref="cns:Intersect" />
+    <graph:information graph:id="42">
+      <mxCell parent="1" source="74" target="55" edge="1">
+        <mxGeometry relative="1" as="geometry" />
+      </mxCell>
+    </graph:information>
+  </ns0:wasGeneratedBy>
+  <ns0:used>
+    <ns0:activity ns0:ref="cns:Intersect" />
+    <ns0:entity ns0:ref="cns:ClimateZonesSelection" />
+    <graph:information graph:id="43">
+      <mxCell parent="1" source="69" target="74" edge="1">
+        <mxGeometry relative="1" as="geometry" />
+      </mxCell>
+    </graph:information>
+  </ns0:used>
+  <ns0:wasDerivedFrom>
+    <ns0:generatedEntity ns0:ref="cns:intersectOutput" />
+    <ns0:usedEntity ns0:ref="cns:SlopesLessThan40Percent" />
+    <graph:information graph:id="44">
+      <mxCell parent="1" source="54" target="55" edge="1">
+        <mxGeometry relative="1" as="geometry" />
+      </mxCell>
+    </graph:information>
+  </ns0:wasDerivedFrom>
+  <ns0:wasDerivedFrom>
+    <ns0:generatedEntity ns0:ref="cns:OutputPotentialHabitat" />
+    <ns0:usedEntity ns0:ref="cns:singlepartOutput" />
+    <graph:information graph:id="45">
+      <mxCell parent="1" source="56" target="66" edge="1">
+        <mxGeometry relative="1" as="geometry" />
+      </mxCell>
+    </graph:information>
+  </ns0:wasDerivedFrom>
+  <ns0:wasGeneratedBy>
+    <ns0:entity ns0:ref="cns:SlopesLessThan40Percent" />
+    <ns0:activity ns0:ref="cns:SelectSlopes" />
+    <graph:information graph:id="46">
+      <mxCell parent="1" source="64" target="54" edge="1">
+        <mxGeometry relative="1" as="geometry" />
+      </mxCell>
+    </graph:information>
+  </ns0:wasGeneratedBy>
+  <ns0:wasInformedBy>
+    <ns0:informed ns0:ref="cns:dissolve" />
+    <ns0:informant ns0:ref="cns:Intersect" />
+    <graph:information graph:id="47">
+      <mxCell parent="1" source="74" target="57" edge="1">
+        <mxGeometry relative="1" as="geometry" />
+      </mxCell>
+    </graph:information>
+  </ns0:wasInformedBy>
+  <ns0:wasInformedBy>
+    <ns0:informed ns0:ref="cns:SelectSlopes" />
+    <ns0:informant ns0:ref="cns:Slope" />
+    <graph:information graph:id="48">
+      <mxCell parent="1" source="72" target="64" edge="1">
+        <mxGeometry relative="1" as="geometry" />
+      </mxCell>
+    </graph:information>
+  </ns0:wasInformedBy>
+  <ns0:used>
+    <ns0:activity ns0:ref="cns:Buffer" />
+    <ns0:entity ns0:ref="cns:MajorRoads" />
+    <graph:information graph:id="49">
+      <mxCell parent="1" source="58" target="68" edge="1">
+        <mxGeometry relative="1" as="geometry" />
+      </mxCell>
+    </graph:information>
+  </ns0:used>
+  <ns0:used>
+    <ns0:activity ns0:ref="cns:Intersect" />
+    <ns0:entity ns0:ref="cns:SuitableVegetationMinusRoads" />
+    <graph:information graph:id="50">
+      <mxCell parent="1" source="61" target="74" edge="1">
+        <mxGeometry relative="1" as="geometry" />
+      </mxCell>
+    </graph:information>
+  </ns0:used>
+  <ns0:used>
+    <ns0:activity ns0:ref="cns:Erase" />
+    <ns0:entity ns0:ref="cns:RoadsBuffer" />
+    <graph:information graph:id="51">
+      <mxCell parent="1" source="75" target="80" edge="1">
+        <mxGeometry relative="1" as="geometry" />
+      </mxCell>
+    </graph:information>
+  </ns0:used>
+  <ns0:wasGeneratedBy>
+    <ns0:entity ns0:ref="cns:ClimateZonesSelection" />
+    <ns0:activity ns0:ref="cns:SelectClimate" />
+    <graph:information graph:id="52">
+      <mxCell parent="1" source="67" target="69" edge="1">
+        <mxGeometry relative="1" as="geometry" />
+      </mxCell>
+    </graph:information>
+  </ns0:wasGeneratedBy>
+  <ns0:used>
+    <ns0:activity ns0:ref="cns:Intersect" />
+    <ns0:entity ns0:ref="cns:SlopesLessThan40Percent" />
+    <graph:information graph:id="53">
+      <mxCell parent="1" source="54" target="74" edge="1">
+        <mxGeometry relative="1" as="geometry" />
+      </mxCell>
+    </graph:information>
+  </ns0:used>
+</ns0:document>

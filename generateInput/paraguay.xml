@@ -1,0 +1,484 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<prov:document xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:cns="https://geokur.org/" xmlns:prov="http://www.w3.org/ns/prov#" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <prov:wasDerivedFrom>
+    <prov:generatedEntity prov:ref="cns:FRA2015.zip%7CFRA2015_data.xlsx"/>
+    <prov:usedEntity prov:ref="cns:_1_conservationForest_1990_2015_frafao.csv"/>
+  </prov:wasDerivedFrom>
+  <prov:wasDerivedFrom>
+    <prov:generatedEntity prov:ref="cns:Production_Crops_E_All_Data_%28Normalized%29.zip%7CP..."/>
+    <prov:usedEntity prov:ref="cns:_1_crops_1961_2017_faostat.csv"/>
+  </prov:wasDerivedFrom>
+  <prov:wasDerivedFrom>
+    <prov:generatedEntity prov:ref="cns:_1__1995_1995_frafao.csv"/>
+    <prov:usedEntity prov:ref="cns:total_forest"/>
+  </prov:wasDerivedFrom>
+  <prov:wasGeneratedBy>
+    <prov:entity prov:ref="cns:primary_forest"/>
+    <prov:activity prov:ref="cns:arealDB_primary_forest"/>
+  </prov:wasGeneratedBy>
+  <prov:wasInformedBy>
+    <prov:informed prov:ref="cns:arealDB_conservation_forest"/>
+    <prov:informant prov:ref="cns:arealDB"/>
+  </prov:wasInformedBy>
+  <prov:wasGeneratedBy>
+    <prov:entity prov:ref="cns:total_forest"/>
+    <prov:activity prov:ref="cns:arealDB_total_forest"/>
+  </prov:wasGeneratedBy>
+  <prov:used>
+    <prov:activity prov:ref="cns:arealDB_conservation_forest"/>
+    <prov:entity prov:ref="cns:2000"/>
+  </prov:used>
+  <prov:used>
+    <prov:activity prov:ref="cns:rectifyR_schema_5"/>
+    <prov:entity prov:ref="cns:primary_forest"/>
+  </prov:used>
+  <prov:wasDerivedFrom>
+    <prov:generatedEntity prov:ref="cns:conservation_forest"/>
+    <prov:usedEntity prov:ref="cns:2015"/>
+  </prov:wasDerivedFrom>
+  <prov:wasDerivedFrom>
+    <prov:generatedEntity prov:ref="cns:_1_crops_1961_2017_faostat.csv"/>
+    <prov:usedEntity prov:ref="cns:bean_dry"/>
+  </prov:wasDerivedFrom>
+  <prov:used>
+    <prov:activity prov:ref="cns:rectifyR_schema_4"/>
+    <prov:entity prov:ref="cns:fava_bean"/>
+  </prov:used>
+  <prov:used>
+    <prov:activity prov:ref="cns:arealDB_conservation_forest"/>
+    <prov:entity prov:ref="cns:2010"/>
+  </prov:used>
+  <prov:used>
+    <prov:activity prov:ref="cns:arealDB_cassava"/>
+    <prov:entity prov:ref="cns:1961"/>
+  </prov:used>
+  <prov:wasDerivedFrom>
+    <prov:generatedEntity prov:ref="cns:173"/>
+    <prov:usedEntity prov:ref="cns:fava_bean"/>
+  </prov:wasDerivedFrom>
+  <prov:used>
+    <prov:activity prov:ref="cns:rectifyR_schema_5"/>
+    <prov:entity prov:ref="cns:total_forest"/>
+  </prov:used>
+  <prov:used>
+    <prov:activity prov:ref="cns:rectifyR_schema_4"/>
+    <prov:entity prov:ref="cns:cassava"/>
+  </prov:used>
+  <prov:wasDerivedFrom>
+    <prov:generatedEntity prov:ref="cns:173"/>
+    <prov:usedEntity prov:ref="cns:cassava"/>
+  </prov:wasDerivedFrom>
+  <prov:wasDerivedFrom>
+    <prov:generatedEntity prov:ref="cns:2000"/>
+    <prov:usedEntity prov:ref="cns:paraguay"/>
+  </prov:wasDerivedFrom>
+  <prov:wasGeneratedBy>
+    <prov:entity prov:ref="cns:173"/>
+    <prov:activity prov:ref="cns:rectifyR_schema_12"/>
+  </prov:wasGeneratedBy>
+  <prov:wasDerivedFrom>
+    <prov:generatedEntity prov:ref="cns:schema_12"/>
+    <prov:usedEntity prov:ref="cns:conservation_forest"/>
+  </prov:wasDerivedFrom>
+  <prov:wasGeneratedBy>
+    <prov:entity prov:ref="cns:_1_crops_1961_2017_faostat.csv"/>
+    <prov:activity prov:ref="cns:rectifyR_schema_4"/>
+  </prov:wasGeneratedBy>
+  <prov:wasInformedBy>
+    <prov:informed prov:ref="cns:rectifyR_schema_4"/>
+    <prov:informant prov:ref="cns:arealDB_banana"/>
+  </prov:wasInformedBy>
+  <prov:used>
+    <prov:activity prov:ref="cns:arealDB_conservation_forest"/>
+    <prov:entity prov:ref="cns:1990"/>
+  </prov:used>
+  <prov:wasGeneratedBy>
+    <prov:entity prov:ref="cns:schema_5"/>
+    <prov:activity prov:ref="cns:rectifyR_schema_5"/>
+  </prov:wasGeneratedBy>
+  <prov:wasDerivedFrom>
+    <prov:generatedEntity prov:ref="cns:1990"/>
+    <prov:usedEntity prov:ref="cns:paraguay"/>
+  </prov:wasDerivedFrom>
+  <prov:wasDerivedFrom>
+    <prov:generatedEntity prov:ref="cns:_1_crops_1961_2017_faostat.csv"/>
+    <prov:usedEntity prov:ref="cns:banana"/>
+  </prov:wasDerivedFrom>
+  <prov:wasDerivedFrom>
+    <prov:generatedEntity prov:ref="cns:schema_4"/>
+    <prov:usedEntity prov:ref="cns:cassava"/>
+  </prov:wasDerivedFrom>
+  <prov:wasDerivedFrom>
+    <prov:generatedEntity prov:ref="cns:fava_bean"/>
+    <prov:usedEntity prov:ref="cns:1961"/>
+  </prov:wasDerivedFrom>
+  <prov:wasInformedBy>
+    <prov:informed prov:ref="cns:rectifyR_schema_12"/>
+    <prov:informant prov:ref="cns:arealDB_conservation_forest"/>
+  </prov:wasInformedBy>
+  <prov:wasGeneratedBy>
+    <prov:entity prov:ref="cns:Production_Crops_E_All_Data_%28Normalized%29.zip%7CP..."/>
+    <prov:activity prov:ref="cns:arealDBProduction_Crops_E_All_Data_%28Normalized%29.zip%7CP..."/>
+  </prov:wasGeneratedBy>
+  <prov:wasGeneratedBy>
+    <prov:entity prov:ref="cns:173"/>
+    <prov:activity prov:ref="cns:rectifyR_schema_5"/>
+  </prov:wasGeneratedBy>
+  <prov:wasInformedBy>
+    <prov:informed prov:ref="cns:arealDB_primary_forest"/>
+    <prov:informant prov:ref="cns:arealDB"/>
+  </prov:wasInformedBy>
+  <prov:wasGeneratedBy>
+    <prov:entity prov:ref="cns:banana"/>
+    <prov:activity prov:ref="cns:arealDB_banana"/>
+  </prov:wasGeneratedBy>
+  <prov:wasInformedBy>
+    <prov:informed prov:ref="cns:arealDBProduction_Crops_E_All_Data_%28Normalized%29.zip%7CP..."/>
+    <prov:informant prov:ref="cns:rectifyR_schema_4"/>
+  </prov:wasInformedBy>
+  <prov:wasGeneratedBy>
+    <prov:entity prov:ref="cns:1990"/>
+    <prov:activity prov:ref="cns:arealDB"/>
+  </prov:wasGeneratedBy>
+  <prov:used>
+    <prov:activity prov:ref="cns:arealDBFRA2015.zip%7CFRA2015_data.xlsx"/>
+    <prov:entity prov:ref="cns:_1_conservationForest_1990_2015_frafao.csv"/>
+  </prov:used>
+  <prov:wasInformedBy>
+    <prov:informed prov:ref="cns:arealDB_total_forest"/>
+    <prov:informant prov:ref="cns:arealDB"/>
+  </prov:wasInformedBy>
+  <prov:wasDerivedFrom>
+    <prov:generatedEntity prov:ref="cns:schema_5"/>
+    <prov:usedEntity prov:ref="cns:primary_forest"/>
+  </prov:wasDerivedFrom>
+  <prov:used>
+    <prov:activity prov:ref="cns:arealDB_banana"/>
+    <prov:entity prov:ref="cns:1961"/>
+  </prov:used>
+  <prov:used>
+    <prov:activity prov:ref="cns:arealDB_conservation_forest"/>
+    <prov:entity prov:ref="cns:2015"/>
+  </prov:used>
+  <prov:used>
+    <prov:activity prov:ref="cns:rectifyR_schema_4"/>
+    <prov:entity prov:ref="cns:banana"/>
+  </prov:used>
+  <prov:wasInformedBy>
+    <prov:informed prov:ref="cns:arealDBFRA2015.zip%7CFRA2015_data.xlsx"/>
+    <prov:informant prov:ref="cns:rectifyR_schema_12"/>
+  </prov:wasInformedBy>
+  <prov:wasDerivedFrom>
+    <prov:generatedEntity prov:ref="cns:bean_dry"/>
+    <prov:usedEntity prov:ref="cns:1961"/>
+  </prov:wasDerivedFrom>
+  <prov:wasDerivedFrom>
+    <prov:generatedEntity prov:ref="cns:173"/>
+    <prov:usedEntity prov:ref="cns:primary_forest"/>
+  </prov:wasDerivedFrom>
+  <prov:wasGeneratedBy>
+    <prov:entity prov:ref="cns:_1_conservationForest_1990_2015_frafao.csv"/>
+    <prov:activity prov:ref="cns:rectifyR_schema_12"/>
+  </prov:wasGeneratedBy>
+  <prov:wasDerivedFrom>
+    <prov:generatedEntity prov:ref="cns:schema_5"/>
+    <prov:usedEntity prov:ref="cns:total_forest"/>
+  </prov:wasDerivedFrom>
+  <prov:wasInformedBy>
+    <prov:informed prov:ref="cns:rectifyR_schema_4"/>
+    <prov:informant prov:ref="cns:arealDB_fava_bean"/>
+  </prov:wasInformedBy>
+  <prov:wasInformedBy>
+    <prov:informed prov:ref="cns:arealDB_fava_bean"/>
+    <prov:informant prov:ref="cns:arealDB"/>
+  </prov:wasInformedBy>
+  <prov:wasDerivedFrom>
+    <prov:generatedEntity prov:ref="cns:primary_forest"/>
+    <prov:usedEntity prov:ref="cns:1995"/>
+  </prov:wasDerivedFrom>
+  <prov:used>
+    <prov:activity prov:ref="cns:arealDB_conservation_forest"/>
+    <prov:entity prov:ref="cns:2005"/>
+  </prov:used>
+  <prov:wasInformedBy>
+    <prov:informed prov:ref="cns:rectifyR_schema_4"/>
+    <prov:informant prov:ref="cns:arealDB_bean_dry"/>
+  </prov:wasInformedBy>
+  <prov:wasDerivedFrom>
+    <prov:generatedEntity prov:ref="cns:2005"/>
+    <prov:usedEntity prov:ref="cns:paraguay"/>
+  </prov:wasDerivedFrom>
+  <prov:wasDerivedFrom>
+    <prov:generatedEntity prov:ref="cns:banana"/>
+    <prov:usedEntity prov:ref="cns:1961"/>
+  </prov:wasDerivedFrom>
+  <prov:wasDerivedFrom>
+    <prov:generatedEntity prov:ref="cns:schema_4"/>
+    <prov:usedEntity prov:ref="cns:banana"/>
+  </prov:wasDerivedFrom>
+  <prov:wasGeneratedBy>
+    <prov:entity prov:ref="cns:2000"/>
+    <prov:activity prov:ref="cns:arealDB"/>
+  </prov:wasGeneratedBy>
+  <prov:wasDerivedFrom>
+    <prov:generatedEntity prov:ref="cns:173"/>
+    <prov:usedEntity prov:ref="cns:total_forest"/>
+  </prov:wasDerivedFrom>
+  <prov:used>
+    <prov:activity prov:ref="cns:rectifyR_schema_4"/>
+    <prov:entity prov:ref="cns:bean_dry"/>
+  </prov:used>
+  <prov:wasDerivedFrom>
+    <prov:generatedEntity prov:ref="cns:173"/>
+    <prov:usedEntity prov:ref="cns:bean_dry"/>
+  </prov:wasDerivedFrom>
+  <prov:wasGeneratedBy>
+    <prov:entity prov:ref="cns:bean_dry"/>
+    <prov:activity prov:ref="cns:arealDB_bean_dry"/>
+  </prov:wasGeneratedBy>
+  <prov:wasDerivedFrom>
+    <prov:generatedEntity prov:ref="cns:Annex%203%3A%20Data%20tables.htm"/>
+    <prov:usedEntity prov:ref="cns:_1__1995_1995_frafao.csv"/>
+  </prov:wasDerivedFrom>
+  <prov:wasDerivedFrom>
+    <prov:generatedEntity prov:ref="cns:1961"/>
+    <prov:usedEntity prov:ref="cns:paraguay"/>
+  </prov:wasDerivedFrom>
+  <prov:wasInformedBy>
+    <prov:informed prov:ref="cns:rectifyR_schema_4"/>
+    <prov:informant prov:ref="cns:arealDB_cassava"/>
+  </prov:wasInformedBy>
+  <prov:wasDerivedFrom>
+    <prov:generatedEntity prov:ref="cns:conservation_forest"/>
+    <prov:usedEntity prov:ref="cns:2000"/>
+  </prov:wasDerivedFrom>
+  <prov:wasInformedBy>
+    <prov:informed prov:ref="cns:arealDBAnnex%203%3A%20Data%20tables.htm"/>
+    <prov:informant prov:ref="cns:rectifyR_schema_5"/>
+  </prov:wasInformedBy>
+  <prov:wasDerivedFrom>
+    <prov:generatedEntity prov:ref="cns:173"/>
+    <prov:usedEntity prov:ref="cns:conservation_forest"/>
+  </prov:wasDerivedFrom>
+  <prov:wasDerivedFrom>
+    <prov:generatedEntity prov:ref="cns:schema_4"/>
+    <prov:usedEntity prov:ref="cns:bean_dry"/>
+  </prov:wasDerivedFrom>
+  <prov:wasGeneratedBy>
+    <prov:entity prov:ref="cns:fava_bean"/>
+    <prov:activity prov:ref="cns:arealDB_fava_bean"/>
+  </prov:wasGeneratedBy>
+  <prov:wasInformedBy>
+    <prov:informed prov:ref="cns:rectifyR_schema_5"/>
+    <prov:informant prov:ref="cns:arealDB_total_forest"/>
+  </prov:wasInformedBy>
+  <prov:wasGeneratedBy>
+    <prov:entity prov:ref="cns:cassava"/>
+    <prov:activity prov:ref="cns:arealDB_cassava"/>
+  </prov:wasGeneratedBy>
+  <prov:wasInformedBy>
+    <prov:informed prov:ref="cns:rectifyR_schema_5"/>
+    <prov:informant prov:ref="cns:arealDB_primary_forest"/>
+  </prov:wasInformedBy>
+  <prov:wasDerivedFrom>
+    <prov:generatedEntity prov:ref="cns:total_forest"/>
+    <prov:usedEntity prov:ref="cns:1995"/>
+  </prov:wasDerivedFrom>
+  <prov:used>
+    <prov:activity prov:ref="cns:arealDB_total_forest"/>
+    <prov:entity prov:ref="cns:1995"/>
+  </prov:used>
+  <prov:wasDerivedFrom>
+    <prov:generatedEntity prov:ref="cns:173"/>
+    <prov:usedEntity prov:ref="cns:banana"/>
+  </prov:wasDerivedFrom>
+  <prov:wasDerivedFrom>
+    <prov:generatedEntity prov:ref="cns:conservation_forest"/>
+    <prov:usedEntity prov:ref="cns:1990"/>
+  </prov:wasDerivedFrom>
+  <prov:wasDerivedFrom>
+    <prov:generatedEntity prov:ref="cns:_1_conservationForest_1990_2015_frafao.csv"/>
+    <prov:usedEntity prov:ref="cns:conservation_forest"/>
+  </prov:wasDerivedFrom>
+  <prov:wasDerivedFrom>
+    <prov:generatedEntity prov:ref="cns:2015"/>
+    <prov:usedEntity prov:ref="cns:paraguay"/>
+  </prov:wasDerivedFrom>
+  <prov:wasInformedBy>
+    <prov:informed prov:ref="cns:arealDB_bean_dry"/>
+    <prov:informant prov:ref="cns:arealDB"/>
+  </prov:wasInformedBy>
+  <prov:wasDerivedFrom>
+    <prov:generatedEntity prov:ref="cns:_1_crops_1961_2017_faostat.csv"/>
+    <prov:usedEntity prov:ref="cns:fava_bean"/>
+  </prov:wasDerivedFrom>
+  <prov:wasGeneratedBy>
+    <prov:entity prov:ref="cns:_1__1995_1995_frafao.csv"/>
+    <prov:activity prov:ref="cns:rectifyR_schema_5"/>
+  </prov:wasGeneratedBy>
+  <prov:wasDerivedFrom>
+    <prov:generatedEntity prov:ref="cns:cassava"/>
+    <prov:usedEntity prov:ref="cns:1961"/>
+  </prov:wasDerivedFrom>
+  <prov:wasDerivedFrom>
+    <prov:generatedEntity prov:ref="cns:_1_crops_1961_2017_faostat.csv"/>
+    <prov:usedEntity prov:ref="cns:cassava"/>
+  </prov:wasDerivedFrom>
+  <prov:wasGeneratedBy>
+    <prov:entity prov:ref="cns:2015"/>
+    <prov:activity prov:ref="cns:arealDB"/>
+  </prov:wasGeneratedBy>
+  <prov:wasGeneratedBy>
+    <prov:entity prov:ref="cns:FRA2015.zip%7CFRA2015_data.xlsx"/>
+    <prov:activity prov:ref="cns:arealDBFRA2015.zip%7CFRA2015_data.xlsx"/>
+  </prov:wasGeneratedBy>
+  <prov:wasGeneratedBy>
+    <prov:entity prov:ref="cns:2005"/>
+    <prov:activity prov:ref="cns:arealDB"/>
+  </prov:wasGeneratedBy>
+  <prov:wasGeneratedBy>
+    <prov:entity prov:ref="cns:conservation_forest"/>
+    <prov:activity prov:ref="cns:arealDB_conservation_forest"/>
+  </prov:wasGeneratedBy>
+  <prov:used>
+    <prov:activity prov:ref="cns:rectifyR_schema_12"/>
+    <prov:entity prov:ref="cns:conservation_forest"/>
+  </prov:used>
+  <prov:wasGeneratedBy>
+    <prov:entity prov:ref="cns:1961"/>
+    <prov:activity prov:ref="cns:arealDB"/>
+  </prov:wasGeneratedBy>
+  <prov:wasGeneratedBy>
+    <prov:entity prov:ref="cns:173"/>
+    <prov:activity prov:ref="cns:rectifyR_schema_4"/>
+  </prov:wasGeneratedBy>
+  <prov:wasDerivedFrom>
+    <prov:generatedEntity prov:ref="cns:2010"/>
+    <prov:usedEntity prov:ref="cns:paraguay"/>
+  </prov:wasDerivedFrom>
+  <prov:wasDerivedFrom>
+    <prov:generatedEntity prov:ref="cns:1995"/>
+    <prov:usedEntity prov:ref="cns:paraguay"/>
+  </prov:wasDerivedFrom>
+  <prov:used>
+    <prov:activity prov:ref="cns:arealDBProduction_Crops_E_All_Data_%28Normalized%29.zip%7CP..."/>
+    <prov:entity prov:ref="cns:_1_crops_1961_2017_faostat.csv"/>
+  </prov:used>
+  <prov:wasDerivedFrom>
+    <prov:generatedEntity prov:ref="cns:conservation_forest"/>
+    <prov:usedEntity prov:ref="cns:2010"/>
+  </prov:wasDerivedFrom>
+  <prov:wasGeneratedBy>
+    <prov:entity prov:ref="cns:2010"/>
+    <prov:activity prov:ref="cns:arealDB"/>
+  </prov:wasGeneratedBy>
+  <prov:used>
+    <prov:activity prov:ref="cns:arealDB_primary_forest"/>
+    <prov:entity prov:ref="cns:1995"/>
+  </prov:used>
+  <prov:used>
+    <prov:activity prov:ref="cns:arealDB"/>
+    <prov:entity prov:ref="cns:paraguay"/>
+  </prov:used>
+  <prov:wasDerivedFrom>
+    <prov:generatedEntity prov:ref="cns:_1__1995_1995_frafao.csv"/>
+    <prov:usedEntity prov:ref="cns:primary_forest"/>
+  </prov:wasDerivedFrom>
+  <prov:wasInformedBy>
+    <prov:informed prov:ref="cns:arealDB_banana"/>
+    <prov:informant prov:ref="cns:arealDB"/>
+  </prov:wasInformedBy>
+  <prov:wasGeneratedBy>
+    <prov:entity prov:ref="cns:schema_12"/>
+    <prov:activity prov:ref="cns:rectifyR_schema_12"/>
+  </prov:wasGeneratedBy>
+  <prov:wasGeneratedBy>
+    <prov:entity prov:ref="cns:schema_4"/>
+    <prov:activity prov:ref="cns:rectifyR_schema_4"/>
+  </prov:wasGeneratedBy>
+  <prov:wasDerivedFrom>
+    <prov:generatedEntity prov:ref="cns:conservation_forest"/>
+    <prov:usedEntity prov:ref="cns:2005"/>
+  </prov:wasDerivedFrom>
+  <prov:wasGeneratedBy>
+    <prov:entity prov:ref="cns:1995"/>
+    <prov:activity prov:ref="cns:arealDB"/>
+  </prov:wasGeneratedBy>
+  <prov:used>
+    <prov:activity prov:ref="cns:arealDBAnnex%203%3A%20Data%20tables.htm"/>
+    <prov:entity prov:ref="cns:_1__1995_1995_frafao.csv"/>
+  </prov:used>
+  <prov:wasGeneratedBy>
+    <prov:entity prov:ref="cns:Annex%203%3A%20Data%20tables.htm"/>
+    <prov:activity prov:ref="cns:arealDBAnnex%203%3A%20Data%20tables.htm"/>
+  </prov:wasGeneratedBy>
+  <prov:wasInformedBy>
+    <prov:informed prov:ref="cns:arealDB_cassava"/>
+    <prov:informant prov:ref="cns:arealDB"/>
+  </prov:wasInformedBy>
+  <prov:wasDerivedFrom>
+    <prov:generatedEntity prov:ref="cns:schema_4"/>
+    <prov:usedEntity prov:ref="cns:fava_bean"/>
+  </prov:wasDerivedFrom>
+  <prov:used>
+    <prov:activity prov:ref="cns:arealDB_fava_bean"/>
+    <prov:entity prov:ref="cns:1961"/>
+  </prov:used>
+  <prov:used>
+    <prov:activity prov:ref="cns:arealDB_bean_dry"/>
+    <prov:entity prov:ref="cns:1961"/>
+  </prov:used>
+  <prov:entity prov:id="cns:1995"/>
+  <prov:activity prov:id="cns:arealDB_cassava"/>
+  <prov:activity prov:id="cns:arealDBFRA2015.zip%7CFRA2015_data.xlsx"/>
+  <prov:activity prov:id="cns:arealDBProduction_Crops_E_All_Data_%28Normalized%29.zip%7CP..."/>
+  <prov:activity prov:id="cns:arealDB_fava_bean"/>
+  <prov:activity prov:id="cns:arealDB_bean_dry"/>
+  <prov:entity prov:id="cns:banana">
+    <prov:label>banana</prov:label>
+  </prov:entity>
+  <prov:entity prov:id="cns:schema_12"/>
+  <prov:activity prov:id="cns:rectifyR_schema_5"/>
+  <prov:entity prov:id="cns:conservation_forest">
+    <prov:label>conservation forest</prov:label>
+  </prov:entity>
+  <prov:entity prov:id="cns:paraguay"/>
+  <prov:entity prov:id="cns:_1_conservationForest_1990_2015_frafao.csv"/>
+  <prov:entity prov:id="cns:cassava">
+    <prov:label>cassava</prov:label>
+  </prov:entity>
+  <prov:entity prov:id="cns:schema_5"/>
+  <prov:activity prov:id="cns:arealDB_conservation_forest"/>
+  <prov:activity prov:id="cns:arealDBAnnex%203%3A%20Data%20tables.htm"/>
+  <prov:entity prov:id="cns:fava_bean">
+    <prov:label>fava bean</prov:label>
+  </prov:entity>
+  <prov:entity prov:id="cns:2015"/>
+  <prov:entity prov:id="cns:2005"/>
+  <prov:entity prov:id="cns:2000"/>
+  <prov:activity prov:id="cns:arealDB_primary_forest"/>
+  <prov:entity prov:id="cns:FRA2015.zip%7CFRA2015_data.xlsx"/>
+  <prov:entity prov:id="cns:_1__1995_1995_frafao.csv"/>
+  <prov:activity prov:id="cns:arealDB"/>
+  <prov:entity prov:id="cns:Annex%203%3A%20Data%20tables.htm"/>
+  <prov:entity prov:id="cns:173"/>
+  <prov:activity prov:id="cns:rectifyR_schema_4"/>
+  <prov:activity prov:id="cns:arealDB_total_forest"/>
+  <prov:entity prov:id="cns:total_forest">
+    <prov:label>total forest</prov:label>
+  </prov:entity>
+  <prov:entity prov:id="cns:Production_Crops_E_All_Data_%28Normalized%29.zip%7CP..."/>
+  <prov:entity prov:id="cns:1961"/>
+  <prov:entity prov:id="cns:1990"/>
+  <prov:entity prov:id="cns:schema_4"/>
+  <prov:entity prov:id="cns:primary_forest">
+    <prov:label>primary forest</prov:label>
+  </prov:entity>
+  <prov:activity prov:id="cns:arealDB_banana"/>
+  <prov:entity prov:id="cns:_1_crops_1961_2017_faostat.csv"/>
+  <prov:entity prov:id="cns:bean_dry">
+    <prov:label>bean dry</prov:label>
+  </prov:entity>
+  <prov:activity prov:id="cns:rectifyR_schema_12"/>
+  <prov:entity prov:id="cns:2010"/>
+</prov:document>

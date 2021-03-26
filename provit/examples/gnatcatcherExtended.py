@@ -26,7 +26,7 @@ g.link(
 )
 
 inputVeg = Entity(g, 'InputVegetation')
-select = Activity(g, 'Select')
+select = Activity(g, 'SelectVegetation')
 suitableVeg = Entity( g, 'SuitableVegetation')
 g.link(
     inputs=inputVeg, 
@@ -42,9 +42,41 @@ g.link(
     outputs=suitMinusRoads
 )
 
-elev = Entity(g, 'ElevationsLessThan250m')
+initialClimate = Entity(g, 'ClimateZones')
+selClimate = Activity(g, 'SelectClimate')
+climate = Entity(g, 'ClimateZonesSelection')
+g.link(
+    inputs=initialClimate,
+    process=selClimate,
+    outputs=climate
+)
+
+dem = Entity(g, 'DEM')
+generateSlopes = Activity(g, 'Slope')
+allSlopes = Entity(g, 'Slopes')
+g.link(
+    inputs=dem,
+    process=generateSlopes,
+    outputs=allSlopes
+)
+
+selectSlopes = Activity(g, 'SelectSlopes')
 slopes = Entity(g, 'SlopesLessThan40Percent')
-climate = Entity(g, 'ClimateZones')
+g.link(
+    inputs=allSlopes,
+    process=selectSlopes,
+    outputs=slopes
+)
+
+selectElev = Activity(g, 'SelectElev')
+elev = Entity(g, 'ElevationsLessThan250m')
+g.link(
+    inputs=dem,
+    process=selectElev,
+    outputs=elev
+)
+
+
 intersect = Activity(g, 'Intersect')
 intersectOut = Entity(g, 'intersectOutput')
 g.link(
@@ -69,7 +101,7 @@ g.link(
     outputs=singleOut
 )
 
-sel2 = Activity(g, 'Select2')
+sel2 = Activity(g, 'SelectHabitats')
 final = Entity(g, 'OutputPotentialHabitat')
 g.link(
     inputs=singleOut,
@@ -78,8 +110,9 @@ g.link(
 )
 
 
+
 # path = '.provit/examples/out/gnatcatcher_xml.rdf'
 # g.serialize(format = 'xml', destination = path)
-path = 'provit/examples/out/gnatcatcher_ttl.rdf'
+path = 'provit/examples/out/gnatcatcher_extended.rdf'
 g.serialize(format = 'ttl', destination = path)
 
