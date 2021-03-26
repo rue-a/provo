@@ -1,4 +1,0 @@
-owlready2
-owlrl
-rdflib
-pandas
