@@ -3,9 +3,8 @@
 @organization TU Dresden
 @contact arne.ruemmler@tu-dresden.de
 
-
-@summery Implementation of the the basic scheme of PROV-O https://www.w3.org/TR/prov-o/ .
-    Works in tandem with provGraph.py
+@summary Implementation of the basic scheme of PROV-O https://www.w3.org/TR/prov-o/ .
+    Used with provGraph.py
 @status Prototype
 """
 
@@ -22,18 +21,18 @@ class Node():
     graph: ProvGraph
         The graph to which the node should be added.
     id: str
-        The ID of the node. The ID has to be unique inside the custom 
-        namespace of the ProvGraph instance. The ID also has to be 
-        alphanumerical, without empty spaces.
+        The ID of the node. The ID has to be unique in the custom 
+        namespace of the ProvGraph instance. The ID needs to be 
+        alphanumerical without empty spaces.
 
     """
     def __init__(self, graph, id):
-        """constructor: takes graph and generates an RDF-ID for the node. """
+        """constructor: Uses graph and generates an RDF ID for the graph. """
         self.id = URIRef(graph.getCNS() + id)
         self.graph = graph
 
     def label(self, label: str):
-        """ provides a human readable label for the node via rdfs:label
+        """ provides a human-readable label for the node via rdfs:label
 
         Parameters
         ----------
@@ -62,21 +61,21 @@ class Node():
 
 
 class Activity(Node):
-    """ Class to instantiate a PROV-O Activity object. 
+    """ Class to create a PROV-O Activity object. 
     https://www.w3.org/TR/prov-o/#Activity
-    The methods reflect the properties of an Activity.
+    The methods uses the properties of an Activity.
     
     Parameters
     ----------
     graph: ProvGraph
         The graph to which the node should be added.
     id: str
-        The ID of the node. The ID has to be unique inside the custom 
-        namespace of the ProvGraph instance. The ID also has to be 
+        The ID of the node. The ID has to be unique in the custom 
+        namespace of the ProvGraph instance. The ID needs to be 
         alphanumerical, without empty spaces.
     """
     def __init__(self, graph, id):
-        """constructor: adds the node via RDF-ID as prov:Activity to the graph"""
+        """constructor: adds the node via RDF ID as prov:Activity to the graph"""
         super().__init__(graph = graph, id = id)
         self.graph.add((self.id, RDF.type, PROV.Activity))
 
@@ -88,7 +87,7 @@ class Activity(Node):
         Parameters
         ----------
         activity: Activity
-            The Activity that informed this Activity.        
+            The Activity, which informed this Activity.        
         """
         assert(isinstance(activity, Activity))
         self.graph.add((self.id, PROV.wasInformedBy, activity.getId()))
@@ -101,7 +100,7 @@ class Activity(Node):
         Parameters
         ----------
         entity: Entity
-            The Entity that was used by this Activity.
+            The Entity, which was used by this Activity.
         """
         assert(isinstance(entity, Entity))
         self.graph.add((self.id, PROV.used, entity.getId()))
@@ -114,7 +113,7 @@ class Activity(Node):
         Parameters
         ----------
         agent: Agent
-            The Agent that this Activity was assciated with. 
+            The Agent that this Activity was associated with. 
         """
         assert(isinstance(agent, Agent))
         self.graph.add((self.id, PROV.wasAssociatedWith, agent.getId()))
@@ -147,17 +146,17 @@ class Activity(Node):
 
 
 class Entity(Node):
-    """ Class to instantiate a PROV-O Entity object. 
+    """ Class to create a PROV-O Entity object. 
     https://www.w3.org/TR/prov-o/#Entity
-    The methods reflect the properties of an Entity.
+    The methods uses the properties of an Entity.
 
     Parameters
     ----------
     graph: ProvGraph
         The graph to which the node should be added.
     id: str
-        The ID of the node. The ID has to be unique inside the custom 
-        namespace of the ProvGraph instance. The ID also has to be 
+        The ID of the node. The ID has to be unique in the custom 
+        namespace of the ProvGraph instance. The ID needs to be 
         alphanumerical, without empty spaces.
     """
     def __init__(self, graph, id):
@@ -173,7 +172,7 @@ class Entity(Node):
         Parameters
         ----------
         entity: Entity
-            The Entity that this Entity was derived from.
+            The Entity of which this Entity was derived from.
         """
         assert(isinstance(entity, Entity))
         self.graph.add((self.id, PROV.wasDerivedFrom, entity.getId()))
@@ -185,7 +184,7 @@ class Entity(Node):
         Parameters
         ----------
         activity: Activity
-            The Activity that generated this Activity.
+            The Activity, which generated this Activity.
         """
         assert(isinstance(activity, Activity))
         self.graph.add((self.id, PROV.wasGeneratedBy, activity.getId()))
@@ -204,7 +203,7 @@ class Entity(Node):
         self.graph.add((self.id, PROV.wasAttributedTo, agent.getId()))
     
 class Agent(Node):
-    """ Class to instantiate a PROV-O Agent object. 
+    """ Class to create a PROV-O Agent object. 
     https://www.w3.org/TR/prov-o/#Agent
     The methods reflect the properties of an Agent.
 
@@ -213,12 +212,12 @@ class Agent(Node):
     graph: ProvGraph
         The graph to which the node should be added.
     id: str
-        The ID of the node. The ID has to be unique inside the custom 
-        namespace of the ProvGraph instance. The ID also has to be 
+        The ID of the node. The ID has to be unique in the custom 
+        namespace of the ProvGraph instance. The ID needs to be 
         alphanumerical, without empty spaces.
     """
     def __init__(self, graph, id):
-        """constructor: adds the node via RDF-ID as prov:Agent to the graph"""
+        """constructor: adds the node via RDF ID as prov:Agent to the graph"""
         super().__init__(graph = graph, id = id)
         self.graph.add((self.id, RDF.type, PROV.Agent))
 
@@ -230,7 +229,7 @@ class Agent(Node):
         Parameters
         ----------
         agent: Agent
-            The Agent instructed this Agent.  
+            The Agent, which instructed this Agent.  
         """
         assert(isinstance(agent, Agent))
         self.graph.add((self.id, PROV.actedOnBehalfOf, agent.getId()))
