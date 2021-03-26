@@ -48,7 +48,7 @@ class ProvGraph(Graph):
     def getCNS(self): return self.CNS
 
     def link(self, inputs = None, process = None, outputs = None, agents = None, inference = True):
-        """ Helper utility to construct all possible properties according to 
+        """ Utility method to construct all possible properties according to 
         PROV-O between a set of Agents, Input Entities, Output Entities and a 
         single Activity that connects them.
         Also adds wasInformedBy properties between activities if the need arises.

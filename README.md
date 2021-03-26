@@ -66,7 +66,7 @@ The folder _examples_ contains an example document, which describes the serializ
 
 <img src="provit/graphics/gnatchi.png">
 
-The manual assignment of required properties in the graph (arrows) gets time-consuming and cana lead to errors. The class ```ProvGraph``` provides a utility method called ```link``` that simplifies this task. The following example describes the "Intersect" Activity, which is shown graph above:
+The manual assignment of required properties in the graph (arrows) gets time-consuming and can lead to errors. The class ```ProvGraph``` provides a utility method called ```link``` that simplifies this task. The following example describes the "Intersect" Activity, which is shown graph above:
 
 ```python
 elev = Entity(g, 'ElevationsLessThan250m')
