@@ -1,5 +1,5 @@
 from datetime import datetime
-from provit import ProvGraph, Activity, Entity, Agent
+from provo import ProvGraph, Activity, Entity, Agent
 
 g = ProvGraph(namespace='https://gnatcatcher.org/')
 
@@ -19,18 +19,18 @@ tom.label('Tom G.')
 tom.description('Everyone knows Tom')
 
 g.link(
-    inputs=majorRoads, 
-    process=buffer, 
+    inputs=majorRoads,
+    process=buffer,
     outputs=roadsBuffer,
     agents=tom
 )
 
 inputVeg = Entity(g, 'InputVegetation')
-select = Activity(g, 'SelectVegetation')
-suitableVeg = Entity( g, 'SuitableVegetation')
+select = Activity(g, 'Select')
+suitableVeg = Entity(g, 'SuitableVegetation')
 g.link(
-    inputs=inputVeg, 
-    process=select, 
+    inputs=inputVeg,
+    process=select,
     outputs=suitableVeg
 )
 
@@ -42,41 +42,9 @@ g.link(
     outputs=suitMinusRoads
 )
 
-initialClimate = Entity(g, 'ClimateZones')
-selClimate = Activity(g, 'SelectClimate')
-climate = Entity(g, 'ClimateZonesSelection')
-g.link(
-    inputs=initialClimate,
-    process=selClimate,
-    outputs=climate
-)
-
-dem = Entity(g, 'DEM')
-generateSlopes = Activity(g, 'Slope')
-allSlopes = Entity(g, 'Slopes')
-g.link(
-    inputs=dem,
-    process=generateSlopes,
-    outputs=allSlopes
-)
-
-selectSlopes = Activity(g, 'SelectSlopes')
-slopes = Entity(g, 'SlopesLessThan40Percent')
-g.link(
-    inputs=allSlopes,
-    process=selectSlopes,
-    outputs=slopes
-)
-
-selectElev = Activity(g, 'SelectElev')
 elev = Entity(g, 'ElevationsLessThan250m')
-g.link(
-    inputs=dem,
-    process=selectElev,
-    outputs=elev
-)
-
-
+slopes = Entity(g, 'SlopesLessThan40Percent')
+climate = Entity(g, 'ClimateZones')
 intersect = Activity(g, 'Intersect')
 intersectOut = Entity(g, 'intersectOutput')
 g.link(
@@ -101,7 +69,7 @@ g.link(
     outputs=singleOut
 )
 
-sel2 = Activity(g, 'SelectHabitats')
+sel2 = Activity(g, 'Select2')
 final = Entity(g, 'OutputPotentialHabitat')
 g.link(
     inputs=singleOut,
@@ -110,9 +78,7 @@ g.link(
 )
 
 
-
-# path = '.provit/examples/out/gnatcatcher_xml.rdf'
+# path = '.provo/examples/out/gnatcatcher_xml.rdf'
 # g.serialize(format = 'xml', destination = path)
-path = 'provit/examples/out/gnatcatcher_extended.rdf'
-g.serialize(format = 'ttl', destination = path)
-
+path = 'provo/examples/out/gnatcatcher.ttl'
+g.serialize(format='ttl', destination=path)

@@ -1,12 +1,12 @@
 
-from provit import ProvGraph, Activity, Entity, Agent
+from provo import ProvGraph, Activity, Entity, Agent
 
 # setup the graph object (subclass of an rdflib-graph)
 g = ProvGraph(namespace='https://provBasicExample.org/')
 
 
 # at first we create all required objects
-inputEntity = Entity(graph = g, id = 'inputEntity')
+inputEntity = Entity(graph=g, id='inputEntity')
 # any PROV-O object can have a label and a description
 inputEntity.label('Input Entity')
 inputEntity.description('This is the first entity')
@@ -28,4 +28,4 @@ outputEntity.wasDerivedFrom(inputEntity)
 
 # finally serialize the graph
 path = './examples/out/provBasicExample_n3.rdf'
-g.serialize(format = 'n3', destination = path)
+g.serialize(format='n3', destination=path)

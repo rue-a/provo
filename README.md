@@ -12,18 +12,18 @@ The package creates provenance graphs according to PROV-O (i.e. in RDF). _The pa
 
 The package implements the PROV-O (https://www.w3.org/TR/prov-o/#starting-points-figure, graphic below) classes __Entity__, __Activity__ and __Agent__ as Python classes with methods to establish the basic relations (Arrows) between instances of those classes. Those relations are called _properties_. It also contains utilities to ease the provenance graph construction.
 
-<img src="provit/graphics/ProvUnits.png" width="500" title="PROV-O"/>
+<img src="provo/graphics/ProvUnits.png" width="500" title="PROV-O"/>
 
 ## Functionality
 
 It is assumed that the basic unit of a provenance graph is an _Activity_ with a number of _Input Entities_ and _Output Entities_ that is possibly controlled by an _Agent_. The following graphic shows this unit together with the resulting properties:
 
-<img src="provit/graphics/provBasicExample.png" width="700">
+<img src="provo/graphics/provBasicExample.png" width="700">
 
 The script to generate this basic unit is provided in the _examples_ folder as ```provBasicExample.py```:
 
 ```python
-from provit import ProvGraph, Activity, Entity, Agent
+from provo import ProvGraph, Activity, Entity, Agent
 
 # setup the graph object (subclass of an rdflib-graph)
 g = ProvGraph(namespace='https://provBasicExample.org/')
@@ -61,7 +61,7 @@ Every object of the type _Agent_, _Activity_ and _Entity_ needs a unique identif
 
 The folder _examples_ contains an example document, which describes the serialization of an ArcGIS Workflow description into a provenance graph RDF. The folder _out_ contains this graph. The ESRI tutorial with the example workflow isa available ar http://webhelp.esri.com/arcgisdesktop/9.3/pdf/Geoprocessing_in_ArcGIS_Tutorial.pdf, p. 36ff. The following figure shows the workflow (The _wasDerivedBy_ properties between _Entities_ are omitted):
 
-<img src="provit/graphics/gnatchi.png">
+<img src="provo/graphics/gnatchi.png">
 
 The manual assignment of required properties in the graph (arrows) gets time-consuming and can lead to errors. The class ```ProvGraph``` provides a utility method called ```link``` that simplifies this task. The following example describes the "Intersect" Activity, which is shown graph above:
 

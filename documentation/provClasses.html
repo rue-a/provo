@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
 <meta name="generator" content="pdoc 0.8.4" />
-<title>provit.provClasses API documentation</title>
+<title>provo.provClasses API documentation</title>
 <meta name="description" content="@author Arne Rümmler
 @organization TU Dresden
 @contact arne.ruemmler@tu-dresden.de …" />
@@ -21,7 +21,7 @@
 <main>
 <article id="content">
 <header>
-<h1 class="title">Module <code>provit.provClasses</code></h1>
+<h1 class="title">Module <code>provo.provClasses</code></h1>
 </header>
 <section id="section-intro">
 <p>@author Arne Rümmler
@@ -281,7 +281,7 @@ class Agent(Node):
 <section>
 <h2 class="section-title" id="header-classes">Classes</h2>
 <dl>
-<dt id="provit.provClasses.Activity"><code class="flex name class">
+<dt id="provo.provClasses.Activity"><code class="flex name class">
 <span>class <span class="ident">Activity</span></span>
 <span>(</span><span>graph, id)</span>
 </code></dt>
@@ -388,11 +388,11 @@ alphanumerical, without empty spaces.</dd>
 </details>
 <h3>Ancestors</h3>
 <ul class="hlist">
-<li><a title="provit.provClasses.Node" href="#provit.provClasses.Node">Node</a></li>
+<li><a title="provo.provClasses.Node" href="#provo.provClasses.Node">Node</a></li>
 </ul>
 <h3>Methods</h3>
 <dl>
-<dt id="provit.provClasses.Activity.endedAtTime"><code class="name flex">
+<dt id="provo.provClasses.Activity.endedAtTime"><code class="name flex">
 <span>def <span class="ident">endedAtTime</span></span>(<span>self, datetime_in: datetime.datetime)</span>
 </code></dt>
 <dd>
@@ -421,7 +421,7 @@ alphanumerical, without empty spaces.</dd>
     self.graph.add((self.id, PROV.endedAtTime, Literal(datetime_in, datatype = XSD.datetime)))</code></pre>
 </details>
 </dd>
-<dt id="provit.provClasses.Activity.startedAtTime"><code class="name flex">
+<dt id="provo.provClasses.Activity.startedAtTime"><code class="name flex">
 <span>def <span class="ident">startedAtTime</span></span>(<span>self, datetime_in: datetime.datetime)</span>
 </code></dt>
 <dd>
@@ -450,7 +450,7 @@ alphanumerical, without empty spaces.</dd>
     self.graph.add((self.id, PROV.startedAtTime, Literal(datetime_in, datatype = XSD.datetime)))</code></pre>
 </details>
 </dd>
-<dt id="provit.provClasses.Activity.used"><code class="name flex">
+<dt id="provo.provClasses.Activity.used"><code class="name flex">
 <span>def <span class="ident">used</span></span>(<span>self, entity)</span>
 </code></dt>
 <dd>
@@ -458,7 +458,7 @@ alphanumerical, without empty spaces.</dd>
 <a href="https://www.w3.org/TR/prov-o/#used">https://www.w3.org/TR/prov-o/#used</a></p>
 <h2 id="parameters">Parameters</h2>
 <dl>
-<dt><strong><code>entity</code></strong> :&ensp;<code><a title="provit.provClasses.Entity" href="#provit.provClasses.Entity">Entity</a></code></dt>
+<dt><strong><code>entity</code></strong> :&ensp;<code><a title="provo.provClasses.Entity" href="#provo.provClasses.Entity">Entity</a></code></dt>
 <dd>The Entity that was used by this Activity.</dd>
 </dl></div>
 <details class="source">
@@ -479,7 +479,7 @@ alphanumerical, without empty spaces.</dd>
     self.graph.add((self.id, PROV.used, entity.getId()))</code></pre>
 </details>
 </dd>
-<dt id="provit.provClasses.Activity.wasAssociatedWith"><code class="name flex">
+<dt id="provo.provClasses.Activity.wasAssociatedWith"><code class="name flex">
 <span>def <span class="ident">wasAssociatedWith</span></span>(<span>self, agent)</span>
 </code></dt>
 <dd>
@@ -487,7 +487,7 @@ alphanumerical, without empty spaces.</dd>
 <a href="https://www.w3.org/TR/prov-o/#wasAssociatedWith">https://www.w3.org/TR/prov-o/#wasAssociatedWith</a></p>
 <h2 id="parameters">Parameters</h2>
 <dl>
-<dt><strong><code>agent</code></strong> :&ensp;<code><a title="provit.provClasses.Agent" href="#provit.provClasses.Agent">Agent</a></code></dt>
+<dt><strong><code>agent</code></strong> :&ensp;<code><a title="provo.provClasses.Agent" href="#provo.provClasses.Agent">Agent</a></code></dt>
 <dd>The Agent that this Activity was assciated with.</dd>
 </dl></div>
 <details class="source">
@@ -508,7 +508,7 @@ alphanumerical, without empty spaces.</dd>
     self.graph.add((self.id, PROV.wasAssociatedWith, agent.getId()))</code></pre>
 </details>
 </dd>
-<dt id="provit.provClasses.Activity.wasInformedBy"><code class="name flex">
+<dt id="provo.provClasses.Activity.wasInformedBy"><code class="name flex">
 <span>def <span class="ident">wasInformedBy</span></span>(<span>self, activity)</span>
 </code></dt>
 <dd>
@@ -516,7 +516,7 @@ alphanumerical, without empty spaces.</dd>
 <a href="https://www.w3.org/TR/prov-o/#wasInformedBy">https://www.w3.org/TR/prov-o/#wasInformedBy</a></p>
 <h2 id="parameters">Parameters</h2>
 <dl>
-<dt><strong><code>activity</code></strong> :&ensp;<code><a title="provit.provClasses.Activity" href="#provit.provClasses.Activity">Activity</a></code></dt>
+<dt><strong><code>activity</code></strong> :&ensp;<code><a title="provo.provClasses.Activity" href="#provo.provClasses.Activity">Activity</a></code></dt>
 <dd>The Activity that informed this Activity.</dd>
 </dl></div>
 <details class="source">
@@ -540,16 +540,16 @@ alphanumerical, without empty spaces.</dd>
 </dl>
 <h3>Inherited members</h3>
 <ul class="hlist">
-<li><code><b><a title="provit.provClasses.Node" href="#provit.provClasses.Node">Node</a></b></code>:
+<li><code><b><a title="provo.provClasses.Node" href="#provo.provClasses.Node">Node</a></b></code>:
 <ul class="hlist">
-<li><code><a title="provit.provClasses.Node.description" href="#provit.provClasses.Node.description">description</a></code></li>
-<li><code><a title="provit.provClasses.Node.getId" href="#provit.provClasses.Node.getId">getId</a></code></li>
-<li><code><a title="provit.provClasses.Node.label" href="#provit.provClasses.Node.label">label</a></code></li>
+<li><code><a title="provo.provClasses.Node.description" href="#provo.provClasses.Node.description">description</a></code></li>
+<li><code><a title="provo.provClasses.Node.getId" href="#provo.provClasses.Node.getId">getId</a></code></li>
+<li><code><a title="provo.provClasses.Node.label" href="#provo.provClasses.Node.label">label</a></code></li>
 </ul>
 </li>
 </ul>
 </dd>
-<dt id="provit.provClasses.Agent"><code class="flex name class">
+<dt id="provo.provClasses.Agent"><code class="flex name class">
 <span>class <span class="ident">Agent</span></span>
 <span>(</span><span>graph, id)</span>
 </code></dt>
@@ -604,11 +604,11 @@ alphanumerical, without empty spaces.</dd>
 </details>
 <h3>Ancestors</h3>
 <ul class="hlist">
-<li><a title="provit.provClasses.Node" href="#provit.provClasses.Node">Node</a></li>
+<li><a title="provo.provClasses.Node" href="#provo.provClasses.Node">Node</a></li>
 </ul>
 <h3>Methods</h3>
 <dl>
-<dt id="provit.provClasses.Agent.actedOnBehalfOf"><code class="name flex">
+<dt id="provo.provClasses.Agent.actedOnBehalfOf"><code class="name flex">
 <span>def <span class="ident">actedOnBehalfOf</span></span>(<span>self, agent)</span>
 </code></dt>
 <dd>
@@ -616,7 +616,7 @@ alphanumerical, without empty spaces.</dd>
 <a href="https://www.w3.org/TR/prov-o/#actedOnBehalfOf">https://www.w3.org/TR/prov-o/#actedOnBehalfOf</a></p>
 <h2 id="parameters">Parameters</h2>
 <dl>
-<dt><strong><code>agent</code></strong> :&ensp;<code><a title="provit.provClasses.Agent" href="#provit.provClasses.Agent">Agent</a></code></dt>
+<dt><strong><code>agent</code></strong> :&ensp;<code><a title="provo.provClasses.Agent" href="#provo.provClasses.Agent">Agent</a></code></dt>
 <dd>The Agent instructed this Agent.</dd>
 </dl></div>
 <details class="source">
@@ -640,16 +640,16 @@ alphanumerical, without empty spaces.</dd>
 </dl>
 <h3>Inherited members</h3>
 <ul class="hlist">
-<li><code><b><a title="provit.provClasses.Node" href="#provit.provClasses.Node">Node</a></b></code>:
+<li><code><b><a title="provo.provClasses.Node" href="#provo.provClasses.Node">Node</a></b></code>:
 <ul class="hlist">
-<li><code><a title="provit.provClasses.Node.description" href="#provit.provClasses.Node.description">description</a></code></li>
-<li><code><a title="provit.provClasses.Node.getId" href="#provit.provClasses.Node.getId">getId</a></code></li>
-<li><code><a title="provit.provClasses.Node.label" href="#provit.provClasses.Node.label">label</a></code></li>
+<li><code><a title="provo.provClasses.Node.description" href="#provo.provClasses.Node.description">description</a></code></li>
+<li><code><a title="provo.provClasses.Node.getId" href="#provo.provClasses.Node.getId">getId</a></code></li>
+<li><code><a title="provo.provClasses.Node.label" href="#provo.provClasses.Node.label">label</a></code></li>
 </ul>
 </li>
 </ul>
 </dd>
-<dt id="provit.provClasses.Entity"><code class="flex name class">
+<dt id="provo.provClasses.Entity"><code class="flex name class">
 <span>class <span class="ident">Entity</span></span>
 <span>(</span><span>graph, id)</span>
 </code></dt>
@@ -729,11 +729,11 @@ alphanumerical, without empty spaces.</dd>
 </details>
 <h3>Ancestors</h3>
 <ul class="hlist">
-<li><a title="provit.provClasses.Node" href="#provit.provClasses.Node">Node</a></li>
+<li><a title="provo.provClasses.Node" href="#provo.provClasses.Node">Node</a></li>
 </ul>
 <h3>Methods</h3>
 <dl>
-<dt id="provit.provClasses.Entity.wasAttributedTo"><code class="name flex">
+<dt id="provo.provClasses.Entity.wasAttributedTo"><code class="name flex">
 <span>def <span class="ident">wasAttributedTo</span></span>(<span>self, agent)</span>
 </code></dt>
 <dd>
@@ -741,7 +741,7 @@ alphanumerical, without empty spaces.</dd>
 <a href="https://www.w3.org/TR/prov-o/#wasAttributedTo">https://www.w3.org/TR/prov-o/#wasAttributedTo</a></p>
 <h2 id="parameters">Parameters</h2>
 <dl>
-<dt><strong><code>agent</code></strong> :&ensp;<code><a title="provit.provClasses.Agent" href="#provit.provClasses.Agent">Agent</a></code></dt>
+<dt><strong><code>agent</code></strong> :&ensp;<code><a title="provo.provClasses.Agent" href="#provo.provClasses.Agent">Agent</a></code></dt>
 <dd>The Agent that this Entity was attributed to.</dd>
 </dl></div>
 <details class="source">
@@ -762,7 +762,7 @@ alphanumerical, without empty spaces.</dd>
     self.graph.add((self.id, PROV.wasAttributedTo, agent.getId()))</code></pre>
 </details>
 </dd>
-<dt id="provit.provClasses.Entity.wasDerivedFrom"><code class="name flex">
+<dt id="provo.provClasses.Entity.wasDerivedFrom"><code class="name flex">
 <span>def <span class="ident">wasDerivedFrom</span></span>(<span>self, entity)</span>
 </code></dt>
 <dd>
@@ -770,7 +770,7 @@ alphanumerical, without empty spaces.</dd>
 <a href="https://www.w3.org/TR/prov-o/#wasDerivedFrom">https://www.w3.org/TR/prov-o/#wasDerivedFrom</a></p>
 <h2 id="parameters">Parameters</h2>
 <dl>
-<dt><strong><code>entity</code></strong> :&ensp;<code><a title="provit.provClasses.Entity" href="#provit.provClasses.Entity">Entity</a></code></dt>
+<dt><strong><code>entity</code></strong> :&ensp;<code><a title="provo.provClasses.Entity" href="#provo.provClasses.Entity">Entity</a></code></dt>
 <dd>The Entity that this Entity was derived from.</dd>
 </dl></div>
 <details class="source">
@@ -791,7 +791,7 @@ alphanumerical, without empty spaces.</dd>
     self.graph.add((self.id, PROV.wasDerivedFrom, entity.getId()))</code></pre>
 </details>
 </dd>
-<dt id="provit.provClasses.Entity.wasGeneratedBy"><code class="name flex">
+<dt id="provo.provClasses.Entity.wasGeneratedBy"><code class="name flex">
 <span>def <span class="ident">wasGeneratedBy</span></span>(<span>self, activity)</span>
 </code></dt>
 <dd>
@@ -799,7 +799,7 @@ alphanumerical, without empty spaces.</dd>
 <a href="https://www.w3.org/TR/prov-o/#wasgeneratedBy">https://www.w3.org/TR/prov-o/#wasgeneratedBy</a></p>
 <h2 id="parameters">Parameters</h2>
 <dl>
-<dt><strong><code>activity</code></strong> :&ensp;<code><a title="provit.provClasses.Activity" href="#provit.provClasses.Activity">Activity</a></code></dt>
+<dt><strong><code>activity</code></strong> :&ensp;<code><a title="provo.provClasses.Activity" href="#provo.provClasses.Activity">Activity</a></code></dt>
 <dd>The Activity that generated this Activity.</dd>
 </dl></div>
 <details class="source">
@@ -822,16 +822,16 @@ alphanumerical, without empty spaces.</dd>
 </dl>
 <h3>Inherited members</h3>
 <ul class="hlist">
-<li><code><b><a title="provit.provClasses.Node" href="#provit.provClasses.Node">Node</a></b></code>:
+<li><code><b><a title="provo.provClasses.Node" href="#provo.provClasses.Node">Node</a></b></code>:
 <ul class="hlist">
-<li><code><a title="provit.provClasses.Node.description" href="#provit.provClasses.Node.description">description</a></code></li>
-<li><code><a title="provit.provClasses.Node.getId" href="#provit.provClasses.Node.getId">getId</a></code></li>
-<li><code><a title="provit.provClasses.Node.label" href="#provit.provClasses.Node.label">label</a></code></li>
+<li><code><a title="provo.provClasses.Node.description" href="#provo.provClasses.Node.description">description</a></code></li>
+<li><code><a title="provo.provClasses.Node.getId" href="#provo.provClasses.Node.getId">getId</a></code></li>
+<li><code><a title="provo.provClasses.Node.label" href="#provo.provClasses.Node.label">label</a></code></li>
 </ul>
 </li>
 </ul>
 </dd>
-<dt id="provit.provClasses.Node"><code class="flex name class">
+<dt id="provo.provClasses.Node"><code class="flex name class">
 <span>class <span class="ident">Node</span></span>
 <span>(</span><span>graph, id)</span>
 </code></dt>
@@ -902,13 +902,13 @@ alphanumerical, without empty spaces.</dd>
 </details>
 <h3>Subclasses</h3>
 <ul class="hlist">
-<li><a title="provit.provClasses.Activity" href="#provit.provClasses.Activity">Activity</a></li>
-<li><a title="provit.provClasses.Agent" href="#provit.provClasses.Agent">Agent</a></li>
-<li><a title="provit.provClasses.Entity" href="#provit.provClasses.Entity">Entity</a></li>
+<li><a title="provo.provClasses.Activity" href="#provo.provClasses.Activity">Activity</a></li>
+<li><a title="provo.provClasses.Agent" href="#provo.provClasses.Agent">Agent</a></li>
+<li><a title="provo.provClasses.Entity" href="#provo.provClasses.Entity">Entity</a></li>
 </ul>
 <h3>Methods</h3>
 <dl>
-<dt id="provit.provClasses.Node.description"><code class="name flex">
+<dt id="provo.provClasses.Node.description"><code class="name flex">
 <span>def <span class="ident">description</span></span>(<span>self, description: str)</span>
 </code></dt>
 <dd>
@@ -935,7 +935,7 @@ alphanumerical, without empty spaces.</dd>
     self.graph.add((self.id, RDFS.comment, Literal(description)))</code></pre>
 </details>
 </dd>
-<dt id="provit.provClasses.Node.getId"><code class="name flex">
+<dt id="provo.provClasses.Node.getId"><code class="name flex">
 <span>def <span class="ident">getId</span></span>(<span>self)</span>
 </code></dt>
 <dd>
@@ -960,7 +960,7 @@ alphanumerical, without empty spaces.</dd>
     return self.id</code></pre>
 </details>
 </dd>
-<dt id="provit.provClasses.Node.label"><code class="name flex">
+<dt id="provo.provClasses.Node.label"><code class="name flex">
 <span>def <span class="ident">label</span></span>(<span>self, label: str)</span>
 </code></dt>
 <dd>
@@ -998,41 +998,41 @@ alphanumerical, without empty spaces.</dd>
 <ul id="index">
 <li><h3>Super-module</h3>
 <ul>
-<li><code><a title="provit" href="index.html">provit</a></code></li>
+<li><code><a title="provo" href="index.html">provo</a></code></li>
 </ul>
 </li>
 <li><h3><a href="#header-classes">Classes</a></h3>
 <ul>
 <li>
-<h4><code><a title="provit.provClasses.Activity" href="#provit.provClasses.Activity">Activity</a></code></h4>
+<h4><code><a title="provo.provClasses.Activity" href="#provo.provClasses.Activity">Activity</a></code></h4>
 <ul class="">
-<li><code><a title="provit.provClasses.Activity.endedAtTime" href="#provit.provClasses.Activity.endedAtTime">endedAtTime</a></code></li>
-<li><code><a title="provit.provClasses.Activity.startedAtTime" href="#provit.provClasses.Activity.startedAtTime">startedAtTime</a></code></li>
-<li><code><a title="provit.provClasses.Activity.used" href="#provit.provClasses.Activity.used">used</a></code></li>
-<li><code><a title="provit.provClasses.Activity.wasAssociatedWith" href="#provit.provClasses.Activity.wasAssociatedWith">wasAssociatedWith</a></code></li>
-<li><code><a title="provit.provClasses.Activity.wasInformedBy" href="#provit.provClasses.Activity.wasInformedBy">wasInformedBy</a></code></li>
+<li><code><a title="provo.provClasses.Activity.endedAtTime" href="#provo.provClasses.Activity.endedAtTime">endedAtTime</a></code></li>
+<li><code><a title="provo.provClasses.Activity.startedAtTime" href="#provo.provClasses.Activity.startedAtTime">startedAtTime</a></code></li>
+<li><code><a title="provo.provClasses.Activity.used" href="#provo.provClasses.Activity.used">used</a></code></li>
+<li><code><a title="provo.provClasses.Activity.wasAssociatedWith" href="#provo.provClasses.Activity.wasAssociatedWith">wasAssociatedWith</a></code></li>
+<li><code><a title="provo.provClasses.Activity.wasInformedBy" href="#provo.provClasses.Activity.wasInformedBy">wasInformedBy</a></code></li>
 </ul>
 </li>
 <li>
-<h4><code><a title="provit.provClasses.Agent" href="#provit.provClasses.Agent">Agent</a></code></h4>
+<h4><code><a title="provo.provClasses.Agent" href="#provo.provClasses.Agent">Agent</a></code></h4>
 <ul class="">
-<li><code><a title="provit.provClasses.Agent.actedOnBehalfOf" href="#provit.provClasses.Agent.actedOnBehalfOf">actedOnBehalfOf</a></code></li>
+<li><code><a title="provo.provClasses.Agent.actedOnBehalfOf" href="#provo.provClasses.Agent.actedOnBehalfOf">actedOnBehalfOf</a></code></li>
 </ul>
 </li>
 <li>
-<h4><code><a title="provit.provClasses.Entity" href="#provit.provClasses.Entity">Entity</a></code></h4>
+<h4><code><a title="provo.provClasses.Entity" href="#provo.provClasses.Entity">Entity</a></code></h4>
 <ul class="">
-<li><code><a title="provit.provClasses.Entity.wasAttributedTo" href="#provit.provClasses.Entity.wasAttributedTo">wasAttributedTo</a></code></li>
-<li><code><a title="provit.provClasses.Entity.wasDerivedFrom" href="#provit.provClasses.Entity.wasDerivedFrom">wasDerivedFrom</a></code></li>
-<li><code><a title="provit.provClasses.Entity.wasGeneratedBy" href="#provit.provClasses.Entity.wasGeneratedBy">wasGeneratedBy</a></code></li>
+<li><code><a title="provo.provClasses.Entity.wasAttributedTo" href="#provo.provClasses.Entity.wasAttributedTo">wasAttributedTo</a></code></li>
+<li><code><a title="provo.provClasses.Entity.wasDerivedFrom" href="#provo.provClasses.Entity.wasDerivedFrom">wasDerivedFrom</a></code></li>
+<li><code><a title="provo.provClasses.Entity.wasGeneratedBy" href="#provo.provClasses.Entity.wasGeneratedBy">wasGeneratedBy</a></code></li>
 </ul>
 </li>
 <li>
-<h4><code><a title="provit.provClasses.Node" href="#provit.provClasses.Node">Node</a></code></h4>
+<h4><code><a title="provo.provClasses.Node" href="#provo.provClasses.Node">Node</a></code></h4>
 <ul class="">
-<li><code><a title="provit.provClasses.Node.description" href="#provit.provClasses.Node.description">description</a></code></li>
-<li><code><a title="provit.provClasses.Node.getId" href="#provit.provClasses.Node.getId">getId</a></code></li>
-<li><code><a title="provit.provClasses.Node.label" href="#provit.provClasses.Node.label">label</a></code></li>
+<li><code><a title="provo.provClasses.Node.description" href="#provo.provClasses.Node.description">description</a></code></li>
+<li><code><a title="provo.provClasses.Node.getId" href="#provo.provClasses.Node.getId">getId</a></code></li>
+<li><code><a title="provo.provClasses.Node.label" href="#provo.provClasses.Node.label">label</a></code></li>
 </ul>
 </li>
 </ul>
