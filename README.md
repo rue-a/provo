@@ -1,6 +1,6 @@
 # README
 
-The package creates provenance graphs according to PROV-O. _The package is based on __rdflib___. https://rdflib.readthedocs.io/en/stable/rdf_terms.html
+The package creates provenance graphs according to PROV-O (i.e. in RDF). _The package is based on __rdflib___. https://rdflib.readthedocs.io/en/stable/rdf_terms.html
 
 ## Installation
 
@@ -12,16 +12,13 @@ The package creates provenance graphs according to PROV-O. _The package is based
 
 The package implements the PROV-O (https://www.w3.org/TR/prov-o/#starting-points-figure, graphic below) classes __Entity__, __Activity__ and __Agent__ as Python classes with methods to establish the basic relations (Arrows) between instances of those classes. Those relations are called _properties_. It also contains utilities to ease the provenance graph construction.
 
-
 <img src="provit/graphics/ProvUnits.png" width="500" title="PROV-O"/>
-
 
 ## Functionality
 
 It is assumed that the basic unit of a provenance graph is an _Activity_ with a number of _Input Entities_ and _Output Entities_ that is possibly controlled by an _Agent_. The following graphic shows this unit together with the resulting properties:
 
 <img src="provit/graphics/provBasicExample.png" width="700">
-
 
 The script to generate this basic unit is provided in the _examples_ folder as ```provBasicExample.py```:
 
@@ -60,7 +57,7 @@ g.serialize(format = 'n3', destination = path)
 
 Every object of the type _Agent_, _Activity_ and _Entity_ needs a unique identifier. This identifier needs to be an alphanumeric string without empty spaces. The instantiation also requires the graph to which the object should be added ```newEntity = Entity(graph = provGraph, id = 'newEntity')``` as input.
 
-### A real provenance graph consists of multiple basic units
+### Real world provenance graph can get much larger
 
 The folder _examples_ contains an example document, which describes the serialization of an ArcGIS Workflow description into a provenance graph RDF. The folder _out_ contains this graph. The ESRI tutorial with the example workflow isa available ar http://webhelp.esri.com/arcgisdesktop/9.3/pdf/Geoprocessing_in_ArcGIS_Tutorial.pdf, p. 36ff. The following figure shows the workflow (The _wasDerivedBy_ properties between _Entities_ are omitted):
 
