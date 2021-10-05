@@ -57,9 +57,9 @@ g.serialize(format = 'n3', destination = path)
 
 Every object of the type _Agent_, _Activity_ and _Entity_ needs a unique identifier. This identifier needs to be an alphanumeric string without empty spaces. The instantiation also requires the graph to which the object should be added ```newEntity = Entity(graph = provGraph, id = 'newEntity')``` as input.
 
-### Real world provenance graph can get much larger
+### Example
 
-The folder _examples_ contains an example document, which describes the serialization of an ArcGIS Workflow description into a provenance graph RDF. The folder _out_ contains this graph. The ESRI tutorial with the example workflow isa available ar http://webhelp.esri.com/arcgisdesktop/9.3/pdf/Geoprocessing_in_ArcGIS_Tutorial.pdf, p. 36ff. The following figure shows the workflow (The _wasDerivedBy_ properties between _Entities_ are omitted):
+The folder _provo/examples_ contains an example script, that serializes an ArcGIS Workflow description into a PROV-O provenance graph. The folder _out_ contains this graph. The ESRI tutorial with the example workflow is available at http://webhelp.esri.com/arcgisdesktop/9.3/pdf/Geoprocessing_in_ArcGIS_Tutorial.pdf, p. 36ff. The following figure shows the workflow (The _wasDerivedBy_ properties between _Entities_ are omitted):
 
 <img src="provo/graphics/gnatchi.png">
 
