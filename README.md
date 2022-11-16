@@ -98,4 +98,4 @@ buffer.endedAtTime(datetime(2020, 6, 6, 12, 4, 30))
 
 ## Contact
 
-Arne Rümmler ([arne.ruemmler@tu-dresden.de](mailto:arne.ruemmler@tu-dresden.de))
+Arne Rümmler ([arne.ruemmler@gmail.com](mailto:arne.ruemmler@gmail.com))

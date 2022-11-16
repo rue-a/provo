@@ -1,2 +1,1 @@
-from .provGraph import ProvGraph
-from .provClasses import Activity, Entity, Agent
+from .provontologygraph import ProvOntologyGraph
