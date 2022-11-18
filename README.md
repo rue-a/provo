@@ -1,6 +1,8 @@
 # README
 
-The package creates provenance graphs according to PROV-O (i.e. in RDF). _The package is based on __rdflib___. https://rdflib.readthedocs.io/en/stable/rdf_terms.html
+The package supports the creation of provenance graphs that [PROV-O](https://www.w3.org/TR/prov-o/) compliant. 
+
+The package requires __Python 3.11__.
 
 ## Installation
 
@@ -10,91 +12,79 @@ The package creates provenance graphs according to PROV-O (i.e. in RDF). _The pa
 
 ## Contents
 
-The package implements the PROV-O (https://www.w3.org/TR/prov-o/#starting-points-figure, graphic below) classes __Entity__, __Activity__ and __Agent__ as Python classes with methods to establish the basic relations (Arrows) between instances of those classes. Those relations are called _properties_. It also contains utilities to ease the provenance graph construction.
-
-<img src="provo/graphics/ProvUnits.png" width="500" title="PROV-O"/>
+The package implements the PROV-O (https://www.w3.org/TR/prov-o/#starting-points-figure, graphic below) classes __Entity__, __Activity__ and __Agent__ as Python classes with methods to establish the basic relations between instances of those classes. 
 
 ## Functionality
 
-It is assumed that the basic unit of a provenance graph is an _Activity_ with a number of _Input Entities_ and _Output Entities_ that is possibly controlled by an _Agent_. The following graphic shows this unit together with the resulting properties:
-
-<img src="provo/graphics/provBasicExample.png" width="700">
-
-The script to generate this basic unit is provided in the _examples_ folder as ```provBasicExample.py```:
-
-```python
-from provo import ProvGraph, Activity, Entity, Agent
-
-# setup the graph object (subclass of an rdflib-graph)
-g = ProvGraph(namespace='https://provBasicExample.org/')
-
-
-# at first we create all required objects
-inputEntity = Entity(graph = g, id = 'inputEntity')
-# any PROV-O object can have a label and a description
-inputEntity.label('Input Entity')
-inputEntity.description('This is the first entity')
-
-outputEntity = Entity(g, 'outputEntity')
-
-activity = Activity(g, 'activity')
-
-agent = Agent(g, 'agent')
-
-
-# now we build the relations
-activity.used(inputEntity)
-activity.wasAssociatedWith(agent)
-outputEntity.wasGeneratedBy(activity)
-outputEntity.wasAttributedTo(agent)
-outputEntity.wasDerivedFrom(inputEntity)
-
-
-# finally serialize the graph
-path = './examples/out/provBasicExample_n3.rdf'
-g.serialize(format = 'n3', destination = path)
-```
-
-Every object of the type _Agent_, _Activity_ and _Entity_ needs a unique identifier. This identifier needs to be an alphanumeric string without empty spaces. The instantiation also requires the graph to which the object should be added ```newEntity = Entity(graph = provGraph, id = 'newEntity')``` as input.
-
-### Example
-
-The folder _provo/examples_ contains an example script, that serializes an ArcGIS Workflow description into a PROV-O provenance graph. The folder _out_ contains this graph. The ESRI tutorial with the example workflow is available at http://webhelp.esri.com/arcgisdesktop/9.3/pdf/Geoprocessing_in_ArcGIS_Tutorial.pdf, p. 36ff. The following figure shows the workflow (The _wasDerivedBy_ properties between _Entities_ are omitted):
-
-<img src="provo/graphics/gnatchi.png">
-
-The manual assignment of required properties in the graph (arrows) gets time-consuming and can lead to errors. The class ```ProvGraph``` provides a utility method called ```link``` that simplifies this task. The following example describes the "Intersect" Activity, which is shown graph above:
-
-```python
-elev = Entity(g, 'ElevationsLessThan250m')
-slopes = Entity(g, 'SlopesLessThan40Percent')
-climate = Entity(g, 'ClimateZones')
-intersect = Activity(g, 'Intersect')
-intersectOut = Entity(g, 'intersectOutput')
-g.link(
-    inputs = [elev, slopes, climate, suitMinusRoads],
-    process = intersect,
-    outputs = intersectOut,
-    agents = None
-)
-```
-
-Every parameter of the link method can be set as list of according PROV-O objects or as single object. Every time the link method is called, it checks if there is a resulting _wasInformedBy_ property that needs to be added to the graph (and adds it). This auto-inferencing of the ```link```-method can and should be deactivated when constructing large graphs ( ```g.link(..., inference = False) ```).
-
-<!-- Additionally, every _Activity_ can be assigned a start and end time. The format of this time has to be a python ```datetime``` object: 
+Code to create the PROV-O [example 1](https://www.w3.org/TR/prov-o/#narrative-example-simple-1)
 
 ```python
 from datetime import datetime
+from provo import ProvOntologyGraph
 
-buffer = Activity(g, 'Buffer')
-buffer.startedAtTime(datetime(2020, 6, 6, 12, 0, 0))
-buffer.endedAtTime(datetime(2020, 6, 6, 12, 4, 30))
-``` -->
+# create graph
+prov_ontology_graph = ProvOntologyGraph(
+    namespace='http://example.org#',
+    namespace_abbreviation=""
+)
+
+# create entities
+crime_data = prov_ontology_graph.add_entity(id_string='crimeData', label='Crime Data')
+national_regions_list = prov_ontology_graph.add_entity(id_string='nationalRegionsList', label='National Regions List')
+aggregated_by_regions = prov_ontology_graph.add_entity(id_string='aggregatedByRegions', label='Aggregated by Regions')
+bar_chart = prov_ontology_graph.add_entity(id_string='bar_chart', label='Bar Chart')
+
+# create activities
+aggregation_activity = prov_ontology_graph.add_activity(id_string='aggregationActivity', label='Aggregation Activity')
+illustration_activity = prov_ontology_graph.add_activity(id_string='illustrationActivity', label='Illustration Activity')
+
+# create agents
+government = prov_ontology_graph.add_agent(id_string='government', label='Government')
+civil_action_group = prov_ontology_graph.add_agent(id_string='civil_action_group', label='Civil Action Group')
+national_newspaper_inc = prov_ontology_graph.add_agent(id_string='national_newspaper_inc', label='National Newspaper Inc.')
+derek = prov_ontology_graph.add_agent(id_string='derek', label='Derek')
+
+# build relations
+crime_data.was_attributed_to(government)
+national_regions_list.was_attributed_to(civil_action_group)
+
+aggregation_activity.used(crime_data)
+aggregation_activity.used(national_regions_list)
+aggregation_activity.started_at_time(datetime(2011, 7, 14, 1, 1, 1))
+aggregation_activity.ended_at_time(datetime(2011, 7, 14, 2, 2, 2))
+aggregation_activity.was_associated_with(derek)
+
+aggregated_by_regions.was_generated_by(aggregation_activity)
+aggregated_by_regions.was_attributed_to(derek)
+
+illustration_activity.was_informed_by(aggregation_activity)
+illustration_activity.used(aggregated_by_regions)
+illustration_activity.was_associated_with(derek)
+
+bar_chart.was_generated_by(illustration_activity)
+bar_chart.was_derived_from(aggregated_by_regions)
+bar_chart.was_attributed_to(derek)
+
+derek.acted_on_behalf_of(national_newspaper_inc)
+
+# print graph to terminal
+print(prov_ontology_graph)
+
+# serialize graph as rdf document
+prov_ontology_graph.serialize_as_rdf('provenance_graph_example.ttl')
+
+```
+
+
 ## Used Packages
 
 - rdflib: https://rdflib.readthedocs.io/en/stable/, BSD License
+- validators: https://github.com/python-validators/validators, MIT License
+
 
 ## License
+
+GNU General Public License v3.0
 
 ## Contact
 
