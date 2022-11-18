@@ -10,7 +10,7 @@
 from dataclasses import dataclass, field
 from validators import url
 from rdflib import Graph, Namespace, Literal, URIRef
-from rdflib import DC, FOAF, RDF, RDFS, PROV, XSD
+from rdflib import DC, FOAF, RDF, RDFS, PROV, XSD  # type: ignore
 
 from .provo import IdVault, Entity, Activity, Agent
 

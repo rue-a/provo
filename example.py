@@ -42,4 +42,4 @@ bar_chart.was_attributed_to(derek)
 derek.acted_on_behalf_of(national_newspaper_inc)
 
 # print(prov_ontology_graph)
-prov_ontology_graph.serialize_as_rdf('provenance_graph.ttl')
+prov_ontology_graph.serialize_as_rdf('provenance_graph_example.ttl')
