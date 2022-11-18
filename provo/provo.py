@@ -16,7 +16,14 @@ from uuid import uuid4
 
 
 @dataclass(frozen=True)
-class IdAlreadyUsedError(Exception):
+class IdInvalid(Exception):
+    """Raised when a node id is invalid."""
+
+    message: str
+
+
+@dataclass(frozen=True)
+class IdAlreadyUsed(Exception):
     """Raised when a node with an id that already exists is created."""
 
     message: str
@@ -27,20 +34,33 @@ class IdVault:
     """manages unique IDs and generates new ones"""
 
     vault: list[str] = field(init=False, default_factory=list)
+    _invalid_symbols: str = field(init=False, default='<>" {}|\\^`')
+
+    def uri_valid(self, uri: str) -> bool:
+        "checks if uri is valid"
+
+        for symbol in uri:
+            if symbol in self._invalid_symbols:
+                return False
+        return True
 
     def generate(self, namespace: str) -> str:
         """generates a new uuid that is not in the vault yet"""
         node_id = namespace + str(uuid4())
         while node_id in self.vault:
             node_id = namespace + str(uuid4())
+        if not self.uri_valid(node_id):
+            raise IdInvalid(f"The Id {node_id} is invalid (contains one or more of: \033[1m{self._invalid_symbols}\033[0m).")
         self.vault.append(node_id)
         return node_id
 
     def add_id(self, namespace: str, id_string: str) -> str:
-        """adds a user defined id or generates a random id, if id is already used"""
+        """adds a user defined id and checks if its valid"""
         node_id = namespace + id_string
         if node_id in self.vault:
-            raise IdAlreadyUsedError(f'The Id "{node_id}" was already used in this graph.')
+            raise IdAlreadyUsed(f'The Id "{node_id}" was already used in this graph.')
+        if not self.uri_valid(node_id):
+            raise IdInvalid(f"The Id {node_id} is invalid (contains one or more of: \033[1m{self._invalid_symbols}\033[0m).")
         self.vault.append(node_id)
         return node_id
 

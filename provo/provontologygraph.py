@@ -43,6 +43,7 @@ class ProvOntologyGraph():
 
     def __post_init__(self):
         """check if the namespace is malformed"""
+        # TODO rethink validation
         if not url(self.namespace):  # type: ignore
             raise NamespaceMalformed("""
             The provided namespace is not a valid URL!
