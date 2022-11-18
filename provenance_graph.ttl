@@ -1,0 +1,50 @@
+@prefix : <http://example.org#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+:bar_chart a prov:Entity ;
+    rdfs:label "Bar Chart" ;
+    prov:wasAttributedTo :derek ;
+    prov:wasDerivedFrom :aggregatedByRegions ;
+    prov:wasGeneratedBy :illustrationActivity .
+
+:civil_action_group a prov:Agent ;
+    rdfs:label "Civil Action Group" .
+
+:crimeData a prov:Entity ;
+    rdfs:label "Crime Data" ;
+    prov:wasAttributedTo :government .
+
+:government a prov:Agent ;
+    rdfs:label "Government" .
+
+:illustrationActivity a prov:Activity ;
+    rdfs:label "Illustration Activity" ;
+    prov:used :aggregatedByRegions ;
+    prov:wasInformedBy :aggregationActivity .
+
+:nationalRegionsList a prov:Entity ;
+    rdfs:label "National Regions List" ;
+    prov:wasAttributedTo :civil_action_group .
+
+:national_newspaper_inc a prov:Agent ;
+    rdfs:label "National Newspaper Inc." .
+
+:aggregatedByRegions a prov:Entity ;
+    rdfs:label "Aggregated by Regions" ;
+    prov:wasAttributedTo :derek ;
+    prov:wasGeneratedBy :aggregationActivity .
+
+:aggregationActivity a prov:Activity ;
+    rdfs:label "Aggregation Activity" ;
+    prov:endedAtTime "2011-07-14T02:02:02"^^xsd:dateTime ;
+    prov:startedAtTime "2011-07-14T01:01:01"^^xsd:dateTime ;
+    prov:used :crimeData,
+        :nationalRegionsList .
+
+:derek a prov:Agent ;
+    rdfs:label "Derek" ;
+    prov:actedOnBehalfOf :national_newspaper_inc ;
+    prov:wasAssociatedWith :derek .
+
