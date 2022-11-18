@@ -8,7 +8,6 @@
 """
 
 from dataclasses import dataclass, field
-from typing import Optional
 from validators import url
 
 from .provo import IdVault, Entity, Activity, Agent
