@@ -1,6 +1,6 @@
 # README
 
-The package supports the creation of provenance graphs that [PROV-O](https://www.w3.org/TR/prov-o/) compliant. 
+The package supports the creation of [PROV-O](https://www.w3.org/TR/prov-o/) compliant provenance graphs. 
 
 The package requires __Python 3.11__.
 

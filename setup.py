@@ -3,7 +3,7 @@ from setuptools import setup, find_packages
 setup(name='provo',
       author='Arne Rümmler',
       version='0.1.0',
-      description='Construct provenance graphs according to PROV-O',
+      description='Construct  PROV-O compliant provenance graphs.',
       url='https://github.com/rue-a/provo',
       packages=find_packages(),
       classifiers=[
