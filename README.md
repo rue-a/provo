@@ -12,7 +12,7 @@ The package requires __Python 3.11__.
 
 ## Contents
 
-The package implements the PROV-O (https://www.w3.org/TR/prov-o/#starting-points-figure, graphic below) classes __Entity__, __Activity__ and __Agent__ as Python classes with methods to establish the basic relations between instances of those classes. 
+The package implements the [PROV-O starting point classes](https://www.w3.org/TR/prov-o/#starting-points-figure) __Entity__, __Activity__ and __Agent__ as Python classes with methods to establish the basic relations between instances of these classes. 
 
 ## Functionality
 
