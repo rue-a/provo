@@ -1,1 +1,1 @@
-from .provontologygraph import ProvOntologyGraph
+from provo.provontologygraph import ProvOntologyGraph

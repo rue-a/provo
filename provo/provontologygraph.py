@@ -8,11 +8,12 @@
 """
 
 from dataclasses import dataclass, field
-from validators import url
-from rdflib import Graph, Namespace, Literal, URIRef
-from rdflib import DC, FOAF, RDF, RDFS, PROV, XSD  # type: ignore
 
-from .provo import IdVault, Entity, Activity, Agent
+from rdflib import (DC, FOAF, PROV, RDF, RDFS, XSD, Graph,  # type: ignore
+                    Literal, Namespace, URIRef)
+from validators import url
+
+from provo.provo import Activity, Agent, Entity, IdVault
 
 
 @dataclass(frozen=True)
