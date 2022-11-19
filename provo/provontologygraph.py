@@ -7,6 +7,7 @@
 @status Prototype
 """
 
+
 from dataclasses import dataclass, field
 
 from rdflib import (DC, FOAF, PROV, RDF, RDFS, XSD, Graph,  # type: ignore
