@@ -6,6 +6,8 @@ The package requires __Python 3.11__.
 
 ## Installation
 
+You can install the package from the Python Package Index (PyPI):
+
 `pip install provo`
 
 Or by downloading this repo:
