@@ -4,6 +4,7 @@ from provo import ProvOntologyGraph
 
 # create example from: https://www.w3.org/TR/prov-o/#narrative-example-simple-1
 
+
 # create graph
 prov_ontology_graph = ProvOntologyGraph(
     namespace='http://example.org#',
@@ -54,3 +55,6 @@ print(prov_ontology_graph)
 
 # serialize graph as rdf document
 prov_ontology_graph.serialize_as_rdf('provenance_graph_example.ttl')
+
+
+print(crime_data)

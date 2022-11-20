@@ -45,6 +45,21 @@ class Node(ABC):
             contents += f"\ndescription: {self.description}"
         return contents
 
+    def get_id(self) -> str:
+        """returns the node's id"""
+
+        return self.node_id
+
+    def get_label(self) -> str:
+        """returns the node's label"""
+
+        return self.label
+
+    def get_description(self) -> str:
+        """returns the node's description"""
+
+        return self.description
+
 
 @dataclass
 class Entity(Node):
