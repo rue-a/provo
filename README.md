@@ -6,15 +6,25 @@ The package requires __Python 3.11__.
 
 ## Installation
 
-1. Download and unzip the package
-2. Open Shell and _cd_ to unzipped package
-3. Run "pip install -e ." (in the folder that contains ```setup.py```)
+`pip install provo`
 
 ## Contents
 
-The package implements the [PROV-O starting point classes](https://www.w3.org/TR/prov-o/#starting-points-figure) __Entity__, __Activity__ and __Agent__ as Python classes with methods to establish the basic relations between instances of these classes. 
+The package implements the [PROV-O starting point classes](https://www.w3.org/TR/prov-o/#starting-points-figure) __Entity__, __Activity__ and __Agent__ as Python classes with methods to establish starting point properties between them instances of these classes. 
 
-## Functionality
+### Features
+
+#### Compliance
+
+- The PROV-O classes __Entity__, __Activity__, and __Agent__ are implemented as Python classes.
+- The PROV-O properties _wasGeneratedBy_, _wasDerivedFrom_, _wasAttributedTo_, _startedAtTime_, _used_, _wasInformedBy_, _endedAtTime_, _wasAssociatedWith_, and _actedOnBehalfOf_ are implemented as instance methods of their according classes.
+- Attributes that are passes to these methods are type-checked to enforce compliance with PROV-O.
+- The package implements full type hint support, thus enabling rich support from linters such as [Pylance](https://marketplace.visualstudio.com/items?itemName=ms-python.vscode-pylance).
+- Node Ids are checked for validity.
+
+
+
+### Examples
 
 Code to create the PROV-O [example 1](https://www.w3.org/TR/prov-o/#narrative-example-simple-1)
 

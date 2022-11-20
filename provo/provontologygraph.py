@@ -3,8 +3,7 @@
 @contact arne.ruemmler@gmail.com
 
 @summary Implementation of a provenance graph
-    class
-@status Prototype
+    class that uses PROV-O terms
 """
 
 
@@ -14,7 +13,8 @@ from rdflib import (DC, FOAF, PROV, RDF, RDFS, XSD, Graph,  # type: ignore
                     Literal, Namespace, URIRef)
 from validators import url
 
-from provo.provo import Activity, Agent, Entity, IdVault
+from provo.idvault import IdVault
+from provo.startingpointclasses import Activity, Agent, Entity
 
 
 @dataclass(frozen=True)
@@ -26,7 +26,14 @@ class NamespaceMalformed(Exception):
 
 @dataclass(frozen=True)
 class NamespaceHasNoEndSymbol(Exception):
-    """Raise when the namespace does not end with '/' or '#'."""
+    """Raised if the namespace does not end with '/' or '#'."""
+
+    message: str
+
+
+@dataclass(frozen=True)
+class PrefixShorthandNotValid(Exception):
+    """Raised if the namespace abbreviation contains non-allowed characters."""
 
     message: str
 
@@ -38,13 +45,16 @@ class ProvOntologyGraph():
 
     namespace: str = "https://provo-example.org/"
     namespace_abbreviation: str = ""
+    lang: str = "en"
     _entities: list[Entity] = field(init=False, default_factory=list)
     _activities: list[Activity] = field(init=False, default_factory=list)
     _agents: list[Agent] = field(init=False, default_factory=list)
     _id_vault: IdVault = field(init=False, default_factory=IdVault)
 
     def __post_init__(self):
-        """check if the namespace is malformed"""
+        """check validity of namespace and and namespace abbreviation"""
+
+        # validate namespace
         # TODO rethink validation
         if not url(self.namespace):  # type: ignore
             raise NamespaceMalformed("""
@@ -57,19 +67,18 @@ class ProvOntologyGraph():
         if end_symbol not in ('/', '#'):
             raise NamespaceHasNoEndSymbol("The provided Namespace has to end on a '/' or '#'!")
 
-    def __handle_id(self, namespace: str = "", id_string: str = "") -> str:
-        """checks whether the provided namespace-id combination is
-        already used for a node in the graph.
-        if no namespace is provided: default namespace is used,
-        if no id is provided: id get automatically generated."""
+        # validate namespace abbreviation
+        # TODO check what is actually allowed
+        allowed_symbols_for_prefix_shorthand = 'abcdefghijklmnopqrstuvwxyz'
 
-        if not namespace:
-            namespace = self.namespace
-        if id_string:
-            node_id = self._id_vault.add_id(namespace, id_string)
-        else:
-            node_id = self._id_vault.generate(namespace)
-        return node_id
+        for symbol in self.namespace_abbreviation:
+            if symbol not in allowed_symbols_for_prefix_shorthand:
+                raise PrefixShorthandNotValid(f"""
+                    The provided namespace abbreviation is not valid.
+                    
+                    Character of the namespace have to be in "{allowed_symbols_for_prefix_shorthand}".
+                    """)
+        # if self.namespace_abbreviation in forbidden_namespaces:
 
     def __str__(self) -> str:
         """prints the contents of the provenance graph in a nice format."""
@@ -99,10 +108,24 @@ class ProvOntologyGraph():
 
         return contents
 
+    def _handle_id(self, namespace: str = "", id_string: str = "") -> str:
+        """checks whether the provided namespace-id combination is
+        already used for a node in the graph.
+        if no namespace is provided: default namespace is used,
+        if no id is provided: id get automatically generated."""
+
+        if not namespace:
+            namespace = self.namespace
+        if id_string:
+            node_id = self._id_vault.add_id(namespace, id_string)
+        else:
+            node_id = self._id_vault.generate(namespace)
+        return node_id
+
     def add_entity(self, id_string: str = "", label: str = "", description: str = "", namespace: str = "") -> Entity:
         """creates a new entity, adds it to the graph and returns it then"""
 
-        node_id = self.__handle_id(namespace, id_string)
+        node_id = self._handle_id(namespace, id_string)
         entity = Entity(
             node_id=node_id,
             label=label,
@@ -113,7 +136,7 @@ class ProvOntologyGraph():
     def add_activity(self, id_string: str = "", label: str = "", description: str = "", namespace: str = "") -> Activity:
         """creates a new activity, adds it to the graph and returns it then"""
 
-        node_id = self.__handle_id(namespace, id_string)
+        node_id = self._handle_id(namespace, id_string)
         activity = Activity(
             node_id=node_id,
             label=label,
@@ -124,7 +147,7 @@ class ProvOntologyGraph():
     def add_agent(self, id_string: str = "", label: str = "", description: str = "", namespace: str = "") -> Agent:
         """creates a new agent, adds it to the graph and returns it then"""
 
-        node_id = self.__handle_id(namespace, id_string)
+        node_id = self._handle_id(namespace, id_string)
         agent = Agent(
             node_id=node_id,
             label=label,
@@ -150,11 +173,11 @@ class ProvOntologyGraph():
         for node in self._entities + self._activities + self._agents:
             if node.label:
                 provenance_graph.add((
-                    URIRef(node.node_id), RDFS.label, Literal(node.label)
+                    URIRef(node.node_id), RDFS.label, Literal(node.label, lang=self.lang)
                 ))
             if node.description:
                 provenance_graph.add((
-                    URIRef(node.node_id), RDFS.comment, Literal(node.description)
+                    URIRef(node.node_id), RDFS.comment, Literal(node.description, lang=self.lang)
                 ))
         for entity in self._entities:
             provenance_graph.add((
