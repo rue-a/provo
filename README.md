@@ -8,6 +8,13 @@ The package requires __Python 3.11__.
 
 `pip install provo`
 
+Or by downloading this repo:
+
+1. Download and unzip the package
+2. Open Shell and _cd_ to unzipped package
+3. Run `pip install -e .` (in the folder that contains ```setup.py```)
+
+
 ## Contents
 
 The package implements the [PROV-O starting point classes](https://www.w3.org/TR/prov-o/#starting-points-figure) __Entity__, __Activity__ and __Agent__ as Python classes with methods to establish starting point properties between them instances of these classes. 
