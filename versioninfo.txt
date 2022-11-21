@@ -1,0 +1,28 @@
+
+VERSION INFORMATION
+-------------------
+
+0.1.0
+-----
+source code:
+- provo-o starting point classes and properties
+- id vault class
+- provenance ontology graph class
+
+other
+- minimal README with example application
+- LICENSE
+
+0.2.0
+-----
+source code:
+- add tests
+- smaller changes in existing classes
+- add examples for manual
+
+other:
+- extend README
+- move examples in example folder
+- extend setup.py
+- add versioninfo.txt
+

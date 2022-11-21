@@ -1,4 +1,5 @@
 @prefix : <http://example.org#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
@@ -9,14 +10,16 @@
     prov:wasDerivedFrom :aggregatedByRegions ;
     prov:wasGeneratedBy :illustrationActivity .
 
-:civil_action_group a prov:Agent ;
+:civil_action_group a prov:Agent,
+        foaf:Organization ;
     rdfs:label "Civil Action Group"@en .
 
 :crimeData a prov:Entity ;
     rdfs:label "Crime Data"@en ;
     prov:wasAttributedTo :government .
 
-:government a prov:Agent ;
+:government a prov:Agent,
+        foaf:Organization ;
     rdfs:label "Government"@en .
 
 :illustrationActivity a prov:Activity ;
@@ -28,8 +31,10 @@
     rdfs:label "National Regions List"@en ;
     prov:wasAttributedTo :civil_action_group .
 
-:national_newspaper_inc a prov:Agent ;
-    rdfs:label "National Newspaper Inc."@en .
+:national_newspaper_inc a prov:Agent,
+        foaf:Organization ;
+    rdfs:label "National Newspaper Inc."@en ;
+    foaf:name "National Newspaper Inc."@en .
 
 :aggregatedByRegions a prov:Entity ;
     rdfs:label "Aggregated by Regions"@en ;
@@ -43,8 +48,11 @@
     prov:used :crimeData,
         :nationalRegionsList .
 
-:derek a prov:Agent ;
+:derek a prov:Agent,
+        foaf:Person ;
     rdfs:label "Derek"@en ;
     prov:actedOnBehalfOf :national_newspaper_inc ;
-    prov:wasAssociatedWith :derek .
+    prov:wasAssociatedWith :derek ;
+    foaf:givenName "Derek"@en ;
+    foaf:mbox <mailto:derek@example.org> .
 

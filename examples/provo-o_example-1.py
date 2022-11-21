@@ -1,6 +1,7 @@
 from datetime import datetime
 
 from provo import ProvOntologyGraph
+from rdflib import FOAF, RDF, Literal, URIRef
 
 # create example from: https://www.w3.org/TR/prov-o/#narrative-example-simple-1
 
@@ -53,8 +54,51 @@ derek.acted_on_behalf_of(national_newspaper_inc)
 # print graph to terminal
 print(prov_ontology_graph)
 
+# use rdflib interface to add FOAF triples
+rdflib_graph = prov_ontology_graph.get_rdflib_graph()
+
+rdflib_graph.bind("foaf", FOAF)
+
+rdflib_graph.add((
+    URIRef(government.get_id()),
+    RDF.type,
+    FOAF.Organization
+))
+
+rdflib_graph.add((
+    URIRef(civil_action_group.get_id()),
+    RDF.type,
+    FOAF.Organization
+))
+
+rdflib_graph.add((
+    URIRef(national_newspaper_inc.get_id()),
+    RDF.type,
+    FOAF.Organization
+))
+
+rdflib_graph.add((
+    URIRef(national_newspaper_inc.get_id()),
+    FOAF.name,
+    Literal(national_newspaper_inc.get_label(), lang="en")
+))
+
+rdflib_graph.add((
+    URIRef(derek.get_id()),
+    RDF.type,
+    FOAF.Person
+))
+
+rdflib_graph.add((
+    URIRef(derek.get_id()),
+    FOAF.givenName,
+    Literal(derek.get_label(), lang="en")
+))
+
+rdflib_graph.add((
+    URIRef(derek.get_id()),
+    FOAF.mbox,
+    URIRef("mailto:derek@example.org")
+))
 # serialize graph as rdf document
-prov_ontology_graph.serialize_as_rdf('provenance_graph_example.ttl')
-
-
-print(crime_data)
+rdflib_graph.serialize('examples/provenance_graph_example.ttl')

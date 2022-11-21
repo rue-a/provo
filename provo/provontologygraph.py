@@ -38,6 +38,13 @@ class PrefixShorthandNotValid(Exception):
     message: str
 
 
+@dataclass(frozen=True)
+class PrefixNotAllowed(Exception):
+    """Raised the namespace is not allowed."""
+
+    message: str
+
+
 @dataclass
 class ProvOntologyGraph():
     """model that manages contents of a provenance graph
@@ -79,6 +86,14 @@ class ProvOntologyGraph():
                     Character of the namespace have to be in "{allowed_symbols_for_prefix_shorthand}".
                     """)
         # if self.namespace_abbreviation in forbidden_namespaces:
+        core_prefixes = ["owl", "rdf", "rdfs", "xsd", "xml"]
+        if self.namespace_abbreviation in core_prefixes:
+            raise PrefixNotAllowed(f"""
+            The provided namespace abbreviation is a core prefix, 
+            and thus, prohibited from use.
+
+            Core prefixes are: {"".join([f"{k}, " if i != len(core_prefixes)-2 else f"{k} and " for i, k in enumerate(core_prefixes)])[:-2]}.
+            """)
 
     def __str__(self) -> str:
         """prints the contents of the provenance graph in a nice format."""
@@ -155,9 +170,11 @@ class ProvOntologyGraph():
         self._agents.append(agent)
         return agent
 
-    def read_graph(self, file_path: str) -> None:
-        """reads the contents of an existing PROV-O provenance graph."""
-        pass
+    # TODO
+    # def read_graph(self, file_path: str) -> None:
+    #     """reads the contents of an existing PROV-O provenance graph."""
+
+    #     pass
 
     def get_rdflib_graph(self) -> Graph:
         """returns the provenance graph as rdflib.Graph()."""
