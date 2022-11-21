@@ -26,3 +26,7 @@ other:
 - extend setup.py
 - add versioninfo.txt
 
+0.2.1
+-----
+other:
+- make separat pypi readme
