@@ -1,7 +1,7 @@
 from datetime import datetime
 
 from provo import ProvOntologyGraph
-from rdflib import FOAF, RDF, Literal, URIRef
+from rdflib import FOAF, RDF, Literal, URIRef  # type: ignore
 
 # create example from: https://www.w3.org/TR/prov-o/#narrative-example-simple-1
 
