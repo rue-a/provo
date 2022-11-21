@@ -11,13 +11,13 @@ from pathlib import Path
 from setuptools import find_packages, setup
 
 this_directory = Path(__file__).parent
-long_description = (this_directory / "/misc/pypi_description.md").read_text()
+long_description = (this_directory / "README.md").read_text()
 
 setup(
     name="provo",
     author="Arne Rümmler",
     author_email="arne.ruemmler@gmail.com",
-    version="0.2.1",
+    version="0.2.0",
     description="Construct  PROV-O compliant provenance graphs.",
     long_description=long_description,
     long_description_content_type="text/markdown",
