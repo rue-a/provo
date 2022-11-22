@@ -25,6 +25,13 @@ classes.
 Features
 --------
 
+The package's objective is it to support the programmatical creation 
+of provenance graphs that are compliant with the W3C Recommendation 
+PROV-O: The PROV Ontology. Users of the package shall be enabled to 
+tightly couple the generation of data with the generation of their 
+provenance. As the package implements PROV-O, the created graph is 
+exportable as an RDF document.
+
 Compliance
 ~~~~~~~~~~
 
@@ -34,10 +41,10 @@ Compliance
    *wasAttributedTo*, *startedAtTime*, *used*, *wasInformedBy*,
    *endedAtTime*, *wasAssociatedWith*, and *actedOnBehalfOf* are
    implemented as instance methods of their according classes.
--  Attributes that are passes to these methods are type-checked to
-   enforce compliance with PROV-O. itemName=ms-python.vscode-pylance).
+-  Attributes that are passed to these methods are type-checked to
+   enforce compliance with PROV-O.
 -  Node Ids are checked for validity.
--  Accidental use of the same ID for different objects throws an error.
+-  (Accidental) use of the same ID for different objects throws an error.
 
 Ease of Use
 ~~~~~~~~~~~
@@ -47,14 +54,14 @@ Ease of Use
 -  The classes ``Provence_Ontology_Graph``, ``Entity``, ``Activity``,
    and ``Agent`` can be printed to terminal in a user-friendly, readable
    way with the default ``print()`` command.
--  for some quick testing, objects of the classes ``Entity``,
+-  For some quick testing, objects of the classes ``Entity``,
    ``Activity``, and ``Agent`` can be instantiated with auto-generated
-   Ids (although it’s not recommended using this for production).
+   Ids (although it's not recommended using this for production).
 
 Interface to RDF via the `rdflib <https://rdflib.readthedocs.io/en/stable/>`__ package
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
--  The graph’s contents can be converted to an ``rdflib.Graph`` object.
+-  The graph's contents can be converted to an ``rdflib.Graph`` object.
 -  The graph can be exported in various RDF serializations.
 
 Manual

@@ -23,20 +23,21 @@ The package implements the [PROV-O starting point classes](https://www.w3.org/TR
 
 ## Features
 
+The package's objective is it to support the programmatical creation of provenance graphs that are compliant with the W3C Recommendation PROV-O: The PROV Ontology. Users of the package shall be enabled to tightly couple the generation of data with the generation of their provenance. As the package implements PROV-O, the created graph is exportable as an RDF document.
+
 ### Compliance
 
 - The PROV-O classes __Entity__, __Activity__, and __Agent__ are implemented as Python classes.
 - The PROV-O properties _wasGeneratedBy_, _wasDerivedFrom_, _wasAttributedTo_, _startedAtTime_, _used_, _wasInformedBy_, _endedAtTime_, _wasAssociatedWith_, and _actedOnBehalfOf_ are implemented as instance methods of their according classes.
-- Attributes that are passes to these methods are type-checked to enforce compliance with PROV-O.
-itemName=ms-python.vscode-pylance).
+- Attributes that are passed to these methods are type-checked to enforce compliance with PROV-O.
 - Node Ids are checked for validity.
-- Accidental use of the same ID for different objects throws an error.
+- (Accidental) use of the same ID for different objects throws an error.
 
 ### Ease of Use
 
 - The package implements full type hint support, thus enabling rich support from the IDE.
 - The classes `Provence_Ontology_Graph`, `Entity`, `Activity`, and `Agent` can be printed to terminal in a user-friendly, readable way with the default `print()` command.
-- for some quick testing, objects of the classes `Entity`, `Activity`, and `Agent` can be instantiated with auto-generated Ids (although it's not recommended using this for production).
+- For some quick testing, objects of the classes `Entity`, `Activity`, and `Agent` can be instantiated with auto-generated Ids (although it's not recommended using this for production).
 
 ### Interface to RDF via the [rdflib](https://rdflib.readthedocs.io/en/stable/) package
 

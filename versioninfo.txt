@@ -35,3 +35,9 @@ other:
 -----
 other:
 - add README as rst for display at PyPI
+
+0.2.3
+-----
+other:
+- add content to README
+- fix README typos
