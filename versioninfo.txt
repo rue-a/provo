@@ -30,3 +30,8 @@ other:
 -----
 other:
 - fix errors in README
+
+0.2.2
+-----
+other:
+- add README as rst for display at PyPI
