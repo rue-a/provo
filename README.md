@@ -34,9 +34,8 @@ itemName=ms-python.vscode-pylance).
 
 ### Ease of Use
 
-- The package implements full type hint support, thus enabling rich support from linters such as [Pylance](https://marketplace.visualstudio.com/items).
+- The package implements full type hint support, thus enabling rich support from the IDE.
 - The classes `Provence_Ontology_Graph`, `Entity`, `Activity`, and `Agent` can be printed to terminal in a user-friendly, readable way with the default `print()` command.
-
 - for some quick testing, objects of the classes `Entity`, `Activity`, and `Agent` can be instantiated with auto-generated Ids (although it's not recommended using this for production).
 
 ### Interface to RDF via the [rdflib](https://rdflib.readthedocs.io/en/stable/) package
@@ -84,7 +83,7 @@ prov_ontology_graph = ProvOntologyGraph(
 - RDF core prefixes (*owl*, *rdf*, *rdfs*, *xsd* and *xml*) are prohibited from use.
 
 >**Note** 
-> Although not prohibited, the following prefixes are commonly uses and thus recommended to be avoided: *brick*, *csvw*, *dc*, *dcat*, *dcmitype*, *cdterms*, *dcam*, *doap*, *foaf*, *geo, *odrl*, *org, *prof*, *prov*, *qb*, *sdo*, *sh*, *skos*, *sosa*, *ssn*, *time*, *vann* and *void*.
+> Although not prohibited, the following prefixes are commonly uses and thus recommended to be avoided: *brick*, *csvw*, *dc*, *dcat*, *dcmitype*, *cdterms*, *dcam*, *doap*, *foaf*, *geo*, *odrl*, *org*, *prof*, *prov*, *qb*, *sdo*, *sh*, *skos*, *sosa*, *ssn*, *time*, *vann* and *void*.
 
 `lang=`
 
