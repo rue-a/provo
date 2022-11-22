@@ -29,4 +29,4 @@ other:
 0.2.1
 -----
 other:
-- make separat pypi readme
+- fix errors in README
