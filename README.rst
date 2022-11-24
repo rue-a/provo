@@ -59,8 +59,7 @@ Ease of Use
 -  For some quick testing, objects of the classes ``Entity``,
    ``Activity``, and ``Agent`` can be instantiated with auto-generated
    Ids (although it's not recommended using this for production).
-- 
--  Export as [mermaid flowchart](https://mermaid-js.github.io/mermaid/#/flowchart) 
+-  Export as `mermaid flowchart <https://mermaid-js.github.io/mermaid/#/flowchart>`__ 
    to review the graph visually.
 
 Interface to RDF via the `rdflib <https://rdflib.readthedocs.io/en/stable/>`__ package

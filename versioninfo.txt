@@ -55,4 +55,10 @@ other:
 1.0.1
 -----
 other
-- fix type in README
+- fix typo in README
+
+1.0.2
+-----
+other:
+- fix typo in versioninfo.txt
+- fix typo in README.rst
