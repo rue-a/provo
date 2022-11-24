@@ -19,7 +19,7 @@ Contents
 The package implements the `PROV-O starting point
 classes <https://www.w3.org/TR/prov-o/#starting-points-figure>`__
 **Entity**, **Activity** and **Agent** as Python classes with methods to
-establish starting point properties between them instances of these
+establish starting point properties between instances of these
 classes.
 
 Features
@@ -30,7 +30,9 @@ of provenance graphs that are compliant with the W3C Recommendation
 PROV-O: The PROV Ontology. Users of the package shall be enabled to 
 tightly couple the generation of data with the generation of their 
 provenance. As the package implements PROV-O, the created graph is 
-exportable as an RDF document.
+exportable as an RDF document. Finally, the graph can be exported as 
+a mermaid flowchart with some configuration options to adjust the 
+style of the resulting chart.
 
 Compliance
 ~~~~~~~~~~
@@ -57,6 +59,9 @@ Ease of Use
 -  For some quick testing, objects of the classes ``Entity``,
    ``Activity``, and ``Agent`` can be instantiated with auto-generated
    Ids (although it's not recommended using this for production).
+- 
+-  Export as [mermaid flowchart](https://mermaid-js.github.io/mermaid/#/flowchart) 
+   to review the graph visually.
 
 Interface to RDF via the `rdflib <https://rdflib.readthedocs.io/en/stable/>`__ package
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

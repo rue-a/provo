@@ -17,7 +17,7 @@ setup(
     name="provo",
     author="Arne Rümmler",
     author_email="arne.ruemmler@gmail.com",
-    version="0.2.4",
+    version="1.0.1",
     description="Construct  PROV-O compliant provenance graphs.",
     long_description=long_description,
     long_description_content_type="text/x-rst",

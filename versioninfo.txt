@@ -51,3 +51,8 @@ source code:
 
 other:
 - add README information for mermaid export
+
+1.0.1
+-----
+other
+- fix type in README

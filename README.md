@@ -18,7 +18,7 @@ Or by downloading this repo:
 
 ## Contents
 
-The package implements the [PROV-O starting point classes](https://www.w3.org/TR/prov-o/#starting-points-figure) __Entity__, __Activity__ and __Agent__ as Python classes with methods to establish starting point properties between them instances of these classes.
+The package implements the [PROV-O starting point classes](https://www.w3.org/TR/prov-o/#starting-points-figure) __Entity__, __Activity__ and __Agent__ as Python classes with methods to establish starting point properties between instances of these classes.
 
 ## Features
 
