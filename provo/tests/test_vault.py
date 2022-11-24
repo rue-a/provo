@@ -10,7 +10,7 @@ def test_generate():
     vault = IdVault()
     id = vault.generate(namespace=namespace)
     # TODO rethink validation
-    assert (url(id))  # type: ignore
+    assert url(id)  # type: ignore
 
 
 def test_no_id_duplication():
@@ -26,7 +26,7 @@ def test_no_id_duplication():
 
 
 def test_id_validation():
-    """tests if vault throws IdInvalid exception if id contains one 
+    """tests if vault throws IdInvalid exception if id contains one
     of the invalid symbols"""
 
     vault = IdVault()

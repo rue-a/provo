@@ -11,6 +11,19 @@ from abc import ABC, abstractmethod
 from dataclasses import dataclass, field
 from datetime import datetime
 
+@dataclass(frozen=True)
+class NoStartTimeDefined(Exception):
+    """Raised if user user wants to access the start time of
+    an activity for which no start time was defined."""
+
+    message: str
+
+@dataclass(frozen=True)
+class NoEndTimeDefined(Exception):
+    """Raised if user user wants to access the end time of
+    an activity for which no end time was defined."""
+
+    message: str
 
 @dataclass(frozen=True)
 class InvalidProvClassForThisRelation(Exception):
@@ -145,6 +158,20 @@ class Activity(Node):
             contents += f"\nwas associated with: {[item.label if item.label else item.node_id for item in self._was_associated_with_agents]}"
         contents += "\n---"
         return contents
+
+    def get_start_time(self) -> datetime:
+        """returns the start time of the activity"""
+        if self._start_time:
+            return self._start_time
+        else:
+            raise NoStartTimeDefined(f"No start time defined for the activity {self.label if self.label else f'with the id <{self.node_id}>'}.")
+
+    def get_end_time(self):
+        """returns the end time of the activity"""
+        if self._end_time:
+            return self._end_time
+        else:
+            raise NoEndTimeDefined(f"No end time defined for the activity {self.label if self.label else f'with the id <{self.node_id}>'}.")
 
     def was_informed_by(self, activity: 'Activity') -> None:
         """ implements the wasInformedBy property of PROV-O

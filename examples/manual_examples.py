@@ -29,7 +29,7 @@ activity = prov_ontology_graph.add_activity(
     description="An arbitrary activity."
 )
 
-activity.used(entity)
+entity.was_generated_by(activity)
 
 print(entity)
 
@@ -52,3 +52,22 @@ rdflib_graph.add((
 ))
 
 rdflib_graph.serialize("examples/rdflib_interface.ttl")
+
+
+# ex5
+
+prov_ontology_graph.export_as_mermaid_flowchart(file_name="examples/manual_examples_flowchart_default.md")
+
+
+# ex6
+
+options = {
+    "orientation": "LR",
+    "revert-relations": True,
+    "activity": {
+        "fill": "#89e6dc",
+        "shape": "{{:}}"
+    }
+}
+
+prov_ontology_graph.export_as_mermaid_flowchart(file_name="examples/manual_examples_flowchart.md", user_options = options)

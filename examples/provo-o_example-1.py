@@ -1,7 +1,8 @@
 from datetime import datetime
 
-from provo import ProvOntologyGraph
 from rdflib import FOAF, RDF, Literal, URIRef  # type: ignore
+
+from provo import ProvOntologyGraph
 
 # create example from: https://www.w3.org/TR/prov-o/#narrative-example-simple-1
 
@@ -102,3 +103,35 @@ rdflib_graph.add((
 ))
 # serialize graph as rdf document
 rdflib_graph.serialize('examples/provenance_graph_example.ttl')
+
+# export as mermaid flowchart
+options = {
+    "revert-relations": True,
+    "entity": {
+        "shape": "[:]",
+        "fill": "#FC766AFF",
+        "stroke": "#FC766AFF",
+        "color": "333"
+    },
+    "agent": {
+        "shape": "[/:\\]",
+        "stroke":"#B0B8B4FF",
+        "fill": "#B0B8B4FF",               
+        "color": "333",
+        "relation-style": "."
+    },
+    "activity": {
+        "shape": "{{:}}",
+        "fill": "#184A45FF",
+        "stroke": "#184A45FF",
+        "color": "#eee"       
+    }
+}
+
+# with adjusted options
+prov_ontology_graph.export_as_mermaid_flowchart(
+    file_name="examples/provenance_mermaid.md",
+    user_options=options)
+
+# with default_options
+prov_ontology_graph.export_as_mermaid_flowchart(file_name="examples/provenance_mermaid_default.md")

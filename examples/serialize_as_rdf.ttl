@@ -2,11 +2,11 @@
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 
-:034dff23-6cce-4269-b8f5-02559317857f a prov:Activity ;
-    rdfs:label "Anonymous activity"@en ;
-    rdfs:comment "An arbitrary activity."@en ;
-    prov:used :example_entity .
-
 :example_entity a prov:Entity ;
-    rdfs:label "Example Entity"@en .
+    rdfs:label "Example Entity"@en ;
+    prov:wasGeneratedBy :832b1ada-22f2-45b8-bdca-dfbe89fb68c8 .
+
+:832b1ada-22f2-45b8-bdca-dfbe89fb68c8 a prov:Activity ;
+    rdfs:label "Anonymous activity"@en ;
+    rdfs:comment "An arbitrary activity."@en .
 

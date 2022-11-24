@@ -1,5 +1,6 @@
 
 import pytest
+
 from provo.provontologygraph import (NamespaceHasNoEndSymbol,
                                      NamespaceMalformed, PrefixNotAllowed,
                                      PrefixShorthandNotValid,
@@ -7,7 +8,8 @@ from provo.provontologygraph import (NamespaceHasNoEndSymbol,
 
 
 def test_graph_initialization():
-    # tests if namespace is valid url
+    """tests if namespace and namespace abbreviation (i.e., prefix) is valid"""
+    
     ProvOntologyGraph()
     ProvOntologyGraph(namespace="https://test.package/", namespace_abbreviation="")
     ProvOntologyGraph(namespace="https://test.package#", namespace_abbreviation="")

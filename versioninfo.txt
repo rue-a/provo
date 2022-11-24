@@ -41,3 +41,13 @@ other:
 other:
 - add content to README
 - fix README typos
+
+1.0.0
+-----
+all core functionalities are implemented
+-----
+source code:
+- add mermaid flowchart export
+
+other:
+- add README information for mermaid export
