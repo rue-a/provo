@@ -97,7 +97,12 @@ prov_ontology_graph = ProvOntologyGraph(
 The creation for the three starting term classes follows the same pattern. The classes only differ in their methods. PROV-O Classes are instantiated by using the add methods of the provenance graph class. Below you find an extensively commented version of the `add_entity()` method. 
 
 ```python
-def add_entity(self, id_string: str = "", label: str = "", description: str = "", namespace: str = "") -> Entity:
+# definition of add_entity() in ProvOntologyGraph()
+def add_entity(self, 
+    id_string: str = "", 
+    label: str = "", 
+    description: str = "", 
+    namespace: str = "") -> Entity:
     """creates a new entity, adds it to the graph and returns it then"""
 
     # the id of the PROV class objects is a combination of the 
@@ -265,7 +270,9 @@ options = {
     }
 }
 
-prov_ontology_graph.export_as_mermaid_flowchart(file_name="examples/manual_examples_flowchart.md", user_options = options)
+prov_ontology_graph.export_as_mermaid_flowchart(
+    file_name="examples/manual_examples_flowchart.md", 
+    user_options = options)
 ```
 ```mermaid
 flowchart LR
