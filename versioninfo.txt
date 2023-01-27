@@ -62,3 +62,8 @@ other
 other:
 - fix typo in versioninfo.txt
 - fix typo in README.rst
+
+1.0.3
+---
+source code
+- markup nodes in mermaid graph as links
