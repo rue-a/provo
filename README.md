@@ -274,6 +274,7 @@ prov_ontology_graph.export_as_mermaid_flowchart(
     file_name="examples/manual_examples_flowchart.md", 
     user_options = options)
 ```
+
 ```mermaid
 flowchart LR
 classDef entity fill:#fffedf
