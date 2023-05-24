@@ -23,6 +23,7 @@ setup(
     long_description_content_type="text/x-rst",
     url="https://github.com/rue-a/provo",
     packages=find_packages(".", exclude=["tests", "tests.*"]),
+    install_requires=["rdflib", "validators", "uuid"],
     classifiers=[
         "Programming Language :: Python",
         "Programming Language :: Python :: 3",
