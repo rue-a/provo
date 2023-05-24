@@ -1,6 +1,6 @@
 # README
 
-The package supports the creation of [PROV-O](https://www.w3.org/TR/prov-o/) compliant provenance graphs. 
+The package supports the creation of [PROV-O](https://www.w3.org/TR/prov-o/) compliant provenance graphs.
 
 The package requires __Python 3.11__.
 
@@ -10,19 +10,19 @@ You can install the package from the Python Package Index (PyPI):
 
 `pip install provo`
 
-Or by downloading this repo:
+Or by downloading this repository:
 
-1. Download and unzip the package
-2. Open Shell and _cd_ to unzipped package
+1. Download and unzip the repository
+2. Open Shell and _cd_ to unzipped repository
 3. Run `pip install -e .` (in the folder that contains ```setup.py```)
 
 ## Contents
 
-The package implements the [PROV-O starting point classes](https://www.w3.org/TR/prov-o/#starting-points-figure) __Entity__, __Activity__ and __Agent__ as Python classes with methods to establish starting point properties between instances of these classes.
+The package is a Python API to PROV-O. It implements the [PROV-O starting point classes](https://www.w3.org/TR/prov-o/#starting-points-figure) __Entity__, __Activity__ and __Agent__ as Python classes with methods to establish the _PROV-O starting point properties_ between instances of these classes.
 
 ## Features
 
-The package's objective is it to support the programmatical creation of provenance graphs that are compliant with the W3C Recommendation PROV-O: The PROV Ontology. Users of the package shall be enabled to tightly couple the generation of data with the generation of their provenance. As the package implements PROV-O, the created graph is exportable as an RDF document. Finally, the graph can be exported as a mermaid flowchart with some configuration options to adjust the style of the resulting chart.
+The package's objective is to support the programmatical creation of provenance graphs that are compliant with the W3C Recommendation PROV-O: The PROV Ontology. Users of the package shall be enabled to tightly couple the generation of data with the generation of their provenance. As the package implements PROV-O, the created graph is exportable as an RDF document. Finally, the graph can be exported as a mermaid flowchart with some configuration options to adjust the style of the resulting chart.
 
 ### Compliance
 
@@ -30,13 +30,13 @@ The package's objective is it to support the programmatical creation of provenan
 - The PROV-O properties _wasGeneratedBy_, _wasDerivedFrom_, _wasAttributedTo_, _startedAtTime_, _used_, _wasInformedBy_, _endedAtTime_, _wasAssociatedWith_, and _actedOnBehalfOf_ are implemented as instance methods of their according classes.
 - Attributes that are passed to these methods are type-checked to enforce compliance with PROV-O.
 - Node Ids are checked for validity.
-- (Accidental) use of the same ID for different objects throws an error.
+- Use of the same ID for different objects throws an error.
 
 ### Ease of Use
 
 - The package implements full type hint support, thus enabling rich support from the IDE.
 - The classes `Provence_Ontology_Graph`, `Entity`, `Activity`, and `Agent` can be printed to terminal in a user-friendly, readable way with the default `print()` command.
-- For some quick testing, objects of the classes `Entity`, `Activity`, and `Agent` can be instantiated with auto-generated Ids (although it's not recommended using this for production).
+- Objects of the classes `Entity`, `Activity`, and `Agent` can be instantiated with auto-generated Ids (although it's not recommended using this for production).
 - Export as [mermaid flowchart](https://mermaid-js.github.io/mermaid/#/flowchart) to review the graph visually.
 
 ### Interface to RDF via the [rdflib](https://rdflib.readthedocs.io/en/stable/) package
@@ -46,8 +46,7 @@ The package's objective is it to support the programmatical creation of provenan
 
 ## Manual
 
-The package is centered around the class ProvenanceOntologyGraph. Entities, Activities, and Agents are added to this graph by using the according add-methods. Relations between the starting point classes are constructed by using the respective methods of the classes. 
-
+The package is centered around the class `ProvenanceOntologyGraph`. Entities, Activities, and Agents are added to this graph using the according class methods. Relations between the PROV-O class objects are constructed using their respective class methods.
 
 ### Create a Provenance Ontology Graph
 
@@ -73,7 +72,7 @@ prov_ontology_graph = ProvOntologyGraph(
 `namespace=`
 
 - Default is `"https://provo-example.org/"`.
-- Has to be valid url, validation is currently performed with the [validators]() package.
+- Has to be valid url, validation is currently performed with the [validators](https://pypi.org/project/validators/) package.
 - Has to end with `/` or `#`.
 
 `namespace_abbreviation=`
@@ -84,7 +83,7 @@ prov_ontology_graph = ProvOntologyGraph(
 - RDF core prefixes (*owl*, *rdf*, *rdfs*, *xsd* and *xml*) are prohibited from use.
 
 >**Note** 
-> Although not prohibited, the following prefixes are commonly uses and thus recommended to be avoided: *brick*, *csvw*, *dc*, *dcat*, *dcmitype*, *cdterms*, *dcam*, *doap*, *foaf*, *geo*, *odrl*, *org*, *prof*, *prov*, *qb*, *sdo*, *sh*, *skos*, *sosa*, *ssn*, *time*, *vann* and *void*.
+> Although not prohibited, the following prefixes are commonly used and thus recommended being avoided: *brick*, *csvw*, *dc*, *dcat*, *dcmitype*, *cdterms*, *dcam*, *doap*, *foaf*, *geo*, *odrl*, *org*, *prof*, *prov*, *qb*, *sdo*, *sh*, *skos*, *sosa*, *ssn*, *time*, *vann* and *void*.
 
 `lang=`
 
@@ -92,9 +91,9 @@ prov_ontology_graph = ProvOntologyGraph(
 - Used when converting to other models that support a *lang* tag.
 - Has to be compliant with [RFC 5646](https://www.rfc-editor.org/info/rfc5646) (Phillips, A., Ed., and M. Davis, Ed., "Tags for Identifying Languages", BCP 47, RFC 5646, September 2009). Compliance is not validated!
 
-### Create Entities, Activities and Agents and define relation between them
+### Create Entities, Activities and Agents and define relations between them
 
-The creation for the three starting term classes follows the same pattern. The classes only differ in their methods. PROV-O Classes are instantiated by using the add methods of the provenance graph class. Below you find an extensively commented version of the `add_entity()` method. 
+The creation for classes follows the same pattern. The classes only differ in their methods. PROV-O Classes are instantiated by using the add methods of the provenance graph class. Below you find the `add_entity()` method of `ProvenanceOntologyGraph` for reference.
 
 ```python
 # definition of add_entity() in ProvOntologyGraph()
@@ -157,7 +156,7 @@ print(activity)
 
 ### RDF interface
 
-The graph can be directly serialized as RDF document or be converted to an rdflib Graph, for further manipulation.
+The graph can be directly serialized as RDF document or be converted to an `rdflib` Graph, for further manipulation.
 
 ```python
 # ex3 - serialize provenance graph as RDF document
@@ -612,9 +611,6 @@ http://example.org#national_newspaper_inc-. instructed .->http://example.org#der
 - validators: https://github.com/python-validators/validators, MIT License
 
 
-## License
-
-GNU General Public License v3.0
 
 ## Contact
 
