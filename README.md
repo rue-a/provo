@@ -605,12 +605,6 @@ http://example.org#derek[/Derek\]:::agent
 http://example.org#national_newspaper_inc-. instructed .->http://example.org#derek
 ```
 
-## Used Packages
-
-- rdflib: https://rdflib.readthedocs.io/en/stable/, BSD License
-- validators: https://github.com/python-validators/validators, MIT License
-
-
 
 ## Contact
 
