@@ -16,7 +16,7 @@ on:
   # See the events you can react to at https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows
   push:
     branches:
-      - main
+      - master
   # NOTE: Do not delete the trigger on closed pull requests, the HERMES workflow needs this.
   pull_request:
     types:
@@ -28,7 +28,7 @@ jobs:
     runs-on: ubuntu-latest
     # This condition becomes much easier when we only react to push events on the release branch.
     # We still need to exclude the merge commit push of the post processing PR
-    
+
     # ADAPT
     # Depending on the event you react to in the 'on:' section above, you will need to adapt this
     # to react on the specific events.
@@ -47,24 +47,24 @@ jobs:
       - uses: actions/checkout@v3
       - uses: actions/setup-python@v4
         with:
-          python-version: '3.10'
+          python-version: "3.10"
       - run: pip install git+https://github.com/hermes-hmc/workflow.git
       - run: hermes harvest
       - run: hermes process
       - run: hermes curate
 
-      - run: |      
+      - run: |
           # Cache current branch for PR close job 
           git branch --show-current > .hermes/curate/target_branch
-          
+
           # Shorten the SHA for the PR title
           SHORT_SHA=$(echo "$GITHUB_SHA" | cut -c -8)
           echo "SHORT_SHA=$SHORT_SHA" >> "$GITHUB_ENV"
-          
+
           # Create a curation branch
           git branch -c "hermes/curate-$SHORT_SHA"
           git push origin "hermes/curate-$SHORT_SHA"
-          
+
           # Explicitly add to-be-curated metadata (which is ignored via .gitignore!)
           git add -f .hermes/curate
       - uses: peter-evans/create-pull-request@v5
@@ -91,7 +91,7 @@ jobs:
       - uses: actions/checkout@v3
       - uses: actions/setup-python@v4
         with:
-          python-version: '3.10'
+          python-version: "3.10"
       - run: pip install git+https://github.com/hermes-hmc/workflow.git
 
       # ADAPT
@@ -106,14 +106,14 @@ jobs:
       # 3. Check if you want to run with '--initial', as this may potentially create a completely new record (collection),
       #    rather than a new version of the same collection!
       - run: hermes deposit --initial --auth-token ${{ secrets.ZENODO_SANDBOX }} --file README.md
-      
+
       # ADAPT
       # Remove this command if you don't want to do any postprocessing
       - run: hermes postprocess
 
       # ADAPT
       # If you don't want to run postprocessing, remove this complete section (next '-run' and 'uses: peter-evans/...' bullets).
-      # 
+      #
       # Note 1: We change the base branch here for the PR. This flow runs so far within the "curated-metadata-*" branch,
       #         but now we want to add the changes done by deposit and post processing to the branch that was initially
       #         meant to be published using HERMES.
@@ -136,7 +136,6 @@ jobs:
             git push origin --delete "$BRANCH"
           done
       # TODO: if: failure() --- delete the curation branches when the deposition failed
-          
 
   hermes-cleanup:
     name: Cleanup aborted curation branches
