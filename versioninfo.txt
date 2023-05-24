@@ -73,3 +73,9 @@ source code
 other:
 - update readme
 - change license from GNU GLP 3 to MIT
+
+1.0.5
+---
+other:
+- add requirements
+

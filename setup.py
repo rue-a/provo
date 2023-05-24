@@ -17,7 +17,7 @@ setup(
     name="provo",
     author="Arne Rümmler",
     author_email="arne.ruemmler@gmail.com",
-    version="1.0.4",
+    version="1.0.5",
     description="Construct  PROV-O compliant provenance graphs.",
     long_description=long_description,
     long_description_content_type="text/x-rst",
@@ -27,10 +27,9 @@ setup(
     classifiers=[
         "Programming Language :: Python",
         "Programming Language :: Python :: 3",
-        "Programming Language :: Python :: 3.11",
         "Operating System :: OS Independent",
         "License :: OSI Approved :: MIT License",
         "Topic :: Software Development :: Libraries :: Python Modules",
     ],
-    python_requires=">=3.08",
+    python_requires=">=3.09",
 )
