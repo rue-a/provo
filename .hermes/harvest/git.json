@@ -1,0 +1,41 @@
+{
+  "contributor": [
+    [
+      [
+        {
+          "@type": "Person",
+          "name": "rue_a",
+          "email": "arne.ruemmler@gmail.com",
+          "hermes:contributionRole": [
+            {
+              "@type": "Role",
+              "roleName": "git author",
+              "startTime": "2023-05-24T15:31:41+02:00",
+              "endTime": "2023-05-24T15:31:41+02:00"
+            },
+            {
+              "@type": "Role",
+              "roleName": "git committer",
+              "startTime": "2023-05-24T15:31:41+02:00",
+              "endTime": "2023-05-24T15:31:41+02:00"
+            }
+          ]
+        }
+      ],
+      {
+        "git_branch": "master",
+        "timestamp": "2023-05-24T13:32:30",
+        "harvester": "git"
+      }
+    ]
+  ],
+  "hermes:gitBranch": [
+    [
+      "master",
+      {
+        "timestamp": "2023-05-24T13:32:30",
+        "harvester": "git"
+      }
+    ]
+  ]
+}

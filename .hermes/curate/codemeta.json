@@ -1,0 +1,44 @@
+{
+  "contributor": [
+    {
+      "@type": "Person",
+      "name": "rue_a",
+      "email": "arne.ruemmler@gmail.com",
+      "hermes:contributionRole": [
+        {
+          "@type": "Role",
+          "roleName": "git author",
+          "startTime": "2023-05-24T15:31:41+02:00",
+          "endTime": "2023-05-24T15:31:41+02:00"
+        },
+        {
+          "@type": "Role",
+          "roleName": "git committer",
+          "startTime": "2023-05-24T15:31:41+02:00",
+          "endTime": "2023-05-24T15:31:41+02:00"
+        }
+      ]
+    }
+  ],
+  "hermes:gitBranch": "master",
+  "@context": [
+    "https://doi.org/10.5063/schema/codemeta-2.0",
+    {
+      "hermes": "https://software-metadata.pub/ns/hermes/"
+    }
+  ],
+  "@type": "SoftwareSourceCode",
+  "author": [
+    {
+      "@id": "https://orcid.org/0000-0001-8637-9071",
+      "@type": "Person",
+      "email": "arne.ruemmler@gmail.com",
+      "familyName": "R\u00fcmmler",
+      "givenName": "Arne"
+    }
+  ],
+  "codeRepository": "https://github.com/rue-a/provo",
+  "license": "https://spdx.org/licenses/MIT",
+  "name": "provo",
+  "url": "https://pypi.org/project/provo/"
+}

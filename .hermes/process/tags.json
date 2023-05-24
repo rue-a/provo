@@ -1,0 +1,66 @@
+{
+  "contributor": {
+    "git_branch": "master",
+    "timestamp": "2023-05-24T13:32:30",
+    "harvester": "git"
+  },
+  "hermes:gitBranch": {
+    "timestamp": "2023-05-24T13:32:30",
+    "harvester": "git"
+  },
+  "@context": {
+    "local_path": "CITATION.cff",
+    "timestamp": "2023-05-24T13:32:30",
+    "harvester": "cff"
+  },
+  "@type": {
+    "local_path": "CITATION.cff",
+    "timestamp": "2023-05-24T13:32:30",
+    "harvester": "cff"
+  },
+  "author[0].@id": {
+    "local_path": "CITATION.cff",
+    "timestamp": "2023-05-24T13:32:30",
+    "harvester": "cff"
+  },
+  "author[0].@type": {
+    "local_path": "CITATION.cff",
+    "timestamp": "2023-05-24T13:32:30",
+    "harvester": "cff"
+  },
+  "author[0].email": {
+    "local_path": "CITATION.cff",
+    "timestamp": "2023-05-24T13:32:30",
+    "harvester": "cff"
+  },
+  "author[0].familyName": {
+    "local_path": "CITATION.cff",
+    "timestamp": "2023-05-24T13:32:30",
+    "harvester": "cff"
+  },
+  "author[0].givenName": {
+    "local_path": "CITATION.cff",
+    "timestamp": "2023-05-24T13:32:30",
+    "harvester": "cff"
+  },
+  "codeRepository": {
+    "local_path": "CITATION.cff",
+    "timestamp": "2023-05-24T13:32:30",
+    "harvester": "cff"
+  },
+  "license": {
+    "local_path": "CITATION.cff",
+    "timestamp": "2023-05-24T13:32:30",
+    "harvester": "cff"
+  },
+  "name": {
+    "local_path": "CITATION.cff",
+    "timestamp": "2023-05-24T13:32:30",
+    "harvester": "cff"
+  },
+  "url": {
+    "local_path": "CITATION.cff",
+    "timestamp": "2023-05-24T13:32:30",
+    "harvester": "cff"
+  }
+}
