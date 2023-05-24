@@ -67,3 +67,9 @@ other:
 ---
 source code
 - markup nodes in mermaid graph as links
+
+1.0.4
+---
+other:
+- update readme
+- change license from GNU GLP 3 to MIT
