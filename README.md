@@ -605,7 +605,3 @@ http://example.org#derek[/Derek\]:::agent
 http://example.org#national_newspaper_inc-. instructed .->http://example.org#derek
 ```
 
-
-## Contact
-
-Arne Rümmler ([arne.ruemmler@gmail.com](mailto:arne.ruemmler@gmail.com))
