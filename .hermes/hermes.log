@@ -1,0 +1,111 @@
+1684933609.483951:               audit:      INFO | # Running Hermes
+1684933609.484056:               audit:      INFO | Running Hermes command line in: /home/runner/work/provo/provo
+1684933609.484159:               audit:     DEBUG | 
+1684933609.484200:               audit:     DEBUG | Invoked `main` with
+1684933609.484238:               audit:     DEBUG | 
+1684933609.484272:               audit:     DEBUG | `--config`
+1684933609.484308:               audit:     DEBUG | :   `hermes.toml`
+1684933609.484349:               audit:     DEBUG | 
+1684933609.484381:               audit:     DEBUG | `--curate`
+1684933609.484415:               audit:     DEBUG | :   `False`
+1684933609.484470:               audit:     DEBUG | 
+1684933609.484503:               audit:     DEBUG | `--deposit`
+1684933609.484537:               audit:     DEBUG | :   `False`
+1684933609.484570:               audit:     DEBUG | 
+1684933609.484601:               audit:     DEBUG | `--postprocess`
+1684933609.484634:               audit:     DEBUG | :   `False`
+1684933609.484667:               audit:     DEBUG | 
+1684933609.484706:               audit:     DEBUG | `--clean`
+1684933609.484739:               audit:     DEBUG | :   `False`
+1684933609.484771:               audit:     DEBUG | 
+1684933609.484802:               audit:     DEBUG | `--path`
+1684933609.484835:               audit:     DEBUG | :   `.`
+1684933609.484874:               audit:     DEBUG | 
+1684933609.485510:               audit:      INFO | # Metadata harvesting
+1684933609.619350:           audit.cff:      INFO | 
+1684933609.619499:           audit.cff:      INFO | ## Citation File Format
+1684933609.737098:           audit.cff:      INFO | - Found valid Citation File Format file at: CITATION.cff
+1684933610.386925:           audit.cff:      INFO | 
+1684933610.387190:           audit.cff:      INFO | ## Git History
+1684933610.393308:   hermes.model.path:     DEBUG | contributor: 'Key @type not in contributor.'
+1684933610.393835:   hermes.model.path:     DEBUG | hermes:gitBranch: 'Key @type not in hermes:gitBranch.'
+1684933610.394754:               audit:      INFO | 
+1684933610.710143:               audit:      INFO | # Running Hermes
+1684933610.710243:               audit:      INFO | Running Hermes command line in: /home/runner/work/provo/provo
+1684933610.710342:               audit:     DEBUG | 
+1684933610.710381:               audit:     DEBUG | Invoked `main` with
+1684933610.710418:               audit:     DEBUG | 
+1684933610.710452:               audit:     DEBUG | `--config`
+1684933610.710487:               audit:     DEBUG | :   `hermes.toml`
+1684933610.710529:               audit:     DEBUG | 
+1684933610.710570:               audit:     DEBUG | `--curate`
+1684933610.710606:               audit:     DEBUG | :   `False`
+1684933610.710661:               audit:     DEBUG | 
+1684933610.710694:               audit:     DEBUG | `--deposit`
+1684933610.710727:               audit:     DEBUG | :   `False`
+1684933610.710761:               audit:     DEBUG | 
+1684933610.710793:               audit:     DEBUG | `--postprocess`
+1684933610.710826:               audit:     DEBUG | :   `False`
+1684933610.710860:               audit:     DEBUG | 
+1684933610.710891:               audit:     DEBUG | `--clean`
+1684933610.710924:               audit:     DEBUG | :   `False`
+1684933610.710991:               audit:     DEBUG | 
+1684933610.711025:               audit:     DEBUG | `--path`
+1684933610.711075:               audit:     DEBUG | :   `.`
+1684933610.711114:               audit:     DEBUG | 
+1684933610.711771:               audit:      INFO | # Metadata processing
+1684933610.718597:               audit:      INFO | ## Process data from cff
+1684933610.722498:   hermes.model.path:     DEBUG | @context: 'Key @type not in @context.'
+1684933610.722875:   hermes.model.path:     DEBUG | @type: 'Key @type not in @type.'
+1684933610.723411:   hermes.model.path:     DEBUG | Using type SoftwareSourceCode from author.
+1684933610.723654:   hermes.model.path:     DEBUG | Using type SoftwareSourceCode from author[0].
+1684933610.724003:   hermes.model.path:     DEBUG | Using type SoftwareSourceCode from author[0].@id.
+1684933610.724440:   hermes.model.path:     DEBUG | Using type SoftwareSourceCode from author[0].@type.
+1684933610.724868:   hermes.model.path:     DEBUG | Using type SoftwareSourceCode from author[0].email.
+1684933610.725307:   hermes.model.path:     DEBUG | Using type SoftwareSourceCode from author[0].familyName.
+1684933610.725764:   hermes.model.path:     DEBUG | Using type SoftwareSourceCode from author[0].givenName.
+1684933610.726277:   hermes.model.path:     DEBUG | Using type SoftwareSourceCode from codeRepository.
+1684933610.726601:   hermes.model.path:     DEBUG | Using type SoftwareSourceCode from license.
+1684933610.726884:   hermes.model.path:     DEBUG | Using type SoftwareSourceCode from name.
+1684933610.727360:   hermes.model.path:     DEBUG | Using type SoftwareSourceCode from url.
+1684933610.730762:               audit:      INFO | ## Process data from codemeta
+1684933610.736752:               audit:      INFO | ## Process data from git
+1684933610.740350:           audit.git:      INFO | 
+1684933610.740444:           audit.git:      INFO | ### Add git authors and committers as contributors
+1684933610.740639:   hermes.model.path:     DEBUG | contributor: 'Key @type not in contributor.'
+1684933610.740958:   hermes.model.path:     DEBUG | hermes:gitBranch: 'Key @type not in hermes:gitBranch.'
+1684933610.741211:   hermes.model.path:     DEBUG | contributor: 'Key @type not in contributor.'
+1684933610.741455:           audit.git:     DEBUG | - rue_a
+1684933610.741933:   hermes.model.path:     DEBUG | Using type SoftwareSourceCode from contributor[0].
+1684933610.742303:           audit.git:      INFO | 
+1684933610.742367:           audit.git:      INFO | ### Add git branch
+1684933610.742490:   hermes.model.path:     DEBUG | contributor: 'Key @type not in contributor.'
+1684933610.742771:   hermes.model.path:     DEBUG | hermes:gitBranch: 'Key @type not in hermes:gitBranch.'
+1684933610.743062:   hermes.model.path:     DEBUG | hermes:gitBranch: 'Key @type not in hermes:gitBranch.'
+1684933610.743400:           audit.git:     DEBUG | - master
+1684933610.743542:               audit:      INFO | 
+1684933610.743992:   hermes.model.path:     DEBUG | Using type SoftwareSourceCode from @context.
+1684933610.744254:   hermes.model.path:     DEBUG | Using type SoftwareSourceCode from @type.
+1684933610.985903:               audit:      INFO | # Running Hermes
+1684933610.986006:               audit:      INFO | Running Hermes command line in: /home/runner/work/provo/provo
+1684933610.986097:               audit:     DEBUG | 
+1684933610.986135:               audit:     DEBUG | Invoked `main` with
+1684933610.986189:               audit:     DEBUG | 
+1684933610.986223:               audit:     DEBUG | `--config`
+1684933610.986259:               audit:     DEBUG | :   `hermes.toml`
+1684933610.986301:               audit:     DEBUG | 
+1684933610.986333:               audit:     DEBUG | `--curate`
+1684933610.986368:               audit:     DEBUG | :   `False`
+1684933610.986423:               audit:     DEBUG | 
+1684933610.986455:               audit:     DEBUG | `--deposit`
+1684933610.986506:               audit:     DEBUG | :   `False`
+1684933610.986538:               audit:     DEBUG | 
+1684933610.986569:               audit:     DEBUG | `--postprocess`
+1684933610.986601:               audit:     DEBUG | :   `False`
+1684933610.986634:               audit:     DEBUG | 
+1684933610.986680:               audit:     DEBUG | `--clean`
+1684933610.986711:               audit:     DEBUG | :   `False`
+1684933610.986742:               audit:     DEBUG | 
+1684933610.986771:               audit:     DEBUG | `--path`
+1684933610.986809:               audit:     DEBUG | :   `.`
+1684933610.986849:               audit:     DEBUG | 

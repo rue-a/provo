@@ -1,0 +1,112 @@
+{
+  "@context": [
+    [
+      "https://doi.org/10.5063/schema/codemeta-2.0",
+      {
+        "local_path": "CITATION.cff",
+        "timestamp": "2023-05-24T13:06:49",
+        "harvester": "cff"
+      }
+    ]
+  ],
+  "@type": [
+    [
+      "SoftwareSourceCode",
+      {
+        "local_path": "CITATION.cff",
+        "timestamp": "2023-05-24T13:06:49",
+        "harvester": "cff"
+      }
+    ]
+  ],
+  "author[0].@id": [
+    [
+      "https://orcid.org/0000-0001-8637-9071",
+      {
+        "local_path": "CITATION.cff",
+        "timestamp": "2023-05-24T13:06:49",
+        "harvester": "cff"
+      }
+    ]
+  ],
+  "author[0].@type": [
+    [
+      "Person",
+      {
+        "local_path": "CITATION.cff",
+        "timestamp": "2023-05-24T13:06:49",
+        "harvester": "cff"
+      }
+    ]
+  ],
+  "author[0].email": [
+    [
+      "arne.ruemmler@gmail.com",
+      {
+        "local_path": "CITATION.cff",
+        "timestamp": "2023-05-24T13:06:49",
+        "harvester": "cff"
+      }
+    ]
+  ],
+  "author[0].familyName": [
+    [
+      "R\u00fcmmler",
+      {
+        "local_path": "CITATION.cff",
+        "timestamp": "2023-05-24T13:06:49",
+        "harvester": "cff"
+      }
+    ]
+  ],
+  "author[0].givenName": [
+    [
+      "Arne",
+      {
+        "local_path": "CITATION.cff",
+        "timestamp": "2023-05-24T13:06:49",
+        "harvester": "cff"
+      }
+    ]
+  ],
+  "codeRepository": [
+    [
+      "https://github.com/rue-a/provo",
+      {
+        "local_path": "CITATION.cff",
+        "timestamp": "2023-05-24T13:06:49",
+        "harvester": "cff"
+      }
+    ]
+  ],
+  "license": [
+    [
+      "https://spdx.org/licenses/MIT",
+      {
+        "local_path": "CITATION.cff",
+        "timestamp": "2023-05-24T13:06:49",
+        "harvester": "cff"
+      }
+    ]
+  ],
+  "name": [
+    [
+      "provo",
+      {
+        "local_path": "CITATION.cff",
+        "timestamp": "2023-05-24T13:06:49",
+        "harvester": "cff"
+      }
+    ]
+  ],
+  "url": [
+    [
+      "https://pypi.org/project/provo/",
+      {
+        "local_path": "CITATION.cff",
+        "timestamp": "2023-05-24T13:06:49",
+        "harvester": "cff"
+      }
+    ]
+  ]
+}
