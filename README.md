@@ -293,6 +293,8 @@ http://example.org#832b1ada-22f2-45b8-bdca-dfbe89fb68c8-- generated -->http://ex
 http://example.org#832b1ada-22f2-45b8-bdca-dfbe89fb68c8{{Anonymous activity}}:::activity
 ```
 
+To adjust details and to generate PNGs or SVGs you can copy the mermaid graph content to the [Mermaid Live Editor](https://mermaid.live/).
+
 #### User Options Reference
 
 The default styling configuration mimics the graph styling from the PROV-O reference page and is defined as follows:
