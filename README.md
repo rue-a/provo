@@ -34,7 +34,7 @@ The package's objective is to support the programmatical creation of provenance 
 
 ### Ease of Use
 
-- The package implements full type hint support, thus enabling rich support from the IDE.
+- IDE support is provided via the implementation as Python classes according methods, and through type hints.
 - The classes `Provence_Ontology_Graph`, `Entity`, `Activity`, and `Agent` can be printed to terminal in a user-friendly, readable way with the default `print()` command.
 - Objects of the classes `Entity`, `Activity`, and `Agent` can be instantiated with auto-generated Ids (although it's not recommended using this for production).
 - Export as [mermaid flowchart](https://mermaid-js.github.io/mermaid/#/flowchart) to review the graph visually.
