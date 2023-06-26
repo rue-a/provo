@@ -1,6 +1,7 @@
 .vscode
 provo.egg-info
 dist
+build
 provo/__pycache__
 .coverage
 provo/tests/__pycache__
