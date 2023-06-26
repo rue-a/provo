@@ -2,3 +2,5 @@
 provo.egg-info
 dist
 provo/__pycache__
+.coverage
+provo/tests/__pycache__

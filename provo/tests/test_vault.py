@@ -1,5 +1,5 @@
 import pytest
-from provo.idvault import IdAlreadyUsed, IdInvalid, IdVault
+from provo.idvault import IdAlreadyUsed, IdMalformed, IdVault
 from validators import url
 
 
@@ -17,8 +17,7 @@ def test_no_id_duplication():
     """tests if vault throws IdAlreadyUsed exception when an existing
     id is added to the vault"""
 
-    namespace = "https://test.package/"
-    test_id = "test"
+    test_id = "https://test.package/test"
     vault = IdVault()
     vault.add_id(node_id=test_id)
     with pytest.raises(IdAlreadyUsed):
@@ -26,7 +25,7 @@ def test_no_id_duplication():
 
 
 def test_id_validation():
-    """tests if vault throws IdInvalid exception if id contains one
+    """tests if vault throws IdMalformed exception if id contains one
     of the invalid symbols"""
 
     vault = IdVault()
@@ -36,11 +35,11 @@ def test_id_validation():
         # test if error is thrown if namespace contains the symbol
         namespace = f"https://t{symbol}est.package/"
         test_id = "test"
-        with pytest.raises(IdInvalid):
+        with pytest.raises(IdMalformed):
             vault._raise_exception_if_uri_invalid(namespace + test_id)
 
         # test if error is thrown if id without namespace contains the symbol
         namespace = "https://test.package/"
         test_id = f"te{symbol}st"
-        with pytest.raises(IdInvalid):
+        with pytest.raises(IdMalformed):
             vault._raise_exception_if_uri_invalid(namespace + test_id)

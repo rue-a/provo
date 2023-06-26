@@ -49,8 +49,8 @@ rdflib_graph = prov_ontology_graph.get_rdflib_graph()
 rdflib_graph.bind("skos", SKOS)
 
 rdflib_graph.add((
-    URIRef(entity.get_id()), SKOS.prefLabel, Literal(
-        entity.get_label(), lang="en")
+    URIRef(entity.node_id), SKOS.prefLabel, Literal(
+        entity.label, lang="en")
 ))
 
 rdflib_graph.serialize("examples/rdflib_interface.ttl")

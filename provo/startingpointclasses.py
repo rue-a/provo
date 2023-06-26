@@ -11,6 +11,7 @@ from abc import ABC, abstractmethod
 from dataclasses import dataclass, field
 from datetime import datetime
 
+
 @dataclass(frozen=True)
 class NoStartTimeDefined(Exception):
     """Raised if user user wants to access the start time of
@@ -18,12 +19,14 @@ class NoStartTimeDefined(Exception):
 
     message: str
 
+
 @dataclass(frozen=True)
 class NoEndTimeDefined(Exception):
     """Raised if user user wants to access the end time of
     an activity for which no end time was defined."""
 
     message: str
+
 
 @dataclass(frozen=True)
 class InvalidProvClassForThisRelation(Exception):
@@ -58,30 +61,18 @@ class Node(ABC):
             contents += f"\ndescription: {self.description}"
         return contents
 
-    def get_id(self) -> str:
-        """returns the node's id"""
-
-        return self.node_id
-
-    def get_label(self) -> str:
-        """returns the node's label"""
-
-        return self.label
-
-    def get_description(self) -> str:
-        """returns the node's description"""
-
-        return self.description
-
 
 @dataclass
 class Entity(Node):
     """ Class to create a PROV-O Entity object. 
     https://www.w3.org/TR/prov-o/#Entity """
 
-    _was_derived_from_entities: list['Entity'] = field(init=False, default_factory=list)
-    _was_generated_by_activities: list['Activity'] = field(init=False, default_factory=list)
-    _was_attributed_to_agents: list['Agent'] = field(init=False, default_factory=list)
+    _was_derived_from_entities: list['Entity'] = field(
+        init=False, default_factory=list)
+    _was_generated_by_activities: list['Activity'] = field(
+        init=False, default_factory=list)
+    _was_attributed_to_agents: list['Agent'] = field(
+        init=False, default_factory=list)
 
     def __str__(self) -> str:
         """prints the entity in a nice format."""
@@ -137,11 +128,15 @@ class Activity(Node):
     """ Class to create a PROV-O Activity object.
     https://www.w3.org/TR/prov-o/#Activity """
 
-    _was_informed_by_activities: list['Activity'] = field(init=False, default_factory=list)
+    _was_informed_by_activities: list['Activity'] = field(
+        init=False, default_factory=list)
     _used_entities: list['Entity'] = field(init=False, default_factory=list)
-    _was_associated_with_agents: list['Agent'] = field(init=False, default_factory=list)
-    _start_time: datetime = field(init=False, default_factory=lambda: None)  # type: ignore (there is no default date that resolves to False)
-    _end_time: datetime = field(init=False, default_factory=lambda: None)  # type: ignore
+    _was_associated_with_agents: list['Agent'] = field(
+        init=False, default_factory=list)
+    # type: ignore (there is no default date that resolves to False)
+    _start_time: datetime = field(init=False, default_factory=lambda: None)
+    _end_time: datetime = field(
+        init=False, default_factory=lambda: None)  # type: ignore
 
     def __str__(self) -> str:
         """prints the activity in a nice format."""
@@ -164,14 +159,16 @@ class Activity(Node):
         if self._start_time:
             return self._start_time
         else:
-            raise NoStartTimeDefined(f"No start time defined for the activity {self.label if self.label else f'with the id <{self.node_id}>'}.")
+            raise NoStartTimeDefined(
+                f"No start time defined for the activity {self.label if self.label else f'with the id <{self.node_id}>'}.")
 
     def get_end_time(self):
         """returns the end time of the activity"""
         if self._end_time:
             return self._end_time
         else:
-            raise NoEndTimeDefined(f"No end time defined for the activity {self.label if self.label else f'with the id <{self.node_id}>'}.")
+            raise NoEndTimeDefined(
+                f"No end time defined for the activity {self.label if self.label else f'with the id <{self.node_id}>'}.")
 
     def was_informed_by(self, activity: 'Activity') -> None:
         """ implements the wasInformedBy property of PROV-O
@@ -214,7 +211,8 @@ class Activity(Node):
         https://www.w3.org/TR/prov-o/#startedAtTime """
 
         if not isinstance(start_time, datetime):
-            raise NoDateTime("The attribute `start_time` of the method `started_at_time` has to be a `datetime` object.")
+            raise NoDateTime(
+                "The attribute `start_time` of the method `started_at_time` has to be a `datetime` object.")
         self._start_time = start_time
 
     def ended_at_time(self, end_time: datetime) -> None:
@@ -222,7 +220,8 @@ class Activity(Node):
         https://www.w3.org/TR/prov-o/#endedAtTime """
 
         if not isinstance(end_time, datetime):
-            raise NoDateTime("The attribute `end_time` of the method `ended_at_time` has to be a `datetime` object.")
+            raise NoDateTime(
+                "The attribute `end_time` of the method `ended_at_time` has to be a `datetime` object.")
 
         self._end_time = end_time
 
@@ -232,7 +231,8 @@ class Agent(Node):
     """ Class to create a PROV-O Agent object.
     https://www.w3.org/TR/prov-o/#Agent """
 
-    _acted_on_behalf_of_agents: list['Agent'] = field(init=False, default_factory=list)
+    _acted_on_behalf_of_agents: list['Agent'] = field(
+        init=False, default_factory=list)
 
     def __str__(self) -> str:
         """prints the agent in a nice format."""

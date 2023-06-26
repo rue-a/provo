@@ -9,10 +9,11 @@
 
 from dataclasses import dataclass, field
 from uuid import uuid4
+from validators import url
 
 
 @dataclass(frozen=True)
-class IdInvalid(Exception):
+class IdMalformed(Exception):
     """Raised when a node id is invalid."""
 
     message: str
@@ -35,9 +36,49 @@ class IdVault:
     def _raise_exception_if_uri_invalid(self, uri: str) -> None:
         "checks if uri is valid and raises exception if not"
 
-        for symbol in uri:
-            if symbol in self._invalid_symbols:
-                raise IdInvalid(f"The Id \"{uri}\" is invalid (contains one or more of: \033[1m{self._invalid_symbols}\033[0m).")
+        # TODO rethink validation, we technically want to validate an IRI
+        if not url(uri):  # type: ignore
+            raise IdMalformed(
+                """
+            The provided namespace is not a valid URL!
+
+            See validators package (https://github.com/python-validators/validators),
+            validators.url() or https://gist.github.com/dperini/729294 for more
+            information on what qualifies a URL as valid.
+            
+            https://www.rfc-editor.org/rfc/rfc3986#section-3:
+            3.  Syntax Components
+
+            The generic URI syntax consists of a hierarchical sequence of
+            components referred to as the scheme, authority, path, query, and
+            fragment.
+
+                URI         = scheme ":" hier-part [ "?" query ] [ "#" fragment ]
+
+                hier-part   = "//" authority path-abempty
+                            / path-absolute
+                            / path-rootless
+                            / path-empty
+
+            The scheme and path components are required, though the path may be
+            empty (no characters).  When authority is present, the path must
+            either be empty or begin with a slash ("/") character.  When
+            authority is not present, the path cannot begin with two slash
+            characters ("//").  These restrictions result in five different ABNF
+            rules for a path (Section 3.3), only one of which will match any
+            given URI reference.
+
+            The following are two example URIs and their component parts:
+
+                    foo://example.com:8042/over/there?name=ferret#nose
+                    \_/   \______________/\_________/ \_________/ \__/
+                    |           |            |            |        |
+                scheme     authority       path        query   fragment
+                    |   _____________________|__
+                    / \ /                        \
+                    urn:example:animal:ferret:nose
+            """
+            )
 
     def generate(self, namespace: str) -> str:
         """generates a new uuid that is not in the vault yet"""
@@ -51,7 +92,9 @@ class IdVault:
     def add_id(self, node_id: str) -> str:
         """adds a user defined id and checks if its valid"""
         if node_id in self.vault:
-            raise IdAlreadyUsed(f'The Id "{node_id}" was already used in this graph.')
+            raise IdAlreadyUsed(
+                f'The Id "{node_id}" was already used in this graph.')
+        print(node_id)
         self._raise_exception_if_uri_invalid(node_id)
         self.vault.append(node_id)
         return node_id

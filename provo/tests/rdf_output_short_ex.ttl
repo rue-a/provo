@@ -1,0 +1,19 @@
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+<https://doi.org/10.6084/m9.figshare.23561661> a prov:Entity ;
+    rdfs:label "this graphic"@en ;
+    prov:wasAttributedTo <https://orcid.org/0000-0001-8637-9071> ;
+    prov:wasGeneratedBy <https://github.com/rue-a/provo-poster> .
+
+<https://github.com/rue-a/provo-poster> a prov:Activity ;
+    rdfs:label "provo script"@en .
+
+<https://ror.org/03wf51b65> a prov:Agent ;
+    rdfs:label "SLUB"@en .
+
+<https://orcid.org/0000-0001-8637-9071> a prov:Agent ;
+    rdfs:label "author"@en ;
+    prov:actedOnBehalfOf <https://ror.org/03wf51b65> ;
+    prov:wasAssociatedWith <https://orcid.org/0000-0001-8637-9071> .
+

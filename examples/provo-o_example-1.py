@@ -70,43 +70,43 @@ rdflib_graph = prov_ontology_graph.get_rdflib_graph()
 rdflib_graph.bind("foaf", FOAF)
 
 rdflib_graph.add((
-    URIRef(government.get_id()),
+    URIRef(government.node_id),
     RDF.type,
     FOAF.Organization
 ))
 
 rdflib_graph.add((
-    URIRef(civil_action_group.get_id()),
+    URIRef(civil_action_group.node_id),
     RDF.type,
     FOAF.Organization
 ))
 
 rdflib_graph.add((
-    URIRef(national_newspaper_inc.get_id()),
+    URIRef(national_newspaper_inc.node_id),
     RDF.type,
     FOAF.Organization
 ))
 
 rdflib_graph.add((
-    URIRef(national_newspaper_inc.get_id()),
+    URIRef(national_newspaper_inc.node_id),
     FOAF.name,
-    Literal(national_newspaper_inc.get_label(), lang="en")
+    Literal(national_newspaper_inc.label, lang="en")
 ))
 
 rdflib_graph.add((
-    URIRef(derek.get_id()),
+    URIRef(derek.node_id),
     RDF.type,
     FOAF.Person
 ))
 
 rdflib_graph.add((
-    URIRef(derek.get_id()),
+    URIRef(derek.node_id),
     FOAF.givenName,
-    Literal(derek.get_label(), lang="en")
+    Literal(derek.label, lang="en")
 ))
 
 rdflib_graph.add((
-    URIRef(derek.get_id()),
+    URIRef(derek.node_id),
     FOAF.mbox,
     URIRef("mailto:derek@example.org")
 ))

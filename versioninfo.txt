@@ -84,5 +84,7 @@ other:
 source code:
 - change arguments of add_entity, add_activity and add_agent methods of ProvenanceOntologyGraph
 - update examples accordingly
+- remove unneccesarry getters
+- add more tests
 other:
 - update README accordingly
