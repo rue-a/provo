@@ -48,9 +48,8 @@ class IdVault:
         self.vault.append(node_id)
         return node_id
 
-    def add_id(self, namespace: str, id_string: str) -> str:
+    def add_id(self, node_id: str) -> str:
         """adds a user defined id and checks if its valid"""
-        node_id = namespace + id_string
         if node_id in self.vault:
             raise IdAlreadyUsed(f'The Id "{node_id}" was already used in this graph.')
         self._raise_exception_if_uri_invalid(node_id)

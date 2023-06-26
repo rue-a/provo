@@ -73,7 +73,7 @@ class ProvOntologyGraph:
         """check validity of namespace and and namespace abbreviation"""
 
         # validate namespace
-        # TODO rethink validation
+        # TODO rethink validation, we techniocally want to validate an IRI
         if not url(self.namespace):  # type: ignore
             raise NamespaceMalformed(
                 """
@@ -175,58 +175,58 @@ class ProvOntologyGraph:
 
         return contents
 
-    def _handle_id(self, namespace: str = "", id_string: str = "") -> str:
+    def _handle_id(self, iri: str = "", use_namespace: bool = False) -> str:
         """checks whether the provided namespace-id combination is
         already used for a node in the graph.
         if no namespace is provided: default namespace is used,
         if no id is provided: id get automatically generated."""
 
-        if not namespace:
-            namespace = self.namespace
-        if id_string:
-            node_id = self._id_vault.add_id(namespace, id_string)
+        if use_namespace:
+            iri = self.namespace + iri
+        if iri:
+            node_id = self._id_vault.add_id(iri)
         else:
-            node_id = self._id_vault.generate(namespace)
+            node_id = self._id_vault.generate(self.namespace)
         return node_id
 
     def add_entity(
         self,
-        id_string: str = "",
+        iri: str = "",
         label: str = "",
         description: str = "",
-        namespace: str = "",
+        use_namespace: bool = False,
     ) -> Entity:
         """creates a new entity, adds it to the graph and returns it then"""
 
-        node_id = self._handle_id(namespace, id_string)
+        node_id = self._handle_id(iri, use_namespace)
         entity = Entity(node_id=node_id, label=label, description=description)
         self._entities.append(entity)
         return entity
 
     def add_activity(
         self,
-        id_string: str = "",
+        iri: str = "",
         label: str = "",
         description: str = "",
-        namespace: str = "",
+        use_namespace: bool = False,
     ) -> Activity:
         """creates a new activity, adds it to the graph and returns it then"""
 
-        node_id = self._handle_id(namespace, id_string)
+        node_id = self._handle_id(iri, use_namespace)
         activity = Activity(node_id=node_id, label=label, description=description)
         self._activities.append(activity)
         return activity
 
     def add_agent(
         self,
-        id_string: str = "",
+        iri: str = "",
         label: str = "",
         description: str = "",
-        namespace: str = "",
+        use_namespace: bool = False,
     ) -> Agent:
         """creates a new agent, adds it to the graph and returns it then"""
 
-        node_id = self._handle_id(namespace, id_string)
+        node_id = self._handle_id(iri, use_namespace)
         agent = Agent(node_id=node_id, label=label, description=description)
         self._agents.append(agent)
         return agent
