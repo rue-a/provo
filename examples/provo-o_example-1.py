@@ -14,20 +14,29 @@ prov_ontology_graph = ProvOntologyGraph(
 )
 
 # create entities
-crime_data = prov_ontology_graph.add_entity(id_string='crimeData', label='Crime Data')
-national_regions_list = prov_ontology_graph.add_entity(id_string='nationalRegionsList', label='National Regions List')
-aggregated_by_regions = prov_ontology_graph.add_entity(id_string='aggregatedByRegions', label='Aggregated by Regions')
-bar_chart = prov_ontology_graph.add_entity(id_string='bar_chart', label='Bar Chart')
+crime_data = prov_ontology_graph.add_entity(
+    id='crimeData', label='Crime Data', use_namespace=True)
+national_regions_list = prov_ontology_graph.add_entity(
+    id='nationalRegionsList', label='National Regions List', use_namespace=True)
+aggregated_by_regions = prov_ontology_graph.add_entity(
+    id='aggregatedByRegions', label='Aggregated by Regions', use_namespace=True)
+bar_chart = prov_ontology_graph.add_entity(
+    id='bar_chart', label='Bar Chart', use_namespace=True)
 
 # create activities
-aggregation_activity = prov_ontology_graph.add_activity(id_string='aggregationActivity', label='Aggregation Activity')
-illustration_activity = prov_ontology_graph.add_activity(id_string='illustrationActivity', label='Illustration Activity')
+aggregation_activity = prov_ontology_graph.add_activity(
+    id='aggregationActivity', label='Aggregation Activity', use_namespace=True)
+illustration_activity = prov_ontology_graph.add_activity(
+    id='illustrationActivity', label='Illustration Activity', use_namespace=True)
 
 # create agents
-government = prov_ontology_graph.add_agent(id_string='government', label='Government')
-civil_action_group = prov_ontology_graph.add_agent(id_string='civil_action_group', label='Civil Action Group')
-national_newspaper_inc = prov_ontology_graph.add_agent(id_string='national_newspaper_inc', label='National Newspaper Inc.')
-derek = prov_ontology_graph.add_agent(id_string='derek', label='Derek')
+government = prov_ontology_graph.add_agent(
+    id='government', label='Government', use_namespace=True)
+civil_action_group = prov_ontology_graph.add_agent(
+    id='civil_action_group', label='Civil Action Group', use_namespace=True)
+national_newspaper_inc = prov_ontology_graph.add_agent(
+    id='national_newspaper_inc', label='National Newspaper Inc.', use_namespace=True)
+derek = prov_ontology_graph.add_agent(id='derek', label='Derek')
 
 # build relations
 crime_data.was_attributed_to(government)
@@ -115,8 +124,8 @@ options = {
     },
     "agent": {
         "shape": "[/:\\]",
-        "stroke":"#B0B8B4FF",
-        "fill": "#B0B8B4FF",               
+        "stroke": "#B0B8B4FF",
+        "fill": "#B0B8B4FF",
         "color": "333",
         "relation-style": "."
     },
@@ -124,7 +133,7 @@ options = {
         "shape": "{{:}}",
         "fill": "#184A45FF",
         "stroke": "#184A45FF",
-        "color": "#eee"       
+        "color": "#eee"
     }
 }
 
@@ -134,4 +143,5 @@ prov_ontology_graph.export_as_mermaid_flowchart(
     user_options=options)
 
 # with default_options
-prov_ontology_graph.export_as_mermaid_flowchart(file_name="examples/provenance_mermaid_default.md")
+prov_ontology_graph.export_as_mermaid_flowchart(
+    file_name="examples/provenance_mermaid_default.md")

@@ -2,7 +2,7 @@
 
 The package supports the creation of [PROV-O](https://www.w3.org/TR/prov-o/) compliant provenance graphs.
 
-The package requires __Python 3.11__.
+
 
 ## Installation
 
@@ -98,27 +98,19 @@ The creation for classes follows the same pattern. The classes only differ in th
 ```python
 # definition of add_entity() in ProvOntologyGraph()
 def add_entity(self, 
-    id_string: str = "", 
+    id: str = "", 
     label: str = "", 
     description: str = "", 
-    namespace: str = "") -> Entity:
+    use_namespace: bool = False) -> Entity:
     """creates a new entity, adds it to the graph and returns it then"""
-
-    # the id of the PROV class objects is a combination of the 
-    # namespace and the id_string. The method _handle_id() builds 
-    # the actual id of the node, if checks whether the provided 
-    # namespace-id combination is already used for a node in the graph.
-    # if no namespace is provided: default namespace is used, 
-    # if no id is provided: id get automatically generated.
-    node_id = self._handle_id(namespace, id_string)
+    # if use_namespace is set to True, the given id is concatenated with the namespace that was defined at the creation of the ProvenanceOntologyGraph object.
+    # The method _handle_id() checks whether the provided 
+    # namespace-id combination is already used for a node in the graph and if it is a valid IRI. 
+    # if no id is provided: id gets automatically generated, within the namespace of the ProvenanceOntologyGraph (Setting use_namespace to True and not providing an id, still creates a valid IRI).
+    
+    node_id = self._handle_id(id, use_namespace)
     # the PROV class (in this case an Entity) is only created if everything with the ID is fine
-    entity = Entity(
-        # mandatory
-        node_id=node_id,
-        # optional
-        label=label,
-        # optional
-        description=description)
+    entity = Entity(node_id=node_id, label=label,description=description)
     self._entities.append(entity)
     return entity
 ```
@@ -131,8 +123,9 @@ Example use of the provenance graph's add-methods and the definition of a *used*
 # ex2 - create entities, activities and agents, 
 # and define relation between them
 entity = prov_ontology_graph.add_entity(
-    id_string="example_entity",
-    label="Example Entity")
+    id="example_entity",
+    label="Example Entity",
+    use_namespace=True)
 
 activity = prov_ontology_graph.add_activity(
     label="Anonymous activity",
@@ -382,39 +375,49 @@ prov_ontology_graph = ProvOntologyGraph(
 
 # create entities
 crime_data = prov_ontology_graph.add_entity(
-    id_string='crimeData', 
-    label='Crime Data')
+    id='crimeData', 
+    label='Crime Data',
+    use_namespace=True)
 national_regions_list = prov_ontology_graph.add_entity(
-    id_string='nationalRegionsList', 
-    label='National Regions List')
+    id='nationalRegionsList', 
+    label='National Regions List',
+    use_namespace=True)
 aggregated_by_regions = prov_ontology_graph.add_entity(
-    id_string='aggregatedByRegions', 
-    label='Aggregated by Regions')
+    id='aggregatedByRegions', 
+    label='Aggregated by Regions',
+    use_namespace=True)
 bar_chart = prov_ontology_graph.add_entity(
-    id_string='bar_chart', 
-    label='Bar Chart')
+    id='bar_chart', 
+    label='Bar Chart',
+    use_namespace=True)
 
 # create activities
 aggregation_activity = prov_ontology_graph.add_activity(
-    id_string='aggregationActivity', 
-    label='Aggregation Activity')
+    id='aggregationActivity', 
+    label='Aggregation Activity',
+    use_namespace=True)
 illustration_activity = prov_ontology_graph.add_activity(
-    ='illustrationActivity', 
-    label='Illustration Activity')
+    id='illustrationActivity', 
+    label='Illustration Activity',
+    use_namespace=True)
 
 # create agents
 government = prov_ontology_graph.add_agent(
-    id_string='government', 
-    label='Government')
+    id='government', 
+    label='Government',
+    use_namespace=True)
 civil_action_group = prov_ontology_graph.add_agent(
-    id_string='civil_action_group', 
-    label='Civil Action Group')
+    id='civil_action_group', 
+    label='Civil Action Group',
+    use_namespace=True)
 national_newspaper_inc = prov_ontology_graph.add_agent(
-    id_string='national_newspaper_inc', 
-    label='National Newspaper Inc.')
+    id='national_newspaper_inc', 
+    label='National Newspaper Inc.',
+    use_namespace=True)
 derek = prov_ontology_graph.add_agent(
-    id_string='derek', 
-    label='Derek')
+    id='derek', 
+    label='Derek',
+    use_namespace=True)
 
 # build relations
 crime_data.was_attributed_to(government)

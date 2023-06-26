@@ -73,7 +73,7 @@ class ProvOntologyGraph:
         """check validity of namespace and and namespace abbreviation"""
 
         # validate namespace
-        # TODO rethink validation, we techniocally want to validate an IRI
+        # TODO rethink validation, we technically want to validate an IRI
         if not url(self.namespace):  # type: ignore
             raise NamespaceMalformed(
                 """
@@ -175,58 +175,59 @@ class ProvOntologyGraph:
 
         return contents
 
-    def _handle_id(self, iri: str = "", use_namespace: bool = False) -> str:
+    def _handle_id(self, id: str = "", use_namespace: bool = False) -> str:
         """checks whether the provided namespace-id combination is
         already used for a node in the graph.
         if no namespace is provided: default namespace is used,
         if no id is provided: id get automatically generated."""
 
         if use_namespace:
-            iri = self.namespace + iri
-        if iri:
-            node_id = self._id_vault.add_id(iri)
+            id = self.namespace + id
+        if id:
+            node_id = self._id_vault.add_id(id)
         else:
             node_id = self._id_vault.generate(self.namespace)
         return node_id
 
     def add_entity(
         self,
-        iri: str = "",
+        id: str = "",
         label: str = "",
         description: str = "",
         use_namespace: bool = False,
     ) -> Entity:
         """creates a new entity, adds it to the graph and returns it then"""
 
-        node_id = self._handle_id(iri, use_namespace)
+        node_id = self._handle_id(id, use_namespace)
         entity = Entity(node_id=node_id, label=label, description=description)
         self._entities.append(entity)
         return entity
 
     def add_activity(
         self,
-        iri: str = "",
+        id: str = "",
         label: str = "",
         description: str = "",
         use_namespace: bool = False,
     ) -> Activity:
         """creates a new activity, adds it to the graph and returns it then"""
 
-        node_id = self._handle_id(iri, use_namespace)
-        activity = Activity(node_id=node_id, label=label, description=description)
+        node_id = self._handle_id(id, use_namespace)
+        activity = Activity(node_id=node_id, label=label,
+                            description=description)
         self._activities.append(activity)
         return activity
 
     def add_agent(
         self,
-        iri: str = "",
+        id: str = "",
         label: str = "",
         description: str = "",
         use_namespace: bool = False,
     ) -> Agent:
         """creates a new agent, adds it to the graph and returns it then"""
 
-        node_id = self._handle_id(iri, use_namespace)
+        node_id = self._handle_id(id, use_namespace)
         agent = Agent(node_id=node_id, label=label, description=description)
         self._agents.append(agent)
         return agent
@@ -246,7 +247,8 @@ class ProvOntologyGraph:
         provenance_graph.bind("rdf", RDF)
         provenance_graph.bind("rdfs", RDFS)
         provenance_graph.bind("prov", PROV)
-        provenance_graph.bind(self.namespace_abbreviation, Namespace(self.namespace))
+        provenance_graph.bind(self.namespace_abbreviation,
+                              Namespace(self.namespace))
 
         for node in self._entities + self._activities + self._agents:
             if node.label:
@@ -266,7 +268,8 @@ class ProvOntologyGraph:
                     )
                 )
         for entity in self._entities:
-            provenance_graph.add((URIRef(entity.node_id), RDF.type, PROV.Entity))
+            provenance_graph.add(
+                (URIRef(entity.node_id), RDF.type, PROV.Entity))
             for activity in entity._was_generated_by_activities:
                 provenance_graph.add(
                     (
@@ -292,7 +295,8 @@ class ProvOntologyGraph:
                     )
                 )
         for activity in self._activities:
-            provenance_graph.add((URIRef(activity.node_id), RDF.type, PROV.Activity))
+            provenance_graph.add(
+                (URIRef(activity.node_id), RDF.type, PROV.Activity))
             if activity._start_time:
                 provenance_graph.add(
                     (
@@ -426,7 +430,8 @@ class ProvOntologyGraph:
         elif text_color:
             lines.append(f"classDef entity color:{options['color']}")
         if entity_stroke_color:
-            lines.append(f"classDef entity stroke:{options['entity']['stroke']}")
+            lines.append(
+                f"classDef entity stroke:{options['entity']['stroke']}")
         elif stroke_color:
             lines.append(f"classDef entity stroke:{options['stroke']}")
         if entity_stroke_width:
@@ -434,15 +439,18 @@ class ProvOntologyGraph:
                 f"classDef entity stroke-width:{options['entity']['stroke-width']}"
             )
         elif stroke_width:
-            lines.append(f"classDef entity stroke-width:{options['stroke-width']}")
+            lines.append(
+                f"classDef entity stroke-width:{options['stroke-width']}")
 
         lines.append(f"classDef activity fill:{options['activity']['fill']}")
         if activity_text_color:
-            lines.append(f"classDef activity color:{options['activity']['color']}")
+            lines.append(
+                f"classDef activity color:{options['activity']['color']}")
         elif text_color:
             lines.append(f"classDef activity color:{options['color']}")
         if activity_stroke_color:
-            lines.append(f"classDef activity stroke:{options['activity']['stroke']}")
+            lines.append(
+                f"classDef activity stroke:{options['activity']['stroke']}")
         elif stroke_color:
             lines.append(f"classDef activity stroke:{options['stroke']}")
         if activity_stroke_width:
@@ -450,7 +458,8 @@ class ProvOntologyGraph:
                 f"classDef activity stroke-width:{options['activity']['stroke-width']}"
             )
         elif stroke_width:
-            lines.append(f"classDef activity stroke-width:{options['stroke-width']}")
+            lines.append(
+                f"classDef activity stroke-width:{options['stroke-width']}")
 
         lines.append(f"classDef agent fill:{options['agent']['fill']}")
         if agent_text_color:
@@ -466,7 +475,8 @@ class ProvOntologyGraph:
                 f"classDef agent stroke-width:{options['agent']['stroke-width']}"
             )
         elif stroke_width:
-            lines.append(f"classDef agent stroke-width:{options['stroke-width']}")
+            lines.append(
+                f"classDef agent stroke-width:{options['stroke-width']}")
 
         for entity in self._entities:
             lines.append(

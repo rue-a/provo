@@ -16,13 +16,14 @@ prov_ontology_graph = ProvOntologyGraph(
 
 # ex2
 # __defaults__
-# id_string: str = "",
+# id: str = "",
 # label: str = "",
 # description: str = "",
-# namespace: str = ""
+# namespace: bool = False
 entity = prov_ontology_graph.add_entity(
-    id_string="example_entity",
-    label="Example Entity")
+    id="example_entity",
+    label="Example Entity",
+    use_namespace=True)
 
 activity = prov_ontology_graph.add_activity(
     label="Anonymous activity",
@@ -48,7 +49,8 @@ rdflib_graph = prov_ontology_graph.get_rdflib_graph()
 rdflib_graph.bind("skos", SKOS)
 
 rdflib_graph.add((
-    URIRef(entity.get_id()), SKOS.prefLabel, Literal(entity.get_label(), lang="en")
+    URIRef(entity.get_id()), SKOS.prefLabel, Literal(
+        entity.get_label(), lang="en")
 ))
 
 rdflib_graph.serialize("examples/rdflib_interface.ttl")
@@ -56,7 +58,8 @@ rdflib_graph.serialize("examples/rdflib_interface.ttl")
 
 # ex5
 
-prov_ontology_graph.export_as_mermaid_flowchart(file_name="examples/manual_examples_flowchart_default.md")
+prov_ontology_graph.export_as_mermaid_flowchart(
+    file_name="examples/manual_examples_flowchart_default.md")
 
 
 # ex6
@@ -70,4 +73,5 @@ options = {
     }
 }
 
-prov_ontology_graph.export_as_mermaid_flowchart(file_name="examples/manual_examples_flowchart.md", user_options = options)
+prov_ontology_graph.export_as_mermaid_flowchart(
+    file_name="examples/manual_examples_flowchart.md", user_options=options)
