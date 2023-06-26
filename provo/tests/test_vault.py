@@ -20,9 +20,9 @@ def test_no_id_duplication():
     namespace = "https://test.package/"
     test_id = "test"
     vault = IdVault()
-    vault.add_id(namespace=namespace, id_string=test_id)
+    vault.add_id(node_id=test_id)
     with pytest.raises(IdAlreadyUsed):
-        vault.add_id(namespace=namespace, id_string=test_id)
+        vault.add_id(node_id=test_id)
 
 
 def test_id_validation():
