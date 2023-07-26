@@ -222,9 +222,7 @@ flowchart LR
 ```
 
 > **Note** 
-> Convert Mermaid Chart to PDF, PNG, etc.
 > To convert Mermaid charts into other formats the software [`mermaid-cli`](https://github.com/mermaid-js/mermaid-cli) is recommended.
->
 > You can also use the [Mermaid Live Editor](https://mermaid.live/) to edit (and convert) the document.
 
 To export the provenance graph as mermaid chart call the according export method:
