@@ -66,7 +66,7 @@ prov_ontology_graph.export_as_mermaid_flowchart(
 
 options = {
     "orientation": "LR",
-    "revert-relations": True,
+    "invert-relations": True,
     "activity": {
         "fill": "#89e6dc",
         "shape": "{{:}}"

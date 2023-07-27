@@ -115,7 +115,7 @@ rdflib_graph.serialize('examples/provenance_graph_example.ttl')
 
 # export as mermaid flowchart
 options = {
-    "revert-relations": True,
+    "invert-relations": True,
     "entity": {
         "shape": "[:]",
         "fill": "#FC766AFF",

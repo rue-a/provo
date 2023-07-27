@@ -259,7 +259,7 @@ The style of the resulting graph is defined by a dictionary that holds the defau
 
 options = {
     "orientation": "LR",
-    "revert-relations": True,
+    "invert-relations": True,
     "activity": {
         "fill": "#89e6dc",
         "shape": "{{:}}"
@@ -298,7 +298,7 @@ The default styling configuration mimics the graph styling from the PROV-O refer
 
 ```python
 options = {
-    "revert-relations": False,
+    "invert-relations": False,
     "orientation": "TD",            
     "included-relations": [
         "was_generated_by",
@@ -340,20 +340,20 @@ options = {
 
 __Reference Table__
 
-| keyword            | options                                     | explanation                                                                                                                                                                                                                                                          |
-|--------------------|---------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| revert-relations   | True \| False                               | Reverts the arrows and changes the labels accordingly. The reverted labels are not defined by PROV, and thus they are not compliant to the PROV model.                                                                                                               |
-| orientation        | "TD" \| "LR"                                | Top-down or left-right orientation of the graph (mermaid syntax).                                                                                                                                                                                                    |
-| included-relations | list of displayed relations                 | Defines which relations should be displayed. Per default "was_derived_by" and "was_informed_by" are excluded. Possible values are: "was_generated_by", was_derived_by", "was_attributed_to", "used", "was_informed_by", "was_associated_with", "acted_on_behalf_of". |
+| keyword            | options                               | explanation                                                                                                                                                                                                                                                          |
+| ------------------ | ------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| invert-relations   | True \| False                         | Reverts the arrows and changes the labels accordingly. The reverted labels are not defined by PROV, and thus they are not compliant to the PROV model.                                                                                                               |
+| orientation        | "TD" \| "LR"                          | Top-down or left-right orientation of the graph (mermaid syntax).                                                                                                                                                                                                    |
+| included-relations | list of displayed relations           | Defines which relations should be displayed. Per default "was_derived_by" and "was_informed_by" are excluded. Possible values are: "was_generated_by", was_derived_by", "was_attributed_to", "used", "was_informed_by", "was_associated_with", "acted_on_behalf_of". |
 | fill               | "\<#color-hex-code\>", e.g. "#fffedf" | Defines the color of the nodes.                                                                                                                                                                                                                                      |
-| shape              | "\<shape identifier\>", e.g. "[:]"            | Uses [mermaid shape syntax](https://mermaid-js.github.io/mermaid/#/flowchart?id=node-shapes). The colon separates the opening symbols from the closing symbols.                                                                                                      |
-| color              |  "\<#color-hex-code\>"                |  Defines the color of the nodes' texts.                                                                                                                                                                                                                              |
-|  stroke            |  "\<#color-hex-code\>"                |  Defines the color of the nodes' borders                                                                                                                                                                                                                             |
-|  stroke-width      |  "\<border width in px\>", e.g. "1px"         |  Defines the width of the nodes' borders.                                                                                                                                                                                                                            |
-| relation-style     | "-" (solid) \| "." (dashed)                 | Defines the style of the relations. Only two options are available.                                                                                                                                                                                                  |
-| entity             | dict                                        | Specify fill, shape, color, stroke, stroke-with and relation-style for entities. If any value is `None`, it falls back to the op level definitions                                                                                                                    |
-| activity           | dict                                        | see entity                                                                                                                                                                                                                                                           |
-| agent              | dict                                        | see entity                                                                                                                                                                                                                                                           |
+| shape              | "\<shape identifier\>", e.g. "[:]"    | Uses [mermaid shape syntax](https://mermaid-js.github.io/mermaid/#/flowchart?id=node-shapes). The colon separates the opening symbols from the closing symbols.                                                                                                      |
+| color              | "\<#color-hex-code\>"                 | Defines the color of the nodes' texts.                                                                                                                                                                                                                               |
+| stroke             | "\<#color-hex-code\>"                 | Defines the color of the nodes' borders                                                                                                                                                                                                                              |
+| stroke-width       | "\<border width in px\>", e.g. "1px"  | Defines the width of the nodes' borders.                                                                                                                                                                                                                             |
+| relation-style     | "-" (solid) \| "." (dashed)           | Defines the style of the relations. Only two options are available.                                                                                                                                                                                                  |
+| entity             | dict                                  | Specify fill, shape, color, stroke, stroke-with and relation-style for entities. If any value is `None`, it falls back to the op level definitions                                                                                                                   |
+| activity           | dict                                  | see entity                                                                                                                                                                                                                                                           |
+| agent              | dict                                  | see entity                                                                                                                                                                                                                                                           |
 
 If further styling configuration is required, users have to interact directly with the resulting mermaid-md.
 
@@ -553,7 +553,7 @@ __User defined mermaid graph:__
 
 ```python
 options = {
-    "revert-relations": True,
+    "invert-relations": True,
     "entity": {
         "shape": "[:]",
         "fill": "#FC766AFF",
