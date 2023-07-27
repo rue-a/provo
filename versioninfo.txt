@@ -88,3 +88,11 @@ source code:
 - add more tests
 other:
 - update README accordingly
+
+1.1.1
+---
+source code: 
+- rename revert-relations to invert-relations
+- refactor mermaid graph generation
+other:
+- update README accordingly

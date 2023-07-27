@@ -36,7 +36,7 @@ civil_action_group = prov_ontology_graph.add_agent(
     id='civil_action_group', label='Civil Action Group', use_namespace=True)
 national_newspaper_inc = prov_ontology_graph.add_agent(
     id='national_newspaper_inc', label='National Newspaper Inc.', use_namespace=True)
-derek = prov_ontology_graph.add_agent(id='derek', label='Derek')
+derek = prov_ontology_graph.add_agent(id='derek', label='Derek', use_namespace=True)
 
 # build relations
 crime_data.was_attributed_to(government)

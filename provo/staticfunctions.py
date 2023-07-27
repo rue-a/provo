@@ -11,3 +11,7 @@ def update_dict(dict_old: dict, dict_with_updates: dict) -> dict:
         except:
             dict_old[key] = value
     return dict_old
+
+
+def get_option(option, sub_option, default_option):
+    return option[sub_option] if option.get(sub_option) else default_option

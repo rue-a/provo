@@ -25,7 +25,7 @@ from validators import url
 
 from provo.idvault import IdVault
 from provo.startingpointclasses import Activity, Agent, Entity
-from provo.staticfunctions import update_dict
+from provo.staticfunctions import update_dict, get_option
 
 
 @dataclass(frozen=True)
@@ -358,7 +358,7 @@ class ProvOntologyGraph:
         """exports the contents of the graph as mermaid-md flowchart"""
 
         # if possible the options use the mermaid terminology
-        options = {
+        default_options = {
             "invert-relations": False,
             "orientation": "TD",
             "included-relations": [
@@ -398,169 +398,165 @@ class ProvOntologyGraph:
             },
         }
 
-        options = update_dict(options, user_options)
+         # Update default options with user options
+        options = update_dict(default_options, user_options)
 
+        # Unpack commonly used option values
         text_color = options["color"]
         stroke_color = options["stroke"]
         stroke_width = options["stroke-width"]
         stroke_style = options["relation-style"]
 
-        entity_text_color = options["entity"]["color"]
-        entity_stroke_color = options["entity"]["stroke"]
-        entity_stroke_width = options["entity"]["stroke-width"]
-        entity_stroke_style = options["entity"]["relation-style"]
+        # Unpack entity options
+        entity_opts = options["entity"]
+        entity_fill_color = entity_opts["fill"]
+        entity_text_color = entity_opts["color"] or text_color
+        entity_stroke_color = entity_opts["stroke"] or stroke_color
+        entity_stroke_width = entity_opts["stroke-width"] or stroke_width
+        entity_stroke_style = entity_opts["relation-style"] or stroke_style
 
-        activity_text_color = options["activity"]["color"]
-        activity_stroke_color = options["activity"]["stroke"]
-        activity_stroke_width = options["activity"]["stroke-width"]
-        activity_stroke_style = options["activity"]["relation-style"]
+        # Unpack activity options
+        activity_opts = options["activity"]
+        activity_fill_color = activity_opts["fill"]
+        activity_text_color = activity_opts["color"] or text_color
+        activity_stroke_color = activity_opts["stroke"] or stroke_color
+        activity_stroke_width = activity_opts["stroke-width"] or stroke_width
+        activity_stroke_style = activity_opts["relation-style"] or stroke_style
 
-        agent_text_color = options["agent"]["color"]
-        agent_stroke_color = options["agent"]["stroke"]
-        agent_stroke_width = options["agent"]["stroke-width"]
-        agent_stroke_style = options["agent"]["relation-style"]
+        # Unpack agent options
+        agent_opts = options["agent"]
+        agent_fill_color = agent_opts["fill"]
+        agent_text_color = agent_opts["color"] or text_color
+        agent_stroke_color = agent_opts["stroke"] or stroke_color
+        agent_stroke_width = agent_opts["stroke-width"] or stroke_width
+        agent_stroke_style = agent_opts["relation-style"] or stroke_style
+
+
 
         lines = []
         lines.append("```mermaid")
         lines.append(f"flowchart {options['orientation']}")
 
-        lines.append(f"classDef entity fill:{options['entity']['fill']}")
+        # Class definitions for entities
+        lines.append(f"classDef entity fill:{entity_fill_color}")
         if entity_text_color:
-            lines.append(f"classDef entity color:{options['entity']['color']}")
-        elif text_color:
-            lines.append(f"classDef entity color:{options['color']}")
+            lines.append(f"classDef entity color:{entity_text_color}")
         if entity_stroke_color:
-            lines.append(
-                f"classDef entity stroke:{options['entity']['stroke']}")
-        elif stroke_color:
-            lines.append(f"classDef entity stroke:{options['stroke']}")
+            lines.append(f"classDef entity stroke:{entity_stroke_color}")
         if entity_stroke_width:
-            lines.append(
-                f"classDef entity stroke-width:{options['entity']['stroke-width']}"
-            )
-        elif stroke_width:
-            lines.append(
-                f"classDef entity stroke-width:{options['stroke-width']}")
+            lines.append(f"classDef entity stroke-width:{entity_stroke_width}")
 
-        lines.append(f"classDef activity fill:{options['activity']['fill']}")
+        # Class definitions for activities
+        lines.append(f"classDef activity fill:{activity_fill_color}")
         if activity_text_color:
-            lines.append(
-                f"classDef activity color:{options['activity']['color']}")
-        elif text_color:
-            lines.append(f"classDef activity color:{options['color']}")
+            lines.append(f"classDef activity color:{activity_text_color}")
         if activity_stroke_color:
-            lines.append(
-                f"classDef activity stroke:{options['activity']['stroke']}")
-        elif stroke_color:
-            lines.append(f"classDef activity stroke:{options['stroke']}")
+            lines.append(f"classDef activity stroke:{activity_stroke_color}")
         if activity_stroke_width:
-            lines.append(
-                f"classDef activity stroke-width:{options['activity']['stroke-width']}"
-            )
-        elif stroke_width:
-            lines.append(
-                f"classDef activity stroke-width:{options['stroke-width']}")
+            lines.append(f"classDef activity stroke-width:{activity_stroke_width}")
 
-        lines.append(f"classDef agent fill:{options['agent']['fill']}")
+        # Class definitions for agents
+        lines.append(f"classDef agent fill:{agent_fill_color}")
         if agent_text_color:
-            lines.append(f"classDef agent color:{options['agent']['color']}")
-        elif text_color:
-            lines.append(f"classDef agent color:{options['color']}")
+            lines.append(f"classDef agent color:{agent_text_color}")
         if agent_stroke_color:
-            lines.append(f"classDef agent stroke:{options['agent']['stroke']}")
-        elif stroke_color:
-            lines.append(f"classDef agent stroke:{options['stroke']}")
+            lines.append(f"classDef agent stroke:{agent_stroke_color}")
         if agent_stroke_width:
-            lines.append(
-                f"classDef agent stroke-width:{options['agent']['stroke-width']}"
-            )
-        elif stroke_width:
-            lines.append(
-                f"classDef agent stroke-width:{options['stroke-width']}")
+            lines.append(f"classDef agent stroke-width:{agent_stroke_width}")
 
         for entity in self._entities:
             lines.append(
-                f'{entity.node_id}{options["entity"]["shape"].split(":")[0]}<a style=color:inherit href={entity.node_id}>{entity.label if entity.label else entity.node_id}</a>{options["entity"]["shape"].split(":")[1]}:::entity'
+                f'{entity.node_id}{options["entity"]["shape"].split(":")[0]}<a style=color:inherit href={entity.node_id}>{entity.label or entity.node_id}</a>{options["entity"]["shape"].split(":")[1]}:::entity'
             )
             if "was_derived_by" in options["included-relations"]:
-                for item in entity._was_derived_from_entities:
+                attrs = "style=color:inherit href=https://www.w3.org/TR/prov-o/#wasDerivedFrom"
+                for item in entity._was_derived_from_entities:                    
                     if not options["invert-relations"]:
                         lines.append(
-                            f"{entity.node_id}-{entity_stroke_style if entity_stroke_style else stroke_style} <a style=color:inherit href=https://www.w3.org/TR/prov-o/#wasDerivedFrom>was derived from</a> {entity_stroke_style if entity_stroke_style else stroke_style}->{item.node_id}"
+                            f"{entity.node_id}-{entity_stroke_style} <a {attrs}>was derived from</a> {entity_stroke_style}->{item.node_id}"
                         )
                     else:
                         lines.append(
-                            f"{item.node_id}-{entity_stroke_style if entity_stroke_style else stroke_style} <a style=color:inherit href=https://www.w3.org/TR/prov-o/#wasDerivedFrom>originated from</a> {entity_stroke_style if entity_stroke_style else stroke_style}->{entity.node_id}"
+                            f"{item.node_id}-{entity_stroke_style} <a {attrs}>originated from</a> {entity_stroke_style}->{entity.node_id}"
                         )
             if "was_generated_by" in options["included-relations"]:
+                attrs ="style=color:inherit href=https://www.w3.org/TR/prov-o/#wasGeneratedBy"
                 for item in entity._was_generated_by_activities:
+                    
                     if not options["invert-relations"]:
                         lines.append(
-                            f"{entity.node_id}-{activity_stroke_style if activity_stroke_style else stroke_style} <a style=color:inherit href=https://www.w3.org/TR/prov-o/#wasGeneratedBy>was generated by</a> {activity_stroke_style if activity_stroke_style else stroke_style}->{item.node_id}"
+                            f"{entity.node_id}-{activity_stroke_style} <a {attrs}>was generated by</a> {activity_stroke_style}->{item.node_id}"
                         )
                     else:
                         lines.append(
-                            f"{item.node_id}-{activity_stroke_style if activity_stroke_style else stroke_style} <a style=color:inherit href=https://www.w3.org/TR/prov-o/#wasGeneratedBy>generated</a> {activity_stroke_style if activity_stroke_style else stroke_style}->{entity.node_id}"
+                            f"{item.node_id}-{activity_stroke_style} <a {attrs}>generated</a> {activity_stroke_style}->{entity.node_id}"
                         )
             if "was_attributed_to" in options["included-relations"]:
+                attrs = "style=color:inherit href=https://www.w3.org/TR/prov-o/#wasAttributedTo"
                 for item in entity._was_attributed_to_agents:
+                    
                     if not options["invert-relations"]:
                         lines.append(
-                            f"{entity.node_id}-{agent_stroke_style if agent_stroke_style else stroke_style} <a style=color:inherit href=https://www.w3.org/TR/prov-o/#wasAttributedTo>was attributed to</a> {agent_stroke_style if agent_stroke_style else stroke_style}->{item.node_id}"
+                            f"{entity.node_id}-{agent_stroke_style} <a {attrs}>was attributed to</a> {agent_stroke_style}->{item.node_id}"
                         )
                     else:
                         lines.append(
-                            f"{item.node_id}-{agent_stroke_style if agent_stroke_style else stroke_style} <a style=color:inherit href=https://www.w3.org/TR/prov-o/#wasAttributedTo>produced</a> {agent_stroke_style if agent_stroke_style else stroke_style}->{entity.node_id}"
+                            f"{item.node_id}-{agent_stroke_style} <a {attrs}>produced</a> {agent_stroke_style}->{entity.node_id}"
                         )
 
         for activity in self._activities:
             lines.append(
-                f"{activity.node_id}{options['activity']['shape'].split(':')[0]}<a style=color:inherit href={activity.node_id}>{activity.label if activity.label else activity.node_id}</a>{options['activity']['shape'].split(':')[1]}:::activity"
+                f"{activity.node_id}{options['activity']['shape'].split(':')[0]}<a style=color:inherit href={activity.node_id}>{activity.label or activity.node_id}</a>{options['activity']['shape'].split(':')[1]}:::activity"
             )
             if "was_informed_by" in options["included-relations"]:
+                attrs = "style=color:inherit href=https://www.w3.org/TR/prov-o/#wasInformedBy"
                 for item in activity._was_informed_by_activities:
+                    
                     if not options["invert-relations"]:
                         lines.append(
-                            f"{activity.node_id}-{entity_stroke_style if entity_stroke_style else stroke_style} <a style=color:inherit href=https://www.w3.org/TR/prov-o/#wasInformedBy>was informed by</a> {entity_stroke_style if entity_stroke_style else stroke_style}->{item.node_id}"
+                            f"{activity.node_id}-{entity_stroke_style} <a {attrs}>was informed by</a> {entity_stroke_style}->{item.node_id}"
                         )
                     else:
                         lines.append(
-                            f"{item.node_id}-{entity_stroke_style if entity_stroke_style else stroke_style} <a style=color:inherit href=https://www.w3.org/TR/prov-o/#wasInformedBy>informed</a> {entity_stroke_style if entity_stroke_style else stroke_style}->{activity.node_id}"
+                            f"{item.node_id}-{entity_stroke_style} <a {attrs}>informed</a> {entity_stroke_style}->{activity.node_id}"
                         )
             if "used" in options["included-relations"]:
-                for item in activity._used_entities:
+                attrs="style=color:inherit href=https://www.w3.org/TR/prov-o/#used"
+                for item in activity._used_entities:                    
                     if not options["invert-relations"]:
                         lines.append(
-                            f"{activity.node_id}-{activity_stroke_style if activity_stroke_style else stroke_style} <a style=color:inherit href=https://www.w3.org/TR/prov-o/#used>used</a> {activity_stroke_style if activity_stroke_style else stroke_style}->{item.node_id}"
+                            f"{activity.node_id}-{activity_stroke_style} <a {attrs}>used</a> {activity_stroke_style}->{item.node_id}"
                         )
                     else:
                         lines.append(
-                            f"{item.node_id}-{activity_stroke_style if activity_stroke_style else stroke_style} <a style=color:inherit href=https://www.w3.org/TR/prov-o/#used>was used by</a> {activity_stroke_style if activity_stroke_style else stroke_style}->{activity.node_id}"
+                            f"{item.node_id}-{activity_stroke_style} <a {attrs}>was used by</a> {activity_stroke_style}->{activity.node_id}"
                         )
             if "was_associated_with" in options["included-relations"]:
+                attrs = "style=color:inherit href=https://www.w3.org/TR/prov-o/#wasAssociatedWith"
                 for item in activity._was_associated_with_agents:
                     if not options["invert-relations"]:
                         lines.append(
-                            f"{activity.node_id}-{agent_stroke_style if agent_stroke_style else stroke_style} <a style=color:inherit href=https://www.w3.org/TR/prov-o/#wasAssociatedWith>was associated with</a> {agent_stroke_style if agent_stroke_style else stroke_style}->{item.node_id}"
+                            f"{activity.node_id}-{agent_stroke_style} <a {attrs}>was associated with</a> {agent_stroke_style}->{item.node_id}"
                         )
                     else:
                         lines.append(
-                            f"{item.node_id}-{agent_stroke_style if agent_stroke_style else stroke_style} <a style=color:inherit href=https://www.w3.org/TR/prov-o/#wasAssociatedWith>initiated</a> {agent_stroke_style if agent_stroke_style else stroke_style}->{activity.node_id}"
+                            f"{item.node_id}-{agent_stroke_style} <a {attrs}>initiated</a> {agent_stroke_style}->{activity.node_id}"
                         )
 
         for agent in self._agents:
             lines.append(
-                f"{agent.node_id}{options['agent']['shape'].split(':')[0]}<a style=color:inherit href={agent.node_id}>{agent.label if agent.label else agent.node_id}</a>{options['agent']['shape'].split(':')[1]}:::agent"
+                f"{agent.node_id}{options['agent']['shape'].split(':')[0]}<a style=color:inherit href={agent.node_id}>{agent.label or agent.node_id}</a>{options['agent']['shape'].split(':')[1]}:::agent"
             )
             if "acted_on_behalf_of" in options["included-relations"]:
+                attrs = "style=color:inherit href=https://www.w3.org/TR/prov-o/#actedOnBehalfOf"
                 for item in agent._acted_on_behalf_of_agents:
                     if not options["invert-relations"]:
                         lines.append(
-                            f"{agent.node_id}-{agent_stroke_style if agent_stroke_style else stroke_style} <a style=color:inherit href=https://www.w3.org/TR/prov-o/#actedOnBehalfOf>acted on behalf of</a> {agent_stroke_style if agent_stroke_style else stroke_style}->{item.node_id}"
+                            f"{agent.node_id}-{agent_stroke_style} <a {attrs}>acted on behalf of</a> {agent_stroke_style}->{item.node_id}"
                         )
                     else:
                         lines.append(
-                            f"{item.node_id}-{agent_stroke_style if agent_stroke_style else stroke_style} <a style=color:inherit href=https://www.w3.org/TR/prov-o/#actedOnBehalfOf>instructed</a> {agent_stroke_style if agent_stroke_style else stroke_style}->{agent.node_id}"
+                            f"{item.node_id}-{agent_stroke_style} <a {attrs}>instructed</a> {agent_stroke_style}->{agent.node_id}"
                         )
 
         lines.append("```")
