@@ -562,5 +562,5 @@ class ProvOntologyGraph:
         lines.append("```")
         lines = "\n".join(lines)
 
-        with open(file_name, "w") as f:
+        with open(file_name, "w", encoding="utf-8") as f:
             f.write(lines)
