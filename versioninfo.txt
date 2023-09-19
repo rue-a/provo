@@ -96,3 +96,15 @@ source code:
 - refactor mermaid graph generation
 other:
 - update README accordingly
+
+1.1.2
+---
+source code:
+-write mermaid graphs as utf-8
+
+1.1.3
+---
+source code:
+-fix bug in mermaid graph options (was_derived_by -> was_dervived_from)
+other:
+-adjust readme etc. 

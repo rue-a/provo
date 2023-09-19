@@ -468,7 +468,7 @@ class ProvOntologyGraph:
             lines.append(
                 f'{entity.node_id}{options["entity"]["shape"].split(":")[0]}<a style=color:inherit href={entity.node_id}>{entity.label or entity.node_id}</a>{options["entity"]["shape"].split(":")[1]}:::entity'
             )
-            if "was_derived_by" in options["included-relations"]:
+            if "was_derived_from" in options["included-relations"]:
                 attrs = "style=color:inherit href=https://www.w3.org/TR/prov-o/#wasDerivedFrom"
                 for item in entity._was_derived_from_entities:                    
                     if not options["invert-relations"]:
