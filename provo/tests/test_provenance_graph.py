@@ -11,17 +11,17 @@ def test_graph_initialization():
     """tests if namespace and namespace abbreviation (i.e., prefix) is valid"""
     
     ProvOntologyGraph()
-    ProvOntologyGraph(namespace="https://test.package/", namespace_abbreviation="")
-    ProvOntologyGraph(namespace="https://test.package#", namespace_abbreviation="")
+    ProvOntologyGraph(default_namespace="https://test.package/", namespace_abbreviation="")
+    ProvOntologyGraph(default_namespace="https://test.package#", namespace_abbreviation="")
 
     malformed_namespaces = ["www.test.de", "https://test.package/ ",
                             "test.org", " https://test.package/"]
     for namespace in malformed_namespaces:
         with pytest.raises(NamespaceMalformed):
-            ProvOntologyGraph(namespace=namespace)
+            ProvOntologyGraph(default_namespace=namespace)
 
     with pytest.raises(NamespaceHasNoEndSymbol):
-        ProvOntologyGraph(namespace="https://test.package")
+        ProvOntologyGraph(default_namespace="https://test.package")
 
     invalid_prefixes = [" ", ":", "test:"]
     for prefix in invalid_prefixes:

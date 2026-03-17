@@ -124,8 +124,7 @@ Example use of the provenance graph's add-methods and the definition of a *used*
 # and define relation between them
 entity = prov_ontology_graph.add_entity(
     id="example_entity",
-    label="Example Entity",
-    use_namespace=True)
+    label="Example Entity")
 
 activity = prov_ontology_graph.add_activity(
     label="Anonymous activity",
@@ -340,20 +339,20 @@ options = {
 
 __Reference Table__
 
-| keyword            | options                               | explanation                                                                                                                                                                                                                                                          |
-| ------------------ | ------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| invert-relations   | True \| False                         | Reverts the arrows and changes the labels accordingly. The reverted labels are not defined by PROV, and thus they are not compliant to the PROV model.                                                                                                               |
-| orientation        | "TD" \| "LR"                          | Top-down or left-right orientation of the graph (mermaid syntax).                                                                                                                                                                                                    |
+| keyword            | options                               | explanation                                                                                                                                                                                                                                                              |
+| ------------------ | ------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| invert-relations   | True \| False                         | Reverts the arrows and changes the labels accordingly. The reverted labels are not defined by PROV, and thus they are not compliant to the PROV model.                                                                                                                   |
+| orientation        | "TD" \| "LR"                          | Top-down or left-right orientation of the graph (mermaid syntax).                                                                                                                                                                                                        |
 | included-relations | list of displayed relations           | Defines which relations should be displayed. Per default "was_derived_from" and "was_informed_by" are excluded. Possible values are: "was_generated_by", was_derived_from", "was_attributed_to", "used", "was_informed_by", "was_associated_with", "acted_on_behalf_of". |
-| fill               | "\<#color-hex-code\>", e.g. "#fffedf" | Defines the color of the nodes.                                                                                                                                                                                                                                      |
-| shape              | "\<shape identifier\>", e.g. "[:]"    | Uses [mermaid shape syntax](https://mermaid-js.github.io/mermaid/#/flowchart?id=node-shapes). The colon separates the opening symbols from the closing symbols.                                                                                                      |
-| color              | "\<#color-hex-code\>"                 | Defines the color of the nodes' texts.                                                                                                                                                                                                                               |
-| stroke             | "\<#color-hex-code\>"                 | Defines the color of the nodes' borders                                                                                                                                                                                                                              |
-| stroke-width       | "\<border width in px\>", e.g. "1px"  | Defines the width of the nodes' borders.                                                                                                                                                                                                                             |
-| relation-style     | "-" (solid) \| "." (dashed)           | Defines the style of the relations. Only two options are available.                                                                                                                                                                                                  |
-| entity             | dict                                  | Specify fill, shape, color, stroke, stroke-with and relation-style for entities. If any value is `None`, it falls back to the op level definitions                                                                                                                   |
-| activity           | dict                                  | see entity                                                                                                                                                                                                                                                           |
-| agent              | dict                                  | see entity                                                                                                                                                                                                                                                           |
+| fill               | "\<#color-hex-code\>", e.g. "#fffedf" | Defines the color of the nodes.                                                                                                                                                                                                                                          |
+| shape              | "\<shape identifier\>", e.g. "[:]"    | Uses [mermaid shape syntax](https://mermaid-js.github.io/mermaid/#/flowchart?id=node-shapes). The colon separates the opening symbols from the closing symbols.                                                                                                          |
+| color              | "\<#color-hex-code\>"                 | Defines the color of the nodes' texts.                                                                                                                                                                                                                                   |
+| stroke             | "\<#color-hex-code\>"                 | Defines the color of the nodes' borders                                                                                                                                                                                                                                  |
+| stroke-width       | "\<border width in px\>", e.g. "1px"  | Defines the width of the nodes' borders.                                                                                                                                                                                                                                 |
+| relation-style     | "-" (solid) \| "." (dashed)           | Defines the style of the relations. Only two options are available.                                                                                                                                                                                                      |
+| entity             | dict                                  | Specify fill, shape, color, stroke, stroke-with and relation-style for entities. If any value is `None`, it falls back to the op level definitions                                                                                                                       |
+| activity           | dict                                  | see entity                                                                                                                                                                                                                                                               |
+| agent              | dict                                  | see entity                                                                                                                                                                                                                                                               |
 
 If further styling configuration is required, users have to interact directly with the resulting mermaid-md.
 
@@ -380,48 +379,38 @@ prov_ontology_graph = ProvOntologyGraph(
 # create entities
 crime_data = prov_ontology_graph.add_entity(
     id='crimeData', 
-    label='Crime Data',
-    use_namespace=True)
+    label='Crime Data')
 national_regions_list = prov_ontology_graph.add_entity(
     id='nationalRegionsList', 
-    label='National Regions List',
-    use_namespace=True)
+    label='National Regions List')
 aggregated_by_regions = prov_ontology_graph.add_entity(
     id='aggregatedByRegions', 
-    label='Aggregated by Regions',
-    use_namespace=True)
+    label='Aggregated by Regions')
 bar_chart = prov_ontology_graph.add_entity(
     id='bar_chart', 
-    label='Bar Chart',
-    use_namespace=True)
+    label='Bar Chart')
 
 # create activities
 aggregation_activity = prov_ontology_graph.add_activity(
     id='aggregationActivity', 
-    label='Aggregation Activity',
-    use_namespace=True)
+    label='Aggregation Activity')
 illustration_activity = prov_ontology_graph.add_activity(
     id='illustrationActivity', 
-    label='Illustration Activity',
-    use_namespace=True)
+    label='Illustration Activity')
 
 # create agents
 government = prov_ontology_graph.add_agent(
     id='government', 
-    label='Government',
-    use_namespace=True)
+    label='Government')
 civil_action_group = prov_ontology_graph.add_agent(
     id='civil_action_group', 
-    label='Civil Action Group',
-    use_namespace=True)
+    label='Civil Action Group')
 national_newspaper_inc = prov_ontology_graph.add_agent(
     id='national_newspaper_inc', 
-    label='National Newspaper Inc.',
-    use_namespace=True)
+    label='National Newspaper Inc.')
 derek = prov_ontology_graph.add_agent(
     id='derek', 
-    label='Derek',
-    use_namespace=True)
+    label='Derek')
 
 # build relations
 crime_data.was_attributed_to(government)

@@ -9,7 +9,7 @@ from rdflib import SKOS, Literal, URIRef
 provenance_graph = ProvOntologyGraph()
 
 prov_ontology_graph = ProvOntologyGraph(
-    namespace='http://example.org#',
+    default_namespace='http://example.org#',
     namespace_abbreviation="",
     lang="en"
 )
@@ -22,8 +22,7 @@ prov_ontology_graph = ProvOntologyGraph(
 # namespace: bool = False
 entity = prov_ontology_graph.add_entity(
     id="example_entity",
-    label="Example Entity",
-    use_namespace=True)
+    label="Example Entity")
 
 activity = prov_ontology_graph.add_activity(
     label="Anonymous activity",

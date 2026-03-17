@@ -22,6 +22,7 @@ from rdflib import (
     URIRef,
 )
 from validators import url
+import re
 
 from provo.idvault import IdVault
 from provo.startingpointclasses import Activity, Agent, Entity
@@ -61,7 +62,7 @@ class ProvOntologyGraph:
     """model that manages contents of a provenance graph
     that adheres to the PROV-O provenance model."""
 
-    namespace: str = "https://provo-example.org/"
+    default_namespace: str = "https://provo-example.org/"
     namespace_abbreviation: str = ""
     lang: str = "en"
     _entities: list[Entity] = field(init=False, default_factory=list)
@@ -74,7 +75,7 @@ class ProvOntologyGraph:
 
         # validate namespace
         # TODO rethink validation, we technically want to validate an IRI
-        if not url(self.namespace):  # type: ignore
+        if not url(self.default_namespace):  # type: ignore
             raise NamespaceMalformed(
                 """
             The provided namespace is not a valid URL!
@@ -116,25 +117,27 @@ class ProvOntologyGraph:
                     urn:example:animal:ferret:nose
             """
             )
-        end_symbol = self.namespace[-1]
+        end_symbol = self.default_namespace[-1]
         if end_symbol not in ("/", "#"):
             raise NamespaceHasNoEndSymbol(
                 "The provided Namespace has to end on a '/' or '#'!"
             )
 
         # validate namespace abbreviation
-        # TODO check what is actually allowed
-        allowed_symbols_for_prefix_shorthand = "abcdefghijklmnopqrstuvwxyz"
+        pattern = re.compile(r"^[A-Za-z_][A-Za-z0-9_.-]*[A-Za-z0-9_-]?$")
 
-        for symbol in self.namespace_abbreviation:
-            if symbol not in allowed_symbols_for_prefix_shorthand:
-                raise PrefixShorthandNotValid(
-                    f"""
-                    The provided namespace abbreviation is not valid.
-                    
-                    Character of the namespace have to be in "{allowed_symbols_for_prefix_shorthand}".
-                    """
-                )
+        if not pattern.match(self.namespace_abbreviation):
+            raise PrefixShorthandNotValid(
+                f"""
+                The provided namespace abbreviation '{self.namespace_abbreviation}' is not valid.
+
+                Valid prefix abbreviations must start with a letter or underscore, and may include
+                letters, digits, underscores (_), dashes (-), or dots (.) — but cannot end with a dot.
+                https://www.w3.org/TR/turtle/#grammar-production-PN_PREFIX
+
+                Examples of valid prefixes: ex, ns1, _internal, foo-bar
+                """
+            )
         # if self.namespace_abbreviation in forbidden_namespaces:
         core_prefixes = ["owl", "rdf", "rdfs", "xsd", "xml"]
         if self.namespace_abbreviation in core_prefixes:
@@ -175,18 +178,18 @@ class ProvOntologyGraph:
 
         return contents
 
-    def _handle_id(self, id: str = "", use_namespace: bool = False) -> str:
+    def _handle_id(self, id: str = "", use_default_namespace: bool = False) -> str:
         """checks whether the provided namespace-id combination is
         already used for a node in the graph.
         if no namespace is provided: default namespace is used,
         if no id is provided: id get automatically generated."""
 
-        if use_namespace:
-            id = self.namespace + id
+        if use_default_namespace:
+            id = self.default_namespace + id
         if id:
             node_id = self._id_vault.add_id(id)
         else:
-            node_id = self._id_vault.generate(self.namespace)
+            node_id = self._id_vault.generate(self.default_namespace)
         return node_id
 
     def add_entity(
@@ -194,11 +197,11 @@ class ProvOntologyGraph:
         id: str = "",
         label: str = "",
         description: str = "",
-        use_namespace: bool = False,
+        use_default_namespace: bool = True,
     ) -> Entity:
         """creates a new entity, adds it to the graph and returns it then"""
 
-        node_id = self._handle_id(id, use_namespace)
+        node_id = self._handle_id(id, use_default_namespace)
         entity = Entity(node_id=node_id, label=label, description=description)
         self._entities.append(entity)
         return entity
@@ -208,11 +211,11 @@ class ProvOntologyGraph:
         id: str = "",
         label: str = "",
         description: str = "",
-        use_namespace: bool = False,
+        use_default_namespace: bool = True,
     ) -> Activity:
         """creates a new activity, adds it to the graph and returns it then"""
 
-        node_id = self._handle_id(id, use_namespace)
+        node_id = self._handle_id(id, use_default_namespace)
         activity = Activity(node_id=node_id, label=label,
                             description=description)
         self._activities.append(activity)
@@ -223,11 +226,11 @@ class ProvOntologyGraph:
         id: str = "",
         label: str = "",
         description: str = "",
-        use_namespace: bool = False,
+        use_default_namespace: bool = True,
     ) -> Agent:
         """creates a new agent, adds it to the graph and returns it then"""
 
-        node_id = self._handle_id(id, use_namespace)
+        node_id = self._handle_id(id, use_default_namespace)
         agent = Agent(node_id=node_id, label=label, description=description)
         self._agents.append(agent)
         return agent
@@ -248,7 +251,7 @@ class ProvOntologyGraph:
         provenance_graph.bind("rdfs", RDFS)
         provenance_graph.bind("prov", PROV)
         provenance_graph.bind(self.namespace_abbreviation,
-                              Namespace(self.namespace))
+                              Namespace(self.default_namespace))
 
         for node in self._entities + self._activities + self._agents:
             if node.label:

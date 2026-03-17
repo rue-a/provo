@@ -35,35 +35,35 @@ def test_graph_isomorphism_short_ex():
 def test_graph_isomorphism_long_ex():
 
     prov_ontology_graph = ProvOntologyGraph(
-        namespace='http://example.org#',
+        default_namespace='http://example.org#',
         namespace_abbreviation=""
     )
 
     # create entities
     crime_data = prov_ontology_graph.add_entity(
-        id='crimeData', label='Crime Data', use_namespace=True)
+        id='crimeData', label='Crime Data')
     national_regions_list = prov_ontology_graph.add_entity(
-        id='nationalRegionsList', label='National Regions List', use_namespace=True)
+        id='nationalRegionsList', label='National Regions List')
     aggregated_by_regions = prov_ontology_graph.add_entity(
-        id='aggregatedByRegions', label='Aggregated by Regions', use_namespace=True)
+        id='aggregatedByRegions', label='Aggregated by Regions')
     bar_chart = prov_ontology_graph.add_entity(
-        id='bar_chart', label='Bar Chart', use_namespace=True)
+        id='bar_chart', label='Bar Chart')
 
     # create activities
     aggregation_activity = prov_ontology_graph.add_activity(
-        id='aggregationActivity', label='Aggregation Activity', use_namespace=True)
+        id='aggregationActivity', label='Aggregation Activity')
     illustration_activity = prov_ontology_graph.add_activity(
-        id='illustrationActivity', label='Illustration Activity', use_namespace=True)
+        id='illustrationActivity', label='Illustration Activity')
 
     # create agents
     government = prov_ontology_graph.add_agent(
-        id='government', label='Government', use_namespace=True)
+        id='government', label='Government')
     civil_action_group = prov_ontology_graph.add_agent(
-        id='civil_action_group', label='Civil Action Group', use_namespace=True)
+        id='civil_action_group', label='Civil Action Group')
     national_newspaper_inc = prov_ontology_graph.add_agent(
-        id='national_newspaper_inc', label='National Newspaper Inc.', use_namespace=True)
+        id='national_newspaper_inc', label='National Newspaper Inc.')
     derek = prov_ontology_graph.add_agent(
-        id='derek', label='Derek', use_namespace=True)
+        id='derek', label='Derek')
 
     # build relations
     crime_data.was_attributed_to(government)
