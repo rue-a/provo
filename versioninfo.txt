@@ -108,3 +108,9 @@ source code:
 -fix bug in mermaid graph options (was_derived_by -> was_dervived_from)
 other:
 -adjust readme etc. 
+
+1.2.0
+---
+source code:
+- default use_namespace=True
+- update examples etc. accordingly

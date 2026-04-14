@@ -16,7 +16,7 @@ setup(
     name="provo",
     author="Arne Rümmler",
     author_email="arne.ruemmler@gmail.com",
-    version="1.1.3",
+    version="1.2.0",
     description="Construct  PROV-O compliant provenance graphs.",
     url="https://github.com/rue-a/provo",
     packages=find_packages(".", exclude=["tests", "tests.*"]),
