@@ -114,3 +114,16 @@ other:
 source code:
 - default use_namespace=True
 - update examples etc. accordingly
+
+1.2.1
+---
+source code:
+- fix wasAssociatedWith RDF triple (subject was agent instead of activity)
+- fix namespace prepended to absolute IRIs in _handle_id
+- remove debug print in IdVault.add_id
+- fix invalid escape sequence in NamespaceMalformed docstring
+- update tests
+other:
+- migrate from setup.py/requirements.txt to pyproject.toml
+- sanitize edges in Mermaid export (rm <a> tags)
+
