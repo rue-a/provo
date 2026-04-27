@@ -472,7 +472,7 @@ class ProvOntologyGraph:
                 f'{entity.node_id}{options["entity"]["shape"].split(":")[0]}<a style=color:inherit href={entity.node_id}>{entity.label or entity.node_id}</a>{options["entity"]["shape"].split(":")[1]}:::entity'
             )
             if "was_derived_from" in options["included-relations"]:
-                attrs = "style=color:inherit href=https://www.w3.org/TR/prov-o/#wasDerivedFrom"
+                attrs = "style=color:inherit"
                 for item in entity._was_derived_from_entities:                    
                     if not options["invert-relations"]:
                         lines.append(
@@ -483,7 +483,7 @@ class ProvOntologyGraph:
                             f"{item.node_id}-{entity_stroke_style} <a {attrs}>originated from</a> {entity_stroke_style}->{entity.node_id}"
                         )
             if "was_generated_by" in options["included-relations"]:
-                attrs ="style=color:inherit href=https://www.w3.org/TR/prov-o/#wasGeneratedBy"
+                attrs ="style=color:inherit"
                 for item in entity._was_generated_by_activities:
                     
                     if not options["invert-relations"]:
@@ -495,7 +495,7 @@ class ProvOntologyGraph:
                             f"{item.node_id}-{activity_stroke_style} <a {attrs}>generated</a> {activity_stroke_style}->{entity.node_id}"
                         )
             if "was_attributed_to" in options["included-relations"]:
-                attrs = "style=color:inherit href=https://www.w3.org/TR/prov-o/#wasAttributedTo"
+                attrs = "style=color:inherit"
                 for item in entity._was_attributed_to_agents:
                     
                     if not options["invert-relations"]:
@@ -512,7 +512,7 @@ class ProvOntologyGraph:
                 f"{activity.node_id}{options['activity']['shape'].split(':')[0]}<a style=color:inherit href={activity.node_id}>{activity.label or activity.node_id}</a>{options['activity']['shape'].split(':')[1]}:::activity"
             )
             if "was_informed_by" in options["included-relations"]:
-                attrs = "style=color:inherit href=https://www.w3.org/TR/prov-o/#wasInformedBy"
+                attrs = "style=color:inherit"
                 for item in activity._was_informed_by_activities:
                     
                     if not options["invert-relations"]:
@@ -524,7 +524,7 @@ class ProvOntologyGraph:
                             f"{item.node_id}-{entity_stroke_style} <a {attrs}>informed</a> {entity_stroke_style}->{activity.node_id}"
                         )
             if "used" in options["included-relations"]:
-                attrs="style=color:inherit href=https://www.w3.org/TR/prov-o/#used"
+                attrs="style=color:inherit"
                 for item in activity._used_entities:                    
                     if not options["invert-relations"]:
                         lines.append(
@@ -535,7 +535,7 @@ class ProvOntologyGraph:
                             f"{item.node_id}-{activity_stroke_style} <a {attrs}>was used by</a> {activity_stroke_style}->{activity.node_id}"
                         )
             if "was_associated_with" in options["included-relations"]:
-                attrs = "style=color:inherit href=https://www.w3.org/TR/prov-o/#wasAssociatedWith"
+                attrs = "style=color:inherit"
                 for item in activity._was_associated_with_agents:
                     if not options["invert-relations"]:
                         lines.append(
@@ -551,7 +551,7 @@ class ProvOntologyGraph:
                 f"{agent.node_id}{options['agent']['shape'].split(':')[0]}<a style=color:inherit href={agent.node_id}>{agent.label or agent.node_id}</a>{options['agent']['shape'].split(':')[1]}:::agent"
             )
             if "acted_on_behalf_of" in options["included-relations"]:
-                attrs = "style=color:inherit href=https://www.w3.org/TR/prov-o/#actedOnBehalfOf"
+                attrs = "style=color:inherit"
                 for item in agent._acted_on_behalf_of_agents:
                     if not options["invert-relations"]:
                         lines.append(
