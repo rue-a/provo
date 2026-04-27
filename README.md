@@ -58,7 +58,7 @@ from provo import ProvOntologyGraph
 
 # __defaults__
 # namespace: str = "https://provo-example.org/",
-# default_namespace_abbreviation: str = "", 
+# default_namespace_abbreviation: str = "ex", 
 # lang: str = "en"
 provenance_graph = ProvOntologyGraph()
 
@@ -77,7 +77,7 @@ prov_ontology_graph = ProvOntologyGraph(
 
 `default_namespace_abbreviation=`
 
-- Default is `""`.
+- Default is `"ex"`.
 - Used when converting to other models, such as RDF (-> prefixes)
 - Only characters from the Latin alphabet are allowed.
 - RDF core prefixes (*owl*, *rdf*, *rdfs*, *xsd* and *xml*) are prohibited from use.
@@ -373,7 +373,7 @@ from rdflib import FOAF, RDF, Literal, URIRef
 # create graph
 prov_ontology_graph = ProvOntologyGraph(
     default_namespace='http://example.org#',
-    default_namespace_abbreviation=""
+    default_namespace_abbreviation="ex"
 )
 
 # create entities

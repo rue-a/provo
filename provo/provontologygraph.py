@@ -63,7 +63,7 @@ class ProvOntologyGraph:
     that adheres to the PROV-O provenance model."""
 
     default_namespace: str = "https://provo-example.org/"
-    default_namespace_abbreviation: str = ""
+    default_namespace_abbreviation: str = "ex"
     lang: str = "en"
     _entities: list[Entity] = field(init=False, default_factory=list)
     _activities: list[Activity] = field(init=False, default_factory=list)
@@ -77,7 +77,7 @@ class ProvOntologyGraph:
         # TODO rethink validation, we technically want to validate an IRI
         if not url(self.default_namespace):  # type: ignore
             raise NamespaceMalformed(
-                """
+                r"""
             The provided namespace is not a valid URL!
 
             See validators package (https://github.com/python-validators/validators),
@@ -184,7 +184,7 @@ class ProvOntologyGraph:
         if no namespace is provided: default namespace is used,
         if no id is provided: id get automatically generated."""
 
-        if use_default_namespace:
+        if use_default_namespace and not url(id):
             id = self.default_namespace + id
         if id:
             node_id = self._id_vault.add_id(id)

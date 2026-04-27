@@ -1,58 +1,59 @@
-@prefix : <http://example.org#> .
+@prefix ex: <http://example.org#> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-:bar_chart a prov:Entity ;
+ex:bar_chart a prov:Entity ;
     rdfs:label "Bar Chart"@en ;
-    prov:wasAttributedTo :derek ;
-    prov:wasDerivedFrom :aggregatedByRegions ;
-    prov:wasGeneratedBy :illustrationActivity .
+    prov:wasAttributedTo ex:derek ;
+    prov:wasDerivedFrom ex:aggregatedByRegions ;
+    prov:wasGeneratedBy ex:illustrationActivity .
 
-:civil_action_group a prov:Agent,
+ex:civil_action_group a prov:Agent,
         foaf:Organization ;
     rdfs:label "Civil Action Group"@en .
 
-:crimeData a prov:Entity ;
+ex:crimeData a prov:Entity ;
     rdfs:label "Crime Data"@en ;
-    prov:wasAttributedTo :government .
+    prov:wasAttributedTo ex:government .
 
-:government a prov:Agent,
+ex:government a prov:Agent,
         foaf:Organization ;
     rdfs:label "Government"@en .
 
-:illustrationActivity a prov:Activity ;
+ex:illustrationActivity a prov:Activity ;
     rdfs:label "Illustration Activity"@en ;
-    prov:used :aggregatedByRegions ;
-    prov:wasInformedBy :aggregationActivity .
+    prov:used ex:aggregatedByRegions ;
+    prov:wasAssociatedWith ex:derek ;
+    prov:wasInformedBy ex:aggregationActivity .
 
-:nationalRegionsList a prov:Entity ;
+ex:nationalRegionsList a prov:Entity ;
     rdfs:label "National Regions List"@en ;
-    prov:wasAttributedTo :civil_action_group .
+    prov:wasAttributedTo ex:civil_action_group .
 
-:national_newspaper_inc a prov:Agent,
+ex:national_newspaper_inc a prov:Agent,
         foaf:Organization ;
     rdfs:label "National Newspaper Inc."@en ;
     foaf:name "National Newspaper Inc."@en .
 
-:aggregatedByRegions a prov:Entity ;
+ex:aggregatedByRegions a prov:Entity ;
     rdfs:label "Aggregated by Regions"@en ;
-    prov:wasAttributedTo :derek ;
-    prov:wasGeneratedBy :aggregationActivity .
+    prov:wasAttributedTo ex:derek ;
+    prov:wasGeneratedBy ex:aggregationActivity .
 
-:aggregationActivity a prov:Activity ;
+ex:aggregationActivity a prov:Activity ;
     rdfs:label "Aggregation Activity"@en ;
     prov:endedAtTime "2011-07-14T02:02:02"^^xsd:dateTime ;
     prov:startedAtTime "2011-07-14T01:01:01"^^xsd:dateTime ;
-    prov:used :crimeData,
-        :nationalRegionsList .
+    prov:used ex:crimeData,
+        ex:nationalRegionsList ;
+    prov:wasAssociatedWith ex:derek .
 
-:derek a prov:Agent,
+ex:derek a prov:Agent,
         foaf:Person ;
     rdfs:label "Derek"@en ;
-    prov:actedOnBehalfOf :national_newspaper_inc ;
-    prov:wasAssociatedWith :derek ;
+    prov:actedOnBehalfOf ex:national_newspaper_inc ;
     foaf:givenName "Derek"@en ;
     foaf:mbox <mailto:derek@example.org> .
 

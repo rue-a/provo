@@ -7,13 +7,13 @@
     prov:wasGeneratedBy <https://github.com/rue-a/provo-poster> .
 
 <https://github.com/rue-a/provo-poster> a prov:Activity ;
-    rdfs:label "provo script"@en .
+    rdfs:label "provo script"@en ;
+    prov:wasAssociatedWith <https://orcid.org/0000-0001-8637-9071> .
 
 <https://ror.org/03wf51b65> a prov:Agent ;
     rdfs:label "SLUB"@en .
 
 <https://orcid.org/0000-0001-8637-9071> a prov:Agent ;
     rdfs:label "author"@en ;
-    prov:actedOnBehalfOf <https://ror.org/03wf51b65> ;
-    prov:wasAssociatedWith <https://orcid.org/0000-0001-8637-9071> .
+    prov:actedOnBehalfOf <https://ror.org/03wf51b65> .
 

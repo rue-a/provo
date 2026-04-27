@@ -11,8 +11,8 @@ def test_graph_initialization():
     """tests if namespace and namespace abbreviation (i.e., prefix) is valid"""
     
     ProvOntologyGraph()
-    ProvOntologyGraph(default_namespace="https://test.package/", default_namespace_abbreviation="")
-    ProvOntologyGraph(default_namespace="https://test.package#", default_namespace_abbreviation="")
+    ProvOntologyGraph(default_namespace="https://test.package/", default_namespace_abbreviation="test")
+    ProvOntologyGraph(default_namespace="https://test.package#", default_namespace_abbreviation="test")
 
     malformed_namespaces = ["www.test.de", "https://test.package/ ",
                             "test.org", " https://test.package/"]
