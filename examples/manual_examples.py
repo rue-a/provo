@@ -4,13 +4,13 @@ from rdflib import SKOS, Literal, URIRef
 # ex1
 # __defaults__
 # namespace: str = "https://provo-example.org/",
-# namespace_abbreviation: str = "",
+# default_namespace_abbreviation: str = "",
 # lang: str = "en"
 provenance_graph = ProvOntologyGraph()
 
 prov_ontology_graph = ProvOntologyGraph(
     default_namespace='http://example.org#',
-    namespace_abbreviation="",
+    default_namespace_abbreviation="ex",
     lang="en"
 )
 

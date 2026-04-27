@@ -63,7 +63,7 @@ class ProvOntologyGraph:
     that adheres to the PROV-O provenance model."""
 
     default_namespace: str = "https://provo-example.org/"
-    namespace_abbreviation: str = ""
+    default_namespace_abbreviation: str = ""
     lang: str = "en"
     _entities: list[Entity] = field(init=False, default_factory=list)
     _activities: list[Activity] = field(init=False, default_factory=list)
@@ -126,10 +126,10 @@ class ProvOntologyGraph:
         # validate namespace abbreviation
         pattern = re.compile(r"^[A-Za-z_][A-Za-z0-9_.-]*[A-Za-z0-9_-]?$")
 
-        if not pattern.match(self.namespace_abbreviation):
+        if not pattern.match(self.default_namespace_abbreviation):
             raise PrefixShorthandNotValid(
                 f"""
-                The provided namespace abbreviation '{self.namespace_abbreviation}' is not valid.
+                The provided namespace abbreviation '{self.default_namespace_abbreviation}' is not valid.
 
                 Valid prefix abbreviations must start with a letter or underscore, and may include
                 letters, digits, underscores (_), dashes (-), or dots (.) — but cannot end with a dot.
@@ -138,9 +138,9 @@ class ProvOntologyGraph:
                 Examples of valid prefixes: ex, ns1, _internal, foo-bar
                 """
             )
-        # if self.namespace_abbreviation in forbidden_namespaces:
+        # if self.default_namespace_abbreviation in forbidden_namespaces:
         core_prefixes = ["owl", "rdf", "rdfs", "xsd", "xml"]
-        if self.namespace_abbreviation in core_prefixes:
+        if self.default_namespace_abbreviation in core_prefixes:
             raise PrefixNotAllowed(
                 f"""
             The provided namespace abbreviation is a core prefix, 
@@ -250,7 +250,7 @@ class ProvOntologyGraph:
         provenance_graph.bind("rdf", RDF)
         provenance_graph.bind("rdfs", RDFS)
         provenance_graph.bind("prov", PROV)
-        provenance_graph.bind(self.namespace_abbreviation,
+        provenance_graph.bind(self.default_namespace_abbreviation,
                               Namespace(self.default_namespace))
 
         for node in self._entities + self._activities + self._agents:
@@ -331,7 +331,7 @@ class ProvOntologyGraph:
             for agent in activity._was_associated_with_agents:
                 provenance_graph.add(
                     (
-                        URIRef(agent.node_id),
+                        URIRef(activity.node_id),
                         PROV.wasAssociatedWith,
                         URIRef(agent.node_id),
                     )

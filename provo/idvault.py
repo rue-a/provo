@@ -94,7 +94,6 @@ class IdVault:
         if node_id in self.vault:
             raise IdAlreadyUsed(
                 f'The Id "{node_id}" was already used in this graph.')
-        print(node_id)
         self._raise_exception_if_uri_invalid(node_id)
         self.vault.append(node_id)
         return node_id

@@ -10,7 +10,7 @@ from provo import ProvOntologyGraph
 # create graph
 prov_ontology_graph = ProvOntologyGraph(
     default_namespace='http://example.org#',
-    namespace_abbreviation=""
+    default_namespace_abbreviation="ex"
 )
 
 # create entities

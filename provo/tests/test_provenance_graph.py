@@ -11,8 +11,8 @@ def test_graph_initialization():
     """tests if namespace and namespace abbreviation (i.e., prefix) is valid"""
     
     ProvOntologyGraph()
-    ProvOntologyGraph(default_namespace="https://test.package/", namespace_abbreviation="")
-    ProvOntologyGraph(default_namespace="https://test.package#", namespace_abbreviation="")
+    ProvOntologyGraph(default_namespace="https://test.package/", default_namespace_abbreviation="")
+    ProvOntologyGraph(default_namespace="https://test.package#", default_namespace_abbreviation="")
 
     malformed_namespaces = ["www.test.de", "https://test.package/ ",
                             "test.org", " https://test.package/"]
@@ -26,9 +26,9 @@ def test_graph_initialization():
     invalid_prefixes = [" ", ":", "test:"]
     for prefix in invalid_prefixes:
         with pytest.raises(PrefixShorthandNotValid):
-            ProvOntologyGraph(namespace_abbreviation=prefix)
+            ProvOntologyGraph(default_namespace_abbreviation=prefix)
 
     core_prefixes = ["owl", "rdf", "rdfs", "xsd", "xml"]
     for prefix in core_prefixes:
         with pytest.raises(PrefixNotAllowed):
-            ProvOntologyGraph(namespace_abbreviation=prefix)
+            ProvOntologyGraph(default_namespace_abbreviation=prefix)

@@ -1,0 +1,31 @@
+[project]
+name = "provo"
+version = "1.2.1"
+description = "Construct PROV-O compliant provenance graphs."
+readme = "README.md"
+requires-python = ">=3.9"
+license = { text = "MIT" }
+authors = [
+    { name = "Arne Rümmler", email = "arne.ruemmler@gmail.com" },
+]
+classifiers = [
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3",
+    "Operating System :: OS Independent",
+    "License :: OSI Approved :: MIT License",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+]
+dependencies = [
+    "rdflib",
+    "validators",
+]
+
+[project.urls]
+Homepage = "https://github.com/rue-a/provo"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["provo"]

@@ -6,3 +6,6 @@ provo/__pycache__
 .coverage
 provo/tests/__pycache__
 .pytest_cache
+.venv
+uv.lock
+.python-version

@@ -36,7 +36,7 @@ def test_graph_isomorphism_long_ex():
 
     prov_ontology_graph = ProvOntologyGraph(
         default_namespace='http://example.org#',
-        namespace_abbreviation=""
+        default_namespace_abbreviation=""
     )
 
     # create entities

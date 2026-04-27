@@ -12,26 +12,26 @@ classDef agent fill:#B0B8B4FF
 classDef agent color:333
 classDef agent stroke:#B0B8B4FF
 classDef agent stroke-width:1px
-http://example.org#crimeData[Crime Data]:::entity
-http://example.org#government-. produced .->http://example.org#crimeData
-http://example.org#nationalRegionsList[National Regions List]:::entity
-http://example.org#civil_action_group-. produced .->http://example.org#nationalRegionsList
-http://example.org#aggregatedByRegions[Aggregated by Regions]:::entity
-http://example.org#aggregationActivity-- generated -->http://example.org#aggregatedByRegions
-http://example.org#derek-. produced .->http://example.org#aggregatedByRegions
-http://example.org#bar_chart[Bar Chart]:::entity
-http://example.org#illustrationActivity-- generated -->http://example.org#bar_chart
-http://example.org#derek-. produced .->http://example.org#bar_chart
-http://example.org#aggregationActivity{{Aggregation Activity}}:::activity
-http://example.org#crimeData-- was used by -->http://example.org#aggregationActivity
-http://example.org#nationalRegionsList-- was used by -->http://example.org#aggregationActivity
-http://example.org#derek-. initiated .->http://example.org#aggregationActivity
-http://example.org#illustrationActivity{{Illustration Activity}}:::activity
-http://example.org#aggregatedByRegions-- was used by -->http://example.org#illustrationActivity
-http://example.org#derek-. initiated .->http://example.org#illustrationActivity
-http://example.org#government[/Government\]:::agent
-http://example.org#civil_action_group[/Civil Action Group\]:::agent
-http://example.org#national_newspaper_inc[/National Newspaper Inc.\]:::agent
-http://example.org#derek[/Derek\]:::agent
-http://example.org#national_newspaper_inc-. instructed .->http://example.org#derek
+http://example.org#crimeData[<a style=color:inherit href=http://example.org#crimeData>Crime Data</a>]:::entity
+http://example.org#government-. <a style=color:inherit href=https://www.w3.org/TR/prov-o/#wasAttributedTo>produced</a> .->http://example.org#crimeData
+http://example.org#nationalRegionsList[<a style=color:inherit href=http://example.org#nationalRegionsList>National Regions List</a>]:::entity
+http://example.org#civil_action_group-. <a style=color:inherit href=https://www.w3.org/TR/prov-o/#wasAttributedTo>produced</a> .->http://example.org#nationalRegionsList
+http://example.org#aggregatedByRegions[<a style=color:inherit href=http://example.org#aggregatedByRegions>Aggregated by Regions</a>]:::entity
+http://example.org#aggregationActivity-- <a style=color:inherit href=https://www.w3.org/TR/prov-o/#wasGeneratedBy>generated</a> -->http://example.org#aggregatedByRegions
+http://example.org#derek-. <a style=color:inherit href=https://www.w3.org/TR/prov-o/#wasAttributedTo>produced</a> .->http://example.org#aggregatedByRegions
+http://example.org#bar_chart[<a style=color:inherit href=http://example.org#bar_chart>Bar Chart</a>]:::entity
+http://example.org#illustrationActivity-- <a style=color:inherit href=https://www.w3.org/TR/prov-o/#wasGeneratedBy>generated</a> -->http://example.org#bar_chart
+http://example.org#derek-. <a style=color:inherit href=https://www.w3.org/TR/prov-o/#wasAttributedTo>produced</a> .->http://example.org#bar_chart
+http://example.org#aggregationActivity{{<a style=color:inherit href=http://example.org#aggregationActivity>Aggregation Activity</a>}}:::activity
+http://example.org#crimeData-- <a style=color:inherit href=https://www.w3.org/TR/prov-o/#used>was used by</a> -->http://example.org#aggregationActivity
+http://example.org#nationalRegionsList-- <a style=color:inherit href=https://www.w3.org/TR/prov-o/#used>was used by</a> -->http://example.org#aggregationActivity
+http://example.org#derek-. <a style=color:inherit href=https://www.w3.org/TR/prov-o/#wasAssociatedWith>initiated</a> .->http://example.org#aggregationActivity
+http://example.org#illustrationActivity{{<a style=color:inherit href=http://example.org#illustrationActivity>Illustration Activity</a>}}:::activity
+http://example.org#aggregatedByRegions-- <a style=color:inherit href=https://www.w3.org/TR/prov-o/#used>was used by</a> -->http://example.org#illustrationActivity
+http://example.org#derek-. <a style=color:inherit href=https://www.w3.org/TR/prov-o/#wasAssociatedWith>initiated</a> .->http://example.org#illustrationActivity
+http://example.org#government[/<a style=color:inherit href=http://example.org#government>Government</a>\]:::agent
+http://example.org#civil_action_group[/<a style=color:inherit href=http://example.org#civil_action_group>Civil Action Group</a>\]:::agent
+http://example.org#national_newspaper_inc[/<a style=color:inherit href=http://example.org#national_newspaper_inc>National Newspaper Inc.</a>\]:::agent
+http://example.org#derek[/<a style=color:inherit href=http://example.org#derek>Derek</a>\]:::agent
+http://example.org#national_newspaper_inc-. <a style=color:inherit href=https://www.w3.org/TR/prov-o/#actedOnBehalfOf>instructed</a> .->http://example.org#derek
 ```

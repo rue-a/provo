@@ -58,24 +58,24 @@ from provo import ProvOntologyGraph
 
 # __defaults__
 # namespace: str = "https://provo-example.org/",
-# namespace_abbreviation: str = "", 
+# default_namespace_abbreviation: str = "", 
 # lang: str = "en"
 provenance_graph = ProvOntologyGraph()
 
 prov_ontology_graph = ProvOntologyGraph(
-    namespace='http://example.org#',
-    namespace_abbreviation="ex",
+    default_namespace='http://example.org#',
+    default_namespace_abbreviation="ex",
     lang="en"
 )
 ```
 
-`namespace=`
+`default_namespace=`
 
 - Default is `"https://provo-example.org/"`.
 - Has to be valid url, validation is currently performed with the [validators](https://pypi.org/project/validators/) package.
 - Has to end with `/` or `#`.
 
-`namespace_abbreviation=`
+`default_namespace_abbreviation=`
 
 - Default is `""`.
 - Used when converting to other models, such as RDF (-> prefixes)
@@ -372,8 +372,8 @@ from rdflib import FOAF, RDF, Literal, URIRef
 
 # create graph
 prov_ontology_graph = ProvOntologyGraph(
-    namespace='http://example.org#',
-    namespace_abbreviation=""
+    default_namespace='http://example.org#',
+    default_namespace_abbreviation=""
 )
 
 # create entities
